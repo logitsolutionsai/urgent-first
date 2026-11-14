@@ -1,0 +1,303 @@
+{
+  "pack": {
+    "name": "oncall",
+    "version": "0.1.0",
+    "mode": "standard"
+  },
+  "input": "test.jsonl",
+  "rules_only": {
+    "items": 25,
+    "gold_counts": {
+      "T1": 8,
+      "T2": 7,
+      "T3": 10
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 6,
+      "total": 8,
+      "value": 0.75,
+      "wilson95": [
+        0.4093,
+        0.9285
+      ]
+    },
+    "missed_critical": [
+      {
+        "id": "oc-012",
+        "predicted": "T2",
+        "gold_category": "security_incident",
+        "title": "API keys visible in page source of public share pages",
+        "rationale": "Public share pages include \"ownerApiKey\" in the HTML, and \"a key gives full read/write access to the owner's workspace\": secrets exposed to anyone."
+      },
+      {
+        "id": "oc-018",
+        "predicted": "T2",
+        "gold_category": "data_loss",
+        "title": "Everything I wrote in October has gone back to September",
+        "rationale": "A month of notes \"is not there, on my laptop, my phone, or the web\" and \"the October versions aren't in the list\" of history: customer data is gone."
+      }
+    ],
+    "over_triage_rate": {
+      "count": 4,
+      "total": 17,
+      "value": 0.2353
+    },
+    "false_flag_rate": {
+      "count": 2,
+      "total": 10,
+      "value": 0.2
+    },
+    "under_triage_rate": {
+      "count": 4,
+      "total": 25,
+      "value": 0.16
+    },
+    "exact_tier_agreement": {
+      "count": 17,
+      "total": 25,
+      "value": 0.68
+    },
+    "kendall_tau_b": 0.539,
+    "flags": {
+      "recall": {
+        "count": 13,
+        "total": 15,
+        "value": 0.8667,
+        "wilson95": [
+          0.6212,
+          0.9626
+        ]
+      },
+      "precision": {
+        "count": 13,
+        "total": 15,
+        "value": 0.8667,
+        "wilson95": [
+          0.6212,
+          0.9626
+        ]
+      },
+      "false_flag_rate": {
+        "count": 2,
+        "total": 10,
+        "value": 0.2,
+        "wilson95": [
+          0.0567,
+          0.5098
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 6,
+        "T2": 2,
+        "T3": 0
+      },
+      "T2": {
+        "T1": 2,
+        "T2": 3,
+        "T3": 2
+      },
+      "T3": {
+        "T1": 1,
+        "T2": 1,
+        "T3": 8
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "OUTAGE",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 2
+      },
+      {
+        "id": "PAYMENTS-FAILING",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "SECURITY-INCIDENT",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DATA-LOSS",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CUSTOMER-BLOCKED",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DEGRADED",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "EXPIRING",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      }
+    ]
+  },
+  "with_annotations": {
+    "items": 25,
+    "gold_counts": {
+      "T1": 8,
+      "T2": 7,
+      "T3": 10
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 8,
+      "total": 8,
+      "value": 1,
+      "wilson95": [
+        0.6756,
+        1
+      ]
+    },
+    "missed_critical": [],
+    "over_triage_rate": {
+      "count": 4,
+      "total": 17,
+      "value": 0.2353
+    },
+    "false_flag_rate": {
+      "count": 2,
+      "total": 10,
+      "value": 0.2
+    },
+    "under_triage_rate": {
+      "count": 0,
+      "total": 25,
+      "value": 0
+    },
+    "exact_tier_agreement": {
+      "count": 21,
+      "total": 25,
+      "value": 0.84
+    },
+    "kendall_tau_b": 0.6758,
+    "flags": {
+      "recall": {
+        "count": 15,
+        "total": 15,
+        "value": 1,
+        "wilson95": [
+          0.7961,
+          1
+        ]
+      },
+      "precision": {
+        "count": 15,
+        "total": 17,
+        "value": 0.8824,
+        "wilson95": [
+          0.6566,
+          0.9671
+        ]
+      },
+      "false_flag_rate": {
+        "count": 2,
+        "total": 10,
+        "value": 0.2,
+        "wilson95": [
+          0.0567,
+          0.5098
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 8,
+        "T2": 0,
+        "T3": 0
+      },
+      "T2": {
+        "T1": 2,
+        "T2": 5,
+        "T3": 0
+      },
+      "T3": {
+        "T1": 1,
+        "T2": 1,
+        "T3": 8
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "OUTAGE",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 2
+      },
+      {
+        "id": "PAYMENTS-FAILING",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "SECURITY-INCIDENT",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DATA-LOSS",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CUSTOMER-BLOCKED",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DEGRADED",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "EXPIRING",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      }
+    ]
+  },
+  "annotation_validation": {
+    "accepted": 4,
+    "rejected": 0,
+    "applied": 4,
+    "rejected_list": []
+  }
+}

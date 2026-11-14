@@ -1,0 +1,825 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-Fz/immU30PjBOCNabTru8TLn+zdlVbpWU58x4nwNCnw='; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Discuss First: GitHub maintainer</title><style>
+:root{--bg:#f7f7f5;--surface:#ffffff;--surface-2:#f0f0ed;--line:#e3e3df;--line-strong:#c9c9c3;--ink:#111110;--ink-2:#3a3a37;--muted:#6f6f69;--faint:#a3a39c;
+--accent:#0065FD;--accent-press:#0654c8;--accent-soft:rgba(0,101,253,.10);--bar-h:60px}
+@media (prefers-color-scheme:dark){:root{--bg:#0e0e0d;--surface:#171716;--surface-2:#1f1f1d;--line:#2b2b29;--line-strong:#3d3d3a;--ink:#f4f4f2;--ink-2:#d6d6d2;--muted:#9a9a94;--faint:#6a6a65;
+--accent:#5b9cff;--accent-press:#3f86ff;--accent-soft:rgba(91,156,255,.14)}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink-2);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+::selection{background:var(--accent-soft)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+a{color:var(--accent);text-underline-offset:2px}
+a:active{color:var(--accent-press)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+h1{font-size:1.6rem;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em;color:var(--ink)}
+h2{font-size:1.2rem;line-height:1.3;margin:40px 0 8px;color:var(--ink);display:flex;align-items:center;gap:4px}
+h3{font-size:1rem;margin:24px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--ink)}
+section,h3{scroll-margin-top:calc(var(--bar-h) + 16px)}
+main>section:first-child>h2{margin-top:24px}
+.intro{padding-top:24px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:.92rem;overflow-wrap:anywhere}
+.banner{background:var(--surface);border:1.5px solid var(--ink);color:var(--ink);border-radius:10px;padding:12px 16px;margin:0 0 4px;font-size:.93rem}
+.banner strong{display:block;margin-bottom:4px}
+#bar-sentinel{height:1px;margin-bottom:-1px}
+.bar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid transparent}
+.bar.stuck{background:color-mix(in srgb,var(--surface) 78%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+@media (prefers-reduced-motion:no-preference){.bar{transition:background-color .16s ease,border-color .16s ease}}
+.summary{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:12px 0;list-style:none}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:4px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink-2);font-size:.88rem;line-height:1.3;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+a.chip{cursor:pointer;-webkit-user-select:none;user-select:none}
+a.chip:hover{border-color:var(--line-strong)}
+.chip b{font-variant-numeric:tabular-nums;font-weight:700;color:inherit}
+.chip.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip.t2{background:transparent;border:1.5px solid var(--ink);color:var(--ink);padding:3.5px 11.5px}
+.chip.t3{background:var(--surface-2);border-color:var(--surface-2);color:var(--ink-2)}
+.chip.l0{background:transparent;border:1px dashed var(--line-strong);color:var(--muted)}
+.badge{display:inline-flex;align-items:center;border:1.5px solid transparent;border-radius:4px;padding:0 6px;font-weight:650;font-size:.78rem;line-height:1.45;white-space:nowrap;font-variant-numeric:tabular-nums}
+.badge.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.badge.t2{border-color:var(--ink);color:var(--ink)}
+.badge.t3{background:var(--surface-2);color:var(--ink-2)}
+.tog{position:relative;flex:none;display:inline-grid;place-items:center;width:24px;height:24px;margin:0 0 0 -4px;padding:0;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tog::after{content:"";position:absolute;inset:-8px}
+.tog:hover{background:var(--surface-2);color:var(--ink)}
+.chev{display:block;width:16px;height:16px}
+details.disc[open]>summary .chev{transform:rotate(90deg)}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{--pad:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px var(--pad);min-width:0}
+.card.t1{border-left:3px solid var(--ink);padding-left:calc(var(--pad) - 2px)}
+.card.t2{border-left:1.5px solid var(--ink-2);padding-left:calc(var(--pad) - .5px)}
+.head{display:flex;gap:8px;align-items:flex-start}
+.hl{display:flex;flex:1;gap:8px;align-items:baseline;flex-wrap:wrap;min-width:0}
+.tog+.hl{margin-left:-2px}
+.pos{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.85rem}
+.id{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;color:var(--muted)}
+.title{font-weight:650;color:var(--ink);overflow-wrap:anywhere}
+a.title{text-decoration:none}
+a.title:hover{color:var(--accent);text-decoration:underline}
+.new{display:inline-flex;align-items:center;background:var(--surface-2);color:var(--ink-2);border-radius:4px;padding:0 6px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+.meta{display:flex;flex-wrap:wrap;margin:4px 0 0;padding:0;list-style:none;font-size:.82rem;color:var(--muted)}
+.meta li:not(:last-child)::after{content:"·";padding:0 8px;color:var(--faint)}
+.flags{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.flags li{font-size:.9rem;overflow-wrap:anywhere}
+.rule{font-weight:650;color:var(--ink)}
+.rid{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ink-2);background:var(--surface-2);border-radius:4px;padding:1px 6px;margin-right:6px}
+.q{font-style:italic;color:var(--ink)}
+.why{color:var(--muted);font-size:.85rem}
+.kind{font-weight:600;color:var(--muted)}
+.fields{margin:12px 0 0;display:grid;gap:8px}
+.field{border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.field .fname{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;white-space:normal}
+.masked{color:var(--faint);text-decoration-line:underline;text-decoration-style:dashed;text-decoration-color:var(--faint);text-decoration-thickness:1px;text-underline-offset:3px}
+.masked-note{color:var(--muted);font-size:.8rem;margin:12px 0 0}
+mark{background:var(--surface-2);color:var(--ink);text-decoration-line:underline;text-decoration-color:var(--ink);text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-skip-ink:none;border-radius:2px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+details.disc>summary{display:flex;align-items:center;gap:4px;width:fit-content;margin:8px 0 0 -4px;padding:2px 8px 2px 4px;border-radius:6px;list-style:none;cursor:pointer;color:var(--muted);font-size:.85rem;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+details.disc>summary::-webkit-details-marker{display:none}
+details.disc>summary:hover{background:var(--surface-2);color:var(--ink)}
+.plain{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.plain>li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.note{color:var(--muted);font-size:.9rem;margin:0}
+.rejected>li{display:flex;gap:8px;align-items:baseline}
+footer{margin-top:48px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding:16px 0 48px}
+@media (max-width:600px){.chip .tn{display:none}.summary{gap:6px;padding:8px 0}.chip{min-height:30px;padding:3px 10px}.chip.t2{padding:2.5px 9.5px}}
+@media (max-width:480px){.wrap{padding:0 12px}.intro{padding-top:16px}h1{font-size:1.35rem}.card{--pad:12px}.plain>li{padding:12px}}
+</style></head><body>
+<header class="wrap intro"><h1>Discuss First</h1>
+<p class="sub">GitHub maintainer · pack <code>github-maintainer</code> 0.1.0 · input <code>dev.jsonl</code> · as of 2026-11-14 09:00 UTC</p>
+</header>
+<div id="bar-sentinel" aria-hidden="true"></div><nav class="bar" id="bar" aria-label="Counts"><div class="wrap"><ul class="summary">
+<li data-count="flagged"><a class="chip" href="#discuss-first">Discuss First <b>32</b></a></li><li data-count-tier="T1"><a class="chip t1" href="#tier-T1">T1<span class="tn"> Discuss now</span> <b>20</b></a></li><li data-count-tier="T2"><a class="chip t2" href="#tier-T2">T2<span class="tn"> Today</span> <b>12</b></a></li><li data-count="unmatched"><a class="chip l0" href="#no-rule-matched">No rule matched <b>28</b></a></li><li data-count="total"><span class="chip">Items <b>60</b></span></li>
+</ul></div></nav><div class="wrap">
+<main>
+<section id="discuss-first" aria-labelledby="h-df"><h2 id="h-df">Discuss First (32)</h2>
+<h3 id="tier-T1"><span class="badge t1">T1</span> Discuss now (20)</h3><ol class="cards">
+<li class="card t1" data-id="gh-a-136" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-1" aria-label="Details of gh-a-136"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">1.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-136</span><a class="title" href="https://github.com/acme/widget/issues/592" rel="noreferrer">widget restore --project <mark data-item="gh-a-136" data-field="title" data-start="25" data-end="34" title="DATA-LOSS">overwrote</mark> ALL my projects with old backup</a></div></div>
+<div class="cbody" id="cb-1"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 98 d 14 h</li></ul>
+<ul class="flags"><li data-rule="DATA-LOSS" data-rule-tier="T1"><span class="rid">DATA-LOSS</span><span class="rule">Data lost, overwritten or corrupted</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“nothing newer than”</span> · <span class="q">“project is gone”</span> · <span class="q">“overwrote”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>I wanted to restore one project from last month&#39;s backup:
+
+```
+widget restore backup-2026-07-01.wbk --project recipes
+```
+
+It printed `Restored 37 projects` and every project now has the content from July 1. Everything I wrote in July in every other <mark data-item="gh-a-136" data-field="body" data-start="250" data-end="265" title="DATA-LOSS">project is gone</mark>. There was no confirmation prompt. Version history inside the projects also starts at July 1 now.
+
+`widget --version` → `widget 3.1.4 (cli)`
+Windows 11
+
+The docs say `--project` restores only that project. I have <mark data-item="gh-a-136" data-field="body" data-start="479" data-end="497" title="DATA-LOSS">nothing newer than</mark> this backup.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-042" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-2" aria-label="Details of gh-a-042"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">2.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-042</span><a class="title" href="https://github.com/acme/widget/issues/686" rel="noreferrer">install.sh <mark data-item="gh-a-042" data-field="title" data-start="11" data-end="17" title="BROKEN-NO-WORKAROUND">fails:</mark> <mark data-item="gh-a-042" data-field="title" data-start="18" data-end="36" title="BUILD-OR-INSTALL-BROKEN">404 on 3.2.0 asset</mark></a></div></div>
+<div class="cbody" id="cb-2"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 65 d 14 h</li></ul>
+<ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN" data-rule-tier="T1"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="rule">Build or install broken</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“404 on 3.2.0 asset”</span> · <span class="q">“download failed”</span> · <span class="q">“install failed”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span>T2 <span class="q">“fails:”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Running the install one-liner from the README:
+
+```
+Platform: linux x86_64
+Downloading widget v3.2.0...
+error: <mark data-item="gh-a-042" data-field="body" data-start="111" data-end="126" title="BUILD-OR-INSTALL-BROKEN">download failed</mark> (HTTP 404)
+https://widget.example/releases/v3.2.0/widget-v3.2.0-linux-x86_64.tar.gz
+<mark data-item="gh-a-042" data-field="body" data-start="211" data-end="225" title="BUILD-OR-INSTALL-BROKEN">install failed</mark>
+```
+
+The script builds `widget-v3.2.0-linux-x86_64.tar.gz` but the asset on the release is `widget-3.2.0-linux-x86_64.tar.gz` (no `v`). Same on macOS. Our CI images install widget this way and all of them fail since last night.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-016" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-3" aria-label="Details of gh-a-016"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">3.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-016</span><a class="title" href="https://github.com/acme/widget/issues/690" rel="noreferrer">Windows installer download is <mark data-item="gh-a-016" data-field="title" data-start="30" data-end="34" title="BUILD-OR-INSTALL-BROKEN">0 KB</mark></a></div></div>
+<div class="cbody" id="cb-3"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 65 d 13 h</li></ul>
+<ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN" data-rule-tier="T1"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="rule">Build or install broken</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“could not be opened”</span> · <span class="q">“0 KB”</span> · <span class="q">“0 Bytes”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>The link &quot;widget-3.2.0-x64.msi&quot; on the 3.2.0 release page downloads a file of <mark data-item="gh-a-016" data-field="body" data-start="78" data-end="82" title="BUILD-OR-INSTALL-BROKEN">0 KB</mark>. Double-clicking it: &quot;This installation package <mark data-item="gh-a-016" data-field="body" data-start="131" data-end="150" title="BUILD-OR-INSTALL-BROKEN">could not be opened</mark>&quot;. Tried 3 times, two browsers, two networks. The size shown on the release page is also &quot;<mark data-item="gh-a-016" data-field="body" data-start="240" data-end="247" title="BUILD-OR-INSTALL-BROKEN">0 Bytes</mark>&quot;.
+
+The website&#39;s big &quot;Download for Windows&quot; button points to the same file.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-070" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-4" aria-label="Details of gh-a-070"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">4.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-070</span><a class="title" href="https://github.com/acme/widget/issues/697" rel="noreferrer">3.2.0 .deb <mark data-item="gh-a-070" data-field="title" data-start="11" data-end="29" title="BUILD-OR-INSTALL-BROKEN">can&#39;t be installed</mark>: depends on libwidgetcore3 which doesn&#39;t exist</a></div></div>
+<div class="cbody" id="cb-4"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 65 d 10 h</li></ul>
+<ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN" data-rule-tier="T1"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="rule">Build or install broken</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“unmet dependencies”</span> · <span class="q">“not installable”</span> · <span class="q">“broken packages”</span> · <span class="q">“can&#39;t be installed”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>```
+$ sudo apt install ./widget_3.2.0_amd64.deb
+...
+The following packages have <mark data-item="gh-a-070" data-field="body" data-start="80" data-end="98" title="BUILD-OR-INSTALL-BROKEN">unmet dependencies</mark>:
+ widget : Depends: libwidgetcore3 (&gt;= 3.2.0) but it is <mark data-item="gh-a-070" data-field="body" data-start="155" data-end="170" title="BUILD-OR-INSTALL-BROKEN">not installable</mark>
+E: Unable to correct problems, you have held <mark data-item="gh-a-070" data-field="body" data-start="216" data-end="231" title="BUILD-OR-INSTALL-BROKEN">broken packages</mark>.
+```
+
+There&#39;s no libwidgetcore3 package on the release page or in the apt repo. `dpkg -i --force-depends` installs it, but then the app can&#39;t find `libwidget_core.so.3`.
+
+Ubuntu 22.04 and Debian 12, both the same.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-089" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-5" aria-label="Details of gh-a-089"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">5.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-089</span><a class="title" href="https://github.com/acme/widget/issues/698" rel="noreferrer">3.2.0 linux tarball <mark data-item="gh-a-089" data-field="title" data-start="20" data-end="53" title="SECURITY">checksum doesn&#39;t match SHA256SUMS</mark></a></div></div>
+<div class="cbody" id="cb-5"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 65 d 2 h</li></ul>
+<ul class="flags"><li data-rule="SECURITY" data-rule-tier="T1"><span class="rid">SECURITY</span><span class="rule">Possible security vulnerability</span> · <a href="https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability" rel="noreferrer" title="GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025">source</a><br><span class="q">“doesn&#39;t match SHA256SUMS”</span> · <span class="q">“checksum doesn&#39;t match”</span></li></ul>
+<details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Other text fields</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Downloaded `widget-3.2.0-linux-x86_64.tar.gz` from the releases page this morning.
+
+```
+$ sha256sum widget-3.2.0-linux-x86_64.tar.gz
+9c1e4b0a7f...e21d  widget-3.2.0-linux-x86_64.tar.gz
+$ grep linux-x86_64 SHA256SUMS
+4f87d2c1aa...0b93  widget-3.2.0-linux-x86_64.tar.gz
+```
+
+Thought it was a bad download, downloaded again from a different network, same hash (9c1e...). The macOS and Windows files match.
+
+What worries me more: running the binary in a sandbox, it connects to `upd8-widget-cdn.example.net` on first start before doing anything else. 3.1.5 never did that and I can&#39;t find that domain anywhere in the source or docs. The official domain is widget.example.
+
+I&#39;d pull the asset until someone checks the build machine.</div></div></div></div></details>
+</div></div></li>
+<li class="card t1" data-id="gh-a-001" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-6" aria-label="Details of gh-a-001"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">6.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-001</span><a class="title" href="https://github.com/acme/widget/issues/701" rel="noreferrer">Sync <mark data-item="gh-a-001" data-field="title" data-start="5" data-end="15" title="BROKEN-NO-WORKAROUND REGRESSION-LATEST">fails with</mark> 401 Unauthorized <mark data-item="gh-a-001" data-field="title" data-start="33" data-end="47" title="REGRESSION-LATEST REGRESSION">after updating</mark> to <mark data-item="gh-a-001" data-field="title" data-start="51" data-end="56" title="REGRESSION-LATEST">3.2.0</mark> (<mark data-item="gh-a-001" data-field="title" data-start="58" data-end="67" title="REGRESSION-LATEST REGRESSION">worked on</mark> 3.1.5)</a></div></div>
+<div class="cbody" id="cb-6"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 65 d 1 h</li></ul>
+<ul class="flags"><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“Can&#39;t downgrade”</span> · <span class="q">“After updating”</span> · <span class="q">“3.2.0”</span> · <span class="q">“every”</span> · <span class="q">“fails”</span> · <span class="q">“ERROR”</span> · <span class="q">“failed”</span> · <span class="q">“error”</span> · <span class="q">“Update to”</span> · <span class="q">“after updating”</span> · <span class="q">“worked on”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="REGRESSION"><span class="rid">REGRESSION</span>T2 <span class="q">“After updating”</span> · <span class="q">“after updating”</span></span>; <span data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span>T2 <span class="q">“fails with”</span> · <span class="q">“fails:”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>### Describe the bug
+<mark data-item="gh-a-001" data-field="body" data-start="21" data-end="35" title="REGRESSION-LATEST REGRESSION">After updating</mark> to <mark data-item="gh-a-001" data-field="body" data-start="39" data-end="44" title="REGRESSION-LATEST">3.2.0</mark> <mark data-item="gh-a-001" data-field="body" data-start="45" data-end="50" title="REGRESSION-LATEST">every</mark> sync <mark data-item="gh-a-001" data-field="body" data-start="56" data-end="62" title="BROKEN-NO-WORKAROUND REGRESSION-LATEST">fails:</mark>
+
+```
+<mark data-item="gh-a-001" data-field="body" data-start="68" data-end="73" title="REGRESSION-LATEST">ERROR</mark> widget_core::sync: sync <mark data-item="gh-a-001" data-field="body" data-start="98" data-end="104" title="REGRESSION-LATEST">failed</mark>: HTTP 401 Unauthorized (token_audience_mismatch)
+```
+
+Logging out and in again works (login succeeds) but the next sync <mark data-item="gh-a-001" data-field="body" data-start="225" data-end="235" title="BROKEN-NO-WORKAROUND REGRESSION-LATEST">fails with</mark> the same <mark data-item="gh-a-001" data-field="body" data-start="245" data-end="250" title="REGRESSION-LATEST">error</mark>.
+
+### Steps to reproduce
+1. Be logged in on 3.1.5
+2. <mark data-item="gh-a-001" data-field="body" data-start="304" data-end="313" title="REGRESSION-LATEST">Update to</mark> <mark data-item="gh-a-001" data-field="body" data-start="314" data-end="319" title="REGRESSION-LATEST">3.2.0</mark>
+3. Sync
+
+### Expected behavior
+Sync works like on 3.1.5
+
+### Version
+<mark data-item="gh-a-001" data-field="body" data-start="389" data-end="394" title="REGRESSION-LATEST">3.2.0</mark>
+
+### OS
+Windows 11, also seen on macOS 14 and Ubuntu 24.04 (see reactions)
+
+### Additional context
+<mark data-item="gh-a-001" data-field="body" data-start="494" data-end="509" title="REGRESSION-LATEST">Can&#39;t downgrade</mark> because <mark data-item="gh-a-001" data-field="body" data-start="518" data-end="523" title="REGRESSION-LATEST">3.2.0</mark> already migrated the library db.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-098" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-7" aria-label="Details of gh-a-098"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">7.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-098</span><a class="title" href="https://github.com/acme/widget/issues/710" rel="noreferrer">Windows portable <mark data-item="gh-a-098" data-field="title" data-start="17" data-end="31" title="BUILD-OR-INSTALL-BROKEN">zip is missing</mark> share/widget/templates, `widget init` fails</a></div></div>
+<div class="cbody" id="cb-7"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 64 d 20 h</li></ul>
+<ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN" data-rule-tier="T1"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="rule">Build or install broken</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“can&#39;t create projects”</span> · <span class="q">“zip` doesn&#39;t contain”</span> · <span class="q">“zip is missing”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>`widget-3.2.0-windows-x64-portable.<mark data-item="gh-a-098" data-field="body" data-start="35" data-end="55" title="BUILD-OR-INSTALL-BROKEN">zip` doesn&#39;t contain</mark> `share\widget\templates\` anymore (3.1.5 had it).
+
+```
+PS&gt; widget init my-project
+Error: template &quot;default&quot; not found (searched: D:\tools\widget\share\widget\templates)
+```
+
+The .msi installer does have them. Anyone using the portable zip (we deploy it to ~200 locked-down machines where we can&#39;t run installers) <mark data-item="gh-a-098" data-field="body" data-start="369" data-end="390" title="BUILD-OR-INSTALL-BROKEN">can&#39;t create projects</mark> at all.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-107" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-8" aria-label="Details of gh-a-107"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">8.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-107</span><a class="title" href="https://github.com/acme/widget/pull/720" rel="noreferrer">packaging: include templates in the Windows portable zip</a></div></div>
+<div class="cbody" id="cb-8"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 64 d 1 h</li></ul>
+<ul class="flags"><li data-rule="PR-FIXES-URGENT" data-rule-tier="T1"><span class="rid">PR-FIXES-URGENT</span><span class="rule">Pull request that fixes a flagged issue</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“Fixes #710”</span></li><li data-linked="gh-a-098"><span class="kind">Linked issue</span> gh-a-098 “Windows portable zip is missing share/widget/templates, `widget init` fails” is T1 by BUILD-OR-INSTALL-BROKEN</li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span><mark data-item="gh-a-107" data-field="body" data-start="0" data-end="10" title="PR-FIXES-URGENT">Fixes #710</mark>
+
+The 3.2.0 packaging script switched to an explicit file list and `share/widget/templates/**` wasn&#39;t in it for the portable zip. Added it, and added a check to the release job that fails if any artefact is missing a path from `packaging/required-files.txt`.
+
+We should re-upload the 3.2.0 portable zip (or ship 3.2.1) after this lands.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-146" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-9" aria-label="Details of gh-a-146"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">9.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-146</span><a class="title" href="https://github.com/acme/widget/issues/725" rel="noreferrer">Login loop on desktop after <mark data-item="gh-a-146" data-field="title" data-start="28" data-end="33" title="REGRESSION-LATEST">3.2.0</mark></a></div></div>
+<div class="cbody" id="cb-9"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 63 d 23 h</li></ul>
+<ul class="flags"><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“After updating”</span> · <span class="q">“3.2.0”</span> · <span class="q">“Forever”</span> · <span class="q">“can&#39;t”</span> · <span class="q">“all”</span> · <span class="q">“Worked fine”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="REGRESSION"><span class="rid">REGRESSION</span>T2 <span class="q">“After updating”</span> · <span class="q">“Worked fine”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span><mark data-item="gh-a-146" data-field="body" data-start="0" data-end="14" title="REGRESSION-LATEST REGRESSION">After updating</mark> to <mark data-item="gh-a-146" data-field="body" data-start="18" data-end="23" title="REGRESSION-LATEST">3.2.0</mark> the desktop app opens on the sign-in screen. I click &quot;Sign in with browser&quot;, the browser says &quot;You can return to widget&quot;, the app shows a spinner for a second and then the sign-in screen again. <mark data-item="gh-a-146" data-field="body" data-start="218" data-end="225" title="REGRESSION-LATEST">Forever</mark>. There&#39;s no &quot;continue offline&quot; button anymore, so I <mark data-item="gh-a-146" data-field="body" data-start="278" data-end="283" title="REGRESSION-LATEST">can&#39;t</mark> get to my local projects at <mark data-item="gh-a-146" data-field="body" data-start="312" data-end="315" title="REGRESSION-LATEST">all</mark>.
+
+<mark data-item="gh-a-146" data-field="body" data-start="318" data-end="329" title="REGRESSION-LATEST REGRESSION">Worked fine</mark> on 3.1.5 an hour ago. Tried: clearing `%APPDATA%\widget\session`, reinstalling, a different default browser. Same loop.
+
+Windows 11 23H2, widget <mark data-item="gh-a-146" data-field="body" data-start="475" data-end="480" title="REGRESSION-LATEST">3.2.0</mark> (.msi). Several people in the forum thread say the same on macOS.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-078" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-10" aria-label="Details of gh-a-078"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">10.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-078</span><a class="title" href="https://github.com/acme/widget/issues/734" rel="noreferrer"><mark data-item="gh-a-078" data-field="title" data-start="0" data-end="3" title="REGRESSION-LATEST">All</mark> keyboard shortcuts <mark data-item="gh-a-078" data-field="title" data-start="23" data-end="38" title="REGRESSION-LATEST REGRESSION">stopped working</mark> on macOS</a></div></div>
+<div class="cbody" id="cb-10"><div class="cin">
+<ul class="meta"><li>raised from T2</li><li>label bug</li><li>label <mark data-item="gh-a-078" data-field="labels[1]" data-start="0" data-end="10" title="floor:label">regression</mark></li><li>waiting 62 d 13 h</li></ul>
+<ul class="flags"><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“stopped working”</span> · <span class="q">“3.2.0”</span> · <span class="q">“none of”</span> · <span class="q">“was fine”</span> · <span class="q">“all”</span> · <span class="q">“unusable”</span> · <span class="q">“every”</span> · <span class="q">“can&#39;t”</span> · <span class="q">“All”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="REGRESSION"><span class="rid">REGRESSION</span>T2 <span class="q">“stopped working”</span> · <span class="q">“was fine”</span></span>; <span data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span>T2 <span class="q">“unusable”</span></span></li><li><span class="kind">Floor</span> label “regression” sets T2</li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>On <mark data-item="gh-a-078" data-field="body" data-start="3" data-end="8" title="REGRESSION-LATEST">3.2.0</mark> <mark data-item="gh-a-078" data-field="body" data-start="9" data-end="16" title="REGRESSION-LATEST">none of</mark> the shortcuts work on macOS: Cmd+S, Cmd+C, Cmd+V, Cmd+Z, Cmd+F, Cmd+N. Menu items still work if I click them, and they still show the shortcut next to them. Copy/paste via right click works.
+
+3.1.5 <mark data-item="gh-a-078" data-field="body" data-start="215" data-end="223" title="REGRESSION-LATEST REGRESSION">was fine</mark>. Reproduced on two Macs (14.6 Intel, 15.0 arm64) with a clean profile, and <mark data-item="gh-a-078" data-field="body" data-start="299" data-end="302" title="REGRESSION-LATEST">all</mark> 12 Macs in our team have it.
+
+This makes the app pretty much <mark data-item="gh-a-078" data-field="body" data-start="364" data-end="372" title="REGRESSION-LATEST BROKEN-NO-WORKAROUND">unusable</mark> for writing: no Cmd+Z, no Cmd+S, <mark data-item="gh-a-078" data-field="body" data-start="406" data-end="411" title="REGRESSION-LATEST">every</mark> copy and paste through the mouse. We <mark data-item="gh-a-078" data-field="body" data-start="449" data-end="454" title="REGRESSION-LATEST">can&#39;t</mark> go back to 3.1.5 because the library was already migrated.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-061" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-11" aria-label="Details of gh-a-061"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">11.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-061</span><a class="title" href="https://github.com/acme/widget/issues/736" rel="noreferrer"><mark data-item="gh-a-061" data-field="title" data-start="0" data-end="25" title="STARTUP-CRASH CRASH-OR-HANG">Segfault on every command</mark> on aarch64 linux</a></div></div>
+<div class="cbody" id="cb-11"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 62 d 4 h</li></ul>
+<ul class="flags"><li data-rule="STARTUP-CRASH" data-rule-tier="T1"><span class="rid">STARTUP-CRASH</span><span class="rule">Crashes or will not start</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“Segfault on every”</span> · <span class="q">“on every command”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="CRASH-OR-HANG"><span class="rid">CRASH-OR-HANG</span>T2 <span class="q">“Segmentation fault”</span> · <span class="q">“core dumped”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>```
+$ widget --version
+<mark data-item="gh-a-061" data-field="body" data-start="23" data-end="41" title="CRASH-OR-HANG">Segmentation fault</mark> (<mark data-item="gh-a-061" data-field="body" data-start="43" data-end="54" title="CRASH-OR-HANG">core dumped</mark>)
+$ widget help
+<mark data-item="gh-a-061" data-field="body" data-start="70" data-end="88" title="CRASH-OR-HANG">Segmentation fault</mark> (<mark data-item="gh-a-061" data-field="body" data-start="90" data-end="101" title="CRASH-OR-HANG">core dumped</mark>)
+```
+
+Fresh install from `widget-3.2.0-linux-aarch64.tar.gz` on two different boards (Debian 12 aarch64 and Ubuntu 24.04 server aarch64). The x86_64 tarball on my desktop works. 3.1.5 aarch64 works.
+
+`file widget` says `ELF 64-bit LSB pie executable, ARM aarch64`, so it&#39;s the right arch. Backtrace from the debugger (no symbols):
+
+```
+#0  0x0000000000000000 in ?? ()
+#1  0x0000aaaaab3c1e40 in ?? ()
+```</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-062" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-12" aria-label="Details of gh-a-062"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">12.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-062</span><a class="title" href="https://github.com/acme/widget/issues/739" rel="noreferrer">Version history only goes back to today <mark data-item="gh-a-062" data-field="title" data-start="40" data-end="52" title="REGRESSION-LATEST">after update</mark></a></div></div>
+<div class="cbody" id="cb-12"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 61 d 22 h</li></ul>
+<ul class="flags"><li data-rule="DATA-LOSS" data-rule-tier="T1"><span class="rid">DATA-LOSS</span><span class="rule">Data lost, overwritten or corrupted</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“get the old history back”</span> <span class="why">(suspected)</span> · <span class="q">“versions are gone”</span></li><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“After installing”</span> · <span class="q">“v3.2.0”</span> · <span class="q">“every”</span> · <span class="q">“All”</span> · <span class="q">“upgraded from”</span> · <span class="q">“after update”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>I rely on version history a lot (I write and rewrite). <mark data-item="gh-a-062" data-field="body" data-start="55" data-end="71" title="REGRESSION-LATEST">After installing</mark> <mark data-item="gh-a-062" data-field="body" data-start="72" data-end="78" title="REGRESSION-LATEST">v3.2.0</mark> yesterday, History for <mark data-item="gh-a-062" data-field="body" data-start="102" data-end="107" title="REGRESSION-LATEST">every</mark> file only shows one entry, &quot;Imported during upgrade, Sep 12&quot;. <mark data-item="gh-a-062" data-field="body" data-start="170" data-end="173" title="REGRESSION-LATEST">All</mark> older <mark data-item="gh-a-062" data-field="body" data-start="180" data-end="197" title="DATA-LOSS">versions are gone</mark>, for <mark data-item="gh-a-062" data-field="body" data-start="203" data-end="208" title="REGRESSION-LATEST">every</mark> file in <mark data-item="gh-a-062" data-field="body" data-start="217" data-end="222" title="REGRESSION-LATEST">every</mark> project. I checked `.widget/history/`: it used to be ~2 GB, now it&#39;s 40 MB.
+
+Not using sync. Windows 11, <mark data-item="gh-a-062" data-field="body" data-start="328" data-end="341" title="REGRESSION-LATEST">upgraded from</mark> 3.1.5 via the installer.
+
+Is there any way to <mark data-item="gh-a-062" data-field="body" data-start="388" data-end="412" title="DATA-LOSS">get the old history back</mark>?</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-067" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-13" aria-label="Details of gh-a-067"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">13.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-067</span><a class="title" href="https://github.com/acme/widget/issues/747" rel="noreferrer"><mark data-item="gh-a-067" data-field="title" data-start="0" data-end="6" title="REGRESSION-LATEST">Cannot</mark> <mark data-item="gh-a-067" data-field="title" data-start="7" data-end="23" title="SECURITY">open any project</mark> with ä/ö/ü or japanese name <mark data-item="gh-a-067" data-field="title" data-start="52" data-end="61" title="REGRESSION-LATEST">since 3.2</mark></a></div></div>
+<div class="cbody" id="cb-13"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 60 d 19 h</li></ul>
+<ul class="flags"><li data-rule="SECURITY" data-rule-tier="T1"><span class="rid">SECURITY</span><span class="rule">Possible security vulnerability</span> · <a href="https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability" rel="noreferrer" title="GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025">source</a><br><span class="q">“open any project”</span></li><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“nothing works”</span> · <span class="q">“Since update”</span> · <span class="q">“update to”</span> · <span class="q">“3.2”</span> · <span class="q">“cannot”</span> · <span class="q">“Error”</span> · <span class="q">“everybody”</span> · <span class="q">“not possible”</span> · <span class="q">“3.2.0”</span> · <span class="q">“Cannot”</span> · <span class="q">“since 3.2”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span>T2 <span class="q">“not possible”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span><mark data-item="gh-a-067" data-field="body" data-start="0" data-end="15" title="REGRESSION-LATEST">Since update to</mark> <mark data-item="gh-a-067" data-field="body" data-start="16" data-end="19" title="REGRESSION-LATEST">3.2</mark> i <mark data-item="gh-a-067" data-field="body" data-start="22" data-end="28" title="REGRESSION-LATEST">cannot</mark> <mark data-item="gh-a-067" data-field="body" data-start="29" data-end="45" title="SECURITY">open any project</mark> which has umlaut or japanese characters in the name or in the folder path. <mark data-item="gh-a-067" data-field="body" data-start="121" data-end="126" title="REGRESSION-LATEST">Error</mark> is:
+
+```
+<mark data-item="gh-a-067" data-field="body" data-start="136" data-end="141" title="REGRESSION-LATEST">Error</mark>: project not found: C:\Users\nutzer.büro\Documents\widget\Bücher
+```
+
+The folder exist, i can see in explorer. With 3.1.5 no problem. In my company we are 15 persons using widget, <mark data-item="gh-a-067" data-field="body" data-start="322" data-end="331" title="REGRESSION-LATEST">everybody</mark> has Windows with german user name with umlaut, so for us <mark data-item="gh-a-067" data-field="body" data-start="389" data-end="402" title="REGRESSION-LATEST">nothing works</mark>. My colleague in Osaka office say same for japanese folder names.
+
+Renaming the folder is <mark data-item="gh-a-067" data-field="body" data-start="493" data-end="505" title="REGRESSION-LATEST BROKEN-NO-WORKAROUND">not possible</mark> because user folder name has umlaut.
+
+Version: <mark data-item="gh-a-067" data-field="body" data-start="553" data-end="558" title="REGRESSION-LATEST">3.2.0</mark> Windows 10/11</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-003" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-14" aria-label="Details of gh-a-003"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">14.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-003</span><a class="title" href="https://github.com/acme/widget/issues/759" rel="noreferrer">Clicking the <mark data-item="gh-a-003" data-field="title" data-start="13" data-end="30" title="STARTUP-CRASH REGRESSION-LATEST">icon does nothing</mark> on Ubuntu 24.04</a></div></div>
+<div class="cbody" id="cb-14"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 58 d 14 h</li></ul>
+<ul class="flags"><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“After upgrading”</span> · <span class="q">“3.2.0”</span> · <span class="q">“does nothing”</span> · <span class="q">“all”</span></li><li data-rule="STARTUP-CRASH" data-rule-tier="T1"><span class="rid">STARTUP-CRASH</span><span class="rule">Crashes or will not start</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“icon does nothing”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="REGRESSION"><span class="rid">REGRESSION</span>T2 <span class="q">“After upgrading”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span><mark data-item="gh-a-003" data-field="body" data-start="0" data-end="15" title="REGRESSION-LATEST REGRESSION">After upgrading</mark> to <mark data-item="gh-a-003" data-field="body" data-start="19" data-end="24" title="REGRESSION-LATEST">3.2.0</mark> with the .deb, clicking the widget <mark data-item="gh-a-003" data-field="body" data-start="60" data-end="77" title="STARTUP-CRASH REGRESSION-LATEST">icon does nothing</mark>. The spinner cursor shows for a second and that&#39;s it. Tried on three machines (two desktops, one laptop), <mark data-item="gh-a-003" data-field="body" data-start="184" data-end="187" title="REGRESSION-LATEST">all</mark> Ubuntu 24.04, <mark data-item="gh-a-003" data-field="body" data-start="202" data-end="205" title="REGRESSION-LATEST">all</mark> the same.
+
+From a terminal:
+
+```
+$ widget-desktop
+$ echo $?
+134
+```
+
+No output at <mark data-item="gh-a-003" data-field="body" data-start="288" data-end="291" title="REGRESSION-LATEST">all</mark>. The 3.1.5 .deb works on the same machines. The CLI (`widget`) works fine, only the desktop app.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-043" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-15" aria-label="Details of gh-a-043"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">15.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-043</span><a class="title" href="https://github.com/acme/widget/issues/763" rel="noreferrer">Same as #754 but you can also EDIT through the share link</a></div></div>
+<div class="cbody" id="cb-15"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 57 d 22 h</li></ul>
+<ul class="flags"><li data-rule="SECURITY" data-rule-tier="T1"><span class="rid">SECURITY</span><span class="rule">Possible security vulnerability</span> · <a href="https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability" rel="noreferrer" title="GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025">source</a><br><span class="q">“any project that was ever shared with edit”</span> · <span class="q">“anyone can”</span> · <span class="q">“modify any project”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Same as #754, but worse: when the project behind the guessed number was shared with &quot;can edit&quot;, I could also change files. I tested with my own two accounts (account A shares a project as &quot;can edit&quot; with one person, account B with no relation opens `/s/&lt;id&gt;` and edits). Save worked, and account A sees the change in history as &quot;anonymous&quot;.
+
+So it&#39;s not only reading, <mark data-item="gh-a-043" data-field="body" data-start="368" data-end="378" title="SECURITY">anyone can</mark> <mark data-item="gh-a-043" data-field="body" data-start="379" data-end="428" title="SECURITY">modify any project that was ever shared with edit</mark> rights. Tested in two different browsers.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-059" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-16" aria-label="Details of gh-a-059"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">16.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-059</span><a class="title" href="https://github.com/acme/widget/issues/785" rel="noreferrer">Theme colors look washed out in <mark data-item="gh-a-059" data-field="title" data-start="32" data-end="35" title="REGRESSION-LATEST">3.2</mark></a></div></div>
+<div class="cbody" id="cb-16"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 54 d 21 h</li></ul>
+<ul class="flags"><li data-rule="DATA-LOSS" data-rule-tier="T1"><span class="rid">DATA-LOSS</span><span class="rule">Data lost, overwritten or corrupted</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“not on disk”</span></li><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“since 3.2.0”</span> · <span class="q">“3.2”</span> · <span class="q">“do nothing”</span> · <span class="q">“3.2.0”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>The new default theme in <mark data-item="gh-a-059" data-field="body" data-start="25" data-end="28" title="REGRESSION-LATEST">3.2</mark> looks washed out to me, especially the sidebar text (grey on lighter grey). I compared screenshots side by side with 3.1.5 and the contrast definitely went down. Could we get the old &quot;Classic&quot; theme back as an option? I know it&#39;s subjective, but I&#39;m not the only one, there&#39;s a thread in discussions.
+
+Also the accent colour picker resets to blue whenever I restart.
+
+And a bigger one, maybe it should be its own issue: <mark data-item="gh-a-059" data-field="body" data-start="449" data-end="460" title="REGRESSION-LATEST">since 3.2.0</mark>, Ctrl+S and File &gt; Save <mark data-item="gh-a-059" data-field="body" data-start="485" data-end="495" title="REGRESSION-LATEST">do nothing</mark> on Windows. The title keeps the dot (unsaved), and if I close the window my changes are <mark data-item="gh-a-059" data-field="body" data-start="584" data-end="595" title="DATA-LOSS">not on disk</mark>, and the app doesn&#39;t ask either. Autosave also doesn&#39;t seem to run. Two colleagues on Windows have the same thing. On 3.1.5 saving worked normally.
+
+Windows 11, widget <mark data-item="gh-a-059" data-field="body" data-start="764" data-end="769" title="REGRESSION-LATEST">3.2.0</mark></div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-013" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-17" aria-label="Details of gh-a-013"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">17.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-013</span><a class="title" href="https://github.com/acme/widget/issues/839" rel="noreferrer">Renaming a project to change only capital letters made it vanish</a></div></div>
+<div class="cbody" id="cb-17"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 43 d 18 h</li></ul>
+<ul class="flags"><li data-rule="DATA-LOSS" data-rule-tier="T1"><span class="rid">DATA-LOSS</span><span class="rule">Data lost, overwritten or corrupted</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“project vanished”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Renamed my project `notes` to `Notes` (only the capital letter) in the sidebar. The <mark data-item="gh-a-013" data-field="body" data-start="84" data-end="100" title="DATA-LOSS">project vanished</mark> from the sidebar. In Finder, `~/widget/Notes` doesn&#39;t exist and neither does `~/widget/notes`. Trash is empty. Spotlight finds nothing with the file names I remember.
+
+Tried with a test project: renaming `test` → `Test` makes it go away every time. `test` → `test2` works fine.
+
+macOS 14.5 (APFS, default case-insensitive), widget v3.2.0 from the .dmg</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-114" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-18" aria-label="Details of gh-a-114"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">18.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-114</span><a class="title" href="https://github.com/acme/widget/issues/848" rel="noreferrer">widget:// link from a website <mark data-item="gh-a-114" data-field="title" data-start="30" data-end="53" title="SECURITY">started another program</mark> on my PC</a></div></div>
+<div class="cbody" id="cb-18"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 41 d 11 h</li></ul>
+<ul class="flags"><li data-rule="SECURITY" data-rule-tier="T1"><span class="rid">SECURITY</span><span class="rule">Possible security vulnerability</span> · <a href="https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability" rel="noreferrer" title="GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025">source</a><br><span class="q">“any page on the internet”</span> · <span class="q">“start programs”</span> · <span class="q">“started another program”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>I was on a forum page that had an &quot;Open in widget&quot; button. When I clicked it the browser asked to open widget, I said yes, the project opened but also Calculator opened.
+
+I looked at the link, it was:
+
+`widget://open?project=demo&amp;hook=calc.exe`
+
+I tried changing `calc.exe` to `notepad.exe` and Notepad opened. I tried `cmd.exe /c echo hi &gt; %TEMP%\hi.txt` and the file was there.
+
+I don&#39;t know if `hook` is supposed to be a feature for plugins, but it seems weird that <mark data-item="gh-a-114" data-field="body" data-start="469" data-end="493" title="SECURITY">any page on the internet</mark> can <mark data-item="gh-a-114" data-field="body" data-start="498" data-end="512" title="SECURITY">start programs</mark> on my computer just by me clicking a link.
+
+Windows 11 23H2, widget 3.2.0 installed with the .msi.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-095" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-19" aria-label="Details of gh-a-095"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">19.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-095</span><a class="title" href="https://github.com/acme/widget/issues/858" rel="noreferrer">Scanner reports a CVE in the bundled zip library (confirmed false positive)</a></div></div>
+<div class="cbody" id="cb-19"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label question</li><li>waiting 38 d 17 h</li></ul>
+<ul class="flags"><li data-rule="SECURITY" data-rule-tier="T1"><span class="rid">SECURITY</span><span class="rule">Possible security vulnerability</span> · <a href="https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability" rel="noreferrer" title="GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025">source</a><br><span class="q">“CVE”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Our compliance scanner flagged the zip library bundled in widget 3.2.0 for a <mark data-item="gh-a-095" data-field="body" data-start="77" data-end="80" title="SECURITY">CVE</mark> in its &quot;streaming extract&quot; function. I went through it with our security team: widget only uses the in-memory reader, never the streaming extract API, and the vulnerable code isn&#39;t reachable. So we confirmed it&#39;s a false positive for widget.
+
+Still, could you either bump the library in the next release or add a note to SECURITY.md about it? Our scanner will keep flagging it and every customer will ask.</div></div>
+</div></div></li>
+<li class="card t1" data-id="gh-a-094" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-20" aria-label="Details of gh-a-094"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">20.</span><span class="badge t1">T1 Discuss now</span><span class="id">gh-a-094</span><a class="title" href="https://github.com/acme/widget/issues/864" rel="noreferrer">main <mark data-item="gh-a-094" data-field="title" data-start="5" data-end="18" title="BUILD-OR-INSTALL-BROKEN">doesn&#39;t build</mark> since #857</a></div></div>
+<div class="cbody" id="cb-20"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 36 d 23 h</li></ul>
+<ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN" data-rule-tier="T1"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="rule">Build or install broken</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“nightly didn&#39;t publish”</span> · <span class="q">“red since”</span> · <span class="q">“doesn&#39;t build”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Fresh clone of main, `make build`:
+
+```
+error[E0432]: unresolved import `crate::sync::engine::Planner`
+  --&gt; crates/widget-cli/src/cmd/push.rs:7:5
+   |
+7  | use crate::sync::engine::Planner;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ no `Planner` in `sync::engine`
+
+error: could not compile `widget-cli` (bin &quot;widget&quot;) due to 1 previous error
+```
+
+Looks like `Planner` moved to `sync::plan` in #857 but `push.rs` wasn&#39;t updated. CI on main has been <mark data-item="gh-a-094" data-field="body" data-start="444" data-end="453" title="BUILD-OR-INSTALL-BROKEN">red since</mark> that merge (all three OS jobs), and the <mark data-item="gh-a-094" data-field="body" data-start="494" data-end="516" title="BUILD-OR-INSTALL-BROKEN">nightly didn&#39;t publish</mark>.</div></div>
+</div></div></li>
+</ol>
+<h3 id="tier-T2"><span class="badge t2">T2</span> Today (12)</h3><ol class="cards">
+<li class="card t2" data-id="gh-a-133" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-21" aria-label="Details of gh-a-133"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">21.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-133</span><a class="title" href="https://github.com/acme/widget/issues/551" rel="noreferrer">Importing a Markdown folder <mark data-item="gh-a-133" data-field="title" data-start="28" data-end="37" title="BROKEN-NO-WORKAROUND">drops all</mark> images and front matter</a></div></div>
+<div class="cbody" id="cb-21"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 119 d 18 h</li></ul>
+<ul class="flags"><li data-rule="BROKEN-NO-WORKAROUND" data-rule-tier="T2"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="rule">Feature broken with no workaround</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“is dropped”</span> · <span class="q">“drops all”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>I&#39;m migrating ~900 notes from another app&#39;s Markdown export. `widget import ./export --format md` creates the files, but:
+
+- every `![](images/x.png)` becomes a broken link, the images aren&#39;t copied
+- YAML front matter (title, tags, created) <mark data-item="gh-a-133" data-field="body" data-start="242" data-end="252" title="BROKEN-NO-WORKAROUND">is dropped</mark>, so all notes get today&#39;s date and no tags
+
+The docs say images and front matter are supported. Tried relative and absolute image paths.
+
+widget 3.1.4 / macOS 14</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-077" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-22" aria-label="Details of gh-a-077"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">22.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-077</span><a class="title" href="https://github.com/acme/widget/issues/616" rel="noreferrer"><mark data-item="gh-a-077" data-field="title" data-start="0" data-end="5" title="CRASH-OR-HANG">crash</mark> when i paste emoji in project title</a></div></div>
+<div class="cbody" id="cb-22"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 91 d</li></ul>
+<ul class="flags"><li data-rule="CRASH-OR-HANG" data-rule-tier="T2"><span class="rid">CRASH-OR-HANG</span><span class="rule">Crash, hang or freeze in a specific situation</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“close itself”</span> · <span class="q">“crash”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>when i paste emoji (like 🌱) in the title of project in project settings, the application <mark data-item="gh-a-077" data-field="body" data-start="90" data-end="102" title="CRASH-OR-HANG">close itself</mark> immediatly. typing normal letters is ok. if i use the emoji keyboard of windows (win + .) also close.
+
+the project is ok after open again, the title is the old one.
+
+windows 10, widget 3.1.5
+i can send video if need</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-081" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-23" aria-label="Details of gh-a-081"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">23.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-081</span><a class="title" href="https://github.com/acme/widget/issues/663" rel="noreferrer">Search returns nothing for projects on a network drive</a></div></div>
+<div class="cbody" id="cb-23"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 71 d 18 h</li></ul>
+<ul class="flags"><li data-rule="BROKEN-NO-WORKAROUND" data-rule-tier="T2"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="rule">Feature broken with no workaround</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“never returns”</span> · <span class="q">“0 files”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Our team keeps projects on a mapped network drive (S:\). Opening and editing works, but search (Ctrl+Shift+F) <mark data-item="gh-a-081" data-field="body" data-start="110" data-end="123" title="BROKEN-NO-WORKAROUND">never returns</mark> results for those projects, not even for words in the file names. Local projects are searchable.
+
+Rebuilding the index from Settings &gt; Advanced finishes in 1 second and says &quot;<mark data-item="gh-a-081" data-field="body" data-start="299" data-end="306" title="BROKEN-NO-WORKAROUND">0 files</mark> indexed&quot;.
+
+Windows 10 and 11, widget 3.1.5</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-008" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-24" aria-label="Details of gh-a-008"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">24.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-008</span><a class="title" href="https://github.com/acme/widget/issues/730" rel="noreferrer">+1 same here</a></div></div>
+<div class="cbody" id="cb-24"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 62 d 22 h</li></ul>
+<ul class="flags"><li data-rule="REGRESSION" data-rule-tier="T2"><span class="rid">REGRESSION</span><span class="rule">Regression</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“after updating”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Same 401 `token_audience_mismatch` as #701 <mark data-item="gh-a-008" data-field="body" data-start="43" data-end="57" title="REGRESSION">after updating</mark> to 3.2.0 on Windows 10. Logged out and in, didn&#39;t help. Please fix soon, I depend on sync.</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-035" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-25" aria-label="Details of gh-a-035"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">25.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-035</span><a class="title" href="https://github.com/acme/widget/issues/834" rel="noreferrer">Project invite links say &quot;expired&quot; right away</a></div></div>
+<div class="cbody" id="cb-25"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 45 d</li></ul>
+<ul class="flags"><li data-rule="BROKEN-NO-WORKAROUND" data-rule-tier="T2"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="rule">Feature broken with no workaround</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“has expired”</span> · <span class="q">“only I can”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>When I invite someone to a project (Share &gt; Invite by email), they get the email, click the link and see &quot;This invite <mark data-item="gh-a-035" data-field="body" data-start="118" data-end="129" title="BROKEN-NO-WORKAROUND">has expired</mark>&quot;. It happens within a minute of sending. Tried 5 different people, two different projects. Generating a new invite: same.
+
+We&#39;re a team of 4 starting a new project and <mark data-item="gh-a-035" data-field="body" data-start="298" data-end="308" title="BROKEN-NO-WORKAROUND">only I can</mark> access it.
+
+Desktop 3.2.0 / web, Windows 11</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-023" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-26" aria-label="Details of gh-a-023"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">26.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-023</span><a class="title" href="https://github.com/acme/widget/issues/847" rel="noreferrer">App <mark data-item="gh-a-023" data-field="title" data-start="4" data-end="11" title="CRASH-OR-HANG">freezes</mark> when dragging an image into a table cell</a></div></div>
+<div class="cbody" id="cb-26"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 42 d 17 h</li></ul>
+<ul class="flags"><li data-rule="CRASH-OR-HANG" data-rule-tier="T2"><span class="rid">CRASH-OR-HANG</span><span class="rule">Crash, hang or freeze in a specific situation</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“Not Responding”</span> · <span class="q">“hang”</span> · <span class="q">“freezes”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Dragging a PNG from the file manager into a table cell makes the whole app <mark data-item="gh-a-023" data-field="body" data-start="75" data-end="79" title="CRASH-OR-HANG">hang</mark> (&quot;<mark data-item="gh-a-023" data-field="body" data-start="82" data-end="96" title="CRASH-OR-HANG">Not Responding</mark>&quot;, CPU 100% on one core). I have to kill it. Dragging into normal text works. Pasting the same image into the cell works too.
+
+Reproducible every time with any image. After restarting, the file is as it was before the drag.
+
+widget 3.2.0 / Windows 10 22H2</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-111" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-27" aria-label="Details of gh-a-111"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">27.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-111</span><a class="title" href="https://github.com/acme/widget/issues/861" rel="noreferrer">`widget login` <mark data-item="gh-a-111" data-field="title" data-start="15" data-end="22" title="BROKEN-NO-WORKAROUND">rejects</mark> valid 2FA codes</a></div></div>
+<div class="cbody" id="cb-27"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 38 d</li></ul>
+<ul class="flags"><li data-rule="BROKEN-NO-WORKAROUND" data-rule-tier="T2"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="rule">Feature broken with no workaround</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“can&#39;t use the CLI at all”</span> · <span class="q">“always says”</span> · <span class="q">“rejects”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>For accounts with two-factor enabled, `widget login` <mark data-item="gh-a-111" data-field="body" data-start="53" data-end="64" title="BROKEN-NO-WORKAROUND">always says</mark> `invalid verification code`, even with a freshly generated code (tried 10+ times, clock is synced). The desktop app and web accept the same codes.
+
+```
+$ widget login
+Email: ****
+Password:
+Verification code: 482913
+Error: invalid verification code (E_2FA_MISMATCH)
+```
+
+There&#39;s no API-token login for the CLI, so with 2FA on I <mark data-item="gh-a-111" data-field="body" data-start="392" data-end="416" title="BROKEN-NO-WORKAROUND">can&#39;t use the CLI at all</mark>.
+
+widget 3.2.0 cli, Ubuntu 24.04</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-148" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-28" aria-label="Details of gh-a-148"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">28.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-148</span><a class="title" href="https://github.com/acme/widget/issues/884" rel="noreferrer"><mark data-item="gh-a-148" data-field="title" data-start="0" data-end="8" title="CRASH-OR-HANG">Segfault</mark> opening Settings with external 4K monitor</a></div></div>
+<div class="cbody" id="cb-28"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label needs-triage</li><li>waiting 32 d 13 h</li></ul>
+<ul class="flags"><li data-rule="CRASH-OR-HANG" data-rule-tier="T2"><span class="rid">CRASH-OR-HANG</span><span class="rule">Crash, hang or freeze in a specific situation</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“segfault”</span> · <span class="q">“crashes”</span> · <span class="q">“Segfault”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Opening Settings <mark data-item="gh-a-148" data-field="body" data-start="17" data-end="24" title="CRASH-OR-HANG">crashes</mark> the app when my laptop is connected to an external 4K monitor with 150% scaling. Without the monitor, or at 100%/200% scaling, Settings opens fine.
+
+```
+widget-desktop[22014]: <mark data-item="gh-a-148" data-field="body" data-start="201" data-end="209" title="CRASH-OR-HANG">segfault</mark> at 18 ip 00007f3a1c2e4a10 sp 00007ffd5b1f0e20 error 4 in libwidget_core.so.3
+```
+
+Ubuntu 24.04, widget 3.2.0 .deb, integrated graphics</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-072" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-29" aria-label="Details of gh-a-072"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">29.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-072</span><a class="title" href="https://github.com/acme/widget/issues/887" rel="noreferrer">Selective sync exclusions <mark data-item="gh-a-072" data-field="title" data-start="26" data-end="37" title="BROKEN-NO-WORKAROUND">are ignored</mark></a></div></div>
+<div class="cbody" id="cb-29"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 31 d 22 h</li></ul>
+<ul class="flags"><li data-rule="BROKEN-NO-WORKAROUND" data-rule-tier="T2"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="rule">Feature broken with no workaround</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“still uploads”</span> · <span class="q">“are ignored”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>I excluded `raw-data/` from sync in Project settings &gt; Sync &gt; Exclusions (it&#39;s 30 GB of instrument output). It <mark data-item="gh-a-072" data-field="body" data-start="111" data-end="124" title="BROKEN-NO-WORKAROUND">still uploads</mark>; the progress shows `raw-data/run-0412.bin` etc. I also tried adding it to `.widgetignore`, same thing.
+
+v3.2.0, Windows 11</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-149" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-30" aria-label="Details of gh-a-149"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">30.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-149</span><a class="title" href="https://github.com/acme/widget/issues/902" rel="noreferrer">When will Windows ARM builds be available?</a></div></div>
+<div class="cbody" id="cb-30"><div class="cin">
+<ul class="meta"><li>label question</li><li>label <mark data-item="gh-a-149" data-field="labels[1]" data-start="0" data-end="13" title="floor:label">high-priority</mark></li><li>waiting 30 d</li></ul>
+<ul class="flags"><li><span class="kind">Floor</span> label “high-priority” sets T2</li></ul>
+<details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Other text fields</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Is there a plan for native Windows on ARM builds? The x64 build runs under emulation on my laptop but it&#39;s slow to start and the battery drain is noticeable.
+
+Not asking for a date, just whether it&#39;s on the roadmap and if there&#39;s something blocking it that a contributor could help with.</div></div></div></div></details>
+</div></div></li>
+<li class="card t2" data-id="gh-a-033" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-31" aria-label="Details of gh-a-033"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">31.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-033</span><a class="title" href="https://github.com/acme/widget/issues/904" rel="noreferrer">Replace All in project search does nothing on Linux</a></div></div>
+<div class="cbody" id="cb-31"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 29 d 16 h</li></ul>
+<ul class="flags"><li data-rule="BROKEN-NO-WORKAROUND" data-rule-tier="T2"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="rule">Feature broken with no workaround</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“isn&#39;t really an option”</span> · <span class="q">“nothing changes”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Project-wide find &amp; replace (Ctrl+Shift+H) finds the matches and shows &quot;Replace 214 occurrences in 31 files&quot;, but after confirming <mark data-item="gh-a-033" data-field="body" data-start="131" data-end="146" title="BROKEN-NO-WORKAROUND">nothing changes</mark>. No error. Single-file replace (Ctrl+H) works.
+
+Tested on two Linux machines (Fedora 40, Arch). My colleague on macOS says it works for him.
+
+I use this to rename terms across a whole manual; doing it file by file <mark data-item="gh-a-033" data-field="body" data-start="361" data-end="383" title="BROKEN-NO-WORKAROUND">isn&#39;t really an option</mark>.
+
+widget 3.2.0</div></div>
+</div></div></li>
+<li class="card t2" data-id="gh-a-007" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-32" aria-label="Details of gh-a-007"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">32.</span><span class="badge t2">T2 Today</span><span class="id">gh-a-007</span><a class="title" href="https://github.com/acme/widget/issues/915" rel="noreferrer">Restoring an older version from History <mark data-item="gh-a-007" data-field="title" data-start="40" data-end="46" title="BROKEN-NO-WORKAROUND">fails:</mark> &quot;version not found&quot;</a></div></div>
+<div class="cbody" id="cb-32"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 25 d 20 h</li></ul>
+<ul class="flags"><li data-rule="BROKEN-NO-WORKAROUND" data-rule-tier="T2"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="rule">Feature broken with no workaround</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“only option”</span> · <span class="q">“fails:”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>In History, clicking &quot;Restore this version&quot; on any version older than the latest gives `Error: version not found (v_3f9a...)`. The versions are listed and I can preview them, but not restore. Copy-pasting from the preview is the <mark data-item="gh-a-007" data-field="body" data-start="229" data-end="240" title="BROKEN-NO-WORKAROUND">only option</mark>, and it loses formatting and attachments.
+
+Only happens in synced projects; local-only projects restore fine.
+
+widget 3.2.0, macOS 15</div></div>
+</div></div></li>
+</ol>
+</section>
+<section id="no-rule-matched" aria-labelledby="h-nr"><h2 id="h-nr"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="nr-body" aria-label="No rule matched items"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span>No rule matched (28)</span></h2><div class="cbody" id="nr-body"><div class="cin"><p class="note">This does not mean not urgent. Items are listed in their original order.</p><ol class="plain">
+<li data-id="gh-a-005" data-tier="T3"><div class="head"><div class="hl"><span class="pos">33.</span><span class="id">gh-a-005</span><a class="title" href="https://github.com/acme/widget/issues/553" rel="noreferrer">Export to EPUB</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 117 d 19 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>I write short books in widget and currently export to HTML, then convert to EPUB with another tool. Please add EPUB as an export format (one chapter per file, project title as book title, cover image from project settings). It would save me a step every time.</div></div></div></div></details></li>
+<li data-id="gh-a-026" data-tier="T3"><div class="head"><div class="hl"><span class="pos">34.</span><span class="id">gh-a-026</span><a class="title" href="https://github.com/acme/widget/pull/627" rel="noreferrer">feat(cli): add --json output to `widget status`</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 83 d 14 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Closes #579
+
+Adds `--json` to `widget status`. Output shape as discussed in the issue:
+
+```json
+{&quot;projects&quot;:[{&quot;name&quot;:&quot;notes&quot;,&quot;path&quot;:&quot;/home/u/widget/notes&quot;,&quot;modified&quot;:3,&quot;unpushed&quot;:true,&quot;last_sync&quot;:&quot;2026-08-22T17:58:01Z&quot;}]}
+```
+
+- [x] tests
+- [x] docs/cli/status.md updated
+- [ ] shell completions (follow-up)</div></div></div></div></details></li>
+<li data-id="gh-a-027" data-tier="T3"><div class="head"><div class="hl"><span class="pos">35.</span><span class="id">gh-a-027</span><a class="title" href="https://github.com/acme/widget/issues/935" rel="noreferrer">&quot;database locked&quot; warning on startup (no crash, no corruption)</a></div></div><ul class="meta"><li>label bug</li><li>waiting 18 d 23 h</li></ul><p class="why">Did not count: “crash” (negated, CRASH-OR-HANG) · “crash” (negated, CRASH-OR-HANG) · “corruption” (negated, DATA-LOSS) · “corruption” (negated, DATA-LOSS)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Every time I start widget 3.2.0, a yellow banner says &quot;database locked, retrying...&quot; for about 2 seconds and then goes away. After that everything works: no crash, no corruption, nothing missing, and the integrity check in Settings &gt; Advanced passes. Probably the indexer and the UI open the db at the same time on startup. Cosmetic, but the word &quot;database&quot; scares people.
+
+macOS 14.6</div></div></div></div></details></li>
+<li data-id="gh-a-029" data-tier="T3"><div class="head"><div class="hl"><span class="pos">36.</span><span class="id">gh-a-029</span><a class="title" href="https://github.com/acme/widget/pull/814" rel="noreferrer">sync: never replace non-empty remote content with a zero-length file</a></div></div><ul class="meta"><li>label bug</li><li>waiting 48 d 23 h</li></ul><p class="why">Did not count: “emptied” (historical, DATA-LOSS) · “zero-length” (historical, DATA-LOSS)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Fixes #780
+Fixes #801
+
+When a client resumes after being offline, the planner compared mtimes before the local write had been flushed, so a truncated file with a newer mtime won and was pushed to every device.
+
+This PR:
+- refuses to upload a zero-length file over non-empty remote content unless the user explicitly emptied it (tracked via the editor&#39;s last-save event)
+- keeps the previous remote version in history instead of overwriting it in place
+- adds an integration test that simulates sleep/offline mid-write
+
+Recovery for users who were already hit is being handled server-side, separately.</div></div></div></div></details></li>
+<li data-id="gh-a-030" data-tier="T3"><div class="head"><div class="hl"><span class="pos">37.</span><span class="id">gh-a-030</span><a class="title" href="https://github.com/acme/widget/issues/515" rel="noreferrer">Does widget work offline?</a></div></div><ul class="meta"><li>label question</li><li>waiting 145 d 1 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Before I install: does the desktop app work fully offline (I travel a lot), and will it sync automatically when I&#39;m back online? Also, does the CLI need an account at all if I never sync?</div></div></div></div></details></li>
+<li data-id="gh-a-041" data-tier="T3"><div class="head"><div class="hl"><span class="pos">38.</span><span class="id">gh-a-041</span><a class="title" href="https://github.com/acme/widget/issues/605" rel="noreferrer">Login dialog doesn&#39;t work with password managers (not a security issue)</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 93 d 19 h</li></ul><p class="why">Did not count: “security issue” (negated, SECURITY) · “security issue” (negated, SECURITY)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>This is not a security issue, just a usability one: the desktop login dialog uses a custom text field that password managers don&#39;t recognise, so they can&#39;t fill email/password. I have to copy-paste from the password manager every time I log in on a new machine. Using standard input fields (or an autocomplete hint) would fix it.
+
+widget 3.1.4 on Windows 11</div></div></div></div></details></li>
+<li data-id="gh-a-045" data-tier="T3"><div class="head"><div class="hl"><span class="pos">39.</span><span class="id">gh-a-045</span><a class="title" href="https://github.com/acme/widget/pull/857" rel="noreferrer">refactor(sync): split engine.rs into plan, apply and transport modules</a></div></div><ul class="meta"><li>waiting 38 d 19 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>`crates/widget-core/src/sync/engine.rs` was 3,800 lines. This splits it into:
+
+- `sync/plan.rs`: diffing and the `Planner`
+- `sync/apply.rs`: applying remote changes locally
+- `sync/transport.rs`: batching and retries
+
+No behaviour change intended; all existing sync tests pass unchanged. The public API of `widget-core` re-exports the same names from `sync::`, except `engine::Planner`, which is now `plan::Planner`.</div></div></div></div></details></li>
+<li data-id="gh-a-060" data-tier="T3"><div class="head"><div class="hl"><span class="pos">40.</span><span class="id">gh-a-060</span><a class="title" href="https://github.com/acme/widget/issues/922" rel="noreferrer">Word count in status bar counts a URL as several words</a></div></div><ul class="meta"><li>label bug</li><li>waiting 23 d 14 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>The word count in the status bar splits URLs on `/`, `.` and `-`, so `https://docs.example.org/guide/getting-started` counts as 7 words. For essays with a word limit and lots of references the count is noticeably off. Selecting text and using the Statistics dialog gives the same wrong number.
+
+widget 3.2.0, Fedora 40</div></div></div></div></details></li>
+<li data-id="gh-a-066" data-tier="T3"><div class="head"><div class="hl"><span class="pos">41.</span><span class="id">gh-a-066</span><a class="title" href="https://github.com/acme/widget/issues/806" rel="noreferrer">Sync conflict dialog shows up twice (no data was lost)</a></div></div><ul class="meta"><li>label bug</li><li>waiting 50 d 20 h</li></ul><p class="why">Did not count: “data was lost” (negated, DATA-LOSS) · “data was lost” (negated, DATA-LOSS)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>When a sync conflict happens, the &quot;Sync conflict&quot; dialog appears twice in a row for the same file. I picked &quot;Keep both&quot; both times and ended up with exactly the two expected copies, so no data was lost, it&#39;s just confusing. The second dialog looks identical to the first.
+
+widget 3.2.0, Windows 11</div></div></div></div></details></li>
+<li data-id="gh-a-069" data-tier="T3"><div class="head"><div class="hl"><span class="pos">42.</span><span class="id">gh-a-069</span><a class="title" href="https://github.com/acme/widget/pull/798" rel="noreferrer">net: redact Authorization and cookie headers in verbose logs</a></div></div><ul class="meta"><li>waiting 51 d 19 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Fixes #791
+
+`--verbose` printed request headers as-is, including `authorization: Bearer ...`. This redacts `authorization`, `cookie`, `set-cookie` and `x-widget-refresh` to `[redacted]` at all log levels, including crash reports.
+
+Also adds a release note telling users who pasted verbose logs anywhere to sign out all sessions (Settings &gt; Account &gt; Sign out everywhere), which revokes old tokens.
+
+- [x] unit tests for the header filter
+- [x] checked crash-report payload</div></div></div></div></details></li>
+<li data-id="gh-a-071" data-tier="T3"><div class="head"><div class="hl"><span class="pos">43.</span><span class="id">gh-a-071</span><a class="title" href="https://github.com/acme/widget/issues/522" rel="noreferrer">Tooltip on the sync button is cut off</a></div></div><ul class="meta"><li>label bug</li><li>waiting 138 d 22 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>When the window is narrow, hovering the sync button in the top right shows a tooltip that goes off the edge of the window: &quot;Last synced 2 minu...&quot; Moving the window or making it wider shows it fully. Cosmetic only.
+
+widget 3.1.3, Windows 11</div></div></div></div></details></li>
+<li data-id="gh-a-076" data-tier="T3"><div class="head"><div class="hl"><span class="pos">44.</span><span class="id">gh-a-076</span><a class="title" href="https://github.com/acme/widget/issues/923" rel="noreferrer">Add a `widget check` command to verify a project folder</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 22 d 23 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>When something looks off (missing attachment, broken link between files, wrong schema version in state.yml) there&#39;s no quick way to see it. Proposal: `widget check [project]` that lists:
+
+- broken internal links
+- attachments referenced but missing
+- state.yml schema version vs. app version
+- files the index doesn&#39;t know about
+
+Exit code 1 if anything is found, so it works in CI. Read-only, never changes files.</div></div></div></div></details></li>
+<li data-id="gh-a-079" data-tier="T3"><div class="head"><div class="hl"><span class="pos">45.</span><span class="id">gh-a-079</span><a class="title" href="https://github.com/acme/widget/issues/838" rel="noreferrer">Token count in the word-count plugin</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 43 d 22 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>The word-count plugin shows words and characters. I write prompts and short texts with length limits measured in tokens, so a &quot;tokens&quot; count next to words would be handy. Even an approximate tokenizer (whitespace + punctuation splitting) would do, with a setting to pick the tokenizer.</div></div></div></div></details></li>
+<li data-id="gh-a-080" data-tier="T3"><div class="head"><div class="hl"><span class="pos">46.</span><span class="id">gh-a-080</span><a class="title" href="https://github.com/acme/widget/issues/918" rel="noreferrer">EPUB export?</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 24 d 15 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Would be great to export to EPUB for e-readers. Sorry if this was already asked, I searched &quot;ebook&quot; and found nothing. (edit: found #553, this is the same, feel free to close)</div></div></div></div></details></li>
+<li data-id="gh-a-082" data-tier="T3"><div class="head"><div class="hl"><span class="pos">47.</span><span class="id">gh-a-082</span><a class="title" href="https://github.com/acme/widget/issues/876" rel="noreferrer">BLOCKER for our release: add --quiet to the CLI</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 35 d 17 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>This is a BLOCKER for our release pipeline. `widget export` prints a progress bar and a summary to stdout, which ends up in our build logs and makes them huge. We need a `--quiet` flag that only prints errors. Redirecting to /dev/null hides the errors too.</div></div></div></div></details></li>
+<li data-id="gh-a-088" data-tier="T3"><div class="head"><div class="hl"><span class="pos">48.</span><span class="id">gh-a-088</span><a class="title" href="https://github.com/acme/widget/pull/545" rel="noreferrer">i18n: add brazilian portuguese translation</a></div></div><ul class="meta"><li>waiting 121 d 11 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Hello! This PR add the translation for portuguese of Brazil (pt-BR). I translate all strings of `locales/en.json` to `locales/pt-BR.json`, 1,204 strings. Some strings i was not sure, i put a comment in the review for them.
+
+- [x] all keys present (checked with `make i18n-check`)
+- [ ] screenshots (i can add if need)
+
+Thank you, my team use widget every day.</div></div></div></div></details></li>
+<li data-id="gh-a-090" data-tier="T3"><div class="head"><div class="hl"><span class="pos">49.</span><span class="id">gh-a-090</span><a class="title" href="https://github.com/acme/widget/pull/635" rel="noreferrer">ci: cache build artefacts between jobs</a></div></div><ul class="meta"><li>waiting 80 d 23 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Builds on CI take ~18 min per platform because each job compiles from scratch. This adds a cache for the `target/` directory, keyed on the lockfile hash and the toolchain version.
+
+Before / after on this branch:
+
+| job | before | after |
+|---|---|---|
+| linux | 17m40s | 6m12s |
+| macos | 21m05s | 8m30s |
+| windows | 24m10s | 9m55s |</div></div></div></div></details></li>
+<li data-id="gh-a-097" data-tier="T3"><div class="head"><div class="hl"><span class="pos">50.</span><span class="id">gh-a-097</span><a class="title" href="https://github.com/acme/widget/issues/610" rel="noreferrer">Broken link in CONTRIBUTING.md</a></div></div><ul class="meta"><li>label documentation</li><li>waiting 92 d 21 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>In CONTRIBUTING.md, the &quot;Code of Conduct&quot; link points to `docs/CODE_OF_CONDUCT.md`, which gives a 404. The file is at the repo root (`CODE_OF_CONDUCT.md`).</div></div></div></div></details></li>
+<li data-id="gh-a-103" data-tier="T3"><div class="head"><div class="hl"><span class="pos">51.</span><span class="id">gh-a-103</span><a class="title" href="https://github.com/acme/widget/issues/651" rel="noreferrer">Drag to reorder tags sometimes jumps back</a></div></div><ul class="meta"><li>label bug</li><li>waiting 75 d 17 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>In the tags panel, dragging a tag to a new position sometimes snaps back to the old one (maybe 1 in 5 times). Dragging again works. It happens more when the panel is scrolled.
+
+widget 3.1.5, Ubuntu 22.04</div></div></div></div></details></li>
+<li data-id="gh-a-104" data-tier="T3"><div class="head"><div class="hl"><span class="pos">52.</span><span class="id">gh-a-104</span><a class="title" href="https://github.com/acme/widget/issues/657" rel="noreferrer">ASAP: typo on welcome screen</a></div></div><ul class="meta"><li>waiting 73 d 22 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Please fix ASAP, it&#39;s on the very first screen new users see: &quot;You will recieve an email to confirm your account&quot;. Should be &quot;receive&quot;. We&#39;re demoing widget to our whole department on Friday.</div></div></div></div></details></li>
+<li data-id="gh-a-108" data-tier="T3"><div class="head"><div class="hl"><span class="pos">53.</span><span class="id">gh-a-108</span><a class="title" href="https://github.com/acme/widget/issues/619" rel="noreferrer">Difference between `widget push` and `widget sync`?</a></div></div><ul class="meta"><li>label question</li><li>waiting 87 d 17 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>The CLI help says:
+
+```
+push    Upload local changes
+sync    Synchronise projects
+```
+
+What&#39;s the actual difference? Does `sync` also push? If I only use `push` in a cron job, will changes made on other machines ever come down? The docs for both are one line each.</div></div></div></div></details></li>
+<li data-id="gh-a-116" data-tier="T3"><div class="head"><div class="hl"><span class="pos">54.</span><span class="id">gh-a-116</span><a class="title" href="https://github.com/acme/widget/issues/549" rel="noreferrer">Dark theme: selected text is barely visible</a></div></div><ul class="meta"><li>label bug</li><li>waiting 120 d 11 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>In the Dark theme, selected text in the editor has a selection colour very close to the background, so it&#39;s hard to see what&#39;s selected. Changing the accent colour to orange makes it visible, so there&#39;s a workaround.
+
+3.1.4, macOS 14</div></div></div></div></details></li>
+<li data-id="gh-a-117" data-tier="T3"><div class="head"><div class="hl"><span class="pos">55.</span><span class="id">gh-a-117</span><a class="title" href="https://github.com/acme/widget/issues/787" rel="noreferrer">Links to files in other projects open the wrong file since 3.2.0</a></div></div><ul class="meta"><li>label bug</li><li>waiting 53 d 20 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>In 3.1.5, a link like `[[recipes/bread]]` written in another project opened recipes/bread.wdg. In 3.2.0 it opens `bread.wdg` in the *current* project if one exists with that name, otherwise it says &quot;file not found&quot;.
+
+Workaround: writing the link with the explicit project prefix, `[[@recipes/bread]]`, works. Our team wiki has a few hundred cross-project links, so people keep landing on the wrong page, but at least we can fix them with search &amp; replace.
+
+Windows 11, widget 3.2.0</div></div></div></div></details></li>
+<li data-id="gh-a-121" data-tier="T3"><div class="head"><div class="hl"><span class="pos">56.</span><span class="id">gh-a-121</span><a class="title" href="https://github.com/acme/widget/issues/776" rel="noreferrer">Installation page still says the latest version is 3.1.4</a></div></div><ul class="meta"><li>label documentation</li><li>waiting 56 d 14 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>widget.example/docs/install says &quot;Latest version: 3.1.4 (July 2026)&quot; and the changelog link goes to the 3.1.4 notes. The download buttons do give 3.2.0, so it&#39;s just the text.</div></div></div></div></details></li>
+<li data-id="gh-a-123" data-tier="T3"><div class="head"><div class="hl"><span class="pos">57.</span><span class="id">gh-a-123</span><a class="title" href="https://github.com/acme/widget/issues/595" rel="noreferrer">Pin projects to the top of the sidebar</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 96 d 16 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>With 80+ projects, the ones I use daily get lost when sorting by name. A &quot;Pin to top&quot; option in the right-click menu (and maybe a pinned section) would solve it. Ideally pins sync between machines.</div></div></div></div></details></li>
+<li data-id="gh-a-124" data-tier="T3"><div class="head"><div class="hl"><span class="pos">58.</span><span class="id">gh-a-124</span><a class="title" href="https://github.com/acme/widget/pull/674" rel="noreferrer">docs: fix typos in the sync guide</a></div></div><ul class="meta"><li>label documentation</li><li>waiting 67 d 22 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Fixes a handful of typos in `docs/guide/sync.md`:
+
+- &quot;recieve&quot; → &quot;receive&quot;
+- &quot;occured&quot; → &quot;occurred&quot;
+- &quot;it&#39;s settings&quot; → &quot;its settings&quot;
+- broken anchor `#conflict-resoultion`
+
+No content changes.</div></div></div></div></details></li>
+<li data-id="gh-a-143" data-tier="T3"><div class="head"><div class="hl"><span class="pos">59.</span><span class="id">gh-a-143</span><a class="title" href="https://github.com/acme/widget/issues/658" rel="noreferrer">Can I self-host the sync server?</a></div></div><ul class="meta"><li>label question</li><li>waiting 72 d 22 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Is the sync server open source or available to self-host? Our organisation can&#39;t put project data on a third-party cloud. If not, is there a supported way to sync via a shared folder instead (e.g. a network drive) without corrupting things?</div></div></div></div></details></li>
+<li data-id="gh-a-144" data-tier="T3"><div class="head"><div class="hl"><span class="pos">60.</span><span class="id">gh-a-144</span><a class="title" href="https://github.com/acme/widget/issues/510" rel="noreferrer">Typo in README: &quot;syncronise&quot;</a></div></div><ul class="meta"><li>label documentation</li><li>waiting 153 d</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Small one: the README&#39;s feature list says &quot;syncronise projects across devices&quot;. Should be &quot;synchronise&quot; (or &quot;synchronize&quot; if the project uses US spelling; the rest of the README seems to).</div></div></div></div></details></li>
+</ol></div></div></section>
+</main><footer><p>Every flag quotes the exact words that matched. No item is placed below the tier its own priority field implies; rules and annotations can only raise.</p>
+<p>Generated by urgent-first 0.1.0.</p></footer>
+<script type="application/json" id="uf-data">{"counts":{"total":60,"flagged":32,"unmatched":28,"by_tier":{"T1":20,"T2":12,"T3":28}},"evidence":[{"id":"gh-a-136","tier":"T1","quotes":[{"field":"body","text":"nothing newer than"},{"field":"body","text":"project is gone"},{"field":"title","text":"overwrote"}]},{"id":"gh-a-042","tier":"T1","quotes":[{"field":"title","text":"404 on 3.2.0 asset"},{"field":"body","text":"download failed"},{"field":"body","text":"install failed"},{"field":"title","text":"fails:"}]},{"id":"gh-a-016","tier":"T1","quotes":[{"field":"body","text":"could not be opened"},{"field":"body","text":"0 KB"},{"field":"body","text":"0 Bytes"},{"field":"title","text":"0 KB"}]},{"id":"gh-a-070","tier":"T1","quotes":[{"field":"body","text":"unmet dependencies"},{"field":"body","text":"not installable"},{"field":"body","text":"broken packages"},{"field":"title","text":"can't be installed"}]},{"id":"gh-a-089","tier":"T1","quotes":[{"field":"title","text":"doesn't match SHA256SUMS"},{"field":"title","text":"checksum doesn't match"}]},{"id":"gh-a-001","tier":"T1","quotes":[{"field":"body","text":"Can't downgrade"},{"field":"body","text":"After updating"},{"field":"body","text":"3.2.0"},{"field":"body","text":"every"},{"field":"body","text":"fails"},{"field":"body","text":"ERROR"},{"field":"body","text":"failed"},{"field":"body","text":"fails"},{"field":"body","text":"error"},{"field":"body","text":"Update to"},{"field":"body","text":"3.2.0"},{"field":"body","text":"3.2.0"},{"field":"body","text":"3.2.0"},{"field":"title","text":"fails"},{"field":"title","text":"after updating"},{"field":"title","text":"3.2.0"},{"field":"title","text":"worked on"},{"field":"body","text":"After updating"},{"field":"title","text":"after updating"},{"field":"title","text":"worked on"},{"field":"body","text":"fails with"},{"field":"body","text":"fails:"},{"field":"title","text":"fails with"}]},{"id":"gh-a-098","tier":"T1","quotes":[{"field":"body","text":"can't create projects"},{"field":"body","text":"zip` doesn't contain"},{"field":"title","text":"zip is missing"}]},{"id":"gh-a-107","tier":"T1","quotes":[{"field":"body","text":"Fixes #710"}]},{"id":"gh-a-146","tier":"T1","quotes":[{"field":"body","text":"After updating"},{"field":"body","text":"3.2.0"},{"field":"body","text":"Forever"},{"field":"body","text":"can't"},{"field":"body","text":"all"},{"field":"body","text":"Worked fine"},{"field":"body","text":"3.2.0"},{"field":"title","text":"3.2.0"},{"field":"body","text":"After updating"},{"field":"body","text":"Worked fine"}]},{"id":"gh-a-078","tier":"T1","quotes":[{"field":"title","text":"stopped working"},{"field":"body","text":"3.2.0"},{"field":"body","text":"none of"},{"field":"body","text":"was fine"},{"field":"body","text":"all"},{"field":"body","text":"unusable"},{"field":"body","text":"every"},{"field":"body","text":"can't"},{"field":"title","text":"All"},{"field":"title","text":"stopped working"},{"field":"body","text":"was fine"},{"field":"body","text":"unusable"}]},{"id":"gh-a-061","tier":"T1","quotes":[{"field":"title","text":"Segfault on every"},{"field":"title","text":"on every command"},{"field":"body","text":"Segmentation fault"},{"field":"body","text":"core dumped"},{"field":"body","text":"Segmentation fault"},{"field":"body","text":"core dumped"},{"field":"title","text":"Segfault"}]},{"id":"gh-a-062","tier":"T1","quotes":[{"field":"body","text":"get the old history back"},{"field":"body","text":"versions are gone"},{"field":"body","text":"After installing"},{"field":"body","text":"v3.2.0"},{"field":"body","text":"every"},{"field":"body","text":"All"},{"field":"body","text":"every"},{"field":"body","text":"every"},{"field":"body","text":"upgraded from"},{"field":"title","text":"after update"}]},{"id":"gh-a-067","tier":"T1","quotes":[{"field":"body","text":"open any project"},{"field":"title","text":"open any project"},{"field":"body","text":"nothing works"},{"field":"body","text":"Since update"},{"field":"body","text":"update to"},{"field":"body","text":"3.2"},{"field":"body","text":"cannot"},{"field":"body","text":"Error"},{"field":"body","text":"Error"},{"field":"body","text":"everybody"},{"field":"body","text":"not possible"},{"field":"body","text":"3.2.0"},{"field":"title","text":"Cannot"},{"field":"title","text":"since 3.2"},{"field":"body","text":"not possible"}]},{"id":"gh-a-003","tier":"T1","quotes":[{"field":"body","text":"After upgrading"},{"field":"body","text":"3.2.0"},{"field":"body","text":"does nothing"},{"field":"body","text":"all"},{"field":"body","text":"all"},{"field":"body","text":"all"},{"field":"title","text":"does nothing"},{"field":"body","text":"icon does nothing"},{"field":"title","text":"icon does nothing"},{"field":"body","text":"After upgrading"}]},{"id":"gh-a-043","tier":"T1","quotes":[{"field":"body","text":"any project that was ever shared with edit"},{"field":"body","text":"anyone can"},{"field":"body","text":"modify any project"}]},{"id":"gh-a-059","tier":"T1","quotes":[{"field":"body","text":"not on disk"},{"field":"body","text":"since 3.2.0"},{"field":"body","text":"3.2"},{"field":"body","text":"do nothing"},{"field":"body","text":"3.2.0"},{"field":"title","text":"3.2"}]},{"id":"gh-a-013","tier":"T1","quotes":[{"field":"body","text":"project vanished"}]},{"id":"gh-a-114","tier":"T1","quotes":[{"field":"body","text":"any page on the internet"},{"field":"body","text":"start programs"},{"field":"title","text":"started another program"}]},{"id":"gh-a-095","tier":"T1","quotes":[{"field":"body","text":"CVE"}]},{"id":"gh-a-094","tier":"T1","quotes":[{"field":"body","text":"nightly didn't publish"},{"field":"body","text":"red since"},{"field":"title","text":"doesn't build"}]},{"id":"gh-a-133","tier":"T2","quotes":[{"field":"body","text":"is dropped"},{"field":"title","text":"drops all"}]},{"id":"gh-a-077","tier":"T2","quotes":[{"field":"body","text":"close itself"},{"field":"title","text":"crash"}]},{"id":"gh-a-081","tier":"T2","quotes":[{"field":"body","text":"never returns"},{"field":"body","text":"0 files"}]},{"id":"gh-a-008","tier":"T2","quotes":[{"field":"body","text":"after updating"}]},{"id":"gh-a-035","tier":"T2","quotes":[{"field":"body","text":"has expired"},{"field":"body","text":"only I can"}]},{"id":"gh-a-023","tier":"T2","quotes":[{"field":"body","text":"Not Responding"},{"field":"body","text":"hang"},{"field":"title","text":"freezes"}]},{"id":"gh-a-111","tier":"T2","quotes":[{"field":"body","text":"can't use the CLI at all"},{"field":"body","text":"always says"},{"field":"title","text":"rejects"}]},{"id":"gh-a-148","tier":"T2","quotes":[{"field":"body","text":"segfault"},{"field":"body","text":"crashes"},{"field":"title","text":"Segfault"}]},{"id":"gh-a-072","tier":"T2","quotes":[{"field":"body","text":"still uploads"},{"field":"title","text":"are ignored"}]},{"id":"gh-a-149","tier":"T2","quotes":[]},{"id":"gh-a-033","tier":"T2","quotes":[{"field":"body","text":"isn't really an option"},{"field":"body","text":"nothing changes"}]},{"id":"gh-a-007","tier":"T2","quotes":[{"field":"body","text":"only option"},{"field":"title","text":"fails:"}]},{"id":"gh-a-005","tier":"T3","quotes":[]},{"id":"gh-a-026","tier":"T3","quotes":[]},{"id":"gh-a-027","tier":"T3","quotes":[]},{"id":"gh-a-029","tier":"T3","quotes":[]},{"id":"gh-a-030","tier":"T3","quotes":[]},{"id":"gh-a-041","tier":"T3","quotes":[]},{"id":"gh-a-045","tier":"T3","quotes":[]},{"id":"gh-a-060","tier":"T3","quotes":[]},{"id":"gh-a-066","tier":"T3","quotes":[]},{"id":"gh-a-069","tier":"T3","quotes":[]},{"id":"gh-a-071","tier":"T3","quotes":[]},{"id":"gh-a-076","tier":"T3","quotes":[]},{"id":"gh-a-079","tier":"T3","quotes":[]},{"id":"gh-a-080","tier":"T3","quotes":[]},{"id":"gh-a-082","tier":"T3","quotes":[]},{"id":"gh-a-088","tier":"T3","quotes":[]},{"id":"gh-a-090","tier":"T3","quotes":[]},{"id":"gh-a-097","tier":"T3","quotes":[]},{"id":"gh-a-103","tier":"T3","quotes":[]},{"id":"gh-a-104","tier":"T3","quotes":[]},{"id":"gh-a-108","tier":"T3","quotes":[]},{"id":"gh-a-116","tier":"T3","quotes":[]},{"id":"gh-a-117","tier":"T3","quotes":[]},{"id":"gh-a-121","tier":"T3","quotes":[]},{"id":"gh-a-123","tier":"T3","quotes":[]},{"id":"gh-a-124","tier":"T3","quotes":[]},{"id":"gh-a-143","tier":"T3","quotes":[]},{"id":"gh-a-144","tier":"T3","quotes":[]}]}</script>
+<script>
+/* fluid.js: interruptible springs and pointer helpers for offline pages. No dependencies, about 2 KB minified.
+ * Inline a copy into each generated page. Springs use Apple's response/damping model:
+ *   response = period of the undamped spring in seconds; damping = damping ratio (1 = no bounce, 0.8 = slight bounce).
+ *   Move or reposition: damping 1, response 0.4. Drawer or sheet: damping 0.8, response 0.3. Press: damping 1, response 0.18.
+ * Every spring keeps its live value and velocity, so a new target retargets from where it is now (interruptible).
+ * Under prefers-reduced-motion every spring jumps straight to its target.
+ */
+var Fluid = (function () {
+  'use strict';
+  var mq = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function reduce() { return !!(mq && mq.matches); }
+
+  function spring(opts) {
+    opts = opts || {};
+    var x = opts.value || 0, v = 0, target = x, raf = 0, last = 0, k = 0, c = 0;
+    var onUpdate = opts.onUpdate, onRest = opts.onRest, eps = opts.epsilon || 0.001;
+    var response = opts.response || 0.4, damping = opts.damping == null ? 1 : opts.damping;
+    function params(r, d) { k = Math.pow((2 * Math.PI) / r, 2); c = (4 * Math.PI * d) / r; }
+    params(response, damping);
+    function emit() { if (onUpdate) onUpdate(x, v); }
+    function settle() { x = target; v = 0; raf = 0; emit(); if (onRest) onRest(x); }
+    function step(t) {
+      var dt = (t - last) / 1000;
+      if (!(dt > 0)) dt = 1 / 60; // the first frame's timestamp can be earlier than the call to to()
+      if (dt > 0.064) dt = 0.064;
+      last = t;
+      var n = Math.max(1, Math.ceil(dt * 240)), h = dt / n;
+      for (var i = 0; i < n; i++) { var a = -k * (x - target) - c * v; v += a * h; x += v * h; }
+      if (Math.abs(x - target) < eps && Math.abs(v) < eps * 10) return settle();
+      emit();
+      raf = requestAnimationFrame(step);
+    }
+    var api = {
+      get value() { return x; },
+      get velocity() { return v; },
+      get target() { return target; },
+      /** Animate to t. opts.velocity hands off a release velocity (units per second). */
+      to: function (t, o) {
+        o = o || {};
+        target = t;
+        if (o.velocity != null) v = o.velocity;
+        if (o.response || o.damping != null) params(o.response || response, o.damping == null ? damping : o.damping);
+        if (reduce()) { cancelAnimationFrame(raf); settle(); return api; }
+        if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
+        return api;
+      },
+      /** Jump without animating (direct manipulation: the finger owns the value). */
+      set: function (val) { cancelAnimationFrame(raf); raf = 0; x = target = val; v = 0; emit(); return api; },
+      stop: function () { cancelAnimationFrame(raf); raf = 0; return api; },
+    };
+    return api;
+  }
+
+  /** Velocity over the last 100 ms of samples, in units per second. */
+  function velocityTracker() {
+    var s = [];
+    return {
+      add: function (p, t) { t = t == null ? performance.now() : t; s.push([p, t]); while (s.length > 2 && t - s[0][1] > 100) s.shift(); },
+      get: function () { if (s.length < 2) return 0; var a = s[0], b = s[s.length - 1]; return b[1] > a[1] ? (b[0] - a[0]) / ((b[1] - a[1]) / 1000) : 0; },
+      reset: function () { s.length = 0; },
+    };
+  }
+
+  /** Where a flick comes to rest under exponential decay (deceleration rate per millisecond, 0.998 = normal). */
+  function project(velocity, rate) { rate = rate || 0.998; return ((velocity / 1000) * rate) / (1 - rate); }
+
+  /** Resistance past an edge: overshoot in px, dimension = track length in px. Returns the drawn overshoot. */
+  function rubber(overshoot, dimension, coeff) {
+    coeff = coeff || 0.55;
+    var sign = overshoot < 0 ? -1 : 1, o = Math.abs(overshoot);
+    return sign * (1 - 1 / ((o * coeff) / dimension + 1)) * dimension;
+  }
+
+  /** Press feedback on pointer-down. Scales el with a spring; a move of more than 10 px cancels the press. */
+  function pressable(el, o) {
+    o = o || {};
+    var down = o.scale || 0.97, start = null, sp = spring({ value: 1, response: 0.18, damping: 1, onUpdate: function (s) {
+      el.style.transform = s === 1 ? '' : 'scale(' + s.toFixed(4) + ')';
+    } });
+    function release() { start = null; sp.to(1, { response: 0.3, damping: 0.8 }); }
+    el.addEventListener('pointerdown', function (e) { if (e.button > 0) return; start = [e.clientX, e.clientY]; sp.to(down, { response: 0.18, damping: 1 }); });
+    el.addEventListener('pointermove', function (e) { if (start && Math.hypot(e.clientX - start[0], e.clientY - start[1]) > 10) release(); });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (n) { el.addEventListener(n, function () { if (start) release(); }); });
+    return sp;
+  }
+
+  return { spring: spring, velocityTracker: velocityTracker, project: project, rubber: rubber, pressable: pressable, reduce: reduce };
+})();
+if (typeof module !== 'undefined') module.exports = Fluid;
+
+/* board.html motion: disclosure springs, press feedback and the sticky bar material.
+ * A classic browser script, inlined after fluid.js (read as text by html.js, never imported).
+ * The page reads fully without it: every card and group renders open, and the toggles stay hidden.
+ * Height springs (damping 1, response 0.35) reverse from their live height and velocity when clicked
+ * again mid-flight; chevrons rotate on their own spring (damping 0.8, response 0.4). Under
+ * prefers-reduced-motion every spring jumps straight to its target. */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  function rotate(svg, deg) { svg.style.transform = 'rotate(' + deg.toFixed(2) + 'deg)'; }
+
+  /** o: { body, open, chev, show(), hide(), set(open) }. body's first child fades and settles 6px. */
+  function disclosure(o) {
+    var body = o.body, inner = body.firstElementChild || body, open = o.open, full = 0;
+    function paint(x) {
+      var c = x < 0 ? 0 : x > 1 ? 1 : x;
+      body.style.height = (c * full).toFixed(2) + 'px';
+      body.style.overflow = 'hidden';
+      inner.style.opacity = c.toFixed(3);
+      inner.style.transform = 'translateY(' + (-6 * (1 - c)).toFixed(2) + 'px)';
+    }
+    function rest(x) {
+      body.style.height = body.style.overflow = inner.style.opacity = inner.style.transform = '';
+      if (x === 0) o.hide();
+    }
+    var h = Fluid.spring({ value: open ? 1 : 0, response: 0.35, damping: 1, onUpdate: paint, onRest: rest });
+    var chev = o.chev && Fluid.spring({ value: open ? 90 : 0, response: 0.4, damping: 0.8, onUpdate: function (d) { rotate(o.chev, d); } });
+    if (o.chev) rotate(o.chev, open ? 90 : 0);
+    var api = {
+      get open() { return open; },
+      toggle: function () {
+        open = !open;
+        if (open) o.show();
+        full = body.scrollHeight;
+        if (!body.style.height) paint(h.value); // at rest: pin the live height before animating
+        h.to(open ? 1 : 0);
+        if (chev) chev.to(open ? 90 : 0);
+        o.set(open);
+      },
+      /** Follow a change made outside the toggle (find-in-page opening a details element). */
+      jump: function (v) {
+        open = v;
+        h.set(v ? 1 : 0);
+        rest(v ? 1 : 0);
+        if (chev) chev.set(v ? 90 : 0);
+        o.set(v);
+      },
+    };
+    return api;
+  }
+
+  // Cards and the "No rule matched" group: a chevron button controls the body named in aria-controls.
+  document.querySelectorAll('button.tog[aria-controls]').forEach(function (btn) {
+    var body = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!body) return;
+    btn.hidden = false;
+    var d = disclosure({
+      body: body,
+      open: btn.getAttribute('aria-expanded') !== 'false',
+      chev: btn.querySelector('.chev'),
+      show: function () { body.hidden = false; },
+      hide: function () { body.hidden = true; },
+      set: function (v) { btn.setAttribute('aria-expanded', String(v)); },
+    });
+    btn.addEventListener('click', d.toggle);
+    Fluid.pressable(btn, { scale: 0.88 });
+  });
+
+  // Item text and other text fields: native <details>, kept open while the body springs shut.
+  document.querySelectorAll('details.disc').forEach(function (det) {
+    var sum = det.querySelector(':scope > summary'), body = det.querySelector(':scope > .dbody');
+    if (!sum || !body) return;
+    var d = disclosure({
+      body: body,
+      open: det.open,
+      chev: sum.querySelector('.chev'),
+      show: function () { det.open = true; },
+      hide: function () { det.open = false; },
+      set: function () {},
+    });
+    sum.addEventListener('click', function (e) { e.preventDefault(); d.toggle(); });
+    det.addEventListener('toggle', function () { if (det.open !== d.open && !body.style.height) d.jump(det.open); });
+    Fluid.pressable(sum);
+  });
+
+  // Summary chips jump to their sections (native smooth scroll, instant under reduced motion).
+  document.querySelectorAll('.summary .chip').forEach(function (chip) { Fluid.pressable(chip); });
+
+  // The sticky bar turns into a translucent material once the board scrolls under it.
+  var bar = document.getElementById('bar'), sentinel = document.getElementById('bar-sentinel');
+  if (bar) {
+    var measure = function () { document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px'); };
+    measure();
+    addEventListener('resize', measure);
+    if (sentinel && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { bar.classList.toggle('stuck', !e[e.length - 1].isIntersecting); }).observe(sentinel);
+    }
+  }
+})();
+</script>
+</div></body></html>

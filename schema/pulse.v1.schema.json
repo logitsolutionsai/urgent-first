@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/logitsolutionsai/urgent-first/schema/pulse.v1.schema.json",
+  "title": "urgent-first Release Pulse, schema version 1",
+  "description": "pulse.json written by `urgent-first diff`. Five sections, warnings and visibility. A Pulse never contains item bodies; quotes carry their provenance.",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "engineVersion", "status", "older", "newer", "configChanged", "scopeMatches", "resolutionsAsserted", "release", "counts", "sections", "changes", "warnings", "visibility", "pulseId"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "urgent-first-pulse" },
+    "status": { "enum": ["complete", "partial"] },
+    "pulseId": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "configChanged": { "type": "boolean" },
+    "scopeMatches": { "type": "boolean" },
+    "resolutionsAsserted": { "type": "boolean" },
+    "release": {
+      "anyOf": [
+        { "type": "null" },
+        { "type": "object", "required": ["tag", "publishedAt", "source", "reportedAfter", "note"], "properties": { "source": { "const": "github-release-api" } } }
+      ]
+    },
+    "sections": {
+      "type": "object",
+      "required": ["newlyFlagged", "tierChanges", "unresolvedPrior", "priorFlaggedNotInNewer", "clustersWithNewMembers", "goldMisses"],
+      "properties": {
+        "newlyFlagged": { "type": "array", "items": { "$ref": "#/$defs/entry" } },
+        "tierChanges": { "type": "array", "items": { "allOf": [{ "$ref": "#/$defs/entry" }, { "type": "object", "required": ["before", "after", "direction", "causes"], "properties": { "direction": { "enum": ["raised", "cross_run_downgrade"] } } }] } },
+        "unresolvedPrior": { "type": "array", "items": { "$ref": "#/$defs/entry" } },
+        "priorFlaggedNotInNewer": { "type": "array", "items": { "$ref": "#/$defs/entry" } },
+        "clustersWithNewMembers": { "type": "array" },
+        "goldMisses": { "anyOf": [{ "type": "null" }, { "type": "object", "required": ["labelledItems", "goldTopTier", "missed"] }] }
+      }
+    },
+    "visibility": { "type": "object", "required": ["public"] }
+  },
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["id", "localId", "title", "tier", "evidence"],
+      "not": { "required": ["text"] },
+      "properties": {
+        "evidence": { "type": "array", "items": { "type": "object", "required": ["evidenceId", "ruleId", "field", "start", "end", "text", "snapshotId"] } }
+      }
+    }
+  }
+}

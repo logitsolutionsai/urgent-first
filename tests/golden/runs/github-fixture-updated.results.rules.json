@@ -1,0 +1,851 @@
+{
+  "engine": {
+    "name": "urgent-first",
+    "version": "0.1.0"
+  },
+  "pack": {
+    "name": "github-maintainer",
+    "version": "0.1.0",
+    "title": "GitHub maintainer",
+    "mode": "standard",
+    "tiers": [
+      {
+        "id": "T1",
+        "name": "Discuss now",
+        "sla_minutes": null
+      },
+      {
+        "id": "T2",
+        "name": "Today",
+        "sla_minutes": null
+      },
+      {
+        "id": "T3",
+        "name": "In order",
+        "sla_minutes": null
+      }
+    ]
+  },
+  "input": "github:acme/widget (open, 11)",
+  "now": "2026-10-23T12:00:00.000Z",
+  "counts": {
+    "total": 11,
+    "flagged": 6,
+    "unmatched": 5,
+    "by_tier": {
+      "T1": 5,
+      "T2": 1,
+      "T3": 5
+    }
+  },
+  "masking": {
+    "templates": {
+      "github:acme/widget": 0
+    },
+    "boilerplate": {
+      "min_share": 0.2,
+      "min_items": 5,
+      "distinct_lines": 0,
+      "kept_top_tier_lines": 0
+    },
+    "items_masked": 0,
+    "template_lines_masked": 0,
+    "boilerplate_lines_masked": 0
+  },
+  "links": {
+    "pull_requests_inheriting": 0,
+    "linked_items_fetched": 0
+  },
+  "items": [
+    {
+      "id": "#790",
+      "title": "main does not build since #786",
+      "url": "https://github.com/acme/widget/issues/790",
+      "original_index": 10,
+      "created_at": "2026-10-11T12:00:00Z",
+      "priority": null,
+      "labels": [],
+      "location": null,
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "BUILD-OR-INSTALL-BROKEN",
+          "tier": "T1",
+          "title": "Build or install broken",
+          "why": "A red main branch, a release that cannot be installed or an artefact with missing files blocks every contributor or every new user.",
+          "category": "build_or_install_broken",
+          "source": {
+            "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+            "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+          },
+          "evidence": [
+            {
+              "field": "title",
+              "start": 5,
+              "end": 19,
+              "text": "does not build",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 27,
+              "end": 39,
+              "text": "build` fails",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 133,
+              "end": 142,
+              "text": "red since",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "BROKEN-NO-WORKAROUND",
+          "tier": "T2",
+          "title": "Feature broken with no workaround",
+          "why": "An important feature that does not work at all for some users, with no workaround, blocks their work.",
+          "category": "broken_feature",
+          "source": {
+            "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+            "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 34,
+              "end": 40,
+              "text": "fails:",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: BUILD-OR-INSTALL-BROKEN (T1) quotes \"does not build\" and 2 more.",
+      "position": 1
+    },
+    {
+      "id": "#799",
+      "title": "Share links can read other users' tokens",
+      "url": "https://github.com/acme/widget/issues/799",
+      "original_index": 8,
+      "created_at": "2026-10-14T19:31:00Z",
+      "priority": null,
+      "labels": [],
+      "location": null,
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "SECURITY",
+          "tier": "T1",
+          "title": "Possible security vulnerability",
+          "why": "A report that one user can read or change another user's data, run code, bypass sign-in, see secrets, or that a release artefact does not match its checksum should be handled privately and first.",
+          "category": "security",
+          "source": {
+            "citation": "GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025",
+            "url": "https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability",
+            "year": 2025
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 166,
+              "end": 182,
+              "text": "read other users",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 16,
+              "end": 32,
+              "text": "read other users",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: SECURITY (T1) quotes \"read other users\" and 1 more.",
+      "position": 2
+    },
+    {
+      "id": "#805",
+      "title": "Login loop after updating to 3.2.0",
+      "url": "https://github.com/acme/widget/issues/805",
+      "original_index": 6,
+      "created_at": "2026-10-16T14:47:00Z",
+      "priority": null,
+      "labels": [],
+      "location": null,
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "REGRESSION-LATEST",
+          "tier": "T1",
+          "title": "Regression in the latest release with no workaround",
+          "why": "Something that worked in the previous release and is broken in the latest one, with no workaround, hits everyone who upgrades. Minor and patch releases are meant to stay backward compatible.",
+          "category": "regression_latest_release",
+          "source": {
+            "citation": "Semantic Versioning 2.0.0",
+            "url": "https://semver.org/spec/v2.0.0.html"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 0,
+              "end": 14,
+              "text": "After updating",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 18,
+              "end": 23,
+              "text": "3.2.0",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 152,
+              "end": 159,
+              "text": "Forever",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 161,
+              "end": 172,
+              "text": "Worked fine",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 183,
+              "end": 189,
+              "text": "Cannot",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 218,
+              "end": 221,
+              "text": "all",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 11,
+              "end": 25,
+              "text": "after updating",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 29,
+              "end": 34,
+              "text": "3.2.0",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "REGRESSION",
+          "tier": "T2",
+          "title": "Regression",
+          "why": "Something that used to work and no longer does, in any release, deserves a look soon even when there is a workaround.",
+          "category": "regression_older",
+          "source": {
+            "citation": "Semantic Versioning 2.0.0",
+            "url": "https://semver.org/spec/v2.0.0.html"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 0,
+              "end": 14,
+              "text": "After updating",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 161,
+              "end": 172,
+              "text": "Worked fine",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 11,
+              "end": 25,
+              "text": "after updating",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: REGRESSION-LATEST (T1) quotes \"After updating\" and 7 more.",
+      "position": 3
+    },
+    {
+      "id": "#812",
+      "title": "Data loss after upgrade to 3.2",
+      "url": "https://github.com/acme/widget/issues/812",
+      "original_index": 5,
+      "created_at": "2026-10-18T08:02:00Z",
+      "priority": null,
+      "labels": [
+        "bug"
+      ],
+      "location": null,
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "DATA-LOSS",
+          "tier": "T1",
+          "title": "Data lost, overwritten or corrupted",
+          "why": "Users losing work they cannot get back is the most expensive kind of bug; every hour it stays open it can hit more people.",
+          "category": "data_loss",
+          "source": {
+            "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+            "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 116,
+              "end": 154,
+              "text": "folder is empty and the trash is empty",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 75,
+              "end": 101,
+              "text": "lost all my saved projects",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 0,
+              "end": 9,
+              "text": "Data loss",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "REGRESSION-LATEST",
+          "tier": "T1",
+          "title": "Regression in the latest release with no workaround",
+          "why": "Something that worked in the previous release and is broken in the latest one, with no workaround, hits everyone who upgrades. Minor and patch releases are meant to stay backward compatible.",
+          "category": "regression_latest_release",
+          "source": {
+            "citation": "Semantic Versioning 2.0.0",
+            "url": "https://semver.org/spec/v2.0.0.html"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 21,
+              "end": 36,
+              "text": "After upgrading",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 51,
+              "end": 56,
+              "text": "3.2.0",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 80,
+              "end": 83,
+              "text": "all",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 173,
+              "end": 178,
+              "text": "3.2.0",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 27,
+              "end": 30,
+              "text": "3.2",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "REGRESSION",
+          "tier": "T2",
+          "title": "Regression",
+          "why": "Something that used to work and no longer does, in any release, deserves a look soon even when there is a workaround.",
+          "category": "regression_older",
+          "source": {
+            "citation": "Semantic Versioning 2.0.0",
+            "url": "https://semver.org/spec/v2.0.0.html"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 21,
+              "end": 36,
+              "text": "After upgrading",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: DATA-LOSS (T1) quotes \"folder is empty and the trash is empty\" and 2 more; REGRESSION-LATEST (T1) quotes \"After upgrading\" and 4 more.",
+      "position": 4
+    },
+    {
+      "id": "#826",
+      "title": "Since 3.2.0 every export to PDF fails",
+      "url": "https://github.com/acme/widget/issues/826",
+      "original_index": 0,
+      "created_at": "2026-10-22T08:30:00Z",
+      "priority": null,
+      "labels": [],
+      "location": null,
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "REGRESSION-LATEST",
+          "tier": "T1",
+          "title": "Regression in the latest release with no workaround",
+          "why": "Something that worked in the previous release and is broken in the latest one, with no workaround, hits everyone who upgrades. Minor and patch releases are meant to stay backward compatible.",
+          "category": "regression_latest_release",
+          "source": {
+            "citation": "Semantic Versioning 2.0.0",
+            "url": "https://semver.org/spec/v2.0.0.html"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 0,
+              "end": 14,
+              "text": "After updating",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 18,
+              "end": 23,
+              "text": "3.2.0",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 25,
+              "end": 30,
+              "text": "every",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 45,
+              "end": 50,
+              "text": "fails",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 75,
+              "end": 86,
+              "text": "Worked fine",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 101,
+              "end": 111,
+              "text": "whole team",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 138,
+              "end": 151,
+              "text": "nothing works",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 0,
+              "end": 11,
+              "text": "Since 3.2.0",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 12,
+              "end": 17,
+              "text": "every",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 32,
+              "end": 37,
+              "text": "fails",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "REGRESSION",
+          "tier": "T2",
+          "title": "Regression",
+          "why": "Something that used to work and no longer does, in any release, deserves a look soon even when there is a workaround.",
+          "category": "regression_older",
+          "source": {
+            "citation": "Semantic Versioning 2.0.0",
+            "url": "https://semver.org/spec/v2.0.0.html"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 0,
+              "end": 14,
+              "text": "After updating",
+              "context": "affirmed"
+            },
+            {
+              "field": "body",
+              "start": 75,
+              "end": 86,
+              "text": "Worked fine",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "BROKEN-NO-WORKAROUND",
+          "tier": "T2",
+          "title": "Feature broken with no workaround",
+          "why": "An important feature that does not work at all for some users, with no workaround, blocks their work.",
+          "category": "broken_feature",
+          "source": {
+            "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+            "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 45,
+              "end": 55,
+              "text": "fails with",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: REGRESSION-LATEST (T1) quotes \"After updating\" and 9 more.",
+      "position": 5
+    },
+    {
+      "id": "#797",
+      "title": "Crash when I paste an emoji in the project title",
+      "url": "https://github.com/acme/widget/issues/797",
+      "original_index": 9,
+      "created_at": "2026-10-13T07:55:00Z",
+      "priority": null,
+      "labels": [
+        "bug"
+      ],
+      "location": null,
+      "tier": "T2",
+      "tier_name": "Today",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "CRASH-OR-HANG",
+          "tier": "T2",
+          "title": "Crash, hang or freeze in a specific situation",
+          "why": "A crash or hang that users can reproduce costs them work and trust, even when it only happens in one situation.",
+          "category": "crash_specific",
+          "source": {
+            "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+            "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+          },
+          "evidence": [
+            {
+              "field": "body",
+              "start": 51,
+              "end": 64,
+              "text": "closes itself",
+              "context": "affirmed"
+            },
+            {
+              "field": "title",
+              "start": 0,
+              "end": 5,
+              "text": "Crash",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "flagged T2, below the top tier T1: check whether a top-tier rule applies"
+      ],
+      "explanation": "T2: CRASH-OR-HANG (T2) quotes \"closes itself\" and 1 more.",
+      "position": 6
+    },
+    {
+      "id": "#820",
+      "title": "Add a keyboard shortcut to toggle the sidebar",
+      "url": "https://github.com/acme/widget/issues/820",
+      "original_index": 1,
+      "created_at": "2026-10-21T09:14:00Z",
+      "priority": null,
+      "labels": [
+        "enhancement"
+      ],
+      "location": null,
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 7
+    },
+    {
+      "id": "#819",
+      "title": "URGENT!!! please add dark mode to the export dialog",
+      "url": "https://github.com/acme/widget/issues/819",
+      "original_index": 2,
+      "created_at": "2026-10-20T22:03:00Z",
+      "priority": null,
+      "labels": [],
+      "location": null,
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 8
+    },
+    {
+      "id": "#818",
+      "title": "docs: fix typo in sync guide",
+      "url": "https://github.com/acme/widget/pull/818",
+      "original_index": 3,
+      "created_at": "2026-10-20T16:40:00Z",
+      "priority": null,
+      "labels": [
+        "documentation"
+      ],
+      "location": null,
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 9
+    },
+    {
+      "id": "#815",
+      "title": "Sync shows \"conflict\" dialog twice (no data was lost)",
+      "url": "https://github.com/acme/widget/issues/815",
+      "original_index": 4,
+      "created_at": "2026-10-19T11:25:00Z",
+      "priority": null,
+      "labels": [
+        "bug"
+      ],
+      "location": null,
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [
+        {
+          "rule": "DATA-LOSS",
+          "field": "body",
+          "start": 121,
+          "end": 134,
+          "text": "data was lost",
+          "context": "negated"
+        },
+        {
+          "rule": "DATA-LOSS",
+          "field": "title",
+          "start": 39,
+          "end": 52,
+          "text": "data was lost",
+          "context": "negated"
+        }
+      ],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched",
+        "a rule term appeared negated or historical"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 10
+    },
+    {
+      "id": "#801",
+      "title": "Question: can I self-host the sync server?",
+      "url": "https://github.com/acme/widget/issues/801",
+      "original_index": 7,
+      "created_at": "2026-10-15T10:10:00Z",
+      "priority": null,
+      "labels": [
+        "question"
+      ],
+      "location": null,
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 11
+    }
+  ],
+  "annotations": null
+}

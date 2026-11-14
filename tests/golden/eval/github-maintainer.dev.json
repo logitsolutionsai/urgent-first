@@ -1,0 +1,168 @@
+{
+  "pack": {
+    "name": "github-maintainer",
+    "version": "0.1.0",
+    "mode": "standard"
+  },
+  "input": "dev.jsonl",
+  "rules_only": {
+    "items": 60,
+    "gold_counts": {
+      "T1": 18,
+      "T2": 15,
+      "T3": 27
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 18,
+      "total": 18,
+      "value": 1,
+      "wilson95": [
+        0.8241,
+        1
+      ]
+    },
+    "missed_critical": [],
+    "over_triage_rate": {
+      "count": 3,
+      "total": 42,
+      "value": 0.0714
+    },
+    "false_flag_rate": {
+      "count": 2,
+      "total": 27,
+      "value": 0.0741
+    },
+    "under_triage_rate": {
+      "count": 3,
+      "total": 60,
+      "value": 0.05
+    },
+    "exact_tier_agreement": {
+      "count": 54,
+      "total": 60,
+      "value": 0.9
+    },
+    "kendall_tau_b": 0.715,
+    "flags": {
+      "recall": {
+        "count": 30,
+        "total": 33,
+        "value": 0.9091,
+        "wilson95": [
+          0.7643,
+          0.9686
+        ]
+      },
+      "precision": {
+        "count": 30,
+        "total": 32,
+        "value": 0.9375,
+        "wilson95": [
+          0.7985,
+          0.9827
+        ]
+      },
+      "false_flag_rate": {
+        "count": 2,
+        "total": 27,
+        "value": 0.0741,
+        "wilson95": [
+          0.0206,
+          0.2337
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 18,
+        "T2": 0,
+        "T3": 0
+      },
+      "T2": {
+        "T1": 1,
+        "T2": 11,
+        "T3": 3
+      },
+      "T3": {
+        "T1": 1,
+        "T2": 1,
+        "T3": 25
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "SECURITY",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "DATA-LOSS",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "REGRESSION-LATEST",
+        "tier": "T1",
+        "hits": 7,
+        "gold_at_least_rule_tier": 7,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "STARTUP-CRASH",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "BUILD-OR-INSTALL-BROKEN",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CRASH-OR-HANG",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "REGRESSION",
+        "tier": "T2",
+        "hits": 5,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "BROKEN-NO-WORKAROUND",
+        "tier": "T2",
+        "hits": 11,
+        "gold_at_least_rule_tier": 11,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PERFORMANCE-SEVERE",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PR-FIXES-URGENT",
+        "tier": "inherited",
+        "hits": 1,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 1
+      }
+    ]
+  },
+  "with_annotations": null,
+  "annotation_validation": null
+}

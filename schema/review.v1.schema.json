@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/logitsolutionsai/urgent-first/schema/review.v1.schema.json",
+  "title": "urgent-first maintainer review, schema version 1",
+  "description": "A review file written by `review init` and filled in by a maintainer. `review check` also verifies ids against the snapshot and quotes against the items, which a schema cannot do. The reviewer is a local alias, not a verified identity. Optional signature fields are reserved for signed records.",
+  "type": "object",
+  "required": ["schemaVersion", "snapshotId", "reviewer", "decisions"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "urgent-first-review" },
+    "snapshotId": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "reviewer": { "type": "string", "pattern": "^[A-Za-z0-9._-]{1,64}$" },
+    "signature": {},
+    "decisions": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "required": ["target", "kind", "decision"],
+        "properties": {
+          "target": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["candidate_link", "triage"] },
+          "decision": { "enum": [null, "confirmed", "rejected", "needs_context", "correct", "missed_raise", "false_raise", "unclear"] },
+          "reason": { "type": "string", "maxLength": 500 },
+          "suggestedTier": { "type": "string" },
+          "quotes": { "type": "array", "minItems": 1, "maxItems": 4, "items": { "type": "string", "minLength": 3 } },
+          "signature": {}
+        },
+        "allOf": [
+          { "anyOf": [{ "properties": { "kind": { "const": "candidate_link" }, "decision": { "enum": [null, "confirmed", "rejected", "needs_context"] } } }, { "properties": { "kind": { "const": "triage" }, "decision": { "enum": [null, "correct", "missed_raise", "false_raise", "unclear"] } } }] },
+          { "anyOf": [{ "not": { "properties": { "decision": { "const": "missed_raise" } }, "required": ["decision"] } }, { "required": ["suggestedTier", "quotes"] }] }
+        ]
+      }
+    }
+  }
+}

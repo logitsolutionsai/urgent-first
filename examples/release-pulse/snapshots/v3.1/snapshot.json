@@ -1,0 +1,795 @@
+{
+  "counts": {
+    "by_tier": {
+      "T1": 1,
+      "T2": 1,
+      "T3": 10
+    },
+    "flagged": 2,
+    "total": 12,
+    "unmatched": 10
+  },
+  "engineVersion": "0.1.0",
+  "evidence": [
+    {
+      "category": "crash_specific",
+      "context": "affirmed",
+      "end": 171,
+      "field": "body",
+      "id": "ev:#704:1",
+      "itemId": "github:acme/widget:issue:704",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "start": 164,
+      "text": "crashes",
+      "tier": "T2"
+    },
+    {
+      "category": "crash_specific",
+      "context": "affirmed",
+      "end": 5,
+      "field": "title",
+      "id": "ev:#704:2",
+      "itemId": "github:acme/widget:issue:704",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "start": 0,
+      "text": "Crash",
+      "tier": "T2"
+    },
+    {
+      "category": "data_loss",
+      "context": "affirmed",
+      "end": 274,
+      "field": "body",
+      "id": "ev:#702:1",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "start": 236,
+      "text": "folder was gone and the trash is empty",
+      "tier": "T1"
+    },
+    {
+      "category": "data_loss",
+      "context": "affirmed",
+      "end": 291,
+      "field": "body",
+      "id": "ev:#702:2",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "start": 278,
+      "text": "lost my notes",
+      "tier": "T1"
+    },
+    {
+      "category": "data_loss",
+      "context": "affirmed",
+      "end": 30,
+      "field": "title",
+      "id": "ev:#702:3",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "start": 14,
+      "text": "deleted my notes",
+      "tier": "T1"
+    }
+  ],
+  "items": [
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 3,
+      "contentDigest": "sha256:bbcbb9eedc4706f8e24298f275eb995d37c84098e265670fdb05370805d64e7b",
+      "createdAt": "2026-10-31T20:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:712",
+      "kind": "issue",
+      "labels": [],
+      "localId": "#712",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 712,
+      "originalOrder": 0,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nThe heading on the settings page reads \"Synchronisaton\"."
+      },
+      "title": "Settings page has a typo in \"Synchronisation\"",
+      "updatedAt": "2026-10-31T20:00:00Z",
+      "url": "https://github.com/acme/widget/issues/712"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 4,
+      "contentDigest": "sha256:b5ca4730a152c4ae617ed18f823bf3cf79c44967fe58ff69be7edf0accdc6607",
+      "createdAt": "2026-10-30T19:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:711",
+      "kind": "issue",
+      "labels": [
+        "enhancement"
+      ],
+      "localId": "#711",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 711,
+      "originalOrder": 1,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nCtrl+B in other editors hides the sidebar. Could we have the same?"
+      },
+      "title": "Keyboard shortcut to toggle the sidebar",
+      "updatedAt": "2026-10-30T19:00:00Z",
+      "url": "https://github.com/acme/widget/issues/711"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 5,
+      "contentDigest": "sha256:7cf4aea2318bb3502b7e5b29c2eba6c3dc4cef5fe8d8f37dfcd421e033bd339f",
+      "createdAt": "2026-10-29T18:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:710",
+      "kind": "issue",
+      "labels": [
+        "bug"
+      ],
+      "localId": "#710",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 710,
+      "originalOrder": 2,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [
+        {
+          "context": "negated",
+          "end": 223,
+          "field": "body",
+          "ruleId": "DATA-LOSS",
+          "start": 214,
+          "text": "data loss"
+        },
+        {
+          "context": "negated",
+          "end": 41,
+          "field": "title",
+          "ruleId": "DATA-LOSS",
+          "start": 32,
+          "text": "data loss"
+        }
+      ],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nAfter a sync conflict the dialog appears twice. We had no data loss, both copies were kept, it is just confusing."
+      },
+      "title": "Conflict dialog shows twice (no data loss)",
+      "updatedAt": "2026-10-29T18:00:00Z",
+      "url": "https://github.com/acme/widget/issues/710"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 6,
+      "contentDigest": "sha256:26bc0c927d9d0a74d24f087ed6f23d81f186816a5f74773a71aa33e2c58bbcda",
+      "createdAt": "2026-10-28T17:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:709",
+      "kind": "issue",
+      "labels": [
+        "enhancement"
+      ],
+      "localId": "#709",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 709,
+      "originalOrder": 3,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nA live word count for the current note would help when I write articles."
+      },
+      "title": "Add a word count to the status bar",
+      "updatedAt": "2026-10-28T17:00:00Z",
+      "url": "https://github.com/acme/widget/issues/709"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 7,
+      "contentDigest": "sha256:aca3c2e2b1862f05b9ec7b4553262f78e9601b00ee371cd555761339f0f49100",
+      "createdAt": "2026-10-27T16:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:708",
+      "kind": "issue",
+      "labels": [
+        "performance"
+      ],
+      "localId": "#708",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 708,
+      "originalOrder": 4,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nSearching a vault with 40,000 notes takes a few seconds. It used to be quicker, but it is usable."
+      },
+      "title": "Search feels slow on a large vault",
+      "updatedAt": "2026-10-27T16:00:00Z",
+      "url": "https://github.com/acme/widget/issues/708"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 8,
+      "contentDigest": "sha256:ae11c24f665e9c4c329de2561e1d9d0cd1fda863bef1202d3cf137d05aaa0723",
+      "createdAt": "2026-10-26T15:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:707",
+      "kind": "issue",
+      "labels": [
+        "question"
+      ],
+      "localId": "#707",
+      "location": null,
+      "masked": [],
+      "number": 707,
+      "originalOrder": 5,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "Is there a documented way to run the sync server on my own machine?"
+      },
+      "title": "Question: can I self-host the sync server?",
+      "updatedAt": "2026-10-26T15:00:00Z",
+      "url": "https://github.com/acme/widget/issues/707"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 9,
+      "contentDigest": "sha256:aaea9bd539a5eac16ec824c3b21160c7331db3dcf259d89b7db1dc4572c0df59",
+      "createdAt": "2026-10-25T14:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:706",
+      "kind": "issue",
+      "labels": [
+        "bug"
+      ],
+      "localId": "#706",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 706,
+      "originalOrder": 6,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nDragging the window edge makes the sidebar flicker. Cosmetic, but distracting."
+      },
+      "title": "Sidebar flickers while resizing the window",
+      "updatedAt": "2026-10-25T14:00:00Z",
+      "url": "https://github.com/acme/widget/issues/706"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 10,
+      "contentDigest": "sha256:dbfa8c5c9e4af62859a7685f8074346ce07b59f169c827d7fea47b23da776553",
+      "createdAt": "2026-10-24T13:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:pull:705",
+      "kind": "pull_request",
+      "labels": [
+        "documentation"
+      ],
+      "localId": "#705",
+      "location": null,
+      "masked": [],
+      "number": 705,
+      "originalOrder": 7,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "Fixes a small typo in docs/sync.md."
+      },
+      "title": "docs: fix typo in the sync guide",
+      "updatedAt": "2026-10-24T13:00:00Z",
+      "url": "https://github.com/acme/widget/pull/705"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 2,
+      "contentDigest": "sha256:8e446cf4504d732e4c47ff13cda07b551b54dd507e05dcf553c74c4e6729d58a",
+      "createdAt": "2026-10-23T12:00:00Z",
+      "effectiveTier": "T2",
+      "evidenceIds": [
+        "ev:#704:1",
+        "ev:#704:2"
+      ],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:704",
+      "kind": "issue",
+      "labels": [
+        "bug"
+      ],
+      "localId": "#704",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 704,
+      "originalOrder": 8,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [
+        "CRASH-OR-HANG"
+      ],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nThe app crashes when I open a project called \"Trip 🏖\". Renaming the project avoids it."
+      },
+      "title": "Crash when opening a project with an emoji in its name",
+      "updatedAt": "2026-10-23T12:00:00Z",
+      "url": "https://github.com/acme/widget/issues/704"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 11,
+      "contentDigest": "sha256:c6040018903fa33a522a5df1478087ee5d0b532f31ef1a84d85befc4afdae072",
+      "createdAt": "2026-10-22T11:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:703",
+      "kind": "issue",
+      "labels": [
+        "enhancement"
+      ],
+      "localId": "#703",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 703,
+      "originalOrder": 9,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nThe export dialog is still bright white in dark mode. Would be nice to match the theme."
+      },
+      "title": "Dark mode for the export dialog",
+      "updatedAt": "2026-10-22T11:00:00Z",
+      "url": "https://github.com/acme/widget/issues/703"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 1,
+      "contentDigest": "sha256:e612b14c0a914efbbb20e8921805ef944b7bf10bc6e1d145e056fe02646adf24",
+      "createdAt": "2026-10-21T10:00:00Z",
+      "effectiveTier": "T1",
+      "evidenceIds": [
+        "ev:#702:1",
+        "ev:#702:2",
+        "ev:#702:3"
+      ],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:702",
+      "kind": "issue",
+      "labels": [
+        "bug"
+      ],
+      "localId": "#702",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 702,
+      "originalOrder": 10,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [
+        "DATA-LOSS"
+      ],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nTwo devices edited the same folder. After the conflict dialog every note in the folder was gone and the trash is empty. I lost my notes from the last week."
+      },
+      "title": "Sync conflict deleted my notes",
+      "updatedAt": "2026-10-21T10:00:00Z",
+      "url": "https://github.com/acme/widget/issues/702"
+    },
+    {
+      "afterLatestRelease": true,
+      "boardPosition": 12,
+      "contentDigest": "sha256:56b8d0827f7c59b0bcf2c2e5a3e8befa2cd95b9506e78ef65722dfe9eee3989c",
+      "createdAt": "2026-10-20T09:00:00Z",
+      "effectiveTier": "T3",
+      "evidenceIds": [],
+      "floorTier": "T3",
+      "id": "github:acme/widget:issue:701",
+      "kind": "issue",
+      "labels": [
+        "bug"
+      ],
+      "localId": "#701",
+      "location": null,
+      "masked": [
+        {
+          "end": 13,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 0
+        },
+        {
+          "end": 50,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 14
+        },
+        {
+          "end": 118,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 51
+        },
+        {
+          "end": 154,
+          "field": "body",
+          "kind": "boilerplate",
+          "start": 119
+        }
+      ],
+      "number": 701,
+      "originalOrder": 11,
+      "originalPriority": null,
+      "priority": null,
+      "ruleIds": [],
+      "state": "open",
+      "suppressed": [],
+      "synthetic": true,
+      "text": {
+        "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nWhen I export a long note to PDF the last page is missing. No workaround that I can find, printing to PDF from the browser has the same problem."
+      },
+      "title": "Export to PDF cuts off the last page",
+      "updatedAt": "2026-10-20T09:00:00Z",
+      "url": "https://github.com/acme/widget/issues/701"
+    }
+  ],
+  "kind": "urgent-first-snapshot",
+  "pack": {
+    "digest": "sha256:ef68dced206acf54e7c47e38629fc5143ac73ca2daeaec5ef717082f9834990d",
+    "id": "github-maintainer",
+    "mode": "standard",
+    "tiers": [
+      {
+        "id": "T1",
+        "name": "Discuss now"
+      },
+      {
+        "id": "T2",
+        "name": "Today"
+      },
+      {
+        "id": "T3",
+        "name": "In order"
+      }
+    ],
+    "version": "0.1.0"
+  },
+  "release": {
+    "publishedAt": "2026-10-01T09:00:00Z",
+    "source": "github-release-api",
+    "tag": "v3.1.0",
+    "url": "https://github.com/acme/widget/releases/tag/v3.1.0"
+  },
+  "schemaVersion": 1,
+  "snapshotId": "sha256:a7dccfa6611a144915e001b4811a76e3131d90e4120c8f5401a090366c6161df",
+  "source": {
+    "complete": true,
+    "kind": "github",
+    "linkedIssuesFetched": 0,
+    "pageCount": 1,
+    "repository": "acme/widget",
+    "scope": {
+      "limit": 100,
+      "state": "open"
+    },
+    "templateFiles": []
+  },
+  "status": "complete",
+  "warnings": [
+    {
+      "code": "ambiguous_negation",
+      "itemIds": [
+        "github:acme/widget:issue:710"
+      ],
+      "message": "1 item(s) mention a T1 rule term that was read as negated or historical, so it did not count. Read them by hand.",
+      "severity": "info"
+    },
+    {
+      "code": "excessive_template_masking",
+      "itemIds": [
+        "github:acme/widget:issue:703",
+        "github:acme/widget:issue:704",
+        "github:acme/widget:issue:706",
+        "github:acme/widget:issue:709",
+        "github:acme/widget:issue:711",
+        "github:acme/widget:issue:712"
+      ],
+      "message": "6 item(s) had at least 60% of their text masked as template or boilerplate. The rules read little of what the reporter wrote: read them by hand.",
+      "severity": "warning"
+    }
+  ]
+}

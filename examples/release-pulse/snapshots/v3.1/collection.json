@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "kind": "urgent-first-collection",
+  "engineVersion": "0.1.0",
+  "snapshotId": "sha256:a7dccfa6611a144915e001b4811a76e3131d90e4120c8f5401a090366c6161df",
+  "command": "snapshot github",
+  "collectedAt": "2026-11-14T10:57:49.097Z",
+  "durationMs": 62,
+  "recordedFixture": true,
+  "tokenUsed": false,
+  "rateRemaining": 58,
+  "etag": "W/\"synthetic-v3.1\""
+}

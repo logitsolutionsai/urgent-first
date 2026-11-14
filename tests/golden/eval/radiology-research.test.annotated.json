@@ -1,0 +1,801 @@
+{
+  "pack": {
+    "name": "radiology-research",
+    "version": "0.1.0",
+    "mode": "research",
+    "banner": "Research and education software. Not a medical device; not cleared, approved or CE-marked. Not for patient care, including choosing which studies to read first. It reads only text, quotes the exact words that matched a rule, and never changes the ordered priority. Accuracy figures come from synthetic cases. Clinical use may be regulated as a medical device."
+  },
+  "input": "test.jsonl",
+  "rules_only": {
+    "items": 180,
+    "gold_counts": {
+      "T1": 81,
+      "T2": 45,
+      "T3": 54
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 68,
+      "total": 81,
+      "value": 0.8395,
+      "wilson95": [
+        0.7445,
+        0.9037
+      ]
+    },
+    "missed_critical": [
+      {
+        "id": "rad-b-038",
+        "predicted": "T2",
+        "gold_category": "foreign_body_critical",
+        "title": "XR soft tissue neck and chest",
+        "rationale": "'Inhaled part of a dental crown' at 10:30 with 'stridor' and SpO2 93%: airway object with respiratory compromise."
+      },
+      {
+        "id": "rad-c-040",
+        "predicted": "T2",
+        "gold_category": "obstructed_infected_kidney",
+        "title": "US renal tract",
+        "rationale": "Overdue ureteric stents with rising creatinine, then rigors, 38.7 and BP 92/55 at the end of the history: obstructed infected kidney."
+      },
+      {
+        "id": "rad-c-058",
+        "predicted": "T2",
+        "gold_category": "obstructed_infected_kidney",
+        "title": "US renal tract",
+        "rationale": "Loin pain and anuria in a solitary kidney with creatinine 312: rule out obstruction of a single kidney now, even without fever."
+      },
+      {
+        "id": "rad-c-067",
+        "predicted": "T2",
+        "gold_category": "mesenteric_ischaemia",
+        "title": "CT abdomen and pelvis with IV contrast (portal venous phase)",
+        "rationale": "Suspected mesenteric venous thrombosis: severe pain out of keeping with the exam on the combined pill, with raised lactate."
+      },
+      {
+        "id": "rad-c-069",
+        "predicted": "T2",
+        "gold_category": "paediatric_surgical_emergency",
+        "title": "US abdomen",
+        "rationale": "Colicky pain, vomiting, a sausage-shaped right upper quadrant mass and a bloody stool: cannot exclude intussusception (typed 'intussception')."
+      },
+      {
+        "id": "rad-a-006",
+        "predicted": "T2",
+        "gold_category": "intracranial_haemorrhage",
+        "title": "CT head without contrast",
+        "rationale": "On a heparin infusion with a sudden very severe headache at 03:10, vomiting, unequal pupils and slowed responses: suspected intracranial bleed on anticoagulation."
+      },
+      {
+        "id": "rad-a-028",
+        "predicted": "T3",
+        "gold_category": "cauda_equina",
+        "title": "MRI lumbar spine",
+        "rationale": "Numb when wiping and no urine passed since breakfast in a known disc prolapse: new saddle numbness and retention, cauda equina in plain words."
+      },
+      {
+        "id": "rad-a-057",
+        "predicted": "T3",
+        "gold_category": "spinal_cord_compression",
+        "title": "MRI thoracic spine",
+        "rationale": "Cancer patient with back pain, two days of heavy unsteady legs and tingling from the chest down: suspected cord compression described in plain words."
+      },
+      {
+        "id": "rad-a-058",
+        "predicted": "T3",
+        "gold_category": "intracranial_haemorrhage",
+        "title": "CT head without contrast",
+        "rationale": "Headache unlike his usual, sudden at 07:15 and at full intensity within seconds ('like being hit... with a bat') with nausea and light sensitivity: thunderclap headache, possible bleed, hours from onset."
+      },
+      {
+        "id": "rad-a-094",
+        "predicted": "T3",
+        "gold_category": "stroke",
+        "title": "MRI brain without contrast",
+        "rationale": "Slurred speech, right hand weakness and right facial droop found at 14:05, normal at 12:30, with AF and anticoagulation held: acute stroke inside the treatment window."
+      },
+      {
+        "id": "rad-b-034",
+        "predicted": "T3",
+        "gold_category": "other_t1",
+        "title": "CT angiogram lower limbs",
+        "rationale": "Sudden 'cold and white', numb, pulseless leg with weak toes since 18:30 in AF off DOAC suggests acute limb ischaemia; the limb is at risk within hours."
+      },
+      {
+        "id": "rad-c-047",
+        "predicted": "T3",
+        "gold_category": "perforation",
+        "title": "CT abdomen and pelvis with IV contrast",
+        "rationale": "Sudden 10/10 pain since 13:00 with a board-like abdomen in a daily NSAID user points to a perforated viscus despite the routine order."
+      },
+      {
+        "id": "rad-c-098",
+        "predicted": "T3",
+        "gold_category": "paediatric_surgical_emergency",
+        "title": "US abdomen",
+        "rationale": "Bouts of inconsolable crying with knees drawn up, pallor between bouts and a red jelly-like stool in a 14-month-old describe intussusception without naming it."
+      }
+    ],
+    "over_triage_rate": {
+      "count": 9,
+      "total": 99,
+      "value": 0.0909
+    },
+    "false_flag_rate": {
+      "count": 6,
+      "total": 54,
+      "value": 0.1111
+    },
+    "under_triage_rate": {
+      "count": 20,
+      "total": 180,
+      "value": 0.1111
+    },
+    "exact_tier_agreement": {
+      "count": 151,
+      "total": 180,
+      "value": 0.8389
+    },
+    "kendall_tau_b": 0.6275,
+    "flags": {
+      "recall": {
+        "count": 112,
+        "total": 126,
+        "value": 0.8889,
+        "wilson95": [
+          0.8221,
+          0.9327
+        ]
+      },
+      "precision": {
+        "count": 112,
+        "total": 118,
+        "value": 0.9492,
+        "wilson95": [
+          0.8935,
+          0.9765
+        ]
+      },
+      "false_flag_rate": {
+        "count": 6,
+        "total": 54,
+        "value": 0.1111,
+        "wilson95": [
+          0.0519,
+          0.2219
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 68,
+        "T2": 6,
+        "T3": 7
+      },
+      "T2": {
+        "T1": 3,
+        "T2": 35,
+        "T3": 7
+      },
+      "T3": {
+        "T1": 4,
+        "T2": 2,
+        "T3": 48
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "STROKE",
+        "tier": "T1",
+        "hits": 13,
+        "gold_at_least_rule_tier": 12,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "INTRACRANIAL-BLEED",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 6,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "HEAD-INJURY-HIGH-RISK",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "REDUCED-CONSCIOUSNESS",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CAUDA-EQUINA",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "CORD-COMPRESSION",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "EPIDURAL-ABSCESS",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PULMONARY-EMBOLISM",
+        "tier": "T1",
+        "hits": 13,
+        "gold_at_least_rule_tier": 12,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "AORTIC-DISSECTION",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "AAA-RUPTURE",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PNEUMOTHORAX",
+        "tier": "T1",
+        "hits": 8,
+        "gold_at_least_rule_tier": 7,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "PERFORATION",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "MESENTERIC-ISCHAEMIA",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TORSION",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "ECTOPIC-PREGNANCY",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PAEDIATRIC-SURGICAL",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "NAI-HEAD",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "FOREIGN-BODY",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "NECROTISING-INFECTION",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "INFECTED-OBSTRUCTED-KIDNEY",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "SHOCK",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 6,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "ACTIVE-BLEEDING",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "LIMB-ISCHAEMIA",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TIA",
+        "tier": "T2",
+        "hits": 5,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "HEAD-INJURY-ANTICOAGULATED",
+        "tier": "T2",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "HYPOXIA",
+        "tier": "T2",
+        "hits": 9,
+        "gold_at_least_rule_tier": 9,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "APPENDICITIS",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "BOWEL-OBSTRUCTION",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "BILIARY",
+        "tier": "T2",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DVT",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "RENAL-COLIC",
+        "tier": "T2",
+        "hits": 7,
+        "gold_at_least_rule_tier": 7,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "INFECTION-COLLECTION",
+        "tier": "T2",
+        "hits": 13,
+        "gold_at_least_rule_tier": 13,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "FRACTURE",
+        "tier": "T2",
+        "hits": 6,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 2
+      },
+      {
+        "id": "NAI-SURVEY",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "SEIZURE-OR-RAISED-PRESSURE",
+        "tier": "T2",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TUBE-OR-LINE-POSITION",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PAEDIATRIC-SAME-DAY",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      }
+    ]
+  },
+  "with_annotations": {
+    "items": 180,
+    "gold_counts": {
+      "T1": 81,
+      "T2": 45,
+      "T3": 54
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 81,
+      "total": 81,
+      "value": 1,
+      "wilson95": [
+        0.9547,
+        1
+      ]
+    },
+    "missed_critical": [],
+    "over_triage_rate": {
+      "count": 9,
+      "total": 99,
+      "value": 0.0909
+    },
+    "false_flag_rate": {
+      "count": 6,
+      "total": 54,
+      "value": 0.1111
+    },
+    "under_triage_rate": {
+      "count": 2,
+      "total": 180,
+      "value": 0.0111
+    },
+    "exact_tier_agreement": {
+      "count": 169,
+      "total": 180,
+      "value": 0.9389
+    },
+    "kendall_tau_b": 0.7357,
+    "flags": {
+      "recall": {
+        "count": 124,
+        "total": 126,
+        "value": 0.9841,
+        "wilson95": [
+          0.944,
+          0.9956
+        ]
+      },
+      "precision": {
+        "count": 124,
+        "total": 130,
+        "value": 0.9538,
+        "wilson95": [
+          0.903,
+          0.9787
+        ]
+      },
+      "false_flag_rate": {
+        "count": 6,
+        "total": 54,
+        "value": 0.1111,
+        "wilson95": [
+          0.0519,
+          0.2219
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 81,
+        "T2": 0,
+        "T3": 0
+      },
+      "T2": {
+        "T1": 3,
+        "T2": 40,
+        "T3": 2
+      },
+      "T3": {
+        "T1": 4,
+        "T2": 2,
+        "T3": 48
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "STROKE",
+        "tier": "T1",
+        "hits": 13,
+        "gold_at_least_rule_tier": 12,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "INTRACRANIAL-BLEED",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 6,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "HEAD-INJURY-HIGH-RISK",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "REDUCED-CONSCIOUSNESS",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CAUDA-EQUINA",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "CORD-COMPRESSION",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "EPIDURAL-ABSCESS",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PULMONARY-EMBOLISM",
+        "tier": "T1",
+        "hits": 13,
+        "gold_at_least_rule_tier": 12,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "AORTIC-DISSECTION",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "AAA-RUPTURE",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PNEUMOTHORAX",
+        "tier": "T1",
+        "hits": 8,
+        "gold_at_least_rule_tier": 7,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "PERFORATION",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "MESENTERIC-ISCHAEMIA",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TORSION",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "ECTOPIC-PREGNANCY",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PAEDIATRIC-SURGICAL",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "NAI-HEAD",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "FOREIGN-BODY",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "NECROTISING-INFECTION",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "INFECTED-OBSTRUCTED-KIDNEY",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "SHOCK",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 6,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "ACTIVE-BLEEDING",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "LIMB-ISCHAEMIA",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TIA",
+        "tier": "T2",
+        "hits": 5,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "HEAD-INJURY-ANTICOAGULATED",
+        "tier": "T2",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "HYPOXIA",
+        "tier": "T2",
+        "hits": 9,
+        "gold_at_least_rule_tier": 9,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "APPENDICITIS",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "BOWEL-OBSTRUCTION",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "BILIARY",
+        "tier": "T2",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DVT",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "RENAL-COLIC",
+        "tier": "T2",
+        "hits": 7,
+        "gold_at_least_rule_tier": 7,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "INFECTION-COLLECTION",
+        "tier": "T2",
+        "hits": 13,
+        "gold_at_least_rule_tier": 13,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "FRACTURE",
+        "tier": "T2",
+        "hits": 6,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 2
+      },
+      {
+        "id": "NAI-SURVEY",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "SEIZURE-OR-RAISED-PRESSURE",
+        "tier": "T2",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TUBE-OR-LINE-POSITION",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PAEDIATRIC-SAME-DAY",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      }
+    ]
+  },
+  "annotation_validation": {
+    "accepted": 18,
+    "rejected": 0,
+    "applied": 18,
+    "rejected_list": []
+  }
+}

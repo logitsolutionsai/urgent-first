@@ -34,6 +34,14 @@ input (JSONL, CSV, FHIR, HL7 v2, GitHub API)
 | `src/render/` | `markdown.js` and `html.js` boards; `common.js` shared text; `fluid.js` and `motion.js`, the board's inlined motion script. |
 | `src/shadow.js` | Shadow-mode log and report. |
 | `src/run.js` | Run folders. |
+| `src/collect.js` | GitHub templates and linked issues for `github` and `snapshot github` (moved from `cli.js` unchanged). |
+| `src/radar-cli.js` | Maintainer Radar commands: `snapshot`, `links`, `diff`, `digest`, `review`, `calibrate`, `pack lint`. |
+| `src/snapshot/` | `canonical.js` (canonical JSON, digests), `snapshot.js` (identities, manifest, verification, atomic writes). |
+| `src/diagnostics.js` | Warnings as objects with codes. |
+| `src/graph/` | `github-links.js` (closing keywords, references), `features.js` and `candidates.js` (candidate links), `build.js` (the graph, clusters), `validate.js` (integrity), `link-eval.js` (link benchmark). |
+| `src/pulse/` | `diff.js` (Release Pulse, public projection), `digest.js`, `render.js` (Markdown and HTML for both). |
+| `src/review/` | `review.js` (review files), `propose-pack.js` (calibration proposals). |
+| `src/pack-lint.js` | `pack lint`. |
 
 ## Invariants
 
@@ -42,6 +50,18 @@ input (JSONL, CSV, FHIR, HL7 v2, GitHub API)
 3. **Determinism.** No randomness, no clock reads inside the engine; `now` is recorded and used only to display wait times. Ordering keys: tier, deadline, created time, original index.
 4. **Research mode** is checked in the engine (`triage` refuses non-synthetic input), the CLI (watch refuses) and the pack loader (exact banner; a pack with a banner, or named like a bundled research pack, must be in research mode). All writes go through `writeInside(runDir, ...)`, which also refuses to write through a link.
 5. **Offline board.** `board.html` is one file with inline CSS, a restrictive Content-Security-Policy, an inert JSON data block and one inline script that the CSP allows only by its SHA-256 hash. The script (`fluid.js`, a copy of the brand kit's spring helper, plus `motion.js`) adds press feedback, height springs for the card and "No rule matched" toggles and the sticky bar's material; without it the page renders everything open. Status is shown by ink weight and shape, never by colour.
+
+## Maintainer Radar
+
+```text
+GitHub API or a file -> adapters -> engine (unchanged) -> snapshot.json (+ collection.json)
+  snapshot.json -> evidence graph (links)          -> evidence-graph.json
+  two snapshots + graph -> diff                     -> pulse.md, pulse.html, pulse.json
+  snapshot (+ previous) -> digest                   -> digest.md, digest.html, digest.json
+  snapshot + review file -> review check, calibrate -> proposal.json, candidate-pack.json, dev-cases.jsonl
+```
+
+Nothing in this path changes a tier, writes to GitHub or runs on a research pack. Snapshots are verified (id, content digests, evidence spans) every time they are loaded. Details: [MAINTAINER-RADAR.md](MAINTAINER-RADAR.md), [SNAPSHOT-SCHEMA.md](SNAPSHOT-SCHEMA.md), [EVIDENCE-GRAPH.md](EVIDENCE-GRAPH.md), [THREAT-MODEL.md](THREAT-MODEL.md).
 
 ## Run Folder
 
@@ -59,4 +79,4 @@ input (JSONL, CSV, FHIR, HL7 v2, GitHub API)
 
 ## Tests
 
-`npm test` runs the unit and integration tests with `node --test`: matcher table of tricky sentences, numbers and clocks, the property test, the validator, research mode, determinism, adapters on fixtures (including a recorded-format GitHub response), statistics on hand-computed cases, pack schema validity, the wording guard, regression tests for the QA pass (`tests/qa-regressions.test.js`), and an eval run on every benchmark whose numbers must equal `bench/results.json` and the README tables. `npm run test:e2e` opens the boards in the installed Chrome through `playwright-core`, aborts every network request, and checks counts, highlights, layout at 1280×800 and 390×844, and the research banner.
+`npm test` runs the unit and integration tests with `node --test`: matcher table of tricky sentences, numbers and clocks, the property test, the validator, research mode, determinism, adapters on fixtures (including a recorded-format GitHub response), statistics on hand-computed cases, pack schema validity, the wording guard, regression tests for the QA pass (`tests/qa-regressions.test.js`), and an eval run on every benchmark whose numbers must equal `bench/results.json` and the README tables. Maintainer Radar tests: `snapshot.test.js`, `graph.test.js`, `pulse.test.js`, `review.test.js`, `radar-schemas.test.js`, `action-security.test.js`, and two golden tests (`eval-golden.test.js`, `run-golden.test.js`) that pin the pre-release output of `eval`, `github` and `run`. `npm run test:e2e` opens the boards in the installed Chrome through `playwright-core`, aborts every network request, and checks counts, highlights, layout at 1280×800 and 390×844, and the research banner; `pulse.e2e.js` does the same for the Release Pulse and digest pages. The e2e files run one at a time, so only one browser is open.

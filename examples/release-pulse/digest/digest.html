@@ -1,0 +1,302 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-Fz/immU30PjBOCNabTru8TLn+zdlVbpWU58x4nwNCnw='; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Maintainer Digest: acme/widget</title><style>
+:root{--bg:#f7f7f5;--surface:#ffffff;--surface-2:#f0f0ed;--line:#e3e3df;--line-strong:#c9c9c3;--ink:#111110;--ink-2:#3a3a37;--muted:#6f6f69;--faint:#a3a39c;
+--accent:#0065FD;--accent-press:#0654c8;--accent-soft:rgba(0,101,253,.10);--bar-h:60px}
+@media (prefers-color-scheme:dark){:root{--bg:#0e0e0d;--surface:#171716;--surface-2:#1f1f1d;--line:#2b2b29;--line-strong:#3d3d3a;--ink:#f4f4f2;--ink-2:#d6d6d2;--muted:#9a9a94;--faint:#6a6a65;
+--accent:#5b9cff;--accent-press:#3f86ff;--accent-soft:rgba(91,156,255,.14)}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink-2);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+::selection{background:var(--accent-soft)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+a{color:var(--accent);text-underline-offset:2px}
+a:active{color:var(--accent-press)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+h1{font-size:1.6rem;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em;color:var(--ink)}
+h2{font-size:1.2rem;line-height:1.3;margin:40px 0 8px;color:var(--ink);display:flex;align-items:center;gap:4px}
+h3{font-size:1rem;margin:24px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--ink)}
+section,h3{scroll-margin-top:calc(var(--bar-h) + 16px)}
+main>section:first-child>h2{margin-top:24px}
+.intro{padding-top:24px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:.92rem;overflow-wrap:anywhere}
+.banner{background:var(--surface);border:1.5px solid var(--ink);color:var(--ink);border-radius:10px;padding:12px 16px;margin:0 0 4px;font-size:.93rem}
+.banner strong{display:block;margin-bottom:4px}
+#bar-sentinel{height:1px;margin-bottom:-1px}
+.bar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid transparent}
+.bar.stuck{background:color-mix(in srgb,var(--surface) 78%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+@media (prefers-reduced-motion:no-preference){.bar{transition:background-color .16s ease,border-color .16s ease}}
+.summary{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:12px 0;list-style:none}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:4px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink-2);font-size:.88rem;line-height:1.3;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+a.chip{cursor:pointer;-webkit-user-select:none;user-select:none}
+a.chip:hover{border-color:var(--line-strong)}
+.chip b{font-variant-numeric:tabular-nums;font-weight:700;color:inherit}
+.chip.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip.t2{background:transparent;border:1.5px solid var(--ink);color:var(--ink);padding:3.5px 11.5px}
+.chip.t3{background:var(--surface-2);border-color:var(--surface-2);color:var(--ink-2)}
+.chip.l0{background:transparent;border:1px dashed var(--line-strong);color:var(--muted)}
+.badge{display:inline-flex;align-items:center;border:1.5px solid transparent;border-radius:4px;padding:0 6px;font-weight:650;font-size:.78rem;line-height:1.45;white-space:nowrap;font-variant-numeric:tabular-nums}
+.badge.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.badge.t2{border-color:var(--ink);color:var(--ink)}
+.badge.t3{background:var(--surface-2);color:var(--ink-2)}
+.tog{position:relative;flex:none;display:inline-grid;place-items:center;width:24px;height:24px;margin:0 0 0 -4px;padding:0;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tog::after{content:"";position:absolute;inset:-8px}
+.tog:hover{background:var(--surface-2);color:var(--ink)}
+.chev{display:block;width:16px;height:16px}
+details.disc[open]>summary .chev{transform:rotate(90deg)}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{--pad:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px var(--pad);min-width:0}
+.card.t1{border-left:3px solid var(--ink);padding-left:calc(var(--pad) - 2px)}
+.card.t2{border-left:1.5px solid var(--ink-2);padding-left:calc(var(--pad) - .5px)}
+.head{display:flex;gap:8px;align-items:flex-start}
+.hl{display:flex;flex:1;gap:8px;align-items:baseline;flex-wrap:wrap;min-width:0}
+.tog+.hl{margin-left:-2px}
+.pos{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.85rem}
+.id{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;color:var(--muted)}
+.title{font-weight:650;color:var(--ink);overflow-wrap:anywhere}
+a.title{text-decoration:none}
+a.title:hover{color:var(--accent);text-decoration:underline}
+.new{display:inline-flex;align-items:center;background:var(--surface-2);color:var(--ink-2);border-radius:4px;padding:0 6px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+.meta{display:flex;flex-wrap:wrap;margin:4px 0 0;padding:0;list-style:none;font-size:.82rem;color:var(--muted)}
+.meta li:not(:last-child)::after{content:"·";padding:0 8px;color:var(--faint)}
+.flags{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.flags li{font-size:.9rem;overflow-wrap:anywhere}
+.rule{font-weight:650;color:var(--ink)}
+.rid{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ink-2);background:var(--surface-2);border-radius:4px;padding:1px 6px;margin-right:6px}
+.q{font-style:italic;color:var(--ink)}
+.why{color:var(--muted);font-size:.85rem}
+.kind{font-weight:600;color:var(--muted)}
+.fields{margin:12px 0 0;display:grid;gap:8px}
+.field{border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.field .fname{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;white-space:normal}
+.masked{color:var(--faint);text-decoration-line:underline;text-decoration-style:dashed;text-decoration-color:var(--faint);text-decoration-thickness:1px;text-underline-offset:3px}
+.masked-note{color:var(--muted);font-size:.8rem;margin:12px 0 0}
+mark{background:var(--surface-2);color:var(--ink);text-decoration-line:underline;text-decoration-color:var(--ink);text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-skip-ink:none;border-radius:2px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+details.disc>summary{display:flex;align-items:center;gap:4px;width:fit-content;margin:8px 0 0 -4px;padding:2px 8px 2px 4px;border-radius:6px;list-style:none;cursor:pointer;color:var(--muted);font-size:.85rem;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+details.disc>summary::-webkit-details-marker{display:none}
+details.disc>summary:hover{background:var(--surface-2);color:var(--ink)}
+.plain{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.plain>li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.note{color:var(--muted);font-size:.9rem;margin:0}
+.rejected>li{display:flex;gap:8px;align-items:baseline}
+footer{margin-top:48px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding:16px 0 48px}
+@media (max-width:600px){.chip .tn{display:none}.summary{gap:6px;padding:8px 0}.chip{min-height:30px;padding:3px 10px}.chip.t2{padding:2.5px 9.5px}}
+@media (max-width:480px){.wrap{padding:0 12px}.intro{padding-top:16px}h1{font-size:1.35rem}.card{--pad:12px}.plain>li{padding:12px}}
+
+.prov{display:block;margin-top:2px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.74rem;color:var(--muted);overflow-wrap:anywhere}
+.pane{border-top:1px solid var(--line);margin-top:40px}
+.pane>h2{margin-top:24px}
+.warn{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.warn>li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:.9rem}
+.warn code{color:var(--ink)}
+.members{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.members>li{border-top:1px solid var(--line);padding-top:8px;font-size:.9rem;overflow-wrap:anywhere}
+.l0note{border:1px dashed var(--line-strong);border-radius:10px;padding:12px 16px;color:var(--muted);font-size:.9rem;margin:12px 0 0}
+</style></head><body>
+<header class="wrap intro"><h1>Maintainer Digest</h1><p class="sub">acme/widget · snapshot <code>sha256:6bce84705149</code> · pack <code>github-maintainer</code> 0.1.0 · status complete</p></header>
+<div id="bar-sentinel" aria-hidden="true"></div><nav class="bar" id="bar" aria-label="Counts"><div class="wrap"><ul class="summary"><li data-count="flagged"><a class="chip" href="#discuss-first">Discuss First <b>7</b></a></li><li data-count="related"><a class="chip" href="#related">Related reports <b>3</b></a></li><li data-count="since"><a class="chip" href="#since">Since last snapshot <b>6</b></a></li><li data-count="unmatched"><span class="chip l0">No rule matched <b>9</b></span></li></ul></div></nav>
+<div class="wrap"><main>
+<section id="discuss-first" class="pane" aria-labelledby="h-df"><h2 id="h-df">Discuss First (7)</h2><ol class="cards"><li class="card t1" data-id="github:acme/widget:issue:702" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#702</span><a class="title" href="https://github.com/acme/widget/issues/702" rel="noopener noreferrer">Sync conflict deleted my notes</a></div></div><ul class="meta"><li>related: #716</li></ul><ul class="flags"><li data-rule="DATA-LOSS"><span class="rid">DATA-LOSS</span><span class="q">“folder was gone and the trash is empty”</span><span class="prov">body[236:274] · ev:#702:1 · snapshot 6bce84705149</span></li><li data-rule="DATA-LOSS"><span class="rid">DATA-LOSS</span><span class="q">“lost my notes”</span><span class="prov">body[278:291] · ev:#702:2 · snapshot 6bce84705149</span></li><li data-rule="DATA-LOSS"><span class="rid">DATA-LOSS</span><span class="q">“deleted my notes”</span><span class="prov">title[14:30] · ev:#702:3 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:issue:712" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#712</span><a class="title" href="https://github.com/acme/widget/issues/712" rel="noopener noreferrer">Settings page crashes on startup after the typo fix</a></div></div><ul class="flags"><li data-rule="STARTUP-CRASH"><span class="rid">STARTUP-CRASH</span><span class="q">“crashes on startup”</span><span class="prov">body[201:219] · ev:#712:1 · snapshot 6bce84705149</span><span class="prov">title[14:32] · ev:#712:2 · snapshot 6bce84705149</span></li><li data-rule="CRASH-OR-HANG"><span class="rid">CRASH-OR-HANG</span><span class="q">“crashes”</span><span class="prov">body[201:208] · ev:#712:3 · snapshot 6bce84705149</span><span class="prov">title[14:21] · ev:#712:4 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:issue:713" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#713</span><a class="title" href="https://github.com/acme/widget/issues/713" rel="noopener noreferrer">Installer fails with EACCES on macOS</a></div></div><ul class="meta"><li>reported after release v3.2.0</li><li>related: #714, #716</li></ul><ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“installer fails”</span><span class="prov">body[166:181] · ev:#713:1 · snapshot 6bce84705149</span><span class="prov">body[281:296] · ev:#713:2 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“cannot install”</span><span class="prov">body[314:328] · ev:#713:3 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“Installer fails”</span><span class="prov">title[0:15] · ev:#713:4 · snapshot 6bce84705149</span></li><li data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="q">“fails with”</span><span class="prov">title[10:20] · ev:#713:5 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:issue:714" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#714</span><a class="title" href="https://github.com/acme/widget/issues/714" rel="noopener noreferrer">3.2.0 installer fails: EACCES permission denied</a></div></div><ul class="meta"><li>reported after release v3.2.0</li><li>related: #713, #715</li></ul><ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“unable to install”</span><span class="prov">body[264:281] · ev:#714:1 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“installer fails”</span><span class="prov">body[183:198] · ev:#714:2 · snapshot 6bce84705149</span><span class="prov">title[6:21] · ev:#714:3 · snapshot 6bce84705149</span></li><li data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="q">“fails with”</span><span class="prov">body[193:203] · ev:#714:4 · snapshot 6bce84705149</span></li><li data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="q">“fails:”</span><span class="prov">title[16:22] · ev:#714:5 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:issue:715" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#715</span><a class="title" href="https://github.com/acme/widget/issues/715" rel="noopener noreferrer">Unable to install 3.2.0, installer exits with EACCES</a></div></div><ul class="meta"><li>reported after release v3.2.0</li><li>related: #714</li></ul><ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“Unable to install”</span><span class="prov">title[0:17] · ev:#715:1 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“Installer fails”</span><span class="prov">body[156:171] · ev:#715:2 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:pull:716" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#716</span><a class="title" href="https://github.com/acme/widget/pull/716" rel="noopener noreferrer">Fix installer permission check on macOS</a></div></div><ul class="meta"><li>reported after release v3.2.0</li><li>related: #702, #713</li></ul><ul class="flags"><li data-rule="PR-FIXES-URGENT"><span class="rid">PR-FIXES-URGENT</span><span class="q">“Fixes #713”</span><span class="prov">body[0:10] · ev:#716:1 · snapshot 6bce84705149</span></li></ul></li><li class="card t2" data-id="github:acme/widget:issue:704" data-tier="T2"><div class="head"><div class="hl"><span class="badge t2">T2</span><span class="id">#704</span><a class="title" href="https://github.com/acme/widget/issues/704" rel="noopener noreferrer">Crash when opening a project with an emoji in its name</a></div></div><ul class="flags"><li data-rule="CRASH-OR-HANG"><span class="rid">CRASH-OR-HANG</span><span class="q">“crashes”</span><span class="prov">body[164:171] · ev:#704:1 · snapshot 6bce84705149</span></li><li data-rule="CRASH-OR-HANG"><span class="rid">CRASH-OR-HANG</span><span class="q">“Crash”</span><span class="prov">title[0:5] · ev:#704:2 · snapshot 6bce84705149</span></li></ul></li></ol><p class="l0note">9 item(s) had no rule matched. That does not mean they are not urgent; they stay in their original order on the board.</p></section>
+<section id="related" class="pane" aria-labelledby="h-rel"><h2 id="h-rel">Related Reports</h2><p class="note">Direct links quote the reference. Candidates may describe the same problem; no member is hidden or merged, and links never change a tier.</p><ul class="warn"><li data-edge="edge-2849c54958f7b9b4"><span class="kind">fixes</span> #716 → #713 · quote <span class="q">“Fixes #713”</span></li><li data-edge="edge-637c0ec45af9c365"><span class="kind">references</span> #716 → #702 · quote <span class="q">“#702”</span></li><li data-cluster="cluster-536b0243cb4ba854"><span class="kind">Candidates around #714</span> #713 <span class="why">(similar wording, score 0.5014)</span> · #715 <span class="why">(same error signature, score 0.4278)</span></li></ul></section>
+<section id="since" class="pane" aria-labelledby="h-since"><h2 id="h-since">Since Last Snapshot</h2><p class="note">Compared with <code>sha256:a7dccfa6611a</code>: 5 new, 1 not in this snapshot, 1 tier change(s), 5 newly flagged.</p><ol class="cards"><li class="card t1" data-id="github:acme/widget:issue:712" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#712</span><a class="title" href="https://github.com/acme/widget/issues/712" rel="noopener noreferrer">Settings page crashes on startup after the typo fix</a></div></div><ul class="flags"><li data-rule="STARTUP-CRASH"><span class="rid">STARTUP-CRASH</span><span class="q">“crashes on startup”</span><span class="prov">body[201:219] · ev:#712:1 · snapshot 6bce84705149</span><span class="prov">title[14:32] · ev:#712:2 · snapshot 6bce84705149</span></li><li data-rule="CRASH-OR-HANG"><span class="rid">CRASH-OR-HANG</span><span class="q">“crashes”</span><span class="prov">body[201:208] · ev:#712:3 · snapshot 6bce84705149</span><span class="prov">title[14:21] · ev:#712:4 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:issue:713" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#713</span><a class="title" href="https://github.com/acme/widget/issues/713" rel="noopener noreferrer">Installer fails with EACCES on macOS</a></div></div><ul class="meta"><li>new since the previous snapshot</li><li>reported after release v3.2.0</li></ul><ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“installer fails”</span><span class="prov">body[166:181] · ev:#713:1 · snapshot 6bce84705149</span><span class="prov">body[281:296] · ev:#713:2 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“cannot install”</span><span class="prov">body[314:328] · ev:#713:3 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“Installer fails”</span><span class="prov">title[0:15] · ev:#713:4 · snapshot 6bce84705149</span></li><li data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="q">“fails with”</span><span class="prov">title[10:20] · ev:#713:5 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:issue:714" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#714</span><a class="title" href="https://github.com/acme/widget/issues/714" rel="noopener noreferrer">3.2.0 installer fails: EACCES permission denied</a></div></div><ul class="meta"><li>new since the previous snapshot</li><li>reported after release v3.2.0</li></ul><ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“unable to install”</span><span class="prov">body[264:281] · ev:#714:1 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“installer fails”</span><span class="prov">body[183:198] · ev:#714:2 · snapshot 6bce84705149</span><span class="prov">title[6:21] · ev:#714:3 · snapshot 6bce84705149</span></li><li data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="q">“fails with”</span><span class="prov">body[193:203] · ev:#714:4 · snapshot 6bce84705149</span></li><li data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span><span class="q">“fails:”</span><span class="prov">title[16:22] · ev:#714:5 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:issue:715" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#715</span><a class="title" href="https://github.com/acme/widget/issues/715" rel="noopener noreferrer">Unable to install 3.2.0, installer exits with EACCES</a></div></div><ul class="meta"><li>new since the previous snapshot</li><li>reported after release v3.2.0</li></ul><ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“Unable to install”</span><span class="prov">title[0:17] · ev:#715:1 · snapshot 6bce84705149</span></li><li data-rule="BUILD-OR-INSTALL-BROKEN"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="q">“Installer fails”</span><span class="prov">body[156:171] · ev:#715:2 · snapshot 6bce84705149</span></li></ul></li><li class="card t1" data-id="github:acme/widget:pull:716" data-tier="T1"><div class="head"><div class="hl"><span class="badge t1">T1</span><span class="id">#716</span><a class="title" href="https://github.com/acme/widget/pull/716" rel="noopener noreferrer">Fix installer permission check on macOS</a></div></div><ul class="meta"><li>new since the previous snapshot</li><li>reported after release v3.2.0</li></ul><ul class="flags"><li data-rule="PR-FIXES-URGENT"><span class="rid">PR-FIXES-URGENT</span><span class="q">“Fixes #713”</span><span class="prov">body[0:10] · ev:#716:1 · snapshot 6bce84705149</span></li></ul></li></ol><ul class="warn"><li>#712 T3 → T1 because the item text changed; rules now matching: STARTUP-CRASH, CRASH-OR-HANG</li></ul></section>
+<section id="warnings" aria-labelledby="h-warnings"><h2 id="h-warnings">Data Warnings (2)</h2><ul class="warn"><li data-warning="ambiguous_negation"><code>ambiguous_negation</code> · info<br>1 item(s) mention a T1 rule term that was read as negated or historical, so it did not count. Read them by hand.</li><li data-warning="excessive_template_masking"><code>excessive_template_masking</code> · warning<br>6 item(s) had at least 60% of their text masked as template or boilerplate. The rules read little of what the reporter wrote: read them by hand.</li></ul></section>
+</main><footer><p>Read-only: nothing was changed on GitHub. Every quote is an exact substring of its item.</p><p>Generated by urgent-first 0.1.0.</p></footer></div>
+<script type="application/json" id="uf-data">{"kind":"urgent-first-digest","status":"complete","counts":{"by_tier":{"T1":6,"T2":1,"T3":9},"flagged":7,"total":16,"unmatched":9}}</script>
+<script>
+/* fluid.js: interruptible springs and pointer helpers for offline pages. No dependencies, about 2 KB minified.
+ * Inline a copy into each generated page. Springs use Apple's response/damping model:
+ *   response = period of the undamped spring in seconds; damping = damping ratio (1 = no bounce, 0.8 = slight bounce).
+ *   Move or reposition: damping 1, response 0.4. Drawer or sheet: damping 0.8, response 0.3. Press: damping 1, response 0.18.
+ * Every spring keeps its live value and velocity, so a new target retargets from where it is now (interruptible).
+ * Under prefers-reduced-motion every spring jumps straight to its target.
+ */
+var Fluid = (function () {
+  'use strict';
+  var mq = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function reduce() { return !!(mq && mq.matches); }
+
+  function spring(opts) {
+    opts = opts || {};
+    var x = opts.value || 0, v = 0, target = x, raf = 0, last = 0, k = 0, c = 0;
+    var onUpdate = opts.onUpdate, onRest = opts.onRest, eps = opts.epsilon || 0.001;
+    var response = opts.response || 0.4, damping = opts.damping == null ? 1 : opts.damping;
+    function params(r, d) { k = Math.pow((2 * Math.PI) / r, 2); c = (4 * Math.PI * d) / r; }
+    params(response, damping);
+    function emit() { if (onUpdate) onUpdate(x, v); }
+    function settle() { x = target; v = 0; raf = 0; emit(); if (onRest) onRest(x); }
+    function step(t) {
+      var dt = (t - last) / 1000;
+      if (!(dt > 0)) dt = 1 / 60; // the first frame's timestamp can be earlier than the call to to()
+      if (dt > 0.064) dt = 0.064;
+      last = t;
+      var n = Math.max(1, Math.ceil(dt * 240)), h = dt / n;
+      for (var i = 0; i < n; i++) { var a = -k * (x - target) - c * v; v += a * h; x += v * h; }
+      if (Math.abs(x - target) < eps && Math.abs(v) < eps * 10) return settle();
+      emit();
+      raf = requestAnimationFrame(step);
+    }
+    var api = {
+      get value() { return x; },
+      get velocity() { return v; },
+      get target() { return target; },
+      /** Animate to t. opts.velocity hands off a release velocity (units per second). */
+      to: function (t, o) {
+        o = o || {};
+        target = t;
+        if (o.velocity != null) v = o.velocity;
+        if (o.response || o.damping != null) params(o.response || response, o.damping == null ? damping : o.damping);
+        if (reduce()) { cancelAnimationFrame(raf); settle(); return api; }
+        if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
+        return api;
+      },
+      /** Jump without animating (direct manipulation: the finger owns the value). */
+      set: function (val) { cancelAnimationFrame(raf); raf = 0; x = target = val; v = 0; emit(); return api; },
+      stop: function () { cancelAnimationFrame(raf); raf = 0; return api; },
+    };
+    return api;
+  }
+
+  /** Velocity over the last 100 ms of samples, in units per second. */
+  function velocityTracker() {
+    var s = [];
+    return {
+      add: function (p, t) { t = t == null ? performance.now() : t; s.push([p, t]); while (s.length > 2 && t - s[0][1] > 100) s.shift(); },
+      get: function () { if (s.length < 2) return 0; var a = s[0], b = s[s.length - 1]; return b[1] > a[1] ? (b[0] - a[0]) / ((b[1] - a[1]) / 1000) : 0; },
+      reset: function () { s.length = 0; },
+    };
+  }
+
+  /** Where a flick comes to rest under exponential decay (deceleration rate per millisecond, 0.998 = normal). */
+  function project(velocity, rate) { rate = rate || 0.998; return ((velocity / 1000) * rate) / (1 - rate); }
+
+  /** Resistance past an edge: overshoot in px, dimension = track length in px. Returns the drawn overshoot. */
+  function rubber(overshoot, dimension, coeff) {
+    coeff = coeff || 0.55;
+    var sign = overshoot < 0 ? -1 : 1, o = Math.abs(overshoot);
+    return sign * (1 - 1 / ((o * coeff) / dimension + 1)) * dimension;
+  }
+
+  /** Press feedback on pointer-down. Scales el with a spring; a move of more than 10 px cancels the press. */
+  function pressable(el, o) {
+    o = o || {};
+    var down = o.scale || 0.97, start = null, sp = spring({ value: 1, response: 0.18, damping: 1, onUpdate: function (s) {
+      el.style.transform = s === 1 ? '' : 'scale(' + s.toFixed(4) + ')';
+    } });
+    function release() { start = null; sp.to(1, { response: 0.3, damping: 0.8 }); }
+    el.addEventListener('pointerdown', function (e) { if (e.button > 0) return; start = [e.clientX, e.clientY]; sp.to(down, { response: 0.18, damping: 1 }); });
+    el.addEventListener('pointermove', function (e) { if (start && Math.hypot(e.clientX - start[0], e.clientY - start[1]) > 10) release(); });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (n) { el.addEventListener(n, function () { if (start) release(); }); });
+    return sp;
+  }
+
+  return { spring: spring, velocityTracker: velocityTracker, project: project, rubber: rubber, pressable: pressable, reduce: reduce };
+})();
+if (typeof module !== 'undefined') module.exports = Fluid;
+
+/* board.html motion: disclosure springs, press feedback and the sticky bar material.
+ * A classic browser script, inlined after fluid.js (read as text by html.js, never imported).
+ * The page reads fully without it: every card and group renders open, and the toggles stay hidden.
+ * Height springs (damping 1, response 0.35) reverse from their live height and velocity when clicked
+ * again mid-flight; chevrons rotate on their own spring (damping 0.8, response 0.4). Under
+ * prefers-reduced-motion every spring jumps straight to its target. */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  function rotate(svg, deg) { svg.style.transform = 'rotate(' + deg.toFixed(2) + 'deg)'; }
+
+  /** o: { body, open, chev, show(), hide(), set(open) }. body's first child fades and settles 6px. */
+  function disclosure(o) {
+    var body = o.body, inner = body.firstElementChild || body, open = o.open, full = 0;
+    function paint(x) {
+      var c = x < 0 ? 0 : x > 1 ? 1 : x;
+      body.style.height = (c * full).toFixed(2) + 'px';
+      body.style.overflow = 'hidden';
+      inner.style.opacity = c.toFixed(3);
+      inner.style.transform = 'translateY(' + (-6 * (1 - c)).toFixed(2) + 'px)';
+    }
+    function rest(x) {
+      body.style.height = body.style.overflow = inner.style.opacity = inner.style.transform = '';
+      if (x === 0) o.hide();
+    }
+    var h = Fluid.spring({ value: open ? 1 : 0, response: 0.35, damping: 1, onUpdate: paint, onRest: rest });
+    var chev = o.chev && Fluid.spring({ value: open ? 90 : 0, response: 0.4, damping: 0.8, onUpdate: function (d) { rotate(o.chev, d); } });
+    if (o.chev) rotate(o.chev, open ? 90 : 0);
+    var api = {
+      get open() { return open; },
+      toggle: function () {
+        open = !open;
+        if (open) o.show();
+        full = body.scrollHeight;
+        if (!body.style.height) paint(h.value); // at rest: pin the live height before animating
+        h.to(open ? 1 : 0);
+        if (chev) chev.to(open ? 90 : 0);
+        o.set(open);
+      },
+      /** Follow a change made outside the toggle (find-in-page opening a details element). */
+      jump: function (v) {
+        open = v;
+        h.set(v ? 1 : 0);
+        rest(v ? 1 : 0);
+        if (chev) chev.set(v ? 90 : 0);
+        o.set(v);
+      },
+    };
+    return api;
+  }
+
+  // Cards and the "No rule matched" group: a chevron button controls the body named in aria-controls.
+  document.querySelectorAll('button.tog[aria-controls]').forEach(function (btn) {
+    var body = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!body) return;
+    btn.hidden = false;
+    var d = disclosure({
+      body: body,
+      open: btn.getAttribute('aria-expanded') !== 'false',
+      chev: btn.querySelector('.chev'),
+      show: function () { body.hidden = false; },
+      hide: function () { body.hidden = true; },
+      set: function (v) { btn.setAttribute('aria-expanded', String(v)); },
+    });
+    btn.addEventListener('click', d.toggle);
+    Fluid.pressable(btn, { scale: 0.88 });
+  });
+
+  // Item text and other text fields: native <details>, kept open while the body springs shut.
+  document.querySelectorAll('details.disc').forEach(function (det) {
+    var sum = det.querySelector(':scope > summary'), body = det.querySelector(':scope > .dbody');
+    if (!sum || !body) return;
+    var d = disclosure({
+      body: body,
+      open: det.open,
+      chev: sum.querySelector('.chev'),
+      show: function () { det.open = true; },
+      hide: function () { det.open = false; },
+      set: function () {},
+    });
+    sum.addEventListener('click', function (e) { e.preventDefault(); d.toggle(); });
+    det.addEventListener('toggle', function () { if (det.open !== d.open && !body.style.height) d.jump(det.open); });
+    Fluid.pressable(sum);
+  });
+
+  // Summary chips jump to their sections (native smooth scroll, instant under reduced motion).
+  document.querySelectorAll('.summary .chip').forEach(function (chip) { Fluid.pressable(chip); });
+
+  // The sticky bar turns into a translucent material once the board scrolls under it.
+  var bar = document.getElementById('bar'), sentinel = document.getElementById('bar-sentinel');
+  if (bar) {
+    var measure = function () { document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px'); };
+    measure();
+    addEventListener('resize', measure);
+    if (sentinel && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { bar.classList.toggle('stuck', !e[e.length - 1].isIntersecting); }).observe(sentinel);
+    }
+  }
+})();
+</script>
+</body></html>

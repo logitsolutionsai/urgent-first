@@ -1,0 +1,350 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-Fz/immU30PjBOCNabTru8TLn+zdlVbpWU58x4nwNCnw='; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Discuss First: Radiology order text (research pack)</title><style>
+:root{--bg:#f7f7f5;--surface:#ffffff;--surface-2:#f0f0ed;--line:#e3e3df;--line-strong:#c9c9c3;--ink:#111110;--ink-2:#3a3a37;--muted:#6f6f69;--faint:#a3a39c;
+--accent:#0065FD;--accent-press:#0654c8;--accent-soft:rgba(0,101,253,.10);--bar-h:60px}
+@media (prefers-color-scheme:dark){:root{--bg:#0e0e0d;--surface:#171716;--surface-2:#1f1f1d;--line:#2b2b29;--line-strong:#3d3d3a;--ink:#f4f4f2;--ink-2:#d6d6d2;--muted:#9a9a94;--faint:#6a6a65;
+--accent:#5b9cff;--accent-press:#3f86ff;--accent-soft:rgba(91,156,255,.14)}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink-2);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+::selection{background:var(--accent-soft)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+a{color:var(--accent);text-underline-offset:2px}
+a:active{color:var(--accent-press)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+h1{font-size:1.6rem;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em;color:var(--ink)}
+h2{font-size:1.2rem;line-height:1.3;margin:40px 0 8px;color:var(--ink);display:flex;align-items:center;gap:4px}
+h3{font-size:1rem;margin:24px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--ink)}
+section,h3{scroll-margin-top:calc(var(--bar-h) + 16px)}
+main>section:first-child>h2{margin-top:24px}
+.intro{padding-top:24px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:.92rem;overflow-wrap:anywhere}
+.banner{background:var(--surface);border:1.5px solid var(--ink);color:var(--ink);border-radius:10px;padding:12px 16px;margin:0 0 4px;font-size:.93rem}
+.banner strong{display:block;margin-bottom:4px}
+#bar-sentinel{height:1px;margin-bottom:-1px}
+.bar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid transparent}
+.bar.stuck{background:color-mix(in srgb,var(--surface) 78%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+@media (prefers-reduced-motion:no-preference){.bar{transition:background-color .16s ease,border-color .16s ease}}
+.summary{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:12px 0;list-style:none}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:4px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink-2);font-size:.88rem;line-height:1.3;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+a.chip{cursor:pointer;-webkit-user-select:none;user-select:none}
+a.chip:hover{border-color:var(--line-strong)}
+.chip b{font-variant-numeric:tabular-nums;font-weight:700;color:inherit}
+.chip.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip.t2{background:transparent;border:1.5px solid var(--ink);color:var(--ink);padding:3.5px 11.5px}
+.chip.t3{background:var(--surface-2);border-color:var(--surface-2);color:var(--ink-2)}
+.chip.l0{background:transparent;border:1px dashed var(--line-strong);color:var(--muted)}
+.badge{display:inline-flex;align-items:center;border:1.5px solid transparent;border-radius:4px;padding:0 6px;font-weight:650;font-size:.78rem;line-height:1.45;white-space:nowrap;font-variant-numeric:tabular-nums}
+.badge.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.badge.t2{border-color:var(--ink);color:var(--ink)}
+.badge.t3{background:var(--surface-2);color:var(--ink-2)}
+.tog{position:relative;flex:none;display:inline-grid;place-items:center;width:24px;height:24px;margin:0 0 0 -4px;padding:0;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tog::after{content:"";position:absolute;inset:-8px}
+.tog:hover{background:var(--surface-2);color:var(--ink)}
+.chev{display:block;width:16px;height:16px}
+details.disc[open]>summary .chev{transform:rotate(90deg)}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{--pad:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px var(--pad);min-width:0}
+.card.t1{border-left:3px solid var(--ink);padding-left:calc(var(--pad) - 2px)}
+.card.t2{border-left:1.5px solid var(--ink-2);padding-left:calc(var(--pad) - .5px)}
+.head{display:flex;gap:8px;align-items:flex-start}
+.hl{display:flex;flex:1;gap:8px;align-items:baseline;flex-wrap:wrap;min-width:0}
+.tog+.hl{margin-left:-2px}
+.pos{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.85rem}
+.id{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;color:var(--muted)}
+.title{font-weight:650;color:var(--ink);overflow-wrap:anywhere}
+a.title{text-decoration:none}
+a.title:hover{color:var(--accent);text-decoration:underline}
+.new{display:inline-flex;align-items:center;background:var(--surface-2);color:var(--ink-2);border-radius:4px;padding:0 6px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+.meta{display:flex;flex-wrap:wrap;margin:4px 0 0;padding:0;list-style:none;font-size:.82rem;color:var(--muted)}
+.meta li:not(:last-child)::after{content:"·";padding:0 8px;color:var(--faint)}
+.flags{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.flags li{font-size:.9rem;overflow-wrap:anywhere}
+.rule{font-weight:650;color:var(--ink)}
+.rid{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ink-2);background:var(--surface-2);border-radius:4px;padding:1px 6px;margin-right:6px}
+.q{font-style:italic;color:var(--ink)}
+.why{color:var(--muted);font-size:.85rem}
+.kind{font-weight:600;color:var(--muted)}
+.fields{margin:12px 0 0;display:grid;gap:8px}
+.field{border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.field .fname{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;white-space:normal}
+.masked{color:var(--faint);text-decoration-line:underline;text-decoration-style:dashed;text-decoration-color:var(--faint);text-decoration-thickness:1px;text-underline-offset:3px}
+.masked-note{color:var(--muted);font-size:.8rem;margin:12px 0 0}
+mark{background:var(--surface-2);color:var(--ink);text-decoration-line:underline;text-decoration-color:var(--ink);text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-skip-ink:none;border-radius:2px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+details.disc>summary{display:flex;align-items:center;gap:4px;width:fit-content;margin:8px 0 0 -4px;padding:2px 8px 2px 4px;border-radius:6px;list-style:none;cursor:pointer;color:var(--muted);font-size:.85rem;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+details.disc>summary::-webkit-details-marker{display:none}
+details.disc>summary:hover{background:var(--surface-2);color:var(--ink)}
+.plain{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.plain>li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.note{color:var(--muted);font-size:.9rem;margin:0}
+.rejected>li{display:flex;gap:8px;align-items:baseline}
+footer{margin-top:48px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding:16px 0 48px}
+@media (max-width:600px){.chip .tn{display:none}.summary{gap:6px;padding:8px 0}.chip{min-height:30px;padding:3px 10px}.chip.t2{padding:2.5px 9.5px}}
+@media (max-width:480px){.wrap{padding:0 12px}.intro{padding-top:16px}h1{font-size:1.35rem}.card{--pad:12px}.plain>li{padding:12px}}
+</style></head><body>
+<header class="wrap intro"><h1>Discuss First</h1>
+<p class="sub">Radiology order text (research pack) · pack <code>radiology-research</code> 0.1.0 · input <code>radiology-worklist.jsonl</code> · as of 2026-11-14 09:30 UTC</p>
+<div class="banner" role="note" id="research-banner"><strong>Research mode</strong>Research and education software. Not a medical device; not cleared, approved or CE-marked. Not for patient care, including choosing which studies to read first. It reads only text, quotes the exact words that matched a rule, and never changes the ordered priority. Accuracy figures come from synthetic cases. Clinical use may be regulated as a medical device.</div>
+</header>
+<div id="bar-sentinel" aria-hidden="true"></div><nav class="bar" id="bar" aria-label="Counts"><div class="wrap"><ul class="summary">
+<li data-count="flagged"><a class="chip" href="#discuss-first">Discuss First <b>7</b></a></li><li data-count-tier="T1"><a class="chip t1" href="#tier-T1">T1<span class="tn"> Discuss now</span> <b>5</b></a></li><li data-count-tier="T2"><a class="chip t2" href="#tier-T2">T2<span class="tn"> Today</span> <b>2</b></a></li><li data-count="unmatched"><a class="chip l0" href="#no-rule-matched">No rule matched <b>5</b></a></li><li data-count="total"><span class="chip">Items <b>12</b></span></li>
+</ul></div></nav><div class="wrap">
+<main>
+<section id="discuss-first" aria-labelledby="h-df"><h2 id="h-df">Discuss First (7)</h2>
+<h3 id="tier-T1"><span class="badge t1">T1</span> Discuss now (5) <span class="why">turnaround target 1 h (pack setting)</span></h3><ol class="cards">
+<li class="card t1" data-id="demo-04" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-1" aria-label="Details of demo-04"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">1.</span><span class="badge t1">T1 Discuss now</span><span class="id">demo-04</span><span class="title">CT pulmonary angiogram</span></div></div>
+<div class="cbody" id="cb-1"><div class="cin">
+<ul class="meta"><li>priority <mark data-item="demo-04" data-field="priority" data-start="0" data-end="6" title="floor:priority">urgent</mark></li><li>raised from T2</li><li> inpatient</li><li>waiting 1 h 15 min</li></ul>
+<ul class="flags"><li data-rule="PULMONARY-EMBOLISM" data-rule-tier="T1"><span class="rid">PULMONARY-EMBOLISM</span><span class="rule">Possible pulmonary embolism</span> · <a href="https://academic.oup.com/eurheartj/article/41/4/543/5556136" rel="noreferrer" title="2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism">source</a><br><span class="q">“r/o PE”</span> <span class="why">(suspected)</span> · <span class="q">“POD2”</span> · <span class="q">“SOB”</span> · <span class="q">“HR 118”</span> · <span class="q">“SpO2 89%”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="HYPOXIA"><span class="rid">HYPOXIA</span>T2 <span class="q">“SpO2 89%”</span></span></li><li><span class="kind">Turnaround</span> target 1 h (pack setting), overdue by 15 min</li><li><span class="kind">Floor</span> priority “urgent” sets T2</li></ul>
+<div class="fields"><div class="field"><span class="fname">reason</span><mark data-item="demo-04" data-field="reason" data-start="0" data-end="4" title="PULMONARY-EMBOLISM">POD2</mark> R knee replacement, sudden <mark data-item="demo-04" data-field="reason" data-start="32" data-end="35" title="PULMONARY-EMBOLISM">SOB</mark> this morning, <mark data-item="demo-04" data-field="reason" data-start="50" data-end="56" title="PULMONARY-EMBOLISM">HR 118</mark>, <mark data-item="demo-04" data-field="reason" data-start="58" data-end="66" title="PULMONARY-EMBOLISM HYPOXIA">SpO2 89%</mark> RA. <mark data-item="demo-04" data-field="reason" data-start="71" data-end="77" title="PULMONARY-EMBOLISM">r/o PE</mark>.</div></div>
+</div></div></li>
+<li class="card t1" data-id="demo-12" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-2" aria-label="Details of demo-12"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">2.</span><span class="badge t1">T1 Discuss now</span><span class="id">demo-12</span><span class="title">US abdomen</span></div></div>
+<div class="cbody" id="cb-2"><div class="cin">
+<ul class="meta"><li>priority routine</li><li>raised from T3</li><li> inpatient</li><li>waiting 1 h 10 min</li></ul>
+<ul class="flags"><li data-rule="PAEDIATRIC-SURGICAL" data-rule-tier="T1"><span class="rid">PAEDIATRIC-SURGICAL</span><span class="rule">Possible malrotation, volvulus or intussusception</span> · <a href="https://acsearch.acr.org/docs/69445/Narrative/" rel="noreferrer" title="ACR Appropriateness Criteria: Vomiting in Infants (2020) and Abdominal Pain-Child (2025)">source</a><br><span class="q">“vomited bright green”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="BOWEL-OBSTRUCTION"><span class="rid">BOWEL-OBSTRUCTION</span>T2 <span class="q">“distended”</span> · <span class="q">“vomited”</span></span></li><li><span class="kind">Turnaround</span> target 1 h (pack setting), overdue by 10 min</li></ul>
+<div class="fields"><div class="field"><span class="fname">history</span>Overnight <mark data-item="demo-12" data-field="history" data-start="10" data-end="30" title="PAEDIATRIC-SURGICAL BOWEL-OBSTRUCTION">vomited bright green</mark> twice, abdomen now <mark data-item="demo-12" data-field="history" data-start="50" data-end="59" title="BOWEL-OBSTRUCTION">distended</mark>.</div></div><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Other text fields</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">reason</span>Prolonged jaundice in a 2-week-old.</div></div></div></div></details>
+</div></div></li>
+<li class="card t1" data-id="demo-06" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-3" aria-label="Details of demo-06"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">3.</span><span class="badge t1">T1 Discuss now</span><span class="id">demo-06</span><span class="title">MRI lumbar spine</span></div></div>
+<div class="cbody" id="cb-3"><div class="cin">
+<ul class="meta"><li>priority routine</li><li>raised from T3</li><li> ED</li><li>waiting 1 h</li></ul>
+<ul class="flags"><li data-rule="CAUDA-EQUINA" data-rule-tier="T1"><span class="rid">CAUDA-EQUINA</span><span class="rule">Possible cauda equina syndrome</span> · <a href="https://gettingitrightfirsttime.co.uk/pathway-supports-clinicians-to-diagnose-and-treat-cauda-equina-syndrome-without-delay/" rel="noreferrer" title="GIRFT National Suspected Cauda Equina Syndrome Pathway (2023, revised 2026)">source</a><br><span class="q">“has not passed urine”</span> · <span class="q">“Back”</span> · <span class="q">“bilateral sciatica”</span></li><li><span class="kind">Turnaround</span> target 1 h (pack setting), 0 min left</li></ul>
+<div class="fields"><div class="field"><span class="fname">reason</span><mark data-item="demo-06" data-field="reason" data-start="0" data-end="4" title="CAUDA-EQUINA">Back</mark> pain 1 week, now <mark data-item="demo-06" data-field="reason" data-start="22" data-end="40" title="CAUDA-EQUINA">bilateral sciatica</mark>.</div><div class="field"><span class="fname">history</span>Since last night numb around the bottom and <mark data-item="demo-06" data-field="history" data-start="44" data-end="64" title="CAUDA-EQUINA">has not passed urine</mark> since 06:00. Bladder scan 850 mL.</div></div>
+</div></div></li>
+<li class="card t1" data-id="demo-02" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-4" aria-label="Details of demo-02"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">4.</span><span class="badge t1">T1 Discuss now</span><span class="id">demo-02</span><span class="title">CT head without contrast</span></div></div>
+<div class="cbody" id="cb-4"><div class="cin">
+<ul class="meta"><li>priority routine</li><li>raised from T3</li><li> ED</li><li>waiting 40 min</li></ul>
+<ul class="flags"><li data-rule="STROKE" data-rule-tier="T1"><span class="rid">STROKE</span><span class="rule">Possible acute stroke</span> · <a href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000513" rel="noreferrer" title="AHA/ASA 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke">source</a><br><span class="q">“Sudden R arm weakness”</span> · <span class="q">“slurred speech”</span> · <span class="q">“LKW”</span></li><li><span class="kind">Clock</span> Symptom onset or last known well 07:40 (quoted: &quot;LKW 07:40&quot;): IV thrombolysis window (4 h 30 min) closes 12:10: 3 h 20 min left at item time, 2 h 40 min left now; Thrombectomy window for selected patients (1 d) closes 07:40 on 2026-11-15: 22 h 50 min left at item time, 22 h 10 min left now</li><li><span class="kind">Turnaround</span> target 1 h (pack setting), 20 min left</li></ul>
+<div class="fields"><div class="field"><span class="fname">reason</span><mark data-item="demo-02" data-field="reason" data-start="0" data-end="21" title="STROKE">Sudden R arm weakness</mark> and <mark data-item="demo-02" data-field="reason" data-start="26" data-end="40" title="STROKE">slurred speech</mark>. <mark data-item="demo-02" data-field="reason" data-start="42" data-end="51" title="clock:onset STROKE">LKW 07:40</mark>.</div></div><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Other text fields</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">note</span>On aspirin only.</div></div></div></div></details>
+</div></div></li>
+<li class="card t1" data-id="demo-11" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-5" aria-label="Details of demo-11"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">5.</span><span class="badge t1">T1 Discuss now</span><span class="id">demo-11</span><span class="title">CT head without contrast</span></div></div>
+<div class="cbody" id="cb-5"><div class="cin">
+<ul class="meta"><li>priority <mark data-item="demo-11" data-field="priority" data-start="0" data-end="4" title="floor:priority">stat</mark></li><li> ED</li><li>waiting 25 min</li></ul>
+<ul class="flags"><li data-rule="HEAD-INJURY-HIGH-RISK" data-rule-tier="T1"><span class="rid">HEAD-INJURY-HIGH-RISK</span><span class="rule">Head injury with a high-risk feature</span> · <a href="https://www.nice.org.uk/guidance/ng232" rel="noreferrer" title="NICE NG232 Head injury: assessment and early management">source</a><br><span class="q">“fluid from L ear”</span> · <span class="q">“Fall”</span> · <span class="q">“GCS 12”</span> · <span class="q">“clear fluid”</span></li><li data-rule="REDUCED-CONSCIOUSNESS" data-rule-tier="T1"><span class="rid">REDUCED-CONSCIOUSNESS</span><span class="rule">GCS 12 or less</span> · <a href="https://www.nice.org.uk/guidance/ng232" rel="noreferrer" title="NICE NG232 Head injury: assessment and early management">source</a><br><span class="q">“GCS 12”</span></li><li><span class="kind">Turnaround</span> target 1 h (pack setting), 35 min left</li><li><span class="kind">Floor</span> priority “stat” sets T1</li></ul>
+<div class="fields"><div class="field"><span class="fname">reason</span><mark data-item="demo-11" data-field="reason" data-start="0" data-end="4" title="HEAD-INJURY-HIGH-RISK">Fall</mark> from ladder, <mark data-item="demo-11" data-field="reason" data-start="18" data-end="24" title="HEAD-INJURY-HIGH-RISK REDUCED-CONSCIOUSNESS">GCS 12</mark>, <mark data-item="demo-11" data-field="reason" data-start="26" data-end="48" title="HEAD-INJURY-HIGH-RISK">clear fluid from L ear</mark>.</div></div>
+</div></div></li>
+</ol>
+<h3 id="tier-T2"><span class="badge t2">T2</span> Today (2) <span class="why">turnaround target 8 h (pack setting)</span></h3><ol class="cards">
+<li class="card t2" data-id="demo-08" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-6" aria-label="Details of demo-08"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">6.</span><span class="badge t2">T2 Today</span><span class="id">demo-08</span><span class="title">US venous duplex left leg</span></div></div>
+<div class="cbody" id="cb-6"><div class="cin">
+<ul class="meta"><li>priority <mark data-item="demo-08" data-field="priority" data-start="0" data-end="6" title="floor:priority">urgent</mark></li><li> ED</li><li>waiting 1 h 35 min</li></ul>
+<ul class="flags"><li data-rule="DVT" data-rule-tier="T2"><span class="rid">DVT</span><span class="rule">Possible deep vein thrombosis</span> · <a href="https://www.nice.org.uk/guidance/ng158" rel="noreferrer" title="NICE NG158 Venous thromboembolic diseases: diagnosis, management and thrombophilia testing">source</a><br><span class="q">“?DVT”</span> <span class="why">(suspected)</span> · <span class="q">“Swollen and tender”</span></li><li><span class="kind">Turnaround</span> target 8 h (pack setting), 6 h 25 min left</li><li><span class="kind">Floor</span> priority “urgent” sets T2</li></ul>
+<div class="fields"><div class="field"><span class="fname">reason</span><mark data-item="demo-08" data-field="reason" data-start="0" data-end="4" title="DVT">?DVT</mark> L calf. <mark data-item="demo-08" data-field="reason" data-start="13" data-end="31" title="DVT">Swollen and tender</mark> after a long flight. No SOB, no chest pain.</div></div>
+</div></div></li>
+<li class="card t2" data-id="demo-09" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-7" aria-label="Details of demo-09"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">7.</span><span class="badge t2">T2 Today</span><span class="id">demo-09</span><span class="title">CT abdomen and pelvis with contrast</span></div></div>
+<div class="cbody" id="cb-7"><div class="cin">
+<ul class="meta"><li>priority routine</li><li>raised from T3</li><li> ED</li><li>waiting 45 min</li></ul>
+<ul class="flags"><li data-rule="APPENDICITIS" data-rule-tier="T2"><span class="rid">APPENDICITIS</span><span class="rule">Possible appendicitis</span> · <a href="https://doi.org/10.1186/s13017-020-00306-3" rel="noreferrer" title="WSES Jerusalem guidelines on diagnosis and treatment of acute appendicitis (2020)">source</a><br><span class="q">“Query appendicitis”</span> <span class="why">(suspected)</span> · <span class="q">“RLQ”</span></li><li><span class="kind">Turnaround</span> target 8 h (pack setting), 7 h 15 min left</li></ul>
+<div class="fields"><div class="field"><span class="fname">reason</span><mark data-item="demo-09" data-field="reason" data-start="0" data-end="3" title="APPENDICITIS">RLQ</mark> pain 24 h, anorexic, T 37.9. <mark data-item="demo-09" data-field="reason" data-start="33" data-end="51" title="APPENDICITIS">Query appendicitis</mark>.</div></div>
+</div></div></li>
+</ol>
+</section>
+<section id="no-rule-matched" aria-labelledby="h-nr"><h2 id="h-nr"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="nr-body" aria-label="No rule matched items"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span>No rule matched (5)</span></h2><div class="cbody" id="nr-body"><div class="cin"><p class="note">This does not mean not urgent. Items are listed in their original order.</p><ol class="plain">
+<li data-id="demo-01" data-tier="T3"><div class="head"><div class="hl"><span class="pos">8.</span><span class="id">demo-01</span><span class="title">MRI knee</span></div></div><ul class="meta"><li>priority routine</li><li> outpatient</li><li>waiting 2 h 25 min</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">reason</span>Medial knee pain for 4 months after a skiing twist, locking at times. ?meniscal tear.</div></div></div></div></details></li>
+<li data-id="demo-03" data-tier="T3"><div class="head"><div class="hl"><span class="pos">9.</span><span class="id">demo-03</span><span class="title">MRI brain without contrast</span></div></div><ul class="meta"><li>priority routine</li><li> outpatient</li><li>waiting 2 h 10 min</li></ul><p class="why">Did not count: “stroke” (negated, STROKE)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">reason</span>Memory decline over 18 months. No history of stroke, routine follow-up.</div></div></div></div></details></li>
+<li data-id="demo-05" data-tier="T3"><div class="head"><div class="hl"><span class="pos">10.</span><span class="id">demo-05</span><span class="title">US pelvis</span></div></div><ul class="meta"><li>priority routine</li><li> outpatient</li><li>waiting 1 h 50 min</li></ul><p class="why">Did not count: “ectopic” (historical, ECTOPIC-PREGNANCY) · “ectopic pregnancy” (historical, ECTOPIC-PREGNANCY)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">reason</span>Previous ectopic pregnancy 2021, now 12-week dating scan. Well.</div></div></div></div></details></li>
+<li data-id="demo-07" data-tier="T3"><div class="head"><div class="hl"><span class="pos">11.</span><span class="id">demo-07</span><span class="title">XR chest</span></div></div><ul class="meta"><li>priority routine</li><li> inpatient</li><li>waiting 1 h 25 min</li></ul><p class="why">Did not count: “Pneumothorax” (negated, PNEUMOTHORAX)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">reason</span>Pneumothorax resolved on last film, routine check before discharge.</div></div></div></div></details></li>
+<li data-id="demo-10" data-tier="T3"><div class="head"><div class="hl"><span class="pos">12.</span><span class="id">demo-10</span><span class="title">MRI heart with contrast</span></div></div><ul class="meta"><li>priority routine</li><li> outpatient</li><li>waiting 2 h 40 min</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">reason</span>Known dilated cardiomyopathy. Please quantify LV ejection fraction and stroke volume.</div></div></div></div></details></li>
+</ol></div></div></section>
+</main><footer><p>Every flag quotes the exact words that matched. No item is placed below the tier its own priority field implies; rules and annotations can only raise.</p>
+<p><strong>Research mode.</strong> Research and education software. Not a medical device; not cleared, approved or CE-marked. Not for patient care, including choosing which studies to read first. It reads only text, quotes the exact words that matched a rule, and never changes the ordered priority. Accuracy figures come from synthetic cases. Clinical use may be regulated as a medical device.</p>
+<p>Generated by urgent-first 0.1.0.</p></footer>
+<script type="application/json" id="uf-data">{"counts":{"total":12,"flagged":7,"unmatched":5,"by_tier":{"T1":5,"T2":2,"T3":5}},"evidence":[{"id":"demo-04","tier":"T1","quotes":[{"field":"reason","text":"r/o PE"},{"field":"reason","text":"POD2"},{"field":"reason","text":"SOB"},{"field":"reason","text":"HR 118"},{"field":"reason","text":"SpO2 89%"},{"field":"reason","text":"SpO2 89%"}]},{"id":"demo-12","tier":"T1","quotes":[{"field":"history","text":"vomited bright green"},{"field":"history","text":"distended"},{"field":"history","text":"vomited"}]},{"id":"demo-06","tier":"T1","quotes":[{"field":"history","text":"has not passed urine"},{"field":"reason","text":"Back"},{"field":"reason","text":"bilateral sciatica"}]},{"id":"demo-02","tier":"T1","quotes":[{"field":"reason","text":"Sudden R arm weakness"},{"field":"reason","text":"slurred speech"},{"field":"reason","text":"LKW"}]},{"id":"demo-11","tier":"T1","quotes":[{"field":"reason","text":"fluid from L ear"},{"field":"reason","text":"Fall"},{"field":"reason","text":"GCS 12"},{"field":"reason","text":"clear fluid"},{"field":"reason","text":"GCS 12"}]},{"id":"demo-08","tier":"T2","quotes":[{"field":"reason","text":"?DVT"},{"field":"reason","text":"Swollen and tender"}]},{"id":"demo-09","tier":"T2","quotes":[{"field":"reason","text":"Query appendicitis"},{"field":"reason","text":"RLQ"}]},{"id":"demo-01","tier":"T3","quotes":[]},{"id":"demo-03","tier":"T3","quotes":[]},{"id":"demo-05","tier":"T3","quotes":[]},{"id":"demo-07","tier":"T3","quotes":[]},{"id":"demo-10","tier":"T3","quotes":[]}]}</script>
+<script>
+/* fluid.js: interruptible springs and pointer helpers for offline pages. No dependencies, about 2 KB minified.
+ * Inline a copy into each generated page. Springs use Apple's response/damping model:
+ *   response = period of the undamped spring in seconds; damping = damping ratio (1 = no bounce, 0.8 = slight bounce).
+ *   Move or reposition: damping 1, response 0.4. Drawer or sheet: damping 0.8, response 0.3. Press: damping 1, response 0.18.
+ * Every spring keeps its live value and velocity, so a new target retargets from where it is now (interruptible).
+ * Under prefers-reduced-motion every spring jumps straight to its target.
+ */
+var Fluid = (function () {
+  'use strict';
+  var mq = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function reduce() { return !!(mq && mq.matches); }
+
+  function spring(opts) {
+    opts = opts || {};
+    var x = opts.value || 0, v = 0, target = x, raf = 0, last = 0, k = 0, c = 0;
+    var onUpdate = opts.onUpdate, onRest = opts.onRest, eps = opts.epsilon || 0.001;
+    var response = opts.response || 0.4, damping = opts.damping == null ? 1 : opts.damping;
+    function params(r, d) { k = Math.pow((2 * Math.PI) / r, 2); c = (4 * Math.PI * d) / r; }
+    params(response, damping);
+    function emit() { if (onUpdate) onUpdate(x, v); }
+    function settle() { x = target; v = 0; raf = 0; emit(); if (onRest) onRest(x); }
+    function step(t) {
+      var dt = (t - last) / 1000;
+      if (!(dt > 0)) dt = 1 / 60; // the first frame's timestamp can be earlier than the call to to()
+      if (dt > 0.064) dt = 0.064;
+      last = t;
+      var n = Math.max(1, Math.ceil(dt * 240)), h = dt / n;
+      for (var i = 0; i < n; i++) { var a = -k * (x - target) - c * v; v += a * h; x += v * h; }
+      if (Math.abs(x - target) < eps && Math.abs(v) < eps * 10) return settle();
+      emit();
+      raf = requestAnimationFrame(step);
+    }
+    var api = {
+      get value() { return x; },
+      get velocity() { return v; },
+      get target() { return target; },
+      /** Animate to t. opts.velocity hands off a release velocity (units per second). */
+      to: function (t, o) {
+        o = o || {};
+        target = t;
+        if (o.velocity != null) v = o.velocity;
+        if (o.response || o.damping != null) params(o.response || response, o.damping == null ? damping : o.damping);
+        if (reduce()) { cancelAnimationFrame(raf); settle(); return api; }
+        if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
+        return api;
+      },
+      /** Jump without animating (direct manipulation: the finger owns the value). */
+      set: function (val) { cancelAnimationFrame(raf); raf = 0; x = target = val; v = 0; emit(); return api; },
+      stop: function () { cancelAnimationFrame(raf); raf = 0; return api; },
+    };
+    return api;
+  }
+
+  /** Velocity over the last 100 ms of samples, in units per second. */
+  function velocityTracker() {
+    var s = [];
+    return {
+      add: function (p, t) { t = t == null ? performance.now() : t; s.push([p, t]); while (s.length > 2 && t - s[0][1] > 100) s.shift(); },
+      get: function () { if (s.length < 2) return 0; var a = s[0], b = s[s.length - 1]; return b[1] > a[1] ? (b[0] - a[0]) / ((b[1] - a[1]) / 1000) : 0; },
+      reset: function () { s.length = 0; },
+    };
+  }
+
+  /** Where a flick comes to rest under exponential decay (deceleration rate per millisecond, 0.998 = normal). */
+  function project(velocity, rate) { rate = rate || 0.998; return ((velocity / 1000) * rate) / (1 - rate); }
+
+  /** Resistance past an edge: overshoot in px, dimension = track length in px. Returns the drawn overshoot. */
+  function rubber(overshoot, dimension, coeff) {
+    coeff = coeff || 0.55;
+    var sign = overshoot < 0 ? -1 : 1, o = Math.abs(overshoot);
+    return sign * (1 - 1 / ((o * coeff) / dimension + 1)) * dimension;
+  }
+
+  /** Press feedback on pointer-down. Scales el with a spring; a move of more than 10 px cancels the press. */
+  function pressable(el, o) {
+    o = o || {};
+    var down = o.scale || 0.97, start = null, sp = spring({ value: 1, response: 0.18, damping: 1, onUpdate: function (s) {
+      el.style.transform = s === 1 ? '' : 'scale(' + s.toFixed(4) + ')';
+    } });
+    function release() { start = null; sp.to(1, { response: 0.3, damping: 0.8 }); }
+    el.addEventListener('pointerdown', function (e) { if (e.button > 0) return; start = [e.clientX, e.clientY]; sp.to(down, { response: 0.18, damping: 1 }); });
+    el.addEventListener('pointermove', function (e) { if (start && Math.hypot(e.clientX - start[0], e.clientY - start[1]) > 10) release(); });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (n) { el.addEventListener(n, function () { if (start) release(); }); });
+    return sp;
+  }
+
+  return { spring: spring, velocityTracker: velocityTracker, project: project, rubber: rubber, pressable: pressable, reduce: reduce };
+})();
+if (typeof module !== 'undefined') module.exports = Fluid;
+
+/* board.html motion: disclosure springs, press feedback and the sticky bar material.
+ * A classic browser script, inlined after fluid.js (read as text by html.js, never imported).
+ * The page reads fully without it: every card and group renders open, and the toggles stay hidden.
+ * Height springs (damping 1, response 0.35) reverse from their live height and velocity when clicked
+ * again mid-flight; chevrons rotate on their own spring (damping 0.8, response 0.4). Under
+ * prefers-reduced-motion every spring jumps straight to its target. */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  function rotate(svg, deg) { svg.style.transform = 'rotate(' + deg.toFixed(2) + 'deg)'; }
+
+  /** o: { body, open, chev, show(), hide(), set(open) }. body's first child fades and settles 6px. */
+  function disclosure(o) {
+    var body = o.body, inner = body.firstElementChild || body, open = o.open, full = 0;
+    function paint(x) {
+      var c = x < 0 ? 0 : x > 1 ? 1 : x;
+      body.style.height = (c * full).toFixed(2) + 'px';
+      body.style.overflow = 'hidden';
+      inner.style.opacity = c.toFixed(3);
+      inner.style.transform = 'translateY(' + (-6 * (1 - c)).toFixed(2) + 'px)';
+    }
+    function rest(x) {
+      body.style.height = body.style.overflow = inner.style.opacity = inner.style.transform = '';
+      if (x === 0) o.hide();
+    }
+    var h = Fluid.spring({ value: open ? 1 : 0, response: 0.35, damping: 1, onUpdate: paint, onRest: rest });
+    var chev = o.chev && Fluid.spring({ value: open ? 90 : 0, response: 0.4, damping: 0.8, onUpdate: function (d) { rotate(o.chev, d); } });
+    if (o.chev) rotate(o.chev, open ? 90 : 0);
+    var api = {
+      get open() { return open; },
+      toggle: function () {
+        open = !open;
+        if (open) o.show();
+        full = body.scrollHeight;
+        if (!body.style.height) paint(h.value); // at rest: pin the live height before animating
+        h.to(open ? 1 : 0);
+        if (chev) chev.to(open ? 90 : 0);
+        o.set(open);
+      },
+      /** Follow a change made outside the toggle (find-in-page opening a details element). */
+      jump: function (v) {
+        open = v;
+        h.set(v ? 1 : 0);
+        rest(v ? 1 : 0);
+        if (chev) chev.set(v ? 90 : 0);
+        o.set(v);
+      },
+    };
+    return api;
+  }
+
+  // Cards and the "No rule matched" group: a chevron button controls the body named in aria-controls.
+  document.querySelectorAll('button.tog[aria-controls]').forEach(function (btn) {
+    var body = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!body) return;
+    btn.hidden = false;
+    var d = disclosure({
+      body: body,
+      open: btn.getAttribute('aria-expanded') !== 'false',
+      chev: btn.querySelector('.chev'),
+      show: function () { body.hidden = false; },
+      hide: function () { body.hidden = true; },
+      set: function (v) { btn.setAttribute('aria-expanded', String(v)); },
+    });
+    btn.addEventListener('click', d.toggle);
+    Fluid.pressable(btn, { scale: 0.88 });
+  });
+
+  // Item text and other text fields: native <details>, kept open while the body springs shut.
+  document.querySelectorAll('details.disc').forEach(function (det) {
+    var sum = det.querySelector(':scope > summary'), body = det.querySelector(':scope > .dbody');
+    if (!sum || !body) return;
+    var d = disclosure({
+      body: body,
+      open: det.open,
+      chev: sum.querySelector('.chev'),
+      show: function () { det.open = true; },
+      hide: function () { det.open = false; },
+      set: function () {},
+    });
+    sum.addEventListener('click', function (e) { e.preventDefault(); d.toggle(); });
+    det.addEventListener('toggle', function () { if (det.open !== d.open && !body.style.height) d.jump(det.open); });
+    Fluid.pressable(sum);
+  });
+
+  // Summary chips jump to their sections (native smooth scroll, instant under reduced motion).
+  document.querySelectorAll('.summary .chip').forEach(function (chip) { Fluid.pressable(chip); });
+
+  // The sticky bar turns into a translucent material once the board scrolls under it.
+  var bar = document.getElementById('bar'), sentinel = document.getElementById('bar-sentinel');
+  if (bar) {
+    var measure = function () { document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px'); };
+    measure();
+    addEventListener('resize', measure);
+    if (sentinel && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { bar.classList.toggle('stuck', !e[e.length - 1].isIntersecting); }).observe(sentinel);
+    }
+  }
+})();
+</script>
+</div></body></html>

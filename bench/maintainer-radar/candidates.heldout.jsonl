@@ -1,0 +1,43 @@
+{"id":"h-p1a","title":"Calendar sync fails with ECONNRESET behind VPN","text":{"body":"With the company VPN on, calendar sync fails with ECONNRESET after a few seconds."},"synthetic":true}
+{"id":"h-p1b","title":"ECONNRESET during calendar sync on VPN","text":{"body":"Calendar sync keeps dropping with ECONNRESET whenever I am connected to the VPN."},"synthetic":true}
+{"id":"h-p2a","title":"Notifications do not appear on Android 14","text":{"body":"Since moving to Android 14 no reminders or notifications show up, even with permission granted."},"synthetic":true}
+{"id":"h-p2b","title":"No reminder notifications on Android 14","text":{"body":"Reminder notifications never appear on my Pixel with Android 14. Notification permission is on."},"synthetic":true}
+{"id":"h-p3a","title":"Undo does not work after paste","text":{"body":"After pasting a block of text, Ctrl+Z does not undo the paste."},"synthetic":true}
+{"id":"h-p3b","title":"Feedback after migrating our team","text":{"body":"We moved a team of twelve people over last month. Most things went smoothly: invitations, shared folders and the permissions screen. Two people asked for a compact list view. The weekly summary email is useful. One annoyance that everyone hit: undo does not work after paste, so Ctrl+Z leaves the pasted text in place and people delete it by hand. Also the export button could be easier to find. Overall a good experience."},"synthetic":true}
+{"id":"h-p4a","title":"PDF attachments open blank in the viewer","text":{"body":"Opening a PDF attachment shows an empty white page in the built-in viewer. The file itself is fine."},"synthetic":true}
+{"id":"h-p4b","title":"Built-in viewer shows empty page for PDF attachments","text":{"body":"Every PDF attachment opens as a blank, empty page in the viewer, although the PDF opens fine elsewhere."},"synthetic":true}
+{"id":"h-p5a","title":"IndexError when parsing an empty config file","text":{"body":"Starting with an empty config.toml crashes with IndexError: list index out of range in the config parser."},"synthetic":true}
+{"id":"h-p5b","title":"Empty config file causes IndexError","text":{"body":"If config.toml exists but is empty the parser raises IndexError: list index out of range."},"synthetic":true}
+{"id":"h-p6a","title":"Fonts look blurry on 4K screens with 150% scaling","text":{"body":"At 150% display scaling on a 4K monitor all text in the app is blurry."},"synthetic":true}
+{"id":"h-p6b","title":"Blurry text at 150% scaling on a 4K monitor","text":{"body":"Text rendering is blurry on my 4K screen when Windows scaling is 150%."},"synthetic":true}
+{"id":"h-p7a","title":"Webhook retries forever on HTTP 410","text":{"body":"When the target answers HTTP 410 Gone, the webhook keeps retrying forever instead of stopping."},"synthetic":true}
+{"id":"h-p7b","title":"Webhooks keep retrying after HTTP 410 Gone","text":{"body":"Our endpoint returns HTTP 410 for removed hooks, but the webhook retries never stop."},"synthetic":true}
+{"id":"h-p8a","title":"Drag and drop reorder broken in the task list","text":{"body":"Dragging a task to a new position in the task list drops it back where it was."},"synthetic":true}
+{"id":"h-p8b","title":"Cannot reorder tasks by drag and drop","text":{"body":"Reordering tasks in the task list with drag and drop does not work: the task jumps back to its old position."},"synthetic":true}
+{"id":"h-n1a","title":"Crash when the network drops during upload","text":{"body":"If Wi-Fi drops during an upload the app crashes instead of retrying."},"synthetic":true}
+{"id":"h-n1b","title":"Upload progress bar stuck at 99%","text":{"body":"Uploads finish but the progress bar stays at 99% until I restart."},"synthetic":true}
+{"id":"h-n2a","title":"EACCES when saving to a network drive","text":{"body":"Saving a note to the mapped network drive fails with EACCES: permission denied."},"synthetic":true}
+{"id":"h-n2b","title":"EACCES on first run because the config folder is read-only","text":{"body":"On a locked-down machine the first run fails with EACCES because ~/.config is read-only."},"synthetic":true}
+{"id":"h-n3a","title":"Export to Word loses table borders","text":{"body":"Exporting to Word (.docx) drops all table borders."},"synthetic":true}
+{"id":"h-n3b","title":"Export to Word is greyed out for shared notes","text":{"body":"The Export to Word menu item is disabled for notes shared with me."},"synthetic":true}
+{"id":"h-n4a","title":"Version 4.0.1 fails to open old vaults","text":{"body":"After 4.0.1 vaults created before 2024 do not open and show a migration error."},"synthetic":true}
+{"id":"h-n4b","title":"Version 4.0.1 changelog link is broken","text":{"body":"The changelog link in the 4.0.1 announcement leads to a 404 page."},"synthetic":true}
+{"id":"h-n5a","title":"Search index rebuild takes hours","text":{"body":"Rebuilding the search index on 100k notes takes about three hours."},"synthetic":true}
+{"id":"h-n5b","title":"Search index corrupt after power cut, no results","text":{"body":"After a power cut the search index is corrupt and search returns no results at all."},"synthetic":true}
+{"id":"h-n6a","title":"Add a timeout setting for the API client","text":{"body":"Feature request: a configurable timeout for the API client."},"synthetic":true}
+{"id":"h-n6b","title":"API client timeout error on slow mobile networks","text":{"body":"On slow mobile networks every API call ends in a timeout error."},"synthetic":true}
+{"id":"h-c1a","title":"Import from backup lost my attachments","text":{"body":"Importing from the backup archive ended in data loss: all attachments are gone."},"synthetic":true}
+{"id":"h-c1b","title":"Import from backup is slow, no data loss","text":{"body":"Importing from the backup archive takes twenty minutes. There was no data loss, all attachments are there."},"synthetic":true}
+{"id":"h-c2a","title":"Crashes on startup after enabling the plugin","text":{"body":"After enabling the calendar plugin the app crashes on startup."},"synthetic":true}
+{"id":"h-c2b","title":"Plugin settings blank after enabling the plugin","text":{"body":"After enabling the calendar plugin the app does not crash on startup, but the plugin settings page is blank."},"synthetic":true}
+{"id":"h-c3a","title":"Merge conflict wiped the shared note","text":{"body":"A merge conflict in the shared note wiped every paragraph my colleague wrote."},"synthetic":true}
+{"id":"h-c3b","title":"Merge conflict marker shown, nothing was lost","text":{"body":"A merge conflict in the shared note shows a marker. Nothing was lost, both edits are there."},"synthetic":true}
+{"id":"h-m1","title":"Add a pomodoro timer","text":{"body":"### Before you start\n- [ ] I searched the existing issues and discussions\n- [ ] I am using the latest release\n- [ ] I read the contributing guide and the code of conduct\n\n### Environment\n| Field | Value |\n|---|---|\n| Operating system | |\n| App version | |\n\n### What happened?\nA small pomodoro timer in the status bar would help me focus."},"synthetic":true}
+{"id":"h-m2","title":"Sidebar icons misaligned in RTL languages","text":{"body":"### Before you start\n- [ ] I searched the existing issues and discussions\n- [ ] I am using the latest release\n- [ ] I read the contributing guide and the code of conduct\n\n### Environment\n| Field | Value |\n|---|---|\n| Operating system | |\n| App version | |\n\n### What happened?\nIn Arabic the sidebar icons sit on the wrong side."},"synthetic":true}
+{"id":"h-m3","title":"Support for OPML import","text":{"body":"### Before you start\n- [ ] I searched the existing issues and discussions\n- [ ] I am using the latest release\n- [ ] I read the contributing guide and the code of conduct\n\n### Environment\n| Field | Value |\n|---|---|\n| Operating system | |\n| App version | |\n\n### What happened?\nPlease add OPML import for outlines."},"synthetic":true}
+{"id":"h-b1","title":"Option to hide the word counter","text":{"body":"The word counter could be optional."},"synthetic":true}
+{"id":"h-b2","title":"Allow emoji in folder names","text":{"body":"Folder names with emoji are rejected."},"synthetic":true}
+{"id":"h-b3","title":"Keyboard navigation in the command palette","text":{"body":"Arrow keys could move through palette results."},"synthetic":true}
+{"id":"h-b4","title":"Print a whole folder","text":{"body":"A way to print all notes of a folder at once."},"synthetic":true}
+{"id":"h-b5","title":"Show note creation date","text":{"body":"The note info panel could show when a note was created."},"synthetic":true}
+{"id":"h-b6","title":"High contrast theme","text":{"body":"A high contrast theme for low vision users."},"synthetic":true}

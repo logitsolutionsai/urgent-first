@@ -1,0 +1,832 @@
+{
+  "changes": {
+    "added": [
+      "github:acme/widget:issue:717",
+      "github:acme/widget:pull:716",
+      "github:acme/widget:issue:715",
+      "github:acme/widget:issue:714",
+      "github:acme/widget:issue:713"
+    ],
+    "changed": [
+      {
+        "contentChanged": true,
+        "id": "github:acme/widget:issue:712",
+        "localId": "#712",
+        "stateChanged": false,
+        "tierChanged": true
+      }
+    ],
+    "notInNewer": [
+      "github:acme/widget:issue:707"
+    ],
+    "resolved": [],
+    "stateChanges": []
+  },
+  "configChanged": false,
+  "counts": {
+    "changed": 1,
+    "clustersWithNewMembers": 1,
+    "new": 5,
+    "newlyFlagged": 5,
+    "notInNewer": 1,
+    "resolved": 0,
+    "tierChanges": 1,
+    "unresolvedPrior": 2
+  },
+  "engineVersion": "0.1.0",
+  "kind": "urgent-first-pulse",
+  "newer": {
+    "flagged": 7,
+    "items": 16,
+    "pack": {
+      "digest": "sha256:ef68dced206acf54e7c47e38629fc5143ac73ca2daeaec5ef717082f9834990d",
+      "id": "github-maintainer",
+      "version": "0.1.0"
+    },
+    "release": {
+      "publishedAt": "2026-11-10T00:00:00Z",
+      "source": "github-release-api",
+      "tag": "v3.2.0",
+      "url": "https://github.com/acme/widget/releases/tag/v3.2.0"
+    },
+    "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+    "source": {
+      "complete": true,
+      "kind": "github",
+      "linkedIssuesFetched": 0,
+      "pageCount": 1,
+      "repository": "acme/widget",
+      "scope": {
+        "limit": 100,
+        "state": "open"
+      },
+      "templateFiles": []
+    },
+    "status": "complete"
+  },
+  "older": {
+    "flagged": 2,
+    "items": 12,
+    "pack": {
+      "digest": "sha256:ef68dced206acf54e7c47e38629fc5143ac73ca2daeaec5ef717082f9834990d",
+      "id": "github-maintainer",
+      "version": "0.1.0"
+    },
+    "release": {
+      "publishedAt": "2026-10-01T09:00:00Z",
+      "source": "github-release-api",
+      "tag": "v3.1.0",
+      "url": "https://github.com/acme/widget/releases/tag/v3.1.0"
+    },
+    "snapshotId": "sha256:a7dccfa6611a144915e001b4811a76e3131d90e4120c8f5401a090366c6161df",
+    "source": {
+      "complete": true,
+      "kind": "github",
+      "linkedIssuesFetched": 0,
+      "pageCount": 1,
+      "repository": "acme/widget",
+      "scope": {
+        "limit": 100,
+        "state": "open"
+      },
+      "templateFiles": []
+    },
+    "status": "complete"
+  },
+  "pulseId": "sha256:d39d177a2207c856e5cea769446f7809c9ac5fa36d90edf3db4effb8997fbe09",
+  "release": {
+    "note": "Reported after release is an order of timestamps, not a cause.",
+    "previousTag": "v3.1.0",
+    "publishedAt": "2026-11-10T00:00:00Z",
+    "reportedAfter": 5,
+    "source": "github-release-api",
+    "tag": "v3.2.0",
+    "url": "https://github.com/acme/widget/releases/tag/v3.2.0"
+  },
+  "resolutionsAsserted": true,
+  "schemaVersion": 1,
+  "scopeMatches": true,
+  "sections": {
+    "clustersWithNewMembers": [
+      {
+        "anchor": {
+          "createdAt": "2026-11-11T13:40:00Z",
+          "evidence": [
+            {
+              "category": "build_or_install_broken",
+              "context": "affirmed",
+              "end": 281,
+              "evidenceId": "ev:#714:1",
+              "field": "body",
+              "kind": "direct_quote",
+              "ruleId": "BUILD-OR-INSTALL-BROKEN",
+              "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+              "start": 264,
+              "text": "unable to install",
+              "tier": "T1"
+            },
+            {
+              "category": "build_or_install_broken",
+              "context": "affirmed",
+              "end": 198,
+              "evidenceId": "ev:#714:2",
+              "field": "body",
+              "kind": "direct_quote",
+              "ruleId": "BUILD-OR-INSTALL-BROKEN",
+              "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+              "start": 183,
+              "text": "installer fails",
+              "tier": "T1"
+            },
+            {
+              "category": "build_or_install_broken",
+              "context": "affirmed",
+              "end": 21,
+              "evidenceId": "ev:#714:3",
+              "field": "title",
+              "kind": "direct_quote",
+              "ruleId": "BUILD-OR-INSTALL-BROKEN",
+              "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+              "start": 6,
+              "text": "installer fails",
+              "tier": "T1"
+            },
+            {
+              "category": "broken_feature",
+              "context": "affirmed",
+              "end": 203,
+              "evidenceId": "ev:#714:4",
+              "field": "body",
+              "kind": "direct_quote",
+              "ruleId": "BROKEN-NO-WORKAROUND",
+              "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+              "start": 193,
+              "text": "fails with",
+              "tier": "T2"
+            },
+            {
+              "category": "broken_feature",
+              "context": "affirmed",
+              "end": 22,
+              "evidenceId": "ev:#714:5",
+              "field": "title",
+              "kind": "direct_quote",
+              "ruleId": "BROKEN-NO-WORKAROUND",
+              "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+              "start": 16,
+              "text": "fails:",
+              "tier": "T2"
+            }
+          ],
+          "id": "github:acme/widget:issue:714",
+          "kind": "issue",
+          "localId": "#714",
+          "reportedAfterRelease": true,
+          "state": "open",
+          "synthetic": true,
+          "tier": "T1",
+          "title": "3.2.0 installer fails: EACCES permission denied",
+          "url": "https://github.com/acme/widget/issues/714"
+        },
+        "id": "cluster-536b0243cb4ba854",
+        "members": [
+          {
+            "createdAt": "2026-11-11T08:15:00Z",
+            "edge": "edge-294b0d44d6e57edd",
+            "evidence": [
+              {
+                "category": "build_or_install_broken",
+                "context": "affirmed",
+                "end": 181,
+                "evidenceId": "ev:#713:1",
+                "field": "body",
+                "kind": "direct_quote",
+                "ruleId": "BUILD-OR-INSTALL-BROKEN",
+                "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+                "start": 166,
+                "text": "installer fails",
+                "tier": "T1"
+              },
+              {
+                "category": "build_or_install_broken",
+                "context": "affirmed",
+                "end": 296,
+                "evidenceId": "ev:#713:2",
+                "field": "body",
+                "kind": "direct_quote",
+                "ruleId": "BUILD-OR-INSTALL-BROKEN",
+                "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+                "start": 281,
+                "text": "installer fails",
+                "tier": "T1"
+              },
+              {
+                "category": "build_or_install_broken",
+                "context": "affirmed",
+                "end": 328,
+                "evidenceId": "ev:#713:3",
+                "field": "body",
+                "kind": "direct_quote",
+                "ruleId": "BUILD-OR-INSTALL-BROKEN",
+                "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+                "start": 314,
+                "text": "cannot install",
+                "tier": "T1"
+              },
+              {
+                "category": "build_or_install_broken",
+                "context": "affirmed",
+                "end": 15,
+                "evidenceId": "ev:#713:4",
+                "field": "title",
+                "kind": "direct_quote",
+                "ruleId": "BUILD-OR-INSTALL-BROKEN",
+                "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+                "start": 0,
+                "text": "Installer fails",
+                "tier": "T1"
+              },
+              {
+                "category": "broken_feature",
+                "context": "affirmed",
+                "end": 20,
+                "evidenceId": "ev:#713:5",
+                "field": "title",
+                "kind": "direct_quote",
+                "ruleId": "BROKEN-NO-WORKAROUND",
+                "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+                "start": 10,
+                "text": "fails with",
+                "tier": "T2"
+              }
+            ],
+            "id": "github:acme/widget:issue:713",
+            "kind": "issue",
+            "linkType": "possible_duplicate",
+            "localId": "#713",
+            "reportedAfterRelease": true,
+            "score": 0.5014,
+            "sharedFeatures": [
+              "EACCES",
+              "3.2.0",
+              "fails",
+              "install",
+              "installer",
+              "macos"
+            ],
+            "state": "open",
+            "synthetic": true,
+            "tier": "T1",
+            "title": "Installer fails with EACCES on macOS",
+            "url": "https://github.com/acme/widget/issues/713"
+          },
+          {
+            "createdAt": "2026-11-12T07:05:00Z",
+            "edge": "edge-e4f76d12b31ff1b0",
+            "evidence": [
+              {
+                "category": "build_or_install_broken",
+                "context": "affirmed",
+                "end": 17,
+                "evidenceId": "ev:#715:1",
+                "field": "title",
+                "kind": "direct_quote",
+                "ruleId": "BUILD-OR-INSTALL-BROKEN",
+                "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+                "start": 0,
+                "text": "Unable to install",
+                "tier": "T1"
+              },
+              {
+                "category": "build_or_install_broken",
+                "context": "affirmed",
+                "end": 171,
+                "evidenceId": "ev:#715:2",
+                "field": "body",
+                "kind": "direct_quote",
+                "ruleId": "BUILD-OR-INSTALL-BROKEN",
+                "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+                "start": 156,
+                "text": "Installer fails",
+                "tier": "T1"
+              }
+            ],
+            "id": "github:acme/widget:issue:715",
+            "kind": "issue",
+            "linkType": "same_symptom",
+            "localId": "#715",
+            "reportedAfterRelease": true,
+            "score": 0.4278,
+            "sharedFeatures": [
+              "EACCES",
+              "3.2.0",
+              "copies",
+              "denied",
+              "fails",
+              "install",
+              "installer",
+              "permission"
+            ],
+            "state": "open",
+            "synthetic": true,
+            "tier": "T1",
+            "title": "Unable to install 3.2.0, installer exits with EACCES",
+            "url": "https://github.com/acme/widget/issues/715"
+          }
+        ],
+        "newMembers": [
+          "github:acme/widget:issue:714",
+          "github:acme/widget:issue:713",
+          "github:acme/widget:issue:715"
+        ],
+        "reportedAfterRelease": 3
+      }
+    ],
+    "goldMisses": null,
+    "newlyFlagged": [
+      {
+        "createdAt": "2026-10-31T20:00:00Z",
+        "evidence": [
+          {
+            "category": "startup_crash",
+            "context": "affirmed",
+            "end": 219,
+            "evidenceId": "ev:#712:1",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "STARTUP-CRASH",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 201,
+            "text": "crashes on startup",
+            "tier": "T1"
+          },
+          {
+            "category": "startup_crash",
+            "context": "affirmed",
+            "end": 32,
+            "evidenceId": "ev:#712:2",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "STARTUP-CRASH",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 14,
+            "text": "crashes on startup",
+            "tier": "T1"
+          },
+          {
+            "category": "crash_specific",
+            "context": "affirmed",
+            "end": 208,
+            "evidenceId": "ev:#712:3",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "CRASH-OR-HANG",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 201,
+            "text": "crashes",
+            "tier": "T2"
+          },
+          {
+            "category": "crash_specific",
+            "context": "affirmed",
+            "end": 21,
+            "evidenceId": "ev:#712:4",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "CRASH-OR-HANG",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 14,
+            "text": "crashes",
+            "tier": "T2"
+          }
+        ],
+        "id": "github:acme/widget:issue:712",
+        "isNew": false,
+        "kind": "issue",
+        "localId": "#712",
+        "reportedAfterRelease": false,
+        "state": "open",
+        "synthetic": true,
+        "tier": "T1",
+        "title": "Settings page crashes on startup after the typo fix",
+        "url": "https://github.com/acme/widget/issues/712"
+      },
+      {
+        "createdAt": "2026-11-11T08:15:00Z",
+        "evidence": [
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 181,
+            "evidenceId": "ev:#713:1",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 166,
+            "text": "installer fails",
+            "tier": "T1"
+          },
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 296,
+            "evidenceId": "ev:#713:2",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 281,
+            "text": "installer fails",
+            "tier": "T1"
+          },
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 328,
+            "evidenceId": "ev:#713:3",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 314,
+            "text": "cannot install",
+            "tier": "T1"
+          },
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 15,
+            "evidenceId": "ev:#713:4",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 0,
+            "text": "Installer fails",
+            "tier": "T1"
+          },
+          {
+            "category": "broken_feature",
+            "context": "affirmed",
+            "end": 20,
+            "evidenceId": "ev:#713:5",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "BROKEN-NO-WORKAROUND",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 10,
+            "text": "fails with",
+            "tier": "T2"
+          }
+        ],
+        "id": "github:acme/widget:issue:713",
+        "isNew": true,
+        "kind": "issue",
+        "localId": "#713",
+        "reportedAfterRelease": true,
+        "state": "open",
+        "synthetic": true,
+        "tier": "T1",
+        "title": "Installer fails with EACCES on macOS",
+        "url": "https://github.com/acme/widget/issues/713"
+      },
+      {
+        "createdAt": "2026-11-11T13:40:00Z",
+        "evidence": [
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 281,
+            "evidenceId": "ev:#714:1",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 264,
+            "text": "unable to install",
+            "tier": "T1"
+          },
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 198,
+            "evidenceId": "ev:#714:2",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 183,
+            "text": "installer fails",
+            "tier": "T1"
+          },
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 21,
+            "evidenceId": "ev:#714:3",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 6,
+            "text": "installer fails",
+            "tier": "T1"
+          },
+          {
+            "category": "broken_feature",
+            "context": "affirmed",
+            "end": 203,
+            "evidenceId": "ev:#714:4",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "BROKEN-NO-WORKAROUND",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 193,
+            "text": "fails with",
+            "tier": "T2"
+          },
+          {
+            "category": "broken_feature",
+            "context": "affirmed",
+            "end": 22,
+            "evidenceId": "ev:#714:5",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "BROKEN-NO-WORKAROUND",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 16,
+            "text": "fails:",
+            "tier": "T2"
+          }
+        ],
+        "id": "github:acme/widget:issue:714",
+        "isNew": true,
+        "kind": "issue",
+        "localId": "#714",
+        "reportedAfterRelease": true,
+        "state": "open",
+        "synthetic": true,
+        "tier": "T1",
+        "title": "3.2.0 installer fails: EACCES permission denied",
+        "url": "https://github.com/acme/widget/issues/714"
+      },
+      {
+        "createdAt": "2026-11-12T07:05:00Z",
+        "evidence": [
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 17,
+            "evidenceId": "ev:#715:1",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 0,
+            "text": "Unable to install",
+            "tier": "T1"
+          },
+          {
+            "category": "build_or_install_broken",
+            "context": "affirmed",
+            "end": 171,
+            "evidenceId": "ev:#715:2",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "BUILD-OR-INSTALL-BROKEN",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 156,
+            "text": "Installer fails",
+            "tier": "T1"
+          }
+        ],
+        "id": "github:acme/widget:issue:715",
+        "isNew": true,
+        "kind": "issue",
+        "localId": "#715",
+        "reportedAfterRelease": true,
+        "state": "open",
+        "synthetic": true,
+        "tier": "T1",
+        "title": "Unable to install 3.2.0, installer exits with EACCES",
+        "url": "https://github.com/acme/widget/issues/715"
+      },
+      {
+        "createdAt": "2026-11-12T15:30:00Z",
+        "evidence": [
+          {
+            "category": "pr_fix_for_t1",
+            "context": "affirmed",
+            "end": 10,
+            "evidenceId": "ev:#716:1",
+            "field": "body",
+            "kind": "inherited_link",
+            "ruleId": "PR-FIXES-URGENT",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 0,
+            "text": "Fixes #713",
+            "tier": "T1"
+          }
+        ],
+        "id": "github:acme/widget:pull:716",
+        "isNew": true,
+        "kind": "pull_request",
+        "localId": "#716",
+        "reportedAfterRelease": true,
+        "state": "open",
+        "synthetic": true,
+        "tier": "T1",
+        "title": "Fix installer permission check on macOS",
+        "url": "https://github.com/acme/widget/pull/716"
+      }
+    ],
+    "priorFlaggedNotInNewer": [],
+    "tierChanges": [
+      {
+        "after": "T1",
+        "before": "T3",
+        "causes": [
+          {
+            "kind": "content_changed"
+          }
+        ],
+        "createdAt": "2026-10-31T20:00:00Z",
+        "direction": "raised",
+        "evidence": [
+          {
+            "category": "startup_crash",
+            "context": "affirmed",
+            "end": 219,
+            "evidenceId": "ev:#712:1",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "STARTUP-CRASH",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 201,
+            "text": "crashes on startup",
+            "tier": "T1"
+          },
+          {
+            "category": "startup_crash",
+            "context": "affirmed",
+            "end": 32,
+            "evidenceId": "ev:#712:2",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "STARTUP-CRASH",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 14,
+            "text": "crashes on startup",
+            "tier": "T1"
+          },
+          {
+            "category": "crash_specific",
+            "context": "affirmed",
+            "end": 208,
+            "evidenceId": "ev:#712:3",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "CRASH-OR-HANG",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 201,
+            "text": "crashes",
+            "tier": "T2"
+          },
+          {
+            "category": "crash_specific",
+            "context": "affirmed",
+            "end": 21,
+            "evidenceId": "ev:#712:4",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "CRASH-OR-HANG",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 14,
+            "text": "crashes",
+            "tier": "T2"
+          }
+        ],
+        "id": "github:acme/widget:issue:712",
+        "kind": "issue",
+        "localId": "#712",
+        "previousEvidence": [],
+        "reportedAfterRelease": false,
+        "rulesGained": [
+          "STARTUP-CRASH",
+          "CRASH-OR-HANG"
+        ],
+        "rulesLost": [],
+        "state": "open",
+        "synthetic": true,
+        "tier": "T1",
+        "title": "Settings page crashes on startup after the typo fix",
+        "url": "https://github.com/acme/widget/issues/712"
+      }
+    ],
+    "unresolvedPrior": [
+      {
+        "createdAt": "2026-10-21T10:00:00Z",
+        "evidence": [
+          {
+            "category": "data_loss",
+            "context": "affirmed",
+            "end": 274,
+            "evidenceId": "ev:#702:1",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "DATA-LOSS",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 236,
+            "text": "folder was gone and the trash is empty",
+            "tier": "T1"
+          },
+          {
+            "category": "data_loss",
+            "context": "affirmed",
+            "end": 291,
+            "evidenceId": "ev:#702:2",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "DATA-LOSS",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 278,
+            "text": "lost my notes",
+            "tier": "T1"
+          },
+          {
+            "category": "data_loss",
+            "context": "affirmed",
+            "end": 30,
+            "evidenceId": "ev:#702:3",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "DATA-LOSS",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 14,
+            "text": "deleted my notes",
+            "tier": "T1"
+          }
+        ],
+        "id": "github:acme/widget:issue:702",
+        "kind": "issue",
+        "localId": "#702",
+        "previousTier": "T1",
+        "reportedAfterRelease": false,
+        "state": "open",
+        "synthetic": true,
+        "tier": "T1",
+        "title": "Sync conflict deleted my notes",
+        "url": "https://github.com/acme/widget/issues/702"
+      },
+      {
+        "createdAt": "2026-10-23T12:00:00Z",
+        "evidence": [
+          {
+            "category": "crash_specific",
+            "context": "affirmed",
+            "end": 171,
+            "evidenceId": "ev:#704:1",
+            "field": "body",
+            "kind": "direct_quote",
+            "ruleId": "CRASH-OR-HANG",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 164,
+            "text": "crashes",
+            "tier": "T2"
+          },
+          {
+            "category": "crash_specific",
+            "context": "affirmed",
+            "end": 5,
+            "evidenceId": "ev:#704:2",
+            "field": "title",
+            "kind": "direct_quote",
+            "ruleId": "CRASH-OR-HANG",
+            "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+            "start": 0,
+            "text": "Crash",
+            "tier": "T2"
+          }
+        ],
+        "id": "github:acme/widget:issue:704",
+        "kind": "issue",
+        "localId": "#704",
+        "previousTier": "T2",
+        "reportedAfterRelease": false,
+        "state": "open",
+        "synthetic": true,
+        "tier": "T2",
+        "title": "Crash when opening a project with an emoji in its name",
+        "url": "https://github.com/acme/widget/issues/704"
+      }
+    ]
+  },
+  "status": "complete",
+  "visibility": {
+    "data": "synthetic",
+    "note": "Public projection of synthetic data: titles and short quotes only, no item bodies, security reports withheld.",
+    "public": true
+  },
+  "warnings": []
+}

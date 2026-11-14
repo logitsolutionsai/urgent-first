@@ -1,0 +1,147 @@
+{
+  "pack": {
+    "name": "oncall",
+    "version": "0.1.0",
+    "mode": "standard"
+  },
+  "input": "dev.jsonl",
+  "rules_only": {
+    "items": 15,
+    "gold_counts": {
+      "T1": 5,
+      "T2": 4,
+      "T3": 6
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 5,
+      "total": 5,
+      "value": 1,
+      "wilson95": [
+        0.5655,
+        1
+      ]
+    },
+    "missed_critical": [],
+    "over_triage_rate": {
+      "count": 0,
+      "total": 10,
+      "value": 0
+    },
+    "false_flag_rate": {
+      "count": 0,
+      "total": 6,
+      "value": 0
+    },
+    "under_triage_rate": {
+      "count": 0,
+      "total": 15,
+      "value": 0
+    },
+    "exact_tier_agreement": {
+      "count": 15,
+      "total": 15,
+      "value": 1
+    },
+    "kendall_tau_b": 0.8395,
+    "flags": {
+      "recall": {
+        "count": 9,
+        "total": 9,
+        "value": 1,
+        "wilson95": [
+          0.7009,
+          1
+        ]
+      },
+      "precision": {
+        "count": 9,
+        "total": 9,
+        "value": 1,
+        "wilson95": [
+          0.7009,
+          1
+        ]
+      },
+      "false_flag_rate": {
+        "count": 0,
+        "total": 6,
+        "value": 0,
+        "wilson95": [
+          0,
+          0.3903
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 5,
+        "T2": 0,
+        "T3": 0
+      },
+      "T2": {
+        "T1": 0,
+        "T2": 4,
+        "T3": 0
+      },
+      "T3": {
+        "T1": 0,
+        "T2": 0,
+        "T3": 6
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "OUTAGE",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PAYMENTS-FAILING",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "SECURITY-INCIDENT",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DATA-LOSS",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CUSTOMER-BLOCKED",
+        "tier": "T2",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DEGRADED",
+        "tier": "T2",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "EXPIRING",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      }
+    ]
+  },
+  "with_annotations": null,
+  "annotation_validation": null
+}

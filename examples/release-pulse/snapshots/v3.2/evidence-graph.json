@@ -1,0 +1,881 @@
+{
+  "algorithms": {
+    "candidates": "text-signals-v1",
+    "evidence": "engine-evidence-v1",
+    "references": "github-references-v1",
+    "release": "release-timestamp-v1"
+  },
+  "clusters": [
+    {
+      "anchor": "github:acme/widget:issue:714",
+      "id": "cluster-536b0243cb4ba854",
+      "members": [
+        {
+          "edge": "edge-294b0d44d6e57edd",
+          "id": "github:acme/widget:issue:713",
+          "score": 0.5014,
+          "type": "possible_duplicate"
+        },
+        {
+          "edge": "edge-e4f76d12b31ff1b0",
+          "id": "github:acme/widget:issue:715",
+          "score": 0.4278,
+          "type": "same_symptom"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:714",
+      "id": "edge-02e8256307d5ee85",
+      "quotes": [
+        {
+          "end": 21,
+          "field": "title",
+          "start": 6,
+          "text": "installer fails"
+        }
+      ],
+      "to": "ev:#714:3",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:712",
+      "id": "edge-14135ff4a618599b",
+      "quotes": [
+        {
+          "end": 21,
+          "field": "title",
+          "start": 14,
+          "text": "crashes"
+        }
+      ],
+      "to": "ev:#712:4",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:pull:716",
+      "id": "edge-211fa6f639cadbe3",
+      "metadata": {
+        "createdAt": "2026-11-12T15:30:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-11-10T00:00:00Z"
+      },
+      "to": "release:v3.2.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:714",
+      "id": "edge-23ff9063fad859e4",
+      "quotes": [
+        {
+          "end": 203,
+          "field": "body",
+          "start": 193,
+          "text": "fails with"
+        }
+      ],
+      "to": "ev:#714:4",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:714",
+      "id": "edge-27129af4479098e2",
+      "quotes": [
+        {
+          "end": 198,
+          "field": "body",
+          "start": 183,
+          "text": "installer fails"
+        }
+      ],
+      "to": "ev:#714:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:pull:716",
+      "id": "edge-272fc953285a1d35",
+      "quotes": [
+        {
+          "end": 10,
+          "field": "body",
+          "start": 0,
+          "text": "Fixes #713"
+        }
+      ],
+      "to": "ev:#716:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "github-references-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:pull:716",
+      "id": "edge-2849c54958f7b9b4",
+      "quotes": [
+        {
+          "end": 10,
+          "field": "body",
+          "start": 0,
+          "text": "Fixes #713"
+        }
+      ],
+      "to": "github:acme/widget:issue:713",
+      "type": "fixes"
+    },
+    {
+      "algorithm": "text-signals-v1",
+      "certainty": "candidate",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-294b0d44d6e57edd",
+      "reasons": [
+        {
+          "features": [
+            "e:EACCES",
+            "v:3.2.0",
+            "w:eacc",
+            "w:fail",
+            "w:install",
+            "w:installer",
+            "w:maco"
+          ],
+          "kind": "shared_features",
+          "words": [
+            "EACCES",
+            "3.2.0",
+            "eacces",
+            "fails",
+            "install",
+            "installer",
+            "macos"
+          ]
+        },
+        {
+          "errors": [
+            "EACCES"
+          ],
+          "kind": "shared_error_signature"
+        }
+      ],
+      "score": 0.5014,
+      "to": "github:acme/widget:issue:714",
+      "type": "possible_duplicate"
+    },
+    {
+      "algorithm": "text-signals-v1",
+      "certainty": "candidate",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-2cbd7cd852fd7de3",
+      "reasons": [
+        {
+          "features": [
+            "e:EACCES",
+            "v:3.2.0",
+            "w:eacc",
+            "w:fail",
+            "w:install",
+            "w:installer"
+          ],
+          "kind": "shared_features",
+          "words": [
+            "EACCES",
+            "3.2.0",
+            "eacces",
+            "fails",
+            "install",
+            "installer"
+          ]
+        },
+        {
+          "errors": [
+            "EACCES"
+          ],
+          "kind": "shared_error_signature"
+        }
+      ],
+      "score": 0.3645,
+      "to": "github:acme/widget:issue:715",
+      "type": "same_symptom"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:702",
+      "id": "edge-3d024613599fe8c9",
+      "quotes": [
+        {
+          "end": 291,
+          "field": "body",
+          "start": 278,
+          "text": "lost my notes"
+        }
+      ],
+      "to": "ev:#702:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:715",
+      "id": "edge-41b8409952ee5d9d",
+      "quotes": [
+        {
+          "end": 17,
+          "field": "title",
+          "start": 0,
+          "text": "Unable to install"
+        }
+      ],
+      "to": "ev:#715:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-41dfbd73e6c54b88",
+      "quotes": [
+        {
+          "end": 296,
+          "field": "body",
+          "start": 281,
+          "text": "installer fails"
+        }
+      ],
+      "to": "ev:#713:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:714",
+      "id": "edge-4b788868af17dfee",
+      "metadata": {
+        "createdAt": "2026-11-11T13:40:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-11-10T00:00:00Z"
+      },
+      "to": "release:v3.2.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:702",
+      "id": "edge-50102992ecab0c11",
+      "quotes": [
+        {
+          "end": 274,
+          "field": "body",
+          "start": 236,
+          "text": "folder was gone and the trash is empty"
+        }
+      ],
+      "to": "ev:#702:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "github-references-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:pull:716",
+      "id": "edge-637c0ec45af9c365",
+      "quotes": [
+        {
+          "end": 105,
+          "field": "body",
+          "start": 101,
+          "text": "#702"
+        }
+      ],
+      "to": "github:acme/widget:issue:702",
+      "type": "references"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:702",
+      "id": "edge-781c875babf4c843",
+      "quotes": [
+        {
+          "end": 30,
+          "field": "title",
+          "start": 14,
+          "text": "deleted my notes"
+        }
+      ],
+      "to": "ev:#702:3",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:717",
+      "id": "edge-7deef39fc02c4b1d",
+      "metadata": {
+        "createdAt": "2026-11-13T10:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-11-10T00:00:00Z"
+      },
+      "to": "release:v3.2.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-82ff5735b2df1f18",
+      "quotes": [
+        {
+          "end": 328,
+          "field": "body",
+          "start": 314,
+          "text": "cannot install"
+        }
+      ],
+      "to": "ev:#713:3",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-891438f321bf9506",
+      "quotes": [
+        {
+          "end": 15,
+          "field": "title",
+          "start": 0,
+          "text": "Installer fails"
+        }
+      ],
+      "to": "ev:#713:4",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:704",
+      "id": "edge-8fa2a6bba7463278",
+      "quotes": [
+        {
+          "end": 5,
+          "field": "title",
+          "start": 0,
+          "text": "Crash"
+        }
+      ],
+      "to": "ev:#704:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:704",
+      "id": "edge-9e1f9f0e825694be",
+      "quotes": [
+        {
+          "end": 171,
+          "field": "body",
+          "start": 164,
+          "text": "crashes"
+        }
+      ],
+      "to": "ev:#704:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:714",
+      "id": "edge-a3e5b91faf5d333e",
+      "quotes": [
+        {
+          "end": 281,
+          "field": "body",
+          "start": 264,
+          "text": "unable to install"
+        }
+      ],
+      "to": "ev:#714:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:712",
+      "id": "edge-a932d9b52f2bb410",
+      "quotes": [
+        {
+          "end": 219,
+          "field": "body",
+          "start": 201,
+          "text": "crashes on startup"
+        }
+      ],
+      "to": "ev:#712:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-c63cc00476f43d8b",
+      "quotes": [
+        {
+          "end": 20,
+          "field": "title",
+          "start": 10,
+          "text": "fails with"
+        }
+      ],
+      "to": "ev:#713:5",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-c9e3fa9e1cbca29d",
+      "metadata": {
+        "createdAt": "2026-11-11T08:15:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-11-10T00:00:00Z"
+      },
+      "to": "release:v3.2.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:713",
+      "id": "edge-d4a48d2c5c85b86a",
+      "quotes": [
+        {
+          "end": 181,
+          "field": "body",
+          "start": 166,
+          "text": "installer fails"
+        }
+      ],
+      "to": "ev:#713:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "text-signals-v1",
+      "certainty": "candidate",
+      "from": "github:acme/widget:issue:714",
+      "id": "edge-e4f76d12b31ff1b0",
+      "reasons": [
+        {
+          "features": [
+            "e:EACCES",
+            "v:3.2.0",
+            "w:copy",
+            "w:deni",
+            "w:eacc",
+            "w:fail",
+            "w:install",
+            "w:installer",
+            "w:permission"
+          ],
+          "kind": "shared_features",
+          "words": [
+            "EACCES",
+            "3.2.0",
+            "copies",
+            "denied",
+            "eacces",
+            "fails",
+            "install",
+            "installer",
+            "permission"
+          ]
+        },
+        {
+          "errors": [
+            "EACCES"
+          ],
+          "kind": "shared_error_signature"
+        }
+      ],
+      "score": 0.4278,
+      "to": "github:acme/widget:issue:715",
+      "type": "same_symptom"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:715",
+      "id": "edge-ed2af86415c25042",
+      "quotes": [
+        {
+          "end": 171,
+          "field": "body",
+          "start": 156,
+          "text": "Installer fails"
+        }
+      ],
+      "to": "ev:#715:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:714",
+      "id": "edge-ef182b6fbeb3ec3e",
+      "quotes": [
+        {
+          "end": 22,
+          "field": "title",
+          "start": 16,
+          "text": "fails:"
+        }
+      ],
+      "to": "ev:#714:5",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:712",
+      "id": "edge-f4b0f7b8378b4902",
+      "quotes": [
+        {
+          "end": 32,
+          "field": "title",
+          "start": 14,
+          "text": "crashes on startup"
+        }
+      ],
+      "to": "ev:#712:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:715",
+      "id": "edge-f72ddc4d06cc5b57",
+      "metadata": {
+        "createdAt": "2026-11-12T07:05:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-11-10T00:00:00Z"
+      },
+      "to": "release:v3.2.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:712",
+      "id": "edge-fc71ca742b41cb56",
+      "quotes": [
+        {
+          "end": 208,
+          "field": "body",
+          "start": 201,
+          "text": "crashes"
+        }
+      ],
+      "to": "ev:#712:3",
+      "type": "contains_evidence"
+    }
+  ],
+  "engineVersion": "0.1.0",
+  "kind": "urgent-first-evidence-graph",
+  "nodes": [
+    {
+      "id": "ev:#702:1",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#702:2",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#702:3",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#704:1",
+      "itemId": "github:acme/widget:issue:704",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#704:2",
+      "itemId": "github:acme/widget:issue:704",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#712:1",
+      "itemId": "github:acme/widget:issue:712",
+      "kind": "direct_quote",
+      "ruleId": "STARTUP-CRASH",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#712:2",
+      "itemId": "github:acme/widget:issue:712",
+      "kind": "direct_quote",
+      "ruleId": "STARTUP-CRASH",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#712:3",
+      "itemId": "github:acme/widget:issue:712",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#712:4",
+      "itemId": "github:acme/widget:issue:712",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#713:1",
+      "itemId": "github:acme/widget:issue:713",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#713:2",
+      "itemId": "github:acme/widget:issue:713",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#713:3",
+      "itemId": "github:acme/widget:issue:713",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#713:4",
+      "itemId": "github:acme/widget:issue:713",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#713:5",
+      "itemId": "github:acme/widget:issue:713",
+      "kind": "direct_quote",
+      "ruleId": "BROKEN-NO-WORKAROUND",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#714:1",
+      "itemId": "github:acme/widget:issue:714",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#714:2",
+      "itemId": "github:acme/widget:issue:714",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#714:3",
+      "itemId": "github:acme/widget:issue:714",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#714:4",
+      "itemId": "github:acme/widget:issue:714",
+      "kind": "direct_quote",
+      "ruleId": "BROKEN-NO-WORKAROUND",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#714:5",
+      "itemId": "github:acme/widget:issue:714",
+      "kind": "direct_quote",
+      "ruleId": "BROKEN-NO-WORKAROUND",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#715:1",
+      "itemId": "github:acme/widget:issue:715",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#715:2",
+      "itemId": "github:acme/widget:issue:715",
+      "kind": "direct_quote",
+      "ruleId": "BUILD-OR-INSTALL-BROKEN",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#716:1",
+      "itemId": "github:acme/widget:pull:716",
+      "kind": "inherited_link",
+      "ruleId": "PR-FIXES-URGENT",
+      "type": "evidence"
+    },
+    {
+      "id": "github:acme/widget:issue:701",
+      "localId": "#701",
+      "number": 701,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:702",
+      "localId": "#702",
+      "number": 702,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:703",
+      "localId": "#703",
+      "number": 703,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:704",
+      "localId": "#704",
+      "number": 704,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:706",
+      "localId": "#706",
+      "number": 706,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:708",
+      "localId": "#708",
+      "number": 708,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:709",
+      "localId": "#709",
+      "number": 709,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:710",
+      "localId": "#710",
+      "number": 710,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:711",
+      "localId": "#711",
+      "number": 711,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:712",
+      "localId": "#712",
+      "number": 712,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:713",
+      "localId": "#713",
+      "number": 713,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:714",
+      "localId": "#714",
+      "number": 714,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:715",
+      "localId": "#715",
+      "number": 715,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:717",
+      "localId": "#717",
+      "number": 717,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:pull:705",
+      "localId": "#705",
+      "number": 705,
+      "type": "pull_request"
+    },
+    {
+      "id": "github:acme/widget:pull:716",
+      "localId": "#716",
+      "number": 716,
+      "type": "pull_request"
+    },
+    {
+      "id": "release:v3.2.0",
+      "publishedAt": "2026-11-10T00:00:00Z",
+      "source": "github-release-api",
+      "tag": "v3.2.0",
+      "type": "release"
+    }
+  ],
+  "schemaVersion": 1,
+  "snapshotId": "sha256:6bce8470514968a9b69c98541e0443caa017765484b5d32617c02f3f3fd75c08",
+  "stats": {
+    "comparisons": 38,
+    "droppedByCap": 0,
+    "items": 16,
+    "limits": {
+      "BOILERPLATE_ITEMS": 3,
+      "BOILERPLATE_WORDS": 5,
+      "MAX_CANDIDATES": 50,
+      "MAX_FEATURES": 40,
+      "MAX_ITEMS": 30000,
+      "MAX_LINKS": 5,
+      "MAX_POSTINGS": 200
+    },
+    "rareDfMax": 8,
+    "status": "complete"
+  },
+  "suppressedCandidates": [],
+  "thresholds": {
+    "possible_duplicate": 0.45,
+    "same_symptom": 0.25
+  },
+  "unresolvedReferences": [],
+  "warnings": []
+}

@@ -1,0 +1,185 @@
+[
+  {
+    "id": "demo-01",
+    "title": "MRI knee",
+    "text": {
+      "reason": "Medial knee pain for 4 months after a skiing twist, locking at times. ?meniscal tear."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T07:05:00Z",
+    "location": "outpatient",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-02",
+    "title": "CT head without contrast",
+    "text": {
+      "reason": "Sudden R arm weakness and slurred speech. LKW 07:40.",
+      "note": "On aspirin only."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T08:50:00Z",
+    "location": "ED",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-03",
+    "title": "MRI brain without contrast",
+    "text": {
+      "reason": "Memory decline over 18 months. No history of stroke, routine follow-up."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T07:20:00Z",
+    "location": "outpatient",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-04",
+    "title": "CT pulmonary angiogram",
+    "text": {
+      "reason": "POD2 R knee replacement, sudden SOB this morning, HR 118, SpO2 89% RA. r/o PE."
+    },
+    "priority": "urgent",
+    "labels": [],
+    "created_at": "2026-11-14T08:15:00Z",
+    "location": "inpatient",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-05",
+    "title": "US pelvis",
+    "text": {
+      "reason": "Previous ectopic pregnancy 2021, now 12-week dating scan. Well."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T07:40:00Z",
+    "location": "outpatient",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-06",
+    "title": "MRI lumbar spine",
+    "text": {
+      "reason": "Back pain 1 week, now bilateral sciatica.",
+      "history": "Since last night numb around the bottom and has not passed urine since 06:00. Bladder scan 850 mL."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T08:30:00Z",
+    "location": "ED",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-07",
+    "title": "XR chest",
+    "text": {
+      "reason": "Pneumothorax resolved on last film, routine check before discharge."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T08:05:00Z",
+    "location": "inpatient",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-08",
+    "title": "US venous duplex left leg",
+    "text": {
+      "reason": "?DVT L calf. Swollen and tender after a long flight. No SOB, no chest pain."
+    },
+    "priority": "urgent",
+    "labels": [],
+    "created_at": "2026-11-14T07:55:00Z",
+    "location": "ED",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-09",
+    "title": "CT abdomen and pelvis with contrast",
+    "text": {
+      "reason": "RLQ pain 24 h, anorexic, T 37.9. Query appendicitis."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T08:45:00Z",
+    "location": "ED",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-10",
+    "title": "MRI heart with contrast",
+    "text": {
+      "reason": "Known dilated cardiomyopathy. Please quantify LV ejection fraction and stroke volume."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T06:50:00Z",
+    "location": "outpatient",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-11",
+    "title": "CT head without contrast",
+    "text": {
+      "reason": "Fall from ladder, GCS 12, clear fluid from L ear."
+    },
+    "priority": "stat",
+    "labels": [],
+    "created_at": "2026-11-14T09:05:00Z",
+    "location": "ED",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  },
+  {
+    "id": "demo-12",
+    "title": "US abdomen",
+    "text": {
+      "reason": "Prolonged jaundice in a 2-week-old.",
+      "history": "Overnight vomited bright green twice, abdomen now distended."
+    },
+    "priority": "routine",
+    "labels": [],
+    "created_at": "2026-11-14T08:20:00Z",
+    "location": "inpatient",
+    "source": null,
+    "url": null,
+    "synthetic": true,
+    "metadata": {}
+  }
+]

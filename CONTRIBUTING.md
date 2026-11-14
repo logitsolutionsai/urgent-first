@@ -21,6 +21,16 @@ Thank you for helping. The most valuable contributions are packs for new kinds o
 
 Add cases to `raw/` following the benchmark's labelling guide: `synthetic: true`, a gold `tier`, a `category` from the guide and a one-line `rationale` naming the words that drive the label. New cases go to the development split unless a maintainer creates a new test split; do not add cases to an existing `test.jsonl`.
 
+## Three Good First Contributions
+
+Each of these is small, reviewable and useful to every maintainer who runs the tool.
+
+1. **A rule for your language or ecosystem.** Many reports say "fails to build" or "cannot install" in words specific to one toolchain (a Cargo, Gradle or pip error line). Add a rule or a term to a copy of `packs/github-maintainer`, with a public source, at least one positive case, one negated case ("the build does not fail anymore") and one counterexample to its development set. Run `urgent-first pack lint` and `urgent-first eval` and include both outputs in the pull request.
+2. **A counterexample fixture for negation or template masking.** Find a sentence the rules misread: a negation they miss, or template text they read as the reporter's words. Add it as a synthetic case to a development split (never a test split), or as a labelled pair to `bench/maintainer-radar/candidates.dev.*` if it is about candidate links, and say what the tool did and what it should do.
+3. **A read-only report improvement.** Improve how `board.html`, `pulse.html` or `digest.html` presents something, within `brand-kit` rules: the Ink palette with one accent, tiers by weight and shape, no network, the inline script allowed only by its hash. Include a screenshot at 1280 and 390 pixels wide, and keep `npm run test:e2e` passing.
+
+Never add a command that writes to GitHub (labels, comments, closing) without the plan, approval and audit design in `docs/THREAT-MODEL.md`.
+
 ## Clinicians: Review The Radiology Labels
 
 The radiology cases have not been adjudicated by clinicians. If you are a radiologist or another clinician, you can help without writing code:

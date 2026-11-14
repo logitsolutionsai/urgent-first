@@ -1,0 +1,390 @@
+{
+  "algorithms": {
+    "candidates": "text-signals-v1",
+    "evidence": "engine-evidence-v1",
+    "references": "github-references-v1",
+    "release": "release-timestamp-v1"
+  },
+  "clusters": [],
+  "edges": [
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:703",
+      "id": "edge-26504377eba21c59",
+      "metadata": {
+        "createdAt": "2026-10-22T11:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:704",
+      "id": "edge-339b922bc54a02f6",
+      "metadata": {
+        "createdAt": "2026-10-23T12:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:702",
+      "id": "edge-3d024613599fe8c9",
+      "quotes": [
+        {
+          "end": 291,
+          "field": "body",
+          "start": 278,
+          "text": "lost my notes"
+        }
+      ],
+      "to": "ev:#702:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:702",
+      "id": "edge-50102992ecab0c11",
+      "quotes": [
+        {
+          "end": 274,
+          "field": "body",
+          "start": 236,
+          "text": "folder was gone and the trash is empty"
+        }
+      ],
+      "to": "ev:#702:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:709",
+      "id": "edge-58848d549b164b97",
+      "metadata": {
+        "createdAt": "2026-10-28T17:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:712",
+      "id": "edge-6480e77822cc01e4",
+      "metadata": {
+        "createdAt": "2026-10-31T20:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:702",
+      "id": "edge-781c875babf4c843",
+      "quotes": [
+        {
+          "end": 30,
+          "field": "title",
+          "start": 14,
+          "text": "deleted my notes"
+        }
+      ],
+      "to": "ev:#702:3",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:708",
+      "id": "edge-7d192f6d3468604a",
+      "metadata": {
+        "createdAt": "2026-10-27T16:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:704",
+      "id": "edge-8fa2a6bba7463278",
+      "quotes": [
+        {
+          "end": 5,
+          "field": "title",
+          "start": 0,
+          "text": "Crash"
+        }
+      ],
+      "to": "ev:#704:2",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:710",
+      "id": "edge-91d222c0b6a341bc",
+      "metadata": {
+        "createdAt": "2026-10-29T18:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:711",
+      "id": "edge-9705f3679d46cafb",
+      "metadata": {
+        "createdAt": "2026-10-30T19:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:702",
+      "id": "edge-9c8027f77bc194e8",
+      "metadata": {
+        "createdAt": "2026-10-21T10:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "engine-evidence-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:704",
+      "id": "edge-9e1f9f0e825694be",
+      "quotes": [
+        {
+          "end": 171,
+          "field": "body",
+          "start": 164,
+          "text": "crashes"
+        }
+      ],
+      "to": "ev:#704:1",
+      "type": "contains_evidence"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:707",
+      "id": "edge-b533dce6d6780ab1",
+      "metadata": {
+        "createdAt": "2026-10-26T15:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:pull:705",
+      "id": "edge-c3b7110391b34502",
+      "metadata": {
+        "createdAt": "2026-10-24T13:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:706",
+      "id": "edge-e1ab40725caf1767",
+      "metadata": {
+        "createdAt": "2026-10-25T14:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    },
+    {
+      "algorithm": "release-timestamp-v1",
+      "certainty": "direct",
+      "from": "github:acme/widget:issue:701",
+      "id": "edge-e6bdeadc18796fea",
+      "metadata": {
+        "createdAt": "2026-10-20T09:00:00Z",
+        "note": "reported after the release; not evidence that the release caused it",
+        "publishedAt": "2026-10-01T09:00:00Z"
+      },
+      "to": "release:v3.1.0",
+      "type": "reported_after_release"
+    }
+  ],
+  "engineVersion": "0.1.0",
+  "kind": "urgent-first-evidence-graph",
+  "nodes": [
+    {
+      "id": "ev:#702:1",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#702:2",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#702:3",
+      "itemId": "github:acme/widget:issue:702",
+      "kind": "direct_quote",
+      "ruleId": "DATA-LOSS",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#704:1",
+      "itemId": "github:acme/widget:issue:704",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "type": "evidence"
+    },
+    {
+      "id": "ev:#704:2",
+      "itemId": "github:acme/widget:issue:704",
+      "kind": "direct_quote",
+      "ruleId": "CRASH-OR-HANG",
+      "type": "evidence"
+    },
+    {
+      "id": "github:acme/widget:issue:701",
+      "localId": "#701",
+      "number": 701,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:702",
+      "localId": "#702",
+      "number": 702,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:703",
+      "localId": "#703",
+      "number": 703,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:704",
+      "localId": "#704",
+      "number": 704,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:706",
+      "localId": "#706",
+      "number": 706,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:707",
+      "localId": "#707",
+      "number": 707,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:708",
+      "localId": "#708",
+      "number": 708,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:709",
+      "localId": "#709",
+      "number": 709,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:710",
+      "localId": "#710",
+      "number": 710,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:711",
+      "localId": "#711",
+      "number": 711,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:issue:712",
+      "localId": "#712",
+      "number": 712,
+      "type": "issue"
+    },
+    {
+      "id": "github:acme/widget:pull:705",
+      "localId": "#705",
+      "number": 705,
+      "type": "pull_request"
+    },
+    {
+      "id": "release:v3.1.0",
+      "publishedAt": "2026-10-01T09:00:00Z",
+      "source": "github-release-api",
+      "tag": "v3.1.0",
+      "type": "release"
+    }
+  ],
+  "schemaVersion": 1,
+  "snapshotId": "sha256:a7dccfa6611a144915e001b4811a76e3131d90e4120c8f5401a090366c6161df",
+  "stats": {
+    "comparisons": 18,
+    "droppedByCap": 0,
+    "items": 12,
+    "limits": {
+      "BOILERPLATE_ITEMS": 3,
+      "BOILERPLATE_WORDS": 5,
+      "MAX_CANDIDATES": 50,
+      "MAX_FEATURES": 40,
+      "MAX_ITEMS": 30000,
+      "MAX_LINKS": 5,
+      "MAX_POSTINGS": 200
+    },
+    "rareDfMax": 6,
+    "status": "complete"
+  },
+  "suppressedCandidates": [],
+  "thresholds": {
+    "possible_duplicate": 0.45,
+    "same_symptom": 0.25
+  },
+  "unresolvedReferences": [],
+  "warnings": []
+}

@@ -1,0 +1,357 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-Fz/immU30PjBOCNabTru8TLn+zdlVbpWU58x4nwNCnw='; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="color-scheme" content="light dark">
+<title>Discuss First: GitHub maintainer</title><style>
+:root{--bg:#f7f7f5;--surface:#ffffff;--surface-2:#f0f0ed;--line:#e3e3df;--line-strong:#c9c9c3;--ink:#111110;--ink-2:#3a3a37;--muted:#6f6f69;--faint:#a3a39c;
+--accent:#0065FD;--accent-press:#0654c8;--accent-soft:rgba(0,101,253,.10);--bar-h:60px}
+@media (prefers-color-scheme:dark){:root{--bg:#0e0e0d;--surface:#171716;--surface-2:#1f1f1d;--line:#2b2b29;--line-strong:#3d3d3a;--ink:#f4f4f2;--ink-2:#d6d6d2;--muted:#9a9a94;--faint:#6a6a65;
+--accent:#5b9cff;--accent-press:#3f86ff;--accent-soft:rgba(91,156,255,.14)}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--ink-2);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+::selection{background:var(--accent-soft)}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px}
+a{color:var(--accent);text-underline-offset:2px}
+a:active{color:var(--accent-press)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+h1{font-size:1.6rem;line-height:1.2;margin:0 0 4px;letter-spacing:-.01em;color:var(--ink)}
+h2{font-size:1.2rem;line-height:1.3;margin:40px 0 8px;color:var(--ink);display:flex;align-items:center;gap:4px}
+h3{font-size:1rem;margin:24px 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--ink)}
+section,h3{scroll-margin-top:calc(var(--bar-h) + 16px)}
+main>section:first-child>h2{margin-top:24px}
+.intro{padding-top:24px}
+.sub{color:var(--muted);margin:0 0 16px;font-size:.92rem;overflow-wrap:anywhere}
+.banner{background:var(--surface);border:1.5px solid var(--ink);color:var(--ink);border-radius:10px;padding:12px 16px;margin:0 0 4px;font-size:.93rem}
+.banner strong{display:block;margin-bottom:4px}
+#bar-sentinel{height:1px;margin-bottom:-1px}
+.bar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid transparent}
+.bar.stuck{background:color-mix(in srgb,var(--surface) 78%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+@media (prefers-reduced-motion:no-preference){.bar{transition:background-color .16s ease,border-color .16s ease}}
+.summary{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:12px 0;list-style:none}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:4px 12px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink-2);font-size:.88rem;line-height:1.3;text-decoration:none;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+a.chip{cursor:pointer;-webkit-user-select:none;user-select:none}
+a.chip:hover{border-color:var(--line-strong)}
+.chip b{font-variant-numeric:tabular-nums;font-weight:700;color:inherit}
+.chip.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip.t2{background:transparent;border:1.5px solid var(--ink);color:var(--ink);padding:3.5px 11.5px}
+.chip.t3{background:var(--surface-2);border-color:var(--surface-2);color:var(--ink-2)}
+.chip.l0{background:transparent;border:1px dashed var(--line-strong);color:var(--muted)}
+.badge{display:inline-flex;align-items:center;border:1.5px solid transparent;border-radius:4px;padding:0 6px;font-weight:650;font-size:.78rem;line-height:1.45;white-space:nowrap;font-variant-numeric:tabular-nums}
+.badge.t1{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.badge.t2{border-color:var(--ink);color:var(--ink)}
+.badge.t3{background:var(--surface-2);color:var(--ink-2)}
+.tog{position:relative;flex:none;display:inline-grid;place-items:center;width:24px;height:24px;margin:0 0 0 -4px;padding:0;border:0;border-radius:6px;background:transparent;color:var(--muted);cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tog::after{content:"";position:absolute;inset:-8px}
+.tog:hover{background:var(--surface-2);color:var(--ink)}
+.chev{display:block;width:16px;height:16px}
+details.disc[open]>summary .chev{transform:rotate(90deg)}
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{--pad:16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px var(--pad);min-width:0}
+.card.t1{border-left:3px solid var(--ink);padding-left:calc(var(--pad) - 2px)}
+.card.t2{border-left:1.5px solid var(--ink-2);padding-left:calc(var(--pad) - .5px)}
+.head{display:flex;gap:8px;align-items:flex-start}
+.hl{display:flex;flex:1;gap:8px;align-items:baseline;flex-wrap:wrap;min-width:0}
+.tog+.hl{margin-left:-2px}
+.pos{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.85rem}
+.id{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;color:var(--muted)}
+.title{font-weight:650;color:var(--ink);overflow-wrap:anywhere}
+a.title{text-decoration:none}
+a.title:hover{color:var(--accent);text-decoration:underline}
+.new{display:inline-flex;align-items:center;background:var(--surface-2);color:var(--ink-2);border-radius:4px;padding:0 6px;font-size:.72rem;font-weight:700;letter-spacing:.04em}
+.meta{display:flex;flex-wrap:wrap;margin:4px 0 0;padding:0;list-style:none;font-size:.82rem;color:var(--muted)}
+.meta li:not(:last-child)::after{content:"·";padding:0 8px;color:var(--faint)}
+.flags{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.flags li{font-size:.9rem;overflow-wrap:anywhere}
+.rule{font-weight:650;color:var(--ink)}
+.rid{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ink-2);background:var(--surface-2);border-radius:4px;padding:1px 6px;margin-right:6px}
+.q{font-style:italic;color:var(--ink)}
+.why{color:var(--muted);font-size:.85rem}
+.kind{font-weight:600;color:var(--muted)}
+.fields{margin:12px 0 0;display:grid;gap:8px}
+.field{border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:.88rem;white-space:pre-wrap;overflow-wrap:anywhere}
+.field .fname{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;white-space:normal}
+.masked{color:var(--faint);text-decoration-line:underline;text-decoration-style:dashed;text-decoration-color:var(--faint);text-decoration-thickness:1px;text-underline-offset:3px}
+.masked-note{color:var(--muted);font-size:.8rem;margin:12px 0 0}
+mark{background:var(--surface-2);color:var(--ink);text-decoration-line:underline;text-decoration-color:var(--ink);text-decoration-thickness:1.5px;text-underline-offset:3px;text-decoration-skip-ink:none;border-radius:2px;padding:0 2px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+details.disc>summary{display:flex;align-items:center;gap:4px;width:fit-content;margin:8px 0 0 -4px;padding:2px 8px 2px 4px;border-radius:6px;list-style:none;cursor:pointer;color:var(--muted);font-size:.85rem;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+details.disc>summary::-webkit-details-marker{display:none}
+details.disc>summary:hover{background:var(--surface-2);color:var(--ink)}
+.plain{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.plain>li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:0}
+.note{color:var(--muted);font-size:.9rem;margin:0}
+.rejected>li{display:flex;gap:8px;align-items:baseline}
+footer{margin-top:48px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding:16px 0 48px}
+@media (max-width:600px){.chip .tn{display:none}.summary{gap:6px;padding:8px 0}.chip{min-height:30px;padding:3px 10px}.chip.t2{padding:2.5px 9.5px}}
+@media (max-width:480px){.wrap{padding:0 12px}.intro{padding-top:16px}h1{font-size:1.35rem}.card{--pad:12px}.plain>li{padding:12px}}
+</style></head><body>
+<header class="wrap intro"><h1>Discuss First</h1>
+<p class="sub">GitHub maintainer · pack <code>github-maintainer</code> 0.1.0 · input <code>github:acme/widget (open, 11)</code> · as of 2026-10-23 12:00 UTC</p>
+</header>
+<div id="bar-sentinel" aria-hidden="true"></div><nav class="bar" id="bar" aria-label="Counts"><div class="wrap"><ul class="summary">
+<li data-count="flagged"><a class="chip" href="#discuss-first">Discuss First <b>6</b></a></li><li data-count-tier="T1"><a class="chip t1" href="#tier-T1">T1<span class="tn"> Discuss now</span> <b>5</b></a></li><li data-count-tier="T2"><a class="chip t2" href="#tier-T2">T2<span class="tn"> Today</span> <b>1</b></a></li><li data-count="unmatched"><a class="chip l0" href="#no-rule-matched">No rule matched <b>5</b></a></li><li data-count="total"><span class="chip">Items <b>11</b></span></li>
+</ul></div></nav><div class="wrap">
+<main>
+<section id="discuss-first" aria-labelledby="h-df"><h2 id="h-df">Discuss First (6)</h2>
+<h3 id="tier-T1"><span class="badge t1">T1</span> Discuss now (5)</h3><ol class="cards">
+<li class="card t1" data-id="#790" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-1" aria-label="Details of #790"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">1.</span><span class="badge t1">T1 Discuss now</span><span class="id">#790</span><a class="title" href="https://github.com/acme/widget/issues/790" rel="noreferrer">main <mark data-item="#790" data-field="title" data-start="5" data-end="19" title="BUILD-OR-INSTALL-BROKEN">does not build</mark> since #786</a></div></div>
+<div class="cbody" id="cb-1"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 12 d</li></ul>
+<ul class="flags"><li data-rule="BUILD-OR-INSTALL-BROKEN" data-rule-tier="T1"><span class="rid">BUILD-OR-INSTALL-BROKEN</span><span class="rule">Build or install broken</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“does not build”</span> · <span class="q">“build` fails”</span> · <span class="q">“red since”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span>T2 <span class="q">“fails:”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>Fresh clone of main, `make <mark data-item="#790" data-field="body" data-start="27" data-end="40" title="BUILD-OR-INSTALL-BROKEN BROKEN-NO-WORKAROUND">build` fails:</mark>
+
+```
+error[E0432]: unresolved import `crate::sync::engine::Planner`
+```
+CI on main has been <mark data-item="#790" data-field="body" data-start="133" data-end="142" title="BUILD-OR-INSTALL-BROKEN">red since</mark> that merge.</div></div>
+</div></div></li>
+<li class="card t1" data-id="#799" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-2" aria-label="Details of #799"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">2.</span><span class="badge t1">T1 Discuss now</span><span class="id">#799</span><a class="title" href="https://github.com/acme/widget/issues/799" rel="noreferrer">Share links can <mark data-item="#799" data-field="title" data-start="16" data-end="32" title="SECURITY">read other users</mark>&#39; tokens</a></div></div>
+<div class="cbody" id="cb-2"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 8 d 16 h</li></ul>
+<ul class="flags"><li data-rule="SECURITY" data-rule-tier="T1"><span class="rid">SECURITY</span><span class="rule">Possible security vulnerability</span> · <a href="https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability" rel="noreferrer" title="GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025">source</a><br><span class="q">“read other users”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>While testing share links I noticed that `/s/&lt;id&gt;/meta` returns the owner&#39;s session record. With two of my own accounts I confirmed that anyone with a share link can <mark data-item="#799" data-field="body" data-start="166" data-end="182" title="SECURITY">read other users</mark>&#39; tokens, and with the token you can open all their projects.
+
+I have not posted details anywhere else.</div></div>
+</div></div></li>
+<li class="card t1" data-id="#805" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-3" aria-label="Details of #805"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">3.</span><span class="badge t1">T1 Discuss now</span><span class="id">#805</span><a class="title" href="https://github.com/acme/widget/issues/805" rel="noreferrer">Login loop <mark data-item="#805" data-field="title" data-start="11" data-end="25" title="REGRESSION-LATEST REGRESSION">after updating</mark> to <mark data-item="#805" data-field="title" data-start="29" data-end="34" title="REGRESSION-LATEST">3.2.0</mark></a></div></div>
+<div class="cbody" id="cb-3"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 6 d 21 h</li></ul>
+<ul class="flags"><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“After updating”</span> · <span class="q">“3.2.0”</span> · <span class="q">“Forever”</span> · <span class="q">“Worked fine”</span> · <span class="q">“Cannot”</span> · <span class="q">“all”</span> · <span class="q">“after updating”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="REGRESSION"><span class="rid">REGRESSION</span>T2 <span class="q">“After updating”</span> · <span class="q">“Worked fine”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span><mark data-item="#805" data-field="body" data-start="0" data-end="14" title="REGRESSION-LATEST REGRESSION">After updating</mark> to <mark data-item="#805" data-field="body" data-start="18" data-end="23" title="REGRESSION-LATEST">3.2.0</mark> the desktop app keeps showing the sign-in screen. I sign in, the browser says done, and the app shows the sign-in screen again. <mark data-item="#805" data-field="body" data-start="152" data-end="159" title="REGRESSION-LATEST">Forever</mark>. <mark data-item="#805" data-field="body" data-start="161" data-end="172" title="REGRESSION-LATEST REGRESSION">Worked fine</mark> on 3.1.5. <mark data-item="#805" data-field="body" data-start="183" data-end="189" title="REGRESSION-LATEST">Cannot</mark> get to my local projects at <mark data-item="#805" data-field="body" data-start="218" data-end="221" title="REGRESSION-LATEST">all</mark>.</div></div>
+</div></div></li>
+<li class="card t1" data-id="#812" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-4" aria-label="Details of #812"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">4.</span><span class="badge t1">T1 Discuss now</span><span class="id">#812</span><a class="title" href="https://github.com/acme/widget/issues/812" rel="noreferrer"><mark data-item="#812" data-field="title" data-start="0" data-end="9" title="DATA-LOSS">Data loss</mark> after upgrade to <mark data-item="#812" data-field="title" data-start="27" data-end="30" title="REGRESSION-LATEST">3.2</mark></a></div></div>
+<div class="cbody" id="cb-4"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 5 d 3 h</li></ul>
+<ul class="flags"><li data-rule="DATA-LOSS" data-rule-tier="T1"><span class="rid">DATA-LOSS</span><span class="rule">Data lost, overwritten or corrupted</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“folder is empty and the trash is empty”</span> · <span class="q">“lost all my saved projects”</span> · <span class="q">“Data loss”</span></li><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“After upgrading”</span> · <span class="q">“3.2.0”</span> · <span class="q">“all”</span> · <span class="q">“3.2”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="REGRESSION"><span class="rid">REGRESSION</span>T2 <span class="q">“After upgrading”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>### Describe the bug
+<mark data-item="#812" data-field="body" data-start="21" data-end="36" title="REGRESSION-LATEST REGRESSION">After upgrading</mark> from 3.1.5 to <mark data-item="#812" data-field="body" data-start="51" data-end="56" title="REGRESSION-LATEST">3.2.0</mark> and restarting, I <mark data-item="#812" data-field="body" data-start="75" data-end="101" title="DATA-LOSS REGRESSION-LATEST">lost all my saved projects</mark>. The projects <mark data-item="#812" data-field="body" data-start="116" data-end="154" title="DATA-LOSS">folder is empty and the trash is empty</mark> too.
+
+### Version
+<mark data-item="#812" data-field="body" data-start="173" data-end="178" title="REGRESSION-LATEST">3.2.0</mark> on macOS 15</div></div>
+</div></div></li>
+<li class="card t1" data-id="#826" data-tier="T1"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-5" aria-label="Details of #826"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">5.</span><span class="badge t1">T1 Discuss now</span><span class="id">#826</span><a class="title" href="https://github.com/acme/widget/issues/826" rel="noreferrer"><mark data-item="#826" data-field="title" data-start="0" data-end="11" title="REGRESSION-LATEST">Since 3.2.0</mark> <mark data-item="#826" data-field="title" data-start="12" data-end="17" title="REGRESSION-LATEST">every</mark> export to PDF <mark data-item="#826" data-field="title" data-start="32" data-end="37" title="REGRESSION-LATEST">fails</mark></a></div></div>
+<div class="cbody" id="cb-5"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>waiting 1 d 3 h</li></ul>
+<ul class="flags"><li data-rule="REGRESSION-LATEST" data-rule-tier="T1"><span class="rid">REGRESSION-LATEST</span><span class="rule">Regression in the latest release with no workaround</span> · <a href="https://semver.org/spec/v2.0.0.html" rel="noreferrer" title="Semantic Versioning 2.0.0">source</a><br><span class="q">“After updating”</span> · <span class="q">“3.2.0”</span> · <span class="q">“every”</span> · <span class="q">“fails”</span> · <span class="q">“Worked fine”</span> · <span class="q">“whole team”</span> · <span class="q">“nothing works”</span> · <span class="q">“Since 3.2.0”</span></li><li class="also"><span class="kind">Also matched</span> <span data-rule="REGRESSION"><span class="rid">REGRESSION</span>T2 <span class="q">“After updating”</span> · <span class="q">“Worked fine”</span></span>; <span data-rule="BROKEN-NO-WORKAROUND"><span class="rid">BROKEN-NO-WORKAROUND</span>T2 <span class="q">“fails with”</span></span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span><mark data-item="#826" data-field="body" data-start="0" data-end="14" title="REGRESSION-LATEST REGRESSION">After updating</mark> to <mark data-item="#826" data-field="body" data-start="18" data-end="23" title="REGRESSION-LATEST">3.2.0</mark>, <mark data-item="#826" data-field="body" data-start="25" data-end="30" title="REGRESSION-LATEST">every</mark> export to PDF <mark data-item="#826" data-field="body" data-start="45" data-end="55" title="BROKEN-NO-WORKAROUND REGRESSION-LATEST">fails with</mark> &quot;renderer exited&quot;. <mark data-item="#826" data-field="body" data-start="75" data-end="86" title="REGRESSION-LATEST REGRESSION">Worked fine</mark> on 3.1.5. Our <mark data-item="#826" data-field="body" data-start="101" data-end="111" title="REGRESSION-LATEST">whole team</mark> exports reports daily and <mark data-item="#826" data-field="body" data-start="138" data-end="151" title="REGRESSION-LATEST">nothing works</mark>.</div></div>
+</div></div></li>
+</ol>
+<h3 id="tier-T2"><span class="badge t2">T2</span> Today (1)</h3><ol class="cards">
+<li class="card t2" data-id="#797" data-tier="T2"><div class="head"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="cb-6" aria-label="Details of #797"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="hl"><span class="pos">6.</span><span class="badge t2">T2 Today</span><span class="id">#797</span><a class="title" href="https://github.com/acme/widget/issues/797" rel="noreferrer"><mark data-item="#797" data-field="title" data-start="0" data-end="5" title="CRASH-OR-HANG">Crash</mark> when I paste an emoji in the project title</a></div></div>
+<div class="cbody" id="cb-6"><div class="cin">
+<ul class="meta"><li>raised from T3</li><li>label bug</li><li>waiting 10 d 4 h</li></ul>
+<ul class="flags"><li data-rule="CRASH-OR-HANG" data-rule-tier="T2"><span class="rid">CRASH-OR-HANG</span><span class="rule">Crash, hang or freeze in a specific situation</span> · <a href="https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules" rel="noreferrer" title="This pack&#39;s maintainer policy (github-maintainer README, Rules section)">source</a><br><span class="q">“closes itself”</span> · <span class="q">“Crash”</span></li></ul>
+<div class="fields"><div class="field"><span class="fname">body</span>When I paste an emoji in the project title the app <mark data-item="#797" data-field="body" data-start="51" data-end="64" title="CRASH-OR-HANG">closes itself</mark>. The project is fine after reopening.
+
+widget 3.1.5, Windows 10</div></div>
+</div></div></li>
+</ol>
+</section>
+<section id="no-rule-matched" aria-labelledby="h-nr"><h2 id="h-nr"><button class="tog" type="button" hidden aria-expanded="true" aria-controls="nr-body" aria-label="No rule matched items"><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span>No rule matched (5)</span></h2><div class="cbody" id="nr-body"><div class="cin"><p class="note">This does not mean not urgent. Items are listed in their original order.</p><ol class="plain">
+<li data-id="#820" data-tier="T3"><div class="head"><div class="hl"><span class="pos">7.</span><span class="id">#820</span><a class="title" href="https://github.com/acme/widget/issues/820" rel="noreferrer">Add a keyboard shortcut to toggle the sidebar</a></div></div><ul class="meta"><li>label enhancement</li><li>waiting 2 d 2 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>It would be nice to hide the sidebar with a shortcut, like Ctrl+B in other editors. I use a small laptop screen.</div></div></div></div></details></li>
+<li data-id="#819" data-tier="T3"><div class="head"><div class="hl"><span class="pos">8.</span><span class="id">#819</span><a class="title" href="https://github.com/acme/widget/issues/819" rel="noreferrer">URGENT!!! please add dark mode to the export dialog</a></div></div><ul class="meta"><li>waiting 2 d 13 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>URGENT, this is a blocker for us!!! The export dialog is still white when the app is in dark mode and it hurts my eyes at night.</div></div></div></div></details></li>
+<li data-id="#818" data-tier="T3"><div class="head"><div class="hl"><span class="pos">9.</span><span class="id">#818</span><a class="title" href="https://github.com/acme/widget/pull/818" rel="noreferrer">docs: fix typo in sync guide</a></div></div><ul class="meta"><li>label documentation</li><li>waiting 2 d 19 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Fixes &quot;recieve&quot; to &quot;receive&quot; in docs/guide/sync.md. No other changes.</div></div></div></div></details></li>
+<li data-id="#815" data-tier="T3"><div class="head"><div class="hl"><span class="pos">10.</span><span class="id">#815</span><a class="title" href="https://github.com/acme/widget/issues/815" rel="noreferrer">Sync shows &quot;conflict&quot; dialog twice (no data was lost)</a></div></div><ul class="meta"><li>label bug</li><li>waiting 4 d</li></ul><p class="why">Did not count: “data was lost” (negated, DATA-LOSS) · “data was lost” (negated, DATA-LOSS)</p><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>When a conflict happens the dialog appears twice. I picked &quot;Keep both&quot; both times and got the two expected copies, so no data was lost. Just confusing.
+
+widget 3.2.0, Windows 11</div></div></div></div></details></li>
+<li data-id="#801" data-tier="T3"><div class="head"><div class="hl"><span class="pos">11.</span><span class="id">#801</span><a class="title" href="https://github.com/acme/widget/issues/801" rel="noreferrer">Question: can I self-host the sync server?</a></div></div><ul class="meta"><li>label question</li><li>waiting 8 d 1 h</li></ul><details class="disc"><summary><svg class="chev" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Item text</span></summary><div class="dbody"><div class="din"><div class="fields"><div class="field"><span class="fname">body</span>Our organisation cannot put project data on a third-party cloud. Is the sync server available to self-host?</div></div></div></div></details></li>
+</ol></div></div></section>
+</main><footer><p>Every flag quotes the exact words that matched. No item is placed below the tier its own priority field implies; rules and annotations can only raise.</p>
+<p>Generated by urgent-first 0.1.0.</p></footer>
+<script type="application/json" id="uf-data">{"counts":{"total":11,"flagged":6,"unmatched":5,"by_tier":{"T1":5,"T2":1,"T3":5}},"evidence":[{"id":"#790","tier":"T1","quotes":[{"field":"title","text":"does not build"},{"field":"body","text":"build` fails"},{"field":"body","text":"red since"},{"field":"body","text":"fails:"}]},{"id":"#799","tier":"T1","quotes":[{"field":"body","text":"read other users"},{"field":"title","text":"read other users"}]},{"id":"#805","tier":"T1","quotes":[{"field":"body","text":"After updating"},{"field":"body","text":"3.2.0"},{"field":"body","text":"Forever"},{"field":"body","text":"Worked fine"},{"field":"body","text":"Cannot"},{"field":"body","text":"all"},{"field":"title","text":"after updating"},{"field":"title","text":"3.2.0"},{"field":"body","text":"After updating"},{"field":"body","text":"Worked fine"},{"field":"title","text":"after updating"}]},{"id":"#812","tier":"T1","quotes":[{"field":"body","text":"folder is empty and the trash is empty"},{"field":"body","text":"lost all my saved projects"},{"field":"title","text":"Data loss"},{"field":"body","text":"After upgrading"},{"field":"body","text":"3.2.0"},{"field":"body","text":"all"},{"field":"body","text":"3.2.0"},{"field":"title","text":"3.2"},{"field":"body","text":"After upgrading"}]},{"id":"#826","tier":"T1","quotes":[{"field":"body","text":"After updating"},{"field":"body","text":"3.2.0"},{"field":"body","text":"every"},{"field":"body","text":"fails"},{"field":"body","text":"Worked fine"},{"field":"body","text":"whole team"},{"field":"body","text":"nothing works"},{"field":"title","text":"Since 3.2.0"},{"field":"title","text":"every"},{"field":"title","text":"fails"},{"field":"body","text":"After updating"},{"field":"body","text":"Worked fine"},{"field":"body","text":"fails with"}]},{"id":"#797","tier":"T2","quotes":[{"field":"body","text":"closes itself"},{"field":"title","text":"Crash"}]},{"id":"#820","tier":"T3","quotes":[]},{"id":"#819","tier":"T3","quotes":[]},{"id":"#818","tier":"T3","quotes":[]},{"id":"#815","tier":"T3","quotes":[]},{"id":"#801","tier":"T3","quotes":[]}]}</script>
+<script>
+/* fluid.js: interruptible springs and pointer helpers for offline pages. No dependencies, about 2 KB minified.
+ * Inline a copy into each generated page. Springs use Apple's response/damping model:
+ *   response = period of the undamped spring in seconds; damping = damping ratio (1 = no bounce, 0.8 = slight bounce).
+ *   Move or reposition: damping 1, response 0.4. Drawer or sheet: damping 0.8, response 0.3. Press: damping 1, response 0.18.
+ * Every spring keeps its live value and velocity, so a new target retargets from where it is now (interruptible).
+ * Under prefers-reduced-motion every spring jumps straight to its target.
+ */
+var Fluid = (function () {
+  'use strict';
+  var mq = typeof matchMedia === 'function' ? matchMedia('(prefers-reduced-motion: reduce)') : null;
+  function reduce() { return !!(mq && mq.matches); }
+
+  function spring(opts) {
+    opts = opts || {};
+    var x = opts.value || 0, v = 0, target = x, raf = 0, last = 0, k = 0, c = 0;
+    var onUpdate = opts.onUpdate, onRest = opts.onRest, eps = opts.epsilon || 0.001;
+    var response = opts.response || 0.4, damping = opts.damping == null ? 1 : opts.damping;
+    function params(r, d) { k = Math.pow((2 * Math.PI) / r, 2); c = (4 * Math.PI * d) / r; }
+    params(response, damping);
+    function emit() { if (onUpdate) onUpdate(x, v); }
+    function settle() { x = target; v = 0; raf = 0; emit(); if (onRest) onRest(x); }
+    function step(t) {
+      var dt = (t - last) / 1000;
+      if (!(dt > 0)) dt = 1 / 60; // the first frame's timestamp can be earlier than the call to to()
+      if (dt > 0.064) dt = 0.064;
+      last = t;
+      var n = Math.max(1, Math.ceil(dt * 240)), h = dt / n;
+      for (var i = 0; i < n; i++) { var a = -k * (x - target) - c * v; v += a * h; x += v * h; }
+      if (Math.abs(x - target) < eps && Math.abs(v) < eps * 10) return settle();
+      emit();
+      raf = requestAnimationFrame(step);
+    }
+    var api = {
+      get value() { return x; },
+      get velocity() { return v; },
+      get target() { return target; },
+      /** Animate to t. opts.velocity hands off a release velocity (units per second). */
+      to: function (t, o) {
+        o = o || {};
+        target = t;
+        if (o.velocity != null) v = o.velocity;
+        if (o.response || o.damping != null) params(o.response || response, o.damping == null ? damping : o.damping);
+        if (reduce()) { cancelAnimationFrame(raf); settle(); return api; }
+        if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); }
+        return api;
+      },
+      /** Jump without animating (direct manipulation: the finger owns the value). */
+      set: function (val) { cancelAnimationFrame(raf); raf = 0; x = target = val; v = 0; emit(); return api; },
+      stop: function () { cancelAnimationFrame(raf); raf = 0; return api; },
+    };
+    return api;
+  }
+
+  /** Velocity over the last 100 ms of samples, in units per second. */
+  function velocityTracker() {
+    var s = [];
+    return {
+      add: function (p, t) { t = t == null ? performance.now() : t; s.push([p, t]); while (s.length > 2 && t - s[0][1] > 100) s.shift(); },
+      get: function () { if (s.length < 2) return 0; var a = s[0], b = s[s.length - 1]; return b[1] > a[1] ? (b[0] - a[0]) / ((b[1] - a[1]) / 1000) : 0; },
+      reset: function () { s.length = 0; },
+    };
+  }
+
+  /** Where a flick comes to rest under exponential decay (deceleration rate per millisecond, 0.998 = normal). */
+  function project(velocity, rate) { rate = rate || 0.998; return ((velocity / 1000) * rate) / (1 - rate); }
+
+  /** Resistance past an edge: overshoot in px, dimension = track length in px. Returns the drawn overshoot. */
+  function rubber(overshoot, dimension, coeff) {
+    coeff = coeff || 0.55;
+    var sign = overshoot < 0 ? -1 : 1, o = Math.abs(overshoot);
+    return sign * (1 - 1 / ((o * coeff) / dimension + 1)) * dimension;
+  }
+
+  /** Press feedback on pointer-down. Scales el with a spring; a move of more than 10 px cancels the press. */
+  function pressable(el, o) {
+    o = o || {};
+    var down = o.scale || 0.97, start = null, sp = spring({ value: 1, response: 0.18, damping: 1, onUpdate: function (s) {
+      el.style.transform = s === 1 ? '' : 'scale(' + s.toFixed(4) + ')';
+    } });
+    function release() { start = null; sp.to(1, { response: 0.3, damping: 0.8 }); }
+    el.addEventListener('pointerdown', function (e) { if (e.button > 0) return; start = [e.clientX, e.clientY]; sp.to(down, { response: 0.18, damping: 1 }); });
+    el.addEventListener('pointermove', function (e) { if (start && Math.hypot(e.clientX - start[0], e.clientY - start[1]) > 10) release(); });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (n) { el.addEventListener(n, function () { if (start) release(); }); });
+    return sp;
+  }
+
+  return { spring: spring, velocityTracker: velocityTracker, project: project, rubber: rubber, pressable: pressable, reduce: reduce };
+})();
+if (typeof module !== 'undefined') module.exports = Fluid;
+
+/* board.html motion: disclosure springs, press feedback and the sticky bar material.
+ * A classic browser script, inlined after fluid.js (read as text by html.js, never imported).
+ * The page reads fully without it: every card and group renders open, and the toggles stay hidden.
+ * Height springs (damping 1, response 0.35) reverse from their live height and velocity when clicked
+ * again mid-flight; chevrons rotate on their own spring (damping 0.8, response 0.4). Under
+ * prefers-reduced-motion every spring jumps straight to its target. */
+(function () {
+  'use strict';
+  document.documentElement.classList.add('js');
+
+  function rotate(svg, deg) { svg.style.transform = 'rotate(' + deg.toFixed(2) + 'deg)'; }
+
+  /** o: { body, open, chev, show(), hide(), set(open) }. body's first child fades and settles 6px. */
+  function disclosure(o) {
+    var body = o.body, inner = body.firstElementChild || body, open = o.open, full = 0;
+    function paint(x) {
+      var c = x < 0 ? 0 : x > 1 ? 1 : x;
+      body.style.height = (c * full).toFixed(2) + 'px';
+      body.style.overflow = 'hidden';
+      inner.style.opacity = c.toFixed(3);
+      inner.style.transform = 'translateY(' + (-6 * (1 - c)).toFixed(2) + 'px)';
+    }
+    function rest(x) {
+      body.style.height = body.style.overflow = inner.style.opacity = inner.style.transform = '';
+      if (x === 0) o.hide();
+    }
+    var h = Fluid.spring({ value: open ? 1 : 0, response: 0.35, damping: 1, onUpdate: paint, onRest: rest });
+    var chev = o.chev && Fluid.spring({ value: open ? 90 : 0, response: 0.4, damping: 0.8, onUpdate: function (d) { rotate(o.chev, d); } });
+    if (o.chev) rotate(o.chev, open ? 90 : 0);
+    var api = {
+      get open() { return open; },
+      toggle: function () {
+        open = !open;
+        if (open) o.show();
+        full = body.scrollHeight;
+        if (!body.style.height) paint(h.value); // at rest: pin the live height before animating
+        h.to(open ? 1 : 0);
+        if (chev) chev.to(open ? 90 : 0);
+        o.set(open);
+      },
+      /** Follow a change made outside the toggle (find-in-page opening a details element). */
+      jump: function (v) {
+        open = v;
+        h.set(v ? 1 : 0);
+        rest(v ? 1 : 0);
+        if (chev) chev.set(v ? 90 : 0);
+        o.set(v);
+      },
+    };
+    return api;
+  }
+
+  // Cards and the "No rule matched" group: a chevron button controls the body named in aria-controls.
+  document.querySelectorAll('button.tog[aria-controls]').forEach(function (btn) {
+    var body = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!body) return;
+    btn.hidden = false;
+    var d = disclosure({
+      body: body,
+      open: btn.getAttribute('aria-expanded') !== 'false',
+      chev: btn.querySelector('.chev'),
+      show: function () { body.hidden = false; },
+      hide: function () { body.hidden = true; },
+      set: function (v) { btn.setAttribute('aria-expanded', String(v)); },
+    });
+    btn.addEventListener('click', d.toggle);
+    Fluid.pressable(btn, { scale: 0.88 });
+  });
+
+  // Item text and other text fields: native <details>, kept open while the body springs shut.
+  document.querySelectorAll('details.disc').forEach(function (det) {
+    var sum = det.querySelector(':scope > summary'), body = det.querySelector(':scope > .dbody');
+    if (!sum || !body) return;
+    var d = disclosure({
+      body: body,
+      open: det.open,
+      chev: sum.querySelector('.chev'),
+      show: function () { det.open = true; },
+      hide: function () { det.open = false; },
+      set: function () {},
+    });
+    sum.addEventListener('click', function (e) { e.preventDefault(); d.toggle(); });
+    det.addEventListener('toggle', function () { if (det.open !== d.open && !body.style.height) d.jump(det.open); });
+    Fluid.pressable(sum);
+  });
+
+  // Summary chips jump to their sections (native smooth scroll, instant under reduced motion).
+  document.querySelectorAll('.summary .chip').forEach(function (chip) { Fluid.pressable(chip); });
+
+  // The sticky bar turns into a translucent material once the board scrolls under it.
+  var bar = document.getElementById('bar'), sentinel = document.getElementById('bar-sentinel');
+  if (bar) {
+    var measure = function () { document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px'); };
+    measure();
+    addEventListener('resize', measure);
+    if (sentinel && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { bar.classList.toggle('stuck', !e[e.length - 1].isIntersecting); }).observe(sentinel);
+    }
+  }
+})();
+</script>
+</div></body></html>

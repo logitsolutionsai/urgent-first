@@ -3,6 +3,8 @@
 // headers: { "GET /repos/acme/widget/issues?...": { "status": 200, "file": "issues-page1.json", "headers": {...} } }
 // A request carrying If-None-Match equal to the entry's etag gets a 304, as the real API does.
 // Query parameters are matched exactly; an entry key may use "*" to match any query string.
+// An optional "_meta": { "synthetic": true } entry declares that every recorded item is invented (the demo and
+// test fixtures); snapshots then mark the items synthetic. A folder without it is treated as real data.
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -30,5 +32,7 @@ export function fixtureFetch(dir) {
     return make(entry.status ?? 200, body, headers);
   };
   impl.calls = calls;
+  impl.recorded = true;
+  impl.synthetic = Boolean(index._meta && index._meta.synthetic === true);
   return impl;
 }

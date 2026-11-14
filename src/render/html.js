@@ -198,6 +198,10 @@ function metaChips(r, item, nowMs) {
   return chips.length ? `<ul class="meta">${chips.join('')}</ul>` : '';
 }
 
+// Shared with the Maintainer Radar pages (src/pulse/render.js): the same styles, the same inline script and
+// therefore the same CSP hash. Exporting them changes nothing in board.html.
+export { CSS, SCRIPT, SCRIPT_HASH, MONO, toggleButton, disclosure };
+
 export function renderHtml(result, { pack, itemsById, newIds = null } = {}) {
   const nowMs = parseTime(result.now);
   const c = result.counts;

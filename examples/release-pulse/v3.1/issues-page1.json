@@ -1,0 +1,315 @@
+[
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/712",
+    "html_url": "https://github.com/acme/widget/issues/712",
+    "number": 712,
+    "title": "Settings page has a typo in \"Synchronisation\"",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T20:00:00Z",
+    "updated_at": "2026-10-31T20:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nThe heading on the settings page reads \"Synchronisaton\".",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/711",
+    "html_url": "https://github.com/acme/widget/issues/711",
+    "number": 711,
+    "title": "Keyboard shortcut to toggle the sidebar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "enhancement"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T19:00:00Z",
+    "updated_at": "2026-10-30T19:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nCtrl+B in other editors hides the sidebar. Could we have the same?",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/710",
+    "html_url": "https://github.com/acme/widget/issues/710",
+    "number": 710,
+    "title": "Conflict dialog shows twice (no data loss)",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "bug"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T18:00:00Z",
+    "updated_at": "2026-10-29T18:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nAfter a sync conflict the dialog appears twice. We had no data loss, both copies were kept, it is just confusing.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/709",
+    "html_url": "https://github.com/acme/widget/issues/709",
+    "number": 709,
+    "title": "Add a word count to the status bar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "enhancement"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T17:00:00Z",
+    "updated_at": "2026-10-28T17:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nA live word count for the current note would help when I write articles.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/708",
+    "html_url": "https://github.com/acme/widget/issues/708",
+    "number": 708,
+    "title": "Search feels slow on a large vault",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "performance"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-27T16:00:00Z",
+    "updated_at": "2026-10-27T16:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nSearching a vault with 40,000 notes takes a few seconds. It used to be quicker, but it is usable.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/707",
+    "html_url": "https://github.com/acme/widget/issues/707",
+    "number": 707,
+    "title": "Question: can I self-host the sync server?",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "question"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-26T15:00:00Z",
+    "updated_at": "2026-10-26T15:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "Is there a documented way to run the sync server on my own machine?",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/706",
+    "html_url": "https://github.com/acme/widget/issues/706",
+    "number": 706,
+    "title": "Sidebar flickers while resizing the window",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "bug"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-25T14:00:00Z",
+    "updated_at": "2026-10-25T14:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nDragging the window edge makes the sidebar flicker. Cosmetic, but distracting.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/705",
+    "html_url": "https://github.com/acme/widget/pull/705",
+    "number": 705,
+    "title": "docs: fix typo in the sync guide",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "documentation"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-24T13:00:00Z",
+    "updated_at": "2026-10-24T13:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "Fixes a small typo in docs/sync.md.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    },
+    "pull_request": {
+      "url": "https://api.github.com/repos/acme/widget/pulls/705",
+      "html_url": "https://github.com/acme/widget/pull/705"
+    },
+    "draft": false
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/704",
+    "html_url": "https://github.com/acme/widget/issues/704",
+    "number": 704,
+    "title": "Crash when opening a project with an emoji in its name",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "bug"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-23T12:00:00Z",
+    "updated_at": "2026-10-23T12:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nThe app crashes when I open a project called \"Trip 🏖\". Renaming the project avoids it.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/703",
+    "html_url": "https://github.com/acme/widget/issues/703",
+    "number": 703,
+    "title": "Dark mode for the export dialog",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "enhancement"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-22T11:00:00Z",
+    "updated_at": "2026-10-22T11:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nThe export dialog is still bright white in dark mode. Would be nice to match the theme.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/702",
+    "html_url": "https://github.com/acme/widget/issues/702",
+    "number": 702,
+    "title": "Sync conflict deleted my notes",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "bug"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-21T10:00:00Z",
+    "updated_at": "2026-10-21T10:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nTwo devices edited the same folder. After the conflict dialog every note in the folder was gone and the trash is empty. I lost my notes from the last week.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/widget/issues/701",
+    "html_url": "https://github.com/acme/widget/issues/701",
+    "number": 701,
+    "title": "Export to PDF cuts off the last page",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [
+      {
+        "name": "bug"
+      }
+    ],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-20T09:00:00Z",
+    "updated_at": "2026-10-20T09:00:00Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "### Checklist\n- [ ] I searched for existing issues\n- [ ] This is not a security vulnerability (report those privately)\n- [ ] I read the contributing guide\n\nWhen I export a long note to PDF the last page is missing. No workaround that I can find, printing to PDF from the browser has the same problem.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  }
+]

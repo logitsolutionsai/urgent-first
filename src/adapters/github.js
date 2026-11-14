@@ -41,13 +41,13 @@ async function getJson(url, { token, fetchImpl, etag = null }) {
     res = await fetchImpl(url, { headers: headers(token, etag) });
   } catch (err) {
     const cause = err && err.cause && err.cause.code ? ` (${err.cause.code})` : '';
-    throw new UserError(`Cannot reach the GitHub API: ${err && err.message ? err.message : err}${cause}. Check the network connection and try again.`, { code: 3 });
+    throw tagged(new UserError(`Cannot reach the GitHub API: ${err && err.message ? err.message : err}${cause}. Check the network connection and try again.`, { code: 3 }), 'pagination_failed');
   }
   const rate = rateInfo(res);
   if (res.status === 304) return { status: 304, data: null, etag, rate };
   if (res.status === 404) return { status: 404, data: null, etag: null, rate };
   if (res.status === 401) {
-    throw new UserError('GitHub API rejected the token (HTTP 401). Check GITHUB_TOKEN or GH_TOKEN, or unset it to use the anonymous limit of 60 requests an hour.', { code: 3 });
+    throw tagged(new UserError('GitHub API rejected the token (HTTP 401). Check GITHUB_TOKEN or GH_TOKEN, or unset it to use the anonymous limit of 60 requests an hour.', { code: 3 }), 'missing_permission');
   }
   if (res.status === 403 || res.status === 429) {
     const when = rate.reset ? new Date(rate.reset * 1000).toISOString() : null;
@@ -59,10 +59,18 @@ async function getJson(url, { token, fetchImpl, etag = null }) {
           ? `Secondary rate limit; retry after ${retry} s.`
           : 'Access denied or a secondary rate limit.';
     const hint = token ? 'Wait and try again.' : 'Set GITHUB_TOKEN or GH_TOKEN for 5,000 requests an hour instead of 60.';
-    throw new UserError(`GitHub API refused the request (HTTP ${res.status}). ${why} ${hint}`, { code: 3 });
+    const err = tagged(new UserError(`GitHub API refused the request (HTTP ${res.status}). ${why} ${hint}`, { code: 3 }), rate.remaining === 0 || retry || res.status === 429 ? 'rate_limit' : 'missing_permission');
+    if (retry !== null && Number.isFinite(Number(retry))) err.retryAfterSeconds = Number(retry);
+    throw err;
   }
-  if (!res.ok) throw new UserError(`GitHub API error HTTP ${res.status} for ${url}`, { code: 3 });
+  if (!res.ok) throw tagged(new UserError(`GitHub API error HTTP ${res.status} for ${url}`, { code: 3 }), 'pagination_failed');
   return { status: res.status, data: await res.json(), etag: res.headers.get('etag'), rate, link: res.headers.get('link') };
+}
+
+/** Mark an error with why a collection stopped (snapshot partial-source reasons). The message is unchanged. */
+function tagged(err, reason) {
+  err.reason = reason;
+  return err;
 }
 
 /** The rel="next" URL of a Link header, or null. */
@@ -83,9 +91,13 @@ export async function fetchLatestRelease({ owner, repo, token, fetchImpl }) {
 
 /**
  * Fetch open (or closed/all) issues and pull requests, newest first, up to `limit`.
- * Returns { rawItems, etag, rate, release }.
+ * Returns { rawItems, etag, rate, release, pages, truncated }.
+ * `allowPartial` (snapshot only): a failure after the first page (rate limit, network, permission) returns the
+ * pages already fetched with `partial: { reason, continuation, message }` instead of throwing. The first page
+ * failing still throws: there is nothing to show. Default false: the github command behaves exactly as before.
+ * `truncated` reports that --limit stopped the listing while the API offered another page.
  */
-export async function fetchIssues({ owner, repo, state = 'open', limit = 100, token = null, fetchImpl = globalThis.fetch, etag = null, includeRelease = true }) {
+export async function fetchIssues({ owner, repo, state = 'open', limit = 100, token = null, fetchImpl = globalThis.fetch, etag = null, includeRelease = true, allowPartial = false }) {
   if (!fetchImpl) throw new UserError('No fetch available (Node 18+ required)');
   const perPage = Math.min(100, Math.max(1, limit));
   const issues = [];
@@ -95,9 +107,24 @@ export async function fetchIssues({ owner, repo, state = 'open', limit = 100, to
   let firstEtag = null;
   let rate = null;
   let url = `${API}/repos/${owner}/${repo}/issues?state=${encodeURIComponent(state)}&sort=created&direction=desc&per_page=${perPage}`;
+  let pages = 0;
+  let partial = null;
+  let truncated = null;
   for (let page = 1; url; page++) {
-    const r = await getJson(url, { token, fetchImpl, etag: page === 1 ? etag : null });
+    let r;
+    try {
+      r = await getJson(url, { token, fetchImpl, etag: page === 1 ? etag : null });
+    } catch (err) {
+      if (!allowPartial || page === 1 || !(err instanceof UserError)) throw err;
+      partial = { reason: err.reason || 'pagination_failed', continuation: url, message: err.message, ...(err.retryAfterSeconds !== undefined ? { retryAfterSeconds: err.retryAfterSeconds } : {}) };
+      break;
+    }
+    pages = page;
     rate = r.rate;
+    if (r.status === 404 && allowPartial && page > 1) {
+      partial = { reason: 'pagination_failed', continuation: url, message: `GitHub API answered HTTP 404 for page ${page}` };
+      break;
+    }
     if (r.status === 404) throw new UserError(`Repository ${owner}/${repo} not found (or private without a token)`, { code: 3 });
     if (r.status === 304) return { notModified: true, rawItems: null, etag, rate, release: null };
     if (page === 1) firstEtag = r.etag;
@@ -107,12 +134,25 @@ export async function fetchIssues({ owner, repo, state = 'open', limit = 100, to
       if (issue) seenNumbers.add(issue.number);
       issues.push(issue);
     }
-    if (issues.length >= limit || r.data.length < perPage) break;
+    if (issues.length >= limit || r.data.length < perPage) {
+      const more = nextLink(r.link);
+      if (issues.length >= limit && (more || issues.length > limit)) truncated = { reason: 'limit_reached', limit, continuation: more };
+      break;
+    }
     url = nextLink(r.link);
   }
-  const release = includeRelease ? await fetchLatestRelease({ owner, repo, token, fetchImpl }) : null;
+  let release = null;
+  let releaseError = null;
+  if (includeRelease) {
+    try {
+      release = await fetchLatestRelease({ owner, repo, token, fetchImpl });
+    } catch (err) {
+      if (!allowPartial || !(err instanceof UserError)) throw err;
+      releaseError = { reason: err.reason || 'pagination_failed', message: err.message };
+    }
+  }
   const rawItems = issues.slice(0, limit).map((i) => issueToRawItem(i, { owner, repo, release }));
-  return { notModified: false, rawItems, etag: firstEtag, rate, release };
+  return { notModified: false, rawItems, etag: firstEtag, rate, release, pages, truncated, partial, releaseError };
 }
 
 export function issueToRawItem(issue, { owner, repo, release = null }) {

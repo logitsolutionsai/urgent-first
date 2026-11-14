@@ -1,0 +1,20 @@
+{"a":"h-p1a","b":"h-p1b","label":"same_problem","category":"hard_positive","note":"shared ECONNRESET"}
+{"a":"h-p2a","b":"h-p2b","label":"same_problem","category":"hard_positive","note":"paraphrase"}
+{"a":"h-p3a","b":"h-p3b","label":"same_problem","category":"hard_positive","note":"near duplicate buried in a long report"}
+{"a":"h-p4a","b":"h-p4b","label":"same_problem","category":"hard_positive","note":"paraphrase"}
+{"a":"h-p5a","b":"h-p5b","label":"same_problem","category":"hard_positive","note":"shared IndexError"}
+{"a":"h-p6a","b":"h-p6b","label":"same_problem","category":"hard_positive","note":"paraphrase"}
+{"a":"h-p7a","b":"h-p7b","label":"same_problem","category":"hard_positive","note":"shared HTTP 410"}
+{"a":"h-p8a","b":"h-p8b","label":"same_problem","category":"hard_positive","note":"paraphrase"}
+{"a":"h-n1a","b":"h-n1b","label":"different_problem","category":"hard_negative","note":"upload, crash vs progress bar"}
+{"a":"h-n2a","b":"h-n2b","label":"different_problem","category":"hard_negative","note":"same EACCES, unrelated causes"}
+{"a":"h-n3a","b":"h-n3b","label":"different_problem","category":"hard_negative","note":"export to Word, borders vs disabled"}
+{"a":"h-n4a","b":"h-n4b","label":"different_problem","category":"hard_negative","note":"shared version number"}
+{"a":"h-n5a","b":"h-n5b","label":"different_problem","category":"hard_negative","note":"search index, slow vs corrupt"}
+{"a":"h-n6a","b":"h-n6b","label":"different_problem","category":"hard_negative","note":"timeout, feature vs error"}
+{"a":"h-c1a","b":"h-c1b","label":"different_problem","category":"negation_conflict","note":"data loss vs no data loss"}
+{"a":"h-c2a","b":"h-c2b","label":"different_problem","category":"negation_conflict","note":"crashes on startup vs does not"}
+{"a":"h-c3a","b":"h-c3b","label":"different_problem","category":"negation_conflict","note":"wiped vs nothing was lost"}
+{"a":"h-m1","b":"h-m2","label":"different_problem","category":"template_noise","note":"shared template only"}
+{"a":"h-m1","b":"h-m3","label":"different_problem","category":"template_noise","note":"shared template only"}
+{"a":"h-m2","b":"h-m3","label":"different_problem","category":"template_noise","note":"shared template only"}

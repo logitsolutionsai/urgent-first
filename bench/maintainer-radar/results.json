@@ -1,0 +1,369 @@
+{
+  "dev": {
+    "brief": {
+      "items": 69,
+      "labelled_pairs": 33,
+      "positive_pairs": 15,
+      "thresholds": {
+        "possible_duplicate": 0.72,
+        "same_symptom": 0.5
+      },
+      "predicted_links": 3,
+      "true_links": 3,
+      "precision": 1,
+      "precision_wilson95": [
+        0.4385,
+        1
+      ],
+      "recall": 0.2,
+      "recall_wilson95": [
+        0.0705,
+        0.4519
+      ],
+      "by_type": {
+        "same_symptom": {
+          "predicted": 3,
+          "correct": 3
+        }
+      },
+      "by_category": {
+        "hard_positive": {
+          "pairs": 15,
+          "linked": 3
+        },
+        "hard_negative": {
+          "pairs": 10,
+          "linked": 0
+        },
+        "negation_conflict": {
+          "pairs": 4,
+          "linked": 0
+        },
+        "template_noise": {
+          "pairs": 4,
+          "linked": 0
+        }
+      },
+      "suppressed_conflicts": [],
+      "false_links": [],
+      "missed_pairs": [
+        {
+          "a": "d-p1a",
+          "b": "d-p1b",
+          "note": "paraphrase, shared TypeError"
+        },
+        {
+          "a": "d-p2a",
+          "b": "d-p2b",
+          "note": "paraphrase, shared ENOSPC"
+        },
+        {
+          "a": "d-p3a",
+          "b": "d-p3b",
+          "note": "near duplicate buried in a long report"
+        },
+        {
+          "a": "d-p4a",
+          "b": "d-p4b",
+          "note": "paraphrase, no error code"
+        },
+        {
+          "a": "d-p5a",
+          "b": "d-p5b",
+          "note": "shared env var name"
+        },
+        {
+          "a": "d-p7a",
+          "b": "d-p7b",
+          "note": "paraphrase, accents"
+        },
+        {
+          "a": "d-p8a",
+          "b": "d-p8b",
+          "note": "paraphrase, numbers differ"
+        },
+        {
+          "a": "d-p10a",
+          "b": "d-p10b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "d-p12a",
+          "b": "d-p12b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "d-t1a",
+          "b": "d-t1b",
+          "note": "triple"
+        },
+        {
+          "a": "d-t1a",
+          "b": "d-t1c",
+          "note": "triple"
+        },
+        {
+          "a": "d-t1b",
+          "b": "d-t1c",
+          "note": "triple"
+        }
+      ]
+    },
+    "shipped": {
+      "items": 69,
+      "labelled_pairs": 33,
+      "positive_pairs": 15,
+      "thresholds": {
+        "possible_duplicate": 0.45,
+        "same_symptom": 0.25
+      },
+      "predicted_links": 6,
+      "true_links": 6,
+      "precision": 1,
+      "precision_wilson95": [
+        0.6097,
+        1
+      ],
+      "recall": 0.4,
+      "recall_wilson95": [
+        0.1982,
+        0.6425
+      ],
+      "by_type": {
+        "possible_duplicate": {
+          "predicted": 4,
+          "correct": 4
+        },
+        "same_symptom": {
+          "predicted": 2,
+          "correct": 2
+        }
+      },
+      "by_category": {
+        "hard_positive": {
+          "pairs": 15,
+          "linked": 6
+        },
+        "hard_negative": {
+          "pairs": 10,
+          "linked": 0
+        },
+        "negation_conflict": {
+          "pairs": 4,
+          "linked": 0
+        },
+        "template_noise": {
+          "pairs": 4,
+          "linked": 0
+        }
+      },
+      "suppressed_conflicts": [
+        {
+          "a": "d-c4a",
+          "b": "d-c4b",
+          "score": 0.4953,
+          "rules": [
+            null
+          ]
+        }
+      ],
+      "false_links": [],
+      "missed_pairs": [
+        {
+          "a": "d-p3a",
+          "b": "d-p3b",
+          "note": "near duplicate buried in a long report"
+        },
+        {
+          "a": "d-p4a",
+          "b": "d-p4b",
+          "note": "paraphrase, no error code"
+        },
+        {
+          "a": "d-p5a",
+          "b": "d-p5b",
+          "note": "shared env var name"
+        },
+        {
+          "a": "d-p7a",
+          "b": "d-p7b",
+          "note": "paraphrase, accents"
+        },
+        {
+          "a": "d-p8a",
+          "b": "d-p8b",
+          "note": "paraphrase, numbers differ"
+        },
+        {
+          "a": "d-p10a",
+          "b": "d-p10b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "d-p12a",
+          "b": "d-p12b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "d-t1a",
+          "b": "d-t1b",
+          "note": "triple"
+        },
+        {
+          "a": "d-t1b",
+          "b": "d-t1c",
+          "note": "triple"
+        }
+      ]
+    }
+  },
+  "heldout": {
+    "brief": {
+      "items": 43,
+      "labelled_pairs": 20,
+      "positive_pairs": 8,
+      "thresholds": {
+        "possible_duplicate": 0.72,
+        "same_symptom": 0.5
+      },
+      "predicted_links": 3,
+      "true_links": 3,
+      "precision": 1,
+      "precision_wilson95": [
+        0.4385,
+        1
+      ],
+      "recall": 0.375,
+      "recall_wilson95": [
+        0.1368,
+        0.6943
+      ],
+      "by_type": {
+        "same_symptom": {
+          "predicted": 3,
+          "correct": 3
+        }
+      },
+      "by_category": {
+        "hard_positive": {
+          "pairs": 8,
+          "linked": 3
+        },
+        "hard_negative": {
+          "pairs": 6,
+          "linked": 0
+        },
+        "negation_conflict": {
+          "pairs": 3,
+          "linked": 0
+        },
+        "template_noise": {
+          "pairs": 3,
+          "linked": 0
+        }
+      },
+      "suppressed_conflicts": [],
+      "false_links": [],
+      "missed_pairs": [
+        {
+          "a": "h-p2a",
+          "b": "h-p2b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "h-p3a",
+          "b": "h-p3b",
+          "note": "near duplicate buried in a long report"
+        },
+        {
+          "a": "h-p4a",
+          "b": "h-p4b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "h-p6a",
+          "b": "h-p6b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "h-p8a",
+          "b": "h-p8b",
+          "note": "paraphrase"
+        }
+      ]
+    },
+    "shipped": {
+      "items": 43,
+      "labelled_pairs": 20,
+      "positive_pairs": 8,
+      "thresholds": {
+        "possible_duplicate": 0.45,
+        "same_symptom": 0.25
+      },
+      "predicted_links": 5,
+      "true_links": 5,
+      "precision": 1,
+      "precision_wilson95": [
+        0.5655,
+        1
+      ],
+      "recall": 0.625,
+      "recall_wilson95": [
+        0.3057,
+        0.8632
+      ],
+      "by_type": {
+        "possible_duplicate": {
+          "predicted": 5,
+          "correct": 5
+        }
+      },
+      "by_category": {
+        "hard_positive": {
+          "pairs": 8,
+          "linked": 5
+        },
+        "hard_negative": {
+          "pairs": 6,
+          "linked": 0
+        },
+        "negation_conflict": {
+          "pairs": 3,
+          "linked": 0
+        },
+        "template_noise": {
+          "pairs": 3,
+          "linked": 0
+        }
+      },
+      "suppressed_conflicts": [
+        {
+          "a": "h-p2a",
+          "b": "h-p2b",
+          "score": 0.4625,
+          "rules": [
+            null
+          ]
+        }
+      ],
+      "false_links": [],
+      "missed_pairs": [
+        {
+          "a": "h-p2a",
+          "b": "h-p2b",
+          "note": "paraphrase"
+        },
+        {
+          "a": "h-p3a",
+          "b": "h-p3b",
+          "note": "near duplicate buried in a long report"
+        },
+        {
+          "a": "h-p6a",
+          "b": "h-p6b",
+          "note": "paraphrase"
+        }
+      ]
+    }
+  }
+}

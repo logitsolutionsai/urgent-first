@@ -1,5 +1,41 @@
 # Changelog
 
+## Unreleased: Maintainer Radar
+
+Additive: every existing command, output and exit code is unchanged (golden tests pin the `github` and `run` folders and the `eval --json` output of every bundled pack on every split). The engine version string stays 0.1.0 so that unchanged packs keep byte-identical output.
+
+### Snapshots (P0)
+
+- `snapshot github` and `snapshot run`: a deterministic `snapshot.json` (stable identities, original order and priority, effective tiers from the existing engine, every evidence span re-validated, canonical SHA-256 digests), `collection.json` for fetch timing kept outside the digest, and diagnostics as first-class warning objects.
+- Partial collections: a rate limit, a failed page, a permission error or `--limit` stopping a listing gives `status: partial` with a concrete reason and the continuation URL. The `github` command still fails fast as before.
+- The GitHub extras code moved from `src/cli.js` to `src/collect.js` unchanged.
+
+### Evidence Graph And Links (P1)
+
+- `evidence-graph.json` and `links`: `contains_evidence`, `fixes` (GitHub closing keywords in pull requests only), `references`, `reported_after_release`, and candidate `possible_duplicate` and `same_symptom` links from an inverted index and weighted Jaccard, with a contradiction guard (rule-level and word-level negation), hard caps and deterministic edge ids.
+- Thresholds 0.45 and 0.25, chosen on a development pair set; the brief's 0.72 and 0.50 are reported alongside. Measured on the held-out pair set: precision 5 of 5, recall 5 of 8 (`bench/maintainer-radar`).
+
+### Release Pulse And Digest (P2)
+
+- `diff`: the Release Pulse in Markdown, offline HTML and JSON, with five sections, provenance on every quote, scope and pack-change warnings, no resolution claims without complete same-scope snapshots, and a `--public` projection for synthetic data.
+- `digest`: Discuss First, Related Reports and Since Last Snapshot.
+- The pages reuse the board's Ink styles and its one hashed inline script.
+- A synthetic two-release demo in `examples/release-pulse`, generated from recorded fixtures and checked by a test, with a README section.
+
+### Review, Calibrate And Pack Lint (P3)
+
+- `review init` and `review check`: candidate-link and triage decisions with explicit enums, bounded text, known ids and exact quotes.
+- `calibrate`: a proposed pack patch, development cases and a before-and-after evaluation on development and held-out sets; never applied, never written into a pack folder, held-out items excluded.
+- `pack lint`: schema, duplicate ids, regex safety, source shape, duplicated rules, missing negation and positive fixtures, research policy.
+
+### Integration And Safety (P4)
+
+- A read-only GitHub Actions starter (`github-actions/urgent-first.yml`).
+- No write path to GitHub: there is no `apply` command (docs/THREAT-MODEL.md explains why).
+- Every Maintainer Radar command refuses research-mode packs.
+- New tests: snapshot, graph, Pulse, review, schemas, Actions and security, a Pulse end-to-end test in Chrome; `npm run test:e2e` now runs one browser at a time.
+- Docs: `docs/MAINTAINER-RADAR.md`, `docs/SNAPSHOT-SCHEMA.md`, `docs/EVIDENCE-GRAPH.md`, `docs/THREAT-MODEL.md`, four JSON Schemas in `schema/`.
+
 ## 0.1.0 (2026-11-14, not yet released)
 
 First release. The QA pass and the improvement pass below happened before anything was published, so they are part of 0.1.0.

@@ -1,0 +1,232 @@
+{
+  "pack": {
+    "name": "github-maintainer",
+    "version": "0.1.0",
+    "mode": "standard"
+  },
+  "input": "test.jsonl",
+  "rules_only": {
+    "items": 90,
+    "gold_counts": {
+      "T1": 27,
+      "T2": 22,
+      "T3": 41
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 18,
+      "total": 27,
+      "value": 0.6667,
+      "wilson95": [
+        0.4782,
+        0.8136
+      ]
+    },
+    "missed_critical": [
+      {
+        "id": "gh-a-140",
+        "predicted": "T2",
+        "gold_category": "data_loss",
+        "title": "widget cache clean takes 20 minutes",
+        "rationale": "The pasted output shows cache clean \"removing /home/user/Documents/widget/projects/...\" for 11,000+ files: it deleted the user's real projects, not cache."
+      },
+      {
+        "id": "gh-a-044",
+        "predicted": "T3",
+        "gold_category": "security",
+        "title": "preview of project from colleague send my ssh config to internet??",
+        "rationale": "Opening a received project made the preview send \"the content of my ~/.ssh/config file\" to an outside address via an \"onerror\" script, i.e. script injection that reads local files."
+      },
+      {
+        "id": "gh-a-047",
+        "predicted": "T3",
+        "gold_category": "security",
+        "title": "Person I removed from our team can still edit our projects",
+        "rationale": "A team member who was removed \"could still open and edit everything\", so access removal does not take effect for other users' data."
+      },
+      {
+        "id": "gh-a-051",
+        "predicted": "T3",
+        "gold_category": "data_loss",
+        "title": "export to markdown replace my original files",
+        "rationale": "`widget export --out .` \"replace my original .wdg files\" and they \"are not anymore anywhere\": 120 research files overwritten with lossy copies."
+      },
+      {
+        "id": "gh-a-109",
+        "predicted": "T3",
+        "gold_category": "regression_latest_release",
+        "title": "Network settings question",
+        "rationale": "Under a vague title: \"after the 3.2.0 rollout ... nobody in our office (about 300 users) has been able to sync\" because the proxy is ignored, while 3.1.5 works."
+      },
+      {
+        "id": "gh-a-113",
+        "predicted": "T3",
+        "gold_category": "regression_latest_release",
+        "title": "`widget push` exits 0 but nothing is uploaded (v3.2.0)",
+        "rationale": "On v3.2.0 `widget push` reports done but makes \"no network request at all\", while \"3.1.4 push fine\", so every CLI push silently stays local."
+      },
+      {
+        "id": "gh-a-119",
+        "predicted": "T3",
+        "gold_category": "security",
+        "title": "sync --verbose is way too noisy, can we have levels?",
+        "rationale": "The pasted verbose log contains \"authorization: Bearer wgt_live_...\" in full, so --verbose writes the account token in plain text (and it is now public)."
+      },
+      {
+        "id": "gh-a-125",
+        "predicted": "T3",
+        "gold_category": "security",
+        "title": "chromaflux-picker 2.4.1 (theme editor dependency) has a postinstall that uploads env vars",
+        "rationale": "A locked dependency's new \"postinstall\" posts \"process.env\" to an outside host, a compromised dependency that leaked CI and contributor secrets."
+      },
+      {
+        "id": "gh-a-139",
+        "predicted": "T3",
+        "gold_category": "security",
+        "title": "Question about the state.yml format",
+        "rationale": "Point 5 of a format question: `on_open: !cmd \"touch /tmp/hello\"` runs \"as soon as I open the project ... without any prompt\", so opening any downloaded project can execute commands."
+      }
+    ],
+    "over_triage_rate": {
+      "count": 10,
+      "total": 63,
+      "value": 0.1587
+    },
+    "false_flag_rate": {
+      "count": 7,
+      "total": 41,
+      "value": 0.1707
+    },
+    "under_triage_rate": {
+      "count": 17,
+      "total": 90,
+      "value": 0.1889
+    },
+    "exact_tier_agreement": {
+      "count": 63,
+      "total": 90,
+      "value": 0.7
+    },
+    "kendall_tau_b": 0.3472,
+    "flags": {
+      "recall": {
+        "count": 33,
+        "total": 49,
+        "value": 0.6735,
+        "wilson95": [
+          0.5338,
+          0.7879
+        ]
+      },
+      "precision": {
+        "count": 33,
+        "total": 40,
+        "value": 0.825,
+        "wilson95": [
+          0.6805,
+          0.9125
+        ]
+      },
+      "false_flag_rate": {
+        "count": 7,
+        "total": 41,
+        "value": 0.1707,
+        "wilson95": [
+          0.0853,
+          0.3126
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 18,
+        "T2": 1,
+        "T3": 8
+      },
+      "T2": {
+        "T1": 3,
+        "T2": 11,
+        "T3": 8
+      },
+      "T3": {
+        "T1": 6,
+        "T2": 1,
+        "T3": 34
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "SECURITY",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DATA-LOSS",
+        "tier": "T1",
+        "hits": 12,
+        "gold_at_least_rule_tier": 7,
+        "gold_less_urgent": 5
+      },
+      {
+        "id": "REGRESSION-LATEST",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 2
+      },
+      {
+        "id": "STARTUP-CRASH",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 1
+      },
+      {
+        "id": "BUILD-OR-INSTALL-BROKEN",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CRASH-OR-HANG",
+        "tier": "T2",
+        "hits": 10,
+        "gold_at_least_rule_tier": 8,
+        "gold_less_urgent": 2
+      },
+      {
+        "id": "REGRESSION",
+        "tier": "T2",
+        "hits": 6,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 2
+      },
+      {
+        "id": "BROKEN-NO-WORKAROUND",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PERFORMANCE-SEVERE",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PR-FIXES-URGENT",
+        "tier": "inherited",
+        "hits": 2,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 2
+      }
+    ]
+  },
+  "with_annotations": null,
+  "annotation_validation": null
+}

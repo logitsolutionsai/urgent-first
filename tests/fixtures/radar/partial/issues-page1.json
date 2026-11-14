@@ -1,0 +1,2202 @@
+[
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/2000",
+    "html_url": "https://github.com/acme/partial/issues/2000",
+    "number": 2000,
+    "title": "Synthetic report 1 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T12:00:00.000Z",
+    "updated_at": "2026-11-01T12:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1999",
+    "html_url": "https://github.com/acme/partial/issues/1999",
+    "number": 1999,
+    "title": "Synthetic report 2 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T11:00:00.000Z",
+    "updated_at": "2026-11-01T11:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1998",
+    "html_url": "https://github.com/acme/partial/issues/1998",
+    "number": 1998,
+    "title": "Synthetic report 3 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T10:00:00.000Z",
+    "updated_at": "2026-11-01T10:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1997",
+    "html_url": "https://github.com/acme/partial/issues/1997",
+    "number": 1997,
+    "title": "Synthetic report 4 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T09:00:00.000Z",
+    "updated_at": "2026-11-01T09:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "After the update I lost all my notes and the backup folder is empty.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1996",
+    "html_url": "https://github.com/acme/partial/issues/1996",
+    "number": 1996,
+    "title": "Synthetic report 5 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T08:00:00.000Z",
+    "updated_at": "2026-11-01T08:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1995",
+    "html_url": "https://github.com/acme/partial/issues/1995",
+    "number": 1995,
+    "title": "Synthetic report 6 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T07:00:00.000Z",
+    "updated_at": "2026-11-01T07:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1994",
+    "html_url": "https://github.com/acme/partial/issues/1994",
+    "number": 1994,
+    "title": "Synthetic report 7 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T06:00:00.000Z",
+    "updated_at": "2026-11-01T06:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1993",
+    "html_url": "https://github.com/acme/partial/issues/1993",
+    "number": 1993,
+    "title": "Synthetic report 8 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T05:00:00.000Z",
+    "updated_at": "2026-11-01T05:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1992",
+    "html_url": "https://github.com/acme/partial/issues/1992",
+    "number": 1992,
+    "title": "Synthetic report 9 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T04:00:00.000Z",
+    "updated_at": "2026-11-01T04:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1991",
+    "html_url": "https://github.com/acme/partial/issues/1991",
+    "number": 1991,
+    "title": "Synthetic report 10 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T03:00:00.000Z",
+    "updated_at": "2026-11-01T03:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1990",
+    "html_url": "https://github.com/acme/partial/issues/1990",
+    "number": 1990,
+    "title": "Synthetic report 11 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T02:00:00.000Z",
+    "updated_at": "2026-11-01T02:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1989",
+    "html_url": "https://github.com/acme/partial/issues/1989",
+    "number": 1989,
+    "title": "Synthetic report 12 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T01:00:00.000Z",
+    "updated_at": "2026-11-01T01:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1988",
+    "html_url": "https://github.com/acme/partial/issues/1988",
+    "number": 1988,
+    "title": "Synthetic report 13 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-11-01T00:00:00.000Z",
+    "updated_at": "2026-11-01T00:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1987",
+    "html_url": "https://github.com/acme/partial/issues/1987",
+    "number": 1987,
+    "title": "Synthetic report 14 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T23:00:00.000Z",
+    "updated_at": "2026-10-31T23:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1986",
+    "html_url": "https://github.com/acme/partial/issues/1986",
+    "number": 1986,
+    "title": "Synthetic report 15 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T22:00:00.000Z",
+    "updated_at": "2026-10-31T22:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1985",
+    "html_url": "https://github.com/acme/partial/issues/1985",
+    "number": 1985,
+    "title": "Synthetic report 16 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T21:00:00.000Z",
+    "updated_at": "2026-10-31T21:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1984",
+    "html_url": "https://github.com/acme/partial/issues/1984",
+    "number": 1984,
+    "title": "Synthetic report 17 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T20:00:00.000Z",
+    "updated_at": "2026-10-31T20:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1983",
+    "html_url": "https://github.com/acme/partial/issues/1983",
+    "number": 1983,
+    "title": "Synthetic report 18 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T19:00:00.000Z",
+    "updated_at": "2026-10-31T19:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1982",
+    "html_url": "https://github.com/acme/partial/issues/1982",
+    "number": 1982,
+    "title": "Synthetic report 19 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T18:00:00.000Z",
+    "updated_at": "2026-10-31T18:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1981",
+    "html_url": "https://github.com/acme/partial/issues/1981",
+    "number": 1981,
+    "title": "Synthetic report 20 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T17:00:00.000Z",
+    "updated_at": "2026-10-31T17:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1980",
+    "html_url": "https://github.com/acme/partial/issues/1980",
+    "number": 1980,
+    "title": "Synthetic report 21 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T16:00:00.000Z",
+    "updated_at": "2026-10-31T16:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1979",
+    "html_url": "https://github.com/acme/partial/issues/1979",
+    "number": 1979,
+    "title": "Synthetic report 22 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T15:00:00.000Z",
+    "updated_at": "2026-10-31T15:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1978",
+    "html_url": "https://github.com/acme/partial/issues/1978",
+    "number": 1978,
+    "title": "Synthetic report 23 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T14:00:00.000Z",
+    "updated_at": "2026-10-31T14:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1977",
+    "html_url": "https://github.com/acme/partial/issues/1977",
+    "number": 1977,
+    "title": "Synthetic report 24 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T13:00:00.000Z",
+    "updated_at": "2026-10-31T13:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1976",
+    "html_url": "https://github.com/acme/partial/issues/1976",
+    "number": 1976,
+    "title": "Synthetic report 25 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T12:00:00.000Z",
+    "updated_at": "2026-10-31T12:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1975",
+    "html_url": "https://github.com/acme/partial/issues/1975",
+    "number": 1975,
+    "title": "Synthetic report 26 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T11:00:00.000Z",
+    "updated_at": "2026-10-31T11:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1974",
+    "html_url": "https://github.com/acme/partial/issues/1974",
+    "number": 1974,
+    "title": "Synthetic report 27 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T10:00:00.000Z",
+    "updated_at": "2026-10-31T10:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1973",
+    "html_url": "https://github.com/acme/partial/issues/1973",
+    "number": 1973,
+    "title": "Synthetic report 28 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T09:00:00.000Z",
+    "updated_at": "2026-10-31T09:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1972",
+    "html_url": "https://github.com/acme/partial/issues/1972",
+    "number": 1972,
+    "title": "Synthetic report 29 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T08:00:00.000Z",
+    "updated_at": "2026-10-31T08:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1971",
+    "html_url": "https://github.com/acme/partial/issues/1971",
+    "number": 1971,
+    "title": "Synthetic report 30 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T07:00:00.000Z",
+    "updated_at": "2026-10-31T07:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1970",
+    "html_url": "https://github.com/acme/partial/issues/1970",
+    "number": 1970,
+    "title": "Synthetic report 31 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T06:00:00.000Z",
+    "updated_at": "2026-10-31T06:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1969",
+    "html_url": "https://github.com/acme/partial/issues/1969",
+    "number": 1969,
+    "title": "Synthetic report 32 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T05:00:00.000Z",
+    "updated_at": "2026-10-31T05:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1968",
+    "html_url": "https://github.com/acme/partial/issues/1968",
+    "number": 1968,
+    "title": "Synthetic report 33 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T04:00:00.000Z",
+    "updated_at": "2026-10-31T04:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1967",
+    "html_url": "https://github.com/acme/partial/issues/1967",
+    "number": 1967,
+    "title": "Synthetic report 34 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T03:00:00.000Z",
+    "updated_at": "2026-10-31T03:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1966",
+    "html_url": "https://github.com/acme/partial/issues/1966",
+    "number": 1966,
+    "title": "Synthetic report 35 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T02:00:00.000Z",
+    "updated_at": "2026-10-31T02:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1965",
+    "html_url": "https://github.com/acme/partial/issues/1965",
+    "number": 1965,
+    "title": "Synthetic report 36 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T01:00:00.000Z",
+    "updated_at": "2026-10-31T01:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1964",
+    "html_url": "https://github.com/acme/partial/issues/1964",
+    "number": 1964,
+    "title": "Synthetic report 37 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-31T00:00:00.000Z",
+    "updated_at": "2026-10-31T00:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1963",
+    "html_url": "https://github.com/acme/partial/issues/1963",
+    "number": 1963,
+    "title": "Synthetic report 38 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T23:00:00.000Z",
+    "updated_at": "2026-10-30T23:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1962",
+    "html_url": "https://github.com/acme/partial/issues/1962",
+    "number": 1962,
+    "title": "Synthetic report 39 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T22:00:00.000Z",
+    "updated_at": "2026-10-30T22:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1961",
+    "html_url": "https://github.com/acme/partial/issues/1961",
+    "number": 1961,
+    "title": "Synthetic report 40 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T21:00:00.000Z",
+    "updated_at": "2026-10-30T21:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1960",
+    "html_url": "https://github.com/acme/partial/issues/1960",
+    "number": 1960,
+    "title": "Synthetic report 41 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T20:00:00.000Z",
+    "updated_at": "2026-10-30T20:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1959",
+    "html_url": "https://github.com/acme/partial/issues/1959",
+    "number": 1959,
+    "title": "Synthetic report 42 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T19:00:00.000Z",
+    "updated_at": "2026-10-30T19:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1958",
+    "html_url": "https://github.com/acme/partial/issues/1958",
+    "number": 1958,
+    "title": "Synthetic report 43 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T18:00:00.000Z",
+    "updated_at": "2026-10-30T18:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1957",
+    "html_url": "https://github.com/acme/partial/issues/1957",
+    "number": 1957,
+    "title": "Synthetic report 44 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T17:00:00.000Z",
+    "updated_at": "2026-10-30T17:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1956",
+    "html_url": "https://github.com/acme/partial/issues/1956",
+    "number": 1956,
+    "title": "Synthetic report 45 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T16:00:00.000Z",
+    "updated_at": "2026-10-30T16:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1955",
+    "html_url": "https://github.com/acme/partial/issues/1955",
+    "number": 1955,
+    "title": "Synthetic report 46 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T15:00:00.000Z",
+    "updated_at": "2026-10-30T15:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1954",
+    "html_url": "https://github.com/acme/partial/issues/1954",
+    "number": 1954,
+    "title": "Synthetic report 47 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T14:00:00.000Z",
+    "updated_at": "2026-10-30T14:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1953",
+    "html_url": "https://github.com/acme/partial/issues/1953",
+    "number": 1953,
+    "title": "Synthetic report 48 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T13:00:00.000Z",
+    "updated_at": "2026-10-30T13:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1952",
+    "html_url": "https://github.com/acme/partial/issues/1952",
+    "number": 1952,
+    "title": "Synthetic report 49 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T12:00:00.000Z",
+    "updated_at": "2026-10-30T12:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1951",
+    "html_url": "https://github.com/acme/partial/issues/1951",
+    "number": 1951,
+    "title": "Synthetic report 50 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T11:00:00.000Z",
+    "updated_at": "2026-10-30T11:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1950",
+    "html_url": "https://github.com/acme/partial/issues/1950",
+    "number": 1950,
+    "title": "Synthetic report 51 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T10:00:00.000Z",
+    "updated_at": "2026-10-30T10:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1949",
+    "html_url": "https://github.com/acme/partial/issues/1949",
+    "number": 1949,
+    "title": "Synthetic report 52 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T09:00:00.000Z",
+    "updated_at": "2026-10-30T09:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1948",
+    "html_url": "https://github.com/acme/partial/issues/1948",
+    "number": 1948,
+    "title": "Synthetic report 53 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T08:00:00.000Z",
+    "updated_at": "2026-10-30T08:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1947",
+    "html_url": "https://github.com/acme/partial/issues/1947",
+    "number": 1947,
+    "title": "Synthetic report 54 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T07:00:00.000Z",
+    "updated_at": "2026-10-30T07:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1946",
+    "html_url": "https://github.com/acme/partial/issues/1946",
+    "number": 1946,
+    "title": "Synthetic report 55 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T06:00:00.000Z",
+    "updated_at": "2026-10-30T06:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1945",
+    "html_url": "https://github.com/acme/partial/issues/1945",
+    "number": 1945,
+    "title": "Synthetic report 56 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T05:00:00.000Z",
+    "updated_at": "2026-10-30T05:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1944",
+    "html_url": "https://github.com/acme/partial/issues/1944",
+    "number": 1944,
+    "title": "Synthetic report 57 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T04:00:00.000Z",
+    "updated_at": "2026-10-30T04:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1943",
+    "html_url": "https://github.com/acme/partial/issues/1943",
+    "number": 1943,
+    "title": "Synthetic report 58 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T03:00:00.000Z",
+    "updated_at": "2026-10-30T03:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1942",
+    "html_url": "https://github.com/acme/partial/issues/1942",
+    "number": 1942,
+    "title": "Synthetic report 59 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T02:00:00.000Z",
+    "updated_at": "2026-10-30T02:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1941",
+    "html_url": "https://github.com/acme/partial/issues/1941",
+    "number": 1941,
+    "title": "Synthetic report 60 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T01:00:00.000Z",
+    "updated_at": "2026-10-30T01:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1940",
+    "html_url": "https://github.com/acme/partial/issues/1940",
+    "number": 1940,
+    "title": "Synthetic report 61 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-30T00:00:00.000Z",
+    "updated_at": "2026-10-30T00:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1939",
+    "html_url": "https://github.com/acme/partial/issues/1939",
+    "number": 1939,
+    "title": "Synthetic report 62 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T23:00:00.000Z",
+    "updated_at": "2026-10-29T23:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1938",
+    "html_url": "https://github.com/acme/partial/issues/1938",
+    "number": 1938,
+    "title": "Synthetic report 63 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T22:00:00.000Z",
+    "updated_at": "2026-10-29T22:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1937",
+    "html_url": "https://github.com/acme/partial/issues/1937",
+    "number": 1937,
+    "title": "Synthetic report 64 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T21:00:00.000Z",
+    "updated_at": "2026-10-29T21:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1936",
+    "html_url": "https://github.com/acme/partial/issues/1936",
+    "number": 1936,
+    "title": "Synthetic report 65 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T20:00:00.000Z",
+    "updated_at": "2026-10-29T20:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1935",
+    "html_url": "https://github.com/acme/partial/issues/1935",
+    "number": 1935,
+    "title": "Synthetic report 66 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T19:00:00.000Z",
+    "updated_at": "2026-10-29T19:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1934",
+    "html_url": "https://github.com/acme/partial/issues/1934",
+    "number": 1934,
+    "title": "Synthetic report 67 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T18:00:00.000Z",
+    "updated_at": "2026-10-29T18:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1933",
+    "html_url": "https://github.com/acme/partial/issues/1933",
+    "number": 1933,
+    "title": "Synthetic report 68 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T17:00:00.000Z",
+    "updated_at": "2026-10-29T17:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1932",
+    "html_url": "https://github.com/acme/partial/issues/1932",
+    "number": 1932,
+    "title": "Synthetic report 69 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T16:00:00.000Z",
+    "updated_at": "2026-10-29T16:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1931",
+    "html_url": "https://github.com/acme/partial/issues/1931",
+    "number": 1931,
+    "title": "Synthetic report 70 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T15:00:00.000Z",
+    "updated_at": "2026-10-29T15:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1930",
+    "html_url": "https://github.com/acme/partial/issues/1930",
+    "number": 1930,
+    "title": "Synthetic report 71 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T14:00:00.000Z",
+    "updated_at": "2026-10-29T14:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1929",
+    "html_url": "https://github.com/acme/partial/issues/1929",
+    "number": 1929,
+    "title": "Synthetic report 72 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T13:00:00.000Z",
+    "updated_at": "2026-10-29T13:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1928",
+    "html_url": "https://github.com/acme/partial/issues/1928",
+    "number": 1928,
+    "title": "Synthetic report 73 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T12:00:00.000Z",
+    "updated_at": "2026-10-29T12:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1927",
+    "html_url": "https://github.com/acme/partial/issues/1927",
+    "number": 1927,
+    "title": "Synthetic report 74 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T11:00:00.000Z",
+    "updated_at": "2026-10-29T11:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1926",
+    "html_url": "https://github.com/acme/partial/issues/1926",
+    "number": 1926,
+    "title": "Synthetic report 75 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T10:00:00.000Z",
+    "updated_at": "2026-10-29T10:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1925",
+    "html_url": "https://github.com/acme/partial/issues/1925",
+    "number": 1925,
+    "title": "Synthetic report 76 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T09:00:00.000Z",
+    "updated_at": "2026-10-29T09:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1924",
+    "html_url": "https://github.com/acme/partial/issues/1924",
+    "number": 1924,
+    "title": "Synthetic report 77 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T08:00:00.000Z",
+    "updated_at": "2026-10-29T08:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1923",
+    "html_url": "https://github.com/acme/partial/issues/1923",
+    "number": 1923,
+    "title": "Synthetic report 78 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T07:00:00.000Z",
+    "updated_at": "2026-10-29T07:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1922",
+    "html_url": "https://github.com/acme/partial/issues/1922",
+    "number": 1922,
+    "title": "Synthetic report 79 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T06:00:00.000Z",
+    "updated_at": "2026-10-29T06:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1921",
+    "html_url": "https://github.com/acme/partial/issues/1921",
+    "number": 1921,
+    "title": "Synthetic report 80 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T05:00:00.000Z",
+    "updated_at": "2026-10-29T05:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1920",
+    "html_url": "https://github.com/acme/partial/issues/1920",
+    "number": 1920,
+    "title": "Synthetic report 81 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T04:00:00.000Z",
+    "updated_at": "2026-10-29T04:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1919",
+    "html_url": "https://github.com/acme/partial/issues/1919",
+    "number": 1919,
+    "title": "Synthetic report 82 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T03:00:00.000Z",
+    "updated_at": "2026-10-29T03:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1918",
+    "html_url": "https://github.com/acme/partial/issues/1918",
+    "number": 1918,
+    "title": "Synthetic report 83 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T02:00:00.000Z",
+    "updated_at": "2026-10-29T02:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1917",
+    "html_url": "https://github.com/acme/partial/issues/1917",
+    "number": 1917,
+    "title": "Synthetic report 84 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T01:00:00.000Z",
+    "updated_at": "2026-10-29T01:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1916",
+    "html_url": "https://github.com/acme/partial/issues/1916",
+    "number": 1916,
+    "title": "Synthetic report 85 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-29T00:00:00.000Z",
+    "updated_at": "2026-10-29T00:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1915",
+    "html_url": "https://github.com/acme/partial/issues/1915",
+    "number": 1915,
+    "title": "Synthetic report 86 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T23:00:00.000Z",
+    "updated_at": "2026-10-28T23:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1914",
+    "html_url": "https://github.com/acme/partial/issues/1914",
+    "number": 1914,
+    "title": "Synthetic report 87 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T22:00:00.000Z",
+    "updated_at": "2026-10-28T22:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1913",
+    "html_url": "https://github.com/acme/partial/issues/1913",
+    "number": 1913,
+    "title": "Synthetic report 88 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T21:00:00.000Z",
+    "updated_at": "2026-10-28T21:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1912",
+    "html_url": "https://github.com/acme/partial/issues/1912",
+    "number": 1912,
+    "title": "Synthetic report 89 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T20:00:00.000Z",
+    "updated_at": "2026-10-28T20:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1911",
+    "html_url": "https://github.com/acme/partial/issues/1911",
+    "number": 1911,
+    "title": "Synthetic report 90 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T19:00:00.000Z",
+    "updated_at": "2026-10-28T19:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1910",
+    "html_url": "https://github.com/acme/partial/issues/1910",
+    "number": 1910,
+    "title": "Synthetic report 91 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T18:00:00.000Z",
+    "updated_at": "2026-10-28T18:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1909",
+    "html_url": "https://github.com/acme/partial/issues/1909",
+    "number": 1909,
+    "title": "Synthetic report 92 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T17:00:00.000Z",
+    "updated_at": "2026-10-28T17:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1908",
+    "html_url": "https://github.com/acme/partial/issues/1908",
+    "number": 1908,
+    "title": "Synthetic report 93 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T16:00:00.000Z",
+    "updated_at": "2026-10-28T16:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1907",
+    "html_url": "https://github.com/acme/partial/issues/1907",
+    "number": 1907,
+    "title": "Synthetic report 94 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T15:00:00.000Z",
+    "updated_at": "2026-10-28T15:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1906",
+    "html_url": "https://github.com/acme/partial/issues/1906",
+    "number": 1906,
+    "title": "Synthetic report 95 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T14:00:00.000Z",
+    "updated_at": "2026-10-28T14:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1905",
+    "html_url": "https://github.com/acme/partial/issues/1905",
+    "number": 1905,
+    "title": "Synthetic report 96 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T13:00:00.000Z",
+    "updated_at": "2026-10-28T13:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1904",
+    "html_url": "https://github.com/acme/partial/issues/1904",
+    "number": 1904,
+    "title": "Synthetic report 97 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T12:00:00.000Z",
+    "updated_at": "2026-10-28T12:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1903",
+    "html_url": "https://github.com/acme/partial/issues/1903",
+    "number": 1903,
+    "title": "Synthetic report 98 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T11:00:00.000Z",
+    "updated_at": "2026-10-28T11:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1902",
+    "html_url": "https://github.com/acme/partial/issues/1902",
+    "number": 1902,
+    "title": "Synthetic report 99 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T10:00:00.000Z",
+    "updated_at": "2026-10-28T10:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  },
+  {
+    "url": "https://api.github.com/repos/acme/partial/issues/1901",
+    "html_url": "https://github.com/acme/partial/issues/1901",
+    "number": 1901,
+    "title": "Synthetic report 100 about the editor toolbar",
+    "user": {
+      "login": "synthetic-user",
+      "type": "User"
+    },
+    "labels": [],
+    "state": "open",
+    "comments": 0,
+    "created_at": "2026-10-28T09:00:00.000Z",
+    "updated_at": "2026-10-28T09:00:00.000Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "The toolbar icons look slightly blurry on a 4K screen.",
+    "reactions": {
+      "total_count": 0,
+      "+1": 0
+    }
+  }
+]

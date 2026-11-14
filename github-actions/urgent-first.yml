@@ -1,0 +1,93 @@
+# urgent-first: read-only maintainer digest (starter workflow).
+#
+# Copy to .github/workflows/urgent-first.yml in your repository. It runs on a schedule or by hand, on the
+# default branch only (where the workflow file itself is trusted), reads issues and pull requests with the
+# job's own read-only token, and publishes the digest as a workflow artifact and the job summary.
+#
+# It never comments, labels, closes, reopens or edits anything: the token below has no write permission, and
+# urgent-first has no command that writes to GitHub. It never runs on pull_request or pull_request_target, so
+# code and text from forks never run with this token, and issue text is passed to the tool only as data read
+# from the API, never interpolated into a shell command.
+#
+# Pin the actions to full commit SHAs in your copy (your security policy may require it); the tags below are
+# for readability. tests/action-security.test.js checks this file's permissions and triggers.
+name: urgent-first digest
+
+on:
+  schedule:
+    - cron: "17 6 * * 1-5" # 06:17 UTC on weekdays
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+concurrency:
+  group: urgent-first-digest
+  cancel-in-progress: true
+
+jobs:
+  digest:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out urgent-first (a pinned release, not this repository's code)
+        uses: actions/checkout@v4
+        with:
+          repository: logitsolutionsai/urgent-first
+          ref: main # pin a release tag or commit SHA in your copy
+          path: urgent-first
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Restore the previous snapshot
+        uses: actions/cache/restore@v4
+        with:
+          path: snapshots/previous
+          key: urgent-first-snapshot-${{ github.run_id }}
+          restore-keys: urgent-first-snapshot-
+
+      - name: Snapshot the open issues and pull requests (read-only)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: node urgent-first/scripts/urgent-first.mjs snapshot github "$REPO" --state open --limit 500 --out snapshots/current
+
+      - name: Digest (and Release Pulse against the previous snapshot, when there is one)
+        run: |
+          if [ -f snapshots/previous/snapshot.json ]; then
+            node urgent-first/scripts/urgent-first.mjs digest snapshots/current --previous snapshots/previous --out digest
+            node urgent-first/scripts/urgent-first.mjs diff snapshots/previous snapshots/current --out pulse
+          else
+            node urgent-first/scripts/urgent-first.mjs digest snapshots/current --out digest
+          fi
+          cat digest/digest.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep this snapshot for the next run
+        run: |
+          rm -rf snapshots/previous
+          cp -R snapshots/current snapshots/previous
+
+      - name: Save the snapshot
+        uses: actions/cache/save@v4
+        with:
+          path: snapshots/previous
+          key: urgent-first-snapshot-${{ github.run_id }}
+
+      # Artifacts are private to people with read access to the repository's Actions. The digest contains issue
+      # titles and quotes; for a private repository, keep the retention short.
+      - name: Upload the digest
+        uses: actions/upload-artifact@v4
+        with:
+          name: urgent-first-digest
+          path: |
+            digest/
+            pulse/
+          retention-days: 14
+          if-no-files-found: ignore

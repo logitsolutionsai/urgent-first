@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/logitsolutionsai/urgent-first/schema/snapshot.v1.schema.json",
+  "title": "urgent-first snapshot, schema version 1",
+  "description": "snapshot.json written by `urgent-first snapshot`. docs/SNAPSHOT-SCHEMA.md explains every field.",
+  "type": "object",
+  "required": ["schemaVersion", "kind", "engineVersion", "status", "pack", "source", "counts", "items", "evidence", "warnings", "snapshotId"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "kind": { "const": "urgent-first-snapshot" },
+    "engineVersion": { "type": "string", "minLength": 1 },
+    "snapshotId": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+    "status": { "enum": ["complete", "partial"] },
+    "pack": {
+      "type": "object",
+      "required": ["id", "version", "digest", "mode", "tiers"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string" },
+        "version": { "type": "string" },
+        "digest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "mode": { "enum": ["standard", "research"] },
+        "tiers": { "type": "array", "minItems": 2, "items": { "type": "object", "required": ["id", "name"], "properties": { "id": { "type": "string" }, "name": { "type": "string" } } } }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["kind", "scope", "complete"],
+      "properties": {
+        "kind": { "enum": ["github", "file"] },
+        "repository": { "type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$" },
+        "input": { "type": "string" },
+        "format": { "type": "string" },
+        "scope": { "type": "object" },
+        "complete": { "type": "boolean" },
+        "reason": { "enum": ["rate_limit", "pagination_failed", "filter_applied", "missing_permission", "limit_reached"] },
+        "continuation": { "type": ["string", "null"] },
+        "pageCount": { "type": "integer", "minimum": 0 },
+        "templateFiles": { "type": "array", "items": { "type": "string" } },
+        "linkedIssuesFetched": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "release": {
+      "type": "object",
+      "required": ["tag", "publishedAt", "source"],
+      "properties": {
+        "tag": { "type": "string" },
+        "publishedAt": { "type": "string" },
+        "source": { "const": "github-release-api" },
+        "url": { "type": ["string", "null"] }
+      }
+    },
+    "counts": { "type": "object", "required": ["total", "flagged", "unmatched", "by_tier"] },
+    "items": { "type": "array", "items": { "$ref": "#/$defs/item" } },
+    "evidence": { "type": "array", "items": { "$ref": "#/$defs/evidence" } },
+    "warnings": { "type": "array", "items": { "$ref": "#/$defs/warning" } }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": ["id", "localId", "kind", "number", "title", "text", "labels", "priority", "state", "createdAt", "originalOrder", "originalPriority", "floorTier", "effectiveTier", "boardPosition", "ruleIds", "evidenceIds", "suppressed", "masked", "contentDigest", "synthetic"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(github:[^:]+:(issue|pull):[0-9]+|item:.+)$" },
+        "localId": { "type": "string" },
+        "kind": { "enum": ["issue", "pull_request", "item"] },
+        "number": { "type": ["integer", "null"] },
+        "title": { "type": "string" },
+        "text": { "type": "object", "additionalProperties": { "type": "string" } },
+        "labels": { "type": "array", "items": { "type": "string" } },
+        "priority": { "type": ["string", "null"] },
+        "state": { "type": ["string", "null"] },
+        "createdAt": { "type": ["string", "null"] },
+        "originalOrder": { "type": "integer", "minimum": 0 },
+        "floorTier": { "type": "string" },
+        "effectiveTier": { "type": "string" },
+        "boardPosition": { "type": "integer", "minimum": 1 },
+        "ruleIds": { "type": "array", "items": { "type": "string" } },
+        "evidenceIds": { "type": "array", "items": { "type": "string" } },
+        "contentDigest": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" },
+        "synthetic": { "type": "boolean" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["id", "itemId", "ruleId", "tier", "field", "start", "end", "text", "kind", "context"],
+      "properties": {
+        "id": { "type": "string" },
+        "itemId": { "type": "string" },
+        "ruleId": { "type": "string" },
+        "tier": { "type": "string" },
+        "category": { "type": ["string", "null"] },
+        "field": { "type": "string" },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 1 },
+        "text": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["direct_quote", "inherited_link", "floor_label", "floor_priority"] },
+        "context": { "type": "string" }
+      }
+    },
+    "warning": {
+      "type": "object",
+      "required": ["code", "severity", "message", "itemIds"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[a-z_]+$" },
+        "severity": { "enum": ["info", "warning", "error"] },
+        "message": { "type": "string" },
+        "itemIds": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

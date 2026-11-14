@@ -16,8 +16,9 @@ import { tokenize } from './match/text.js';
 import { computeContext } from './match/context.js';
 import { recordShadow, shadowReport } from './shadow.js';
 import { fixtureFetch } from './adapters/github-fixture.js';
-import { fetchTemplates, missingLinkedNumbers, fetchIssuesByNumber, cacheRoot, budget } from './adapters/github-extra.js';
-import { issueToRawItem } from './adapters/github.js';
+import { cacheRoot } from './adapters/github-extra.js';
+import { githubExtras } from './collect.js';
+import { cmdSnapshot, cmdLinks, cmdDiff, cmdDigest, cmdReview, cmdCalibrate, cmdPack } from './radar-cli.js';
 import { readIds, benchFetch, writeBenchOutput } from './benchfetch.js';
 
 const HELP = `urgent-first ${VERSION}: urgent items first, by rules you write.
@@ -39,6 +40,18 @@ Usage:
   urgent-first validate <pack>                  check a pack against schema/pack.schema.json
   urgent-first new-pack <dir> [--name NAME]     start a pack from a commented template
   urgent-first packs                            list bundled packs
+
+Maintainer Radar (read-only; never on research packs; docs/MAINTAINER-RADAR.md):
+  urgent-first snapshot github <owner/repo> [--pack P] [--state S] [--limit N] [--out DIR] [--force] [--json]
+  urgent-first snapshot run <pack> <input> [--out DIR] [--force] [--templates FILE] [--json]
+  urgent-first links <snapshot> [--json] [--include-near]
+  urgent-first diff <older-snapshot> <newer-snapshot> [--out DIR] [--json] [--gold FILE] [--public [--allow-real-public-export]]
+  urgent-first digest <snapshot> [--previous DIR] [--out DIR] [--format md,html,json]
+  urgent-first review init <snapshot> --out FILE [--reviewer ALIAS]
+  urgent-first review check <review.json> <snapshot> [--json]
+  urgent-first calibrate <pack> <review.json> --snapshot DIR --out DIR [--heldout FILE] [--json] [--strict]
+  urgent-first pack lint <pack> [--json] [--strict]
+There is no apply command: this release never writes to GitHub (docs/THREAT-MODEL.md).
 
 <pack> is a bundled pack name (${listPacks().join(', ') || 'none found'}) or a folder with pack.json.
 Every flag quotes the exact words behind it. Nothing is ever placed below the tier its own priority implies.
@@ -77,7 +90,7 @@ export function parseArgs(argv) {
   return { positional, flags };
 }
 
-const BOOLEAN_FLAGS = new Set(['json', 'strict', 'watch', 'onlyUnmatched', 'help', 'version', 'quiet', 'noTemplates']);
+const BOOLEAN_FLAGS = new Set(['json', 'strict', 'watch', 'onlyUnmatched', 'help', 'version', 'quiet', 'noTemplates', 'force', 'includeNear', 'public', 'allowRealPublicExport']);
 
 function nowFrom(flags) {
   if (flags.now) {
@@ -173,35 +186,6 @@ async function cmdGithub({ positional, flags }) {
   out(`HTML:  ${path.join(r.dir, 'board.html')}`);
   if (!flags.watch) return 0;
   return watchGithub({ pack, owner, repo, state, limit, token, fetchImpl, dir: r.dir, initial: r, etag: fetched.etag, release: fetched.release, flags, templates: extras.templates });
-}
-
-/**
- * Repository templates for masking and issues linked from pull requests ("Fixes #N") that are not in the run.
- * Both are refinements: they stay within the API budget (templates: one request per repository, cached for a
- * day; linked issues: at most --linked-max, default 10, and never the last 10 requests of the hour).
- */
-async function githubExtras({ pack, owner, repo, items, token, fetchImpl, flags, rate }) {
-  const b = budget();
-  b.remaining = rate?.remaining ?? null;
-  const fixture = Boolean(process.env.URGENT_FIRST_GITHUB_FIXTURE);
-  let templates = null;
-  let templateFiles = [];
-  if (pack.masking && pack.mode !== 'research' && !flags.noTemplates) {
-    const t = await fetchTemplates({ owner, repo, token, fetchImpl, b, cacheDir: fixture ? null : cacheRoot() });
-    templateFiles = t.files.map((f) => f.path);
-    templates = { [`github:${owner}/${repo}`]: t.files };
-  }
-  let linked = [];
-  const maxLinked = flags.linkedMax === undefined ? 10 : Number(flags.linkedMax);
-  if (!Number.isInteger(maxLinked) || maxLinked < 0 || maxLinked > 100) throw new UserError('--linked-max must be an integer from 0 to 100');
-  if (pack.inherit && maxLinked > 0) {
-    const numbers = missingLinkedNumbers(items, pack);
-    if (numbers.length) {
-      const raw = await fetchIssuesByNumber({ owner, repo, numbers, token, fetchImpl, max: maxLinked, b, reserve: 10 });
-      linked = normalizeItems(raw.map((i) => issueToRawItem(i, { owner, repo })), 'linked issue');
-    }
-  }
-  return { templates, templateFiles, linked, b };
 }
 
 function maskingLine(result, extras) {
@@ -564,6 +548,13 @@ const COMMANDS = {
   validate: cmdValidate,
   'new-pack': cmdNewPack,
   packs: cmdPacks,
+  snapshot: cmdSnapshot,
+  links: cmdLinks,
+  diff: cmdDiff,
+  digest: cmdDigest,
+  review: cmdReview,
+  calibrate: cmdCalibrate,
+  pack: cmdPack,
 };
 
 export async function main(argv) {

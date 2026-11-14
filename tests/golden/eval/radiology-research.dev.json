@@ -1,0 +1,358 @@
+{
+  "pack": {
+    "name": "radiology-research",
+    "version": "0.1.0",
+    "mode": "research",
+    "banner": "Research and education software. Not a medical device; not cleared, approved or CE-marked. Not for patient care, including choosing which studies to read first. It reads only text, quotes the exact words that matched a rule, and never changes the ordered priority. Accuracy figures come from synthetic cases. Clinical use may be regulated as a medical device."
+  },
+  "input": "dev.jsonl",
+  "rules_only": {
+    "items": 120,
+    "gold_counts": {
+      "T1": 54,
+      "T2": 30,
+      "T3": 36
+    },
+    "critical_tier": "T1",
+    "critical_sensitivity": {
+      "caught": 54,
+      "total": 54,
+      "value": 1,
+      "wilson95": [
+        0.9336,
+        1
+      ]
+    },
+    "missed_critical": [],
+    "over_triage_rate": {
+      "count": 0,
+      "total": 66,
+      "value": 0
+    },
+    "false_flag_rate": {
+      "count": 0,
+      "total": 36,
+      "value": 0
+    },
+    "under_triage_rate": {
+      "count": 1,
+      "total": 120,
+      "value": 0.0083
+    },
+    "exact_tier_agreement": {
+      "count": 119,
+      "total": 120,
+      "value": 0.9917
+    },
+    "kendall_tau_b": 0.8041,
+    "flags": {
+      "recall": {
+        "count": 83,
+        "total": 84,
+        "value": 0.9881,
+        "wilson95": [
+          0.9356,
+          0.9979
+        ]
+      },
+      "precision": {
+        "count": 83,
+        "total": 83,
+        "value": 1,
+        "wilson95": [
+          0.9558,
+          1
+        ]
+      },
+      "false_flag_rate": {
+        "count": 0,
+        "total": 36,
+        "value": 0,
+        "wilson95": [
+          0,
+          0.0964
+        ]
+      }
+    },
+    "confusion": {
+      "T1": {
+        "T1": 54,
+        "T2": 0,
+        "T3": 0
+      },
+      "T2": {
+        "T1": 0,
+        "T2": 29,
+        "T3": 1
+      },
+      "T3": {
+        "T1": 0,
+        "T2": 0,
+        "T3": 36
+      }
+    },
+    "rule_hits": [
+      {
+        "id": "STROKE",
+        "tier": "T1",
+        "hits": 6,
+        "gold_at_least_rule_tier": 6,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "INTRACRANIAL-BLEED",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "HEAD-INJURY-HIGH-RISK",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "REDUCED-CONSCIOUSNESS",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CAUDA-EQUINA",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "CORD-COMPRESSION",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "EPIDURAL-ABSCESS",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PULMONARY-EMBOLISM",
+        "tier": "T1",
+        "hits": 7,
+        "gold_at_least_rule_tier": 7,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "AORTIC-DISSECTION",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "AAA-RUPTURE",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PNEUMOTHORAX",
+        "tier": "T1",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PERFORATION",
+        "tier": "T1",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "MESENTERIC-ISCHAEMIA",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TORSION",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "ECTOPIC-PREGNANCY",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PAEDIATRIC-SURGICAL",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "NAI-HEAD",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "FOREIGN-BODY",
+        "tier": "T1",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "NECROTISING-INFECTION",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "INFECTED-OBSTRUCTED-KIDNEY",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "SHOCK",
+        "tier": "T1",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "ACTIVE-BLEEDING",
+        "tier": "T1",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "LIMB-ISCHAEMIA",
+        "tier": "T1",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TIA",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "HEAD-INJURY-ANTICOAGULATED",
+        "tier": "T2",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "HYPOXIA",
+        "tier": "T2",
+        "hits": 6,
+        "gold_at_least_rule_tier": 6,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "APPENDICITIS",
+        "tier": "T2",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "BOWEL-OBSTRUCTION",
+        "tier": "T2",
+        "hits": 3,
+        "gold_at_least_rule_tier": 3,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "BILIARY",
+        "tier": "T2",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "DVT",
+        "tier": "T2",
+        "hits": 4,
+        "gold_at_least_rule_tier": 4,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "RENAL-COLIC",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "INFECTION-COLLECTION",
+        "tier": "T2",
+        "hits": 9,
+        "gold_at_least_rule_tier": 9,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "FRACTURE",
+        "tier": "T2",
+        "hits": 5,
+        "gold_at_least_rule_tier": 5,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "NAI-SURVEY",
+        "tier": "T2",
+        "hits": 0,
+        "gold_at_least_rule_tier": 0,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "SEIZURE-OR-RAISED-PRESSURE",
+        "tier": "T2",
+        "hits": 2,
+        "gold_at_least_rule_tier": 2,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "TUBE-OR-LINE-POSITION",
+        "tier": "T2",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      },
+      {
+        "id": "PAEDIATRIC-SAME-DAY",
+        "tier": "T2",
+        "hits": 1,
+        "gold_at_least_rule_tier": 1,
+        "gold_less_urgent": 0
+      }
+    ]
+  },
+  "with_annotations": null,
+  "annotation_validation": null
+}

@@ -1,0 +1,847 @@
+{
+  "engine": {
+    "name": "urgent-first",
+    "version": "0.1.0"
+  },
+  "pack": {
+    "name": "radiology-research",
+    "version": "0.1.0",
+    "title": "Radiology order text (research pack)",
+    "mode": "research",
+    "banner": "Research and education software. Not a medical device; not cleared, approved or CE-marked. Not for patient care, including choosing which studies to read first. It reads only text, quotes the exact words that matched a rule, and never changes the ordered priority. Accuracy figures come from synthetic cases. Clinical use may be regulated as a medical device.",
+    "tiers": [
+      {
+        "id": "T1",
+        "name": "Discuss now",
+        "sla_minutes": 60
+      },
+      {
+        "id": "T2",
+        "name": "Today",
+        "sla_minutes": 480
+      },
+      {
+        "id": "T3",
+        "name": "In order",
+        "sla_minutes": null
+      }
+    ]
+  },
+  "input": "radiology-worklist.jsonl",
+  "now": "2026-11-14T09:30:00.000Z",
+  "counts": {
+    "total": 12,
+    "flagged": 7,
+    "unmatched": 5,
+    "by_tier": {
+      "T1": 5,
+      "T2": 2,
+      "T3": 5
+    }
+  },
+  "items": [
+    {
+      "id": "demo-04",
+      "title": "CT pulmonary angiogram",
+      "url": null,
+      "original_index": 3,
+      "created_at": "2026-11-14T08:15:00Z",
+      "priority": "urgent",
+      "labels": [],
+      "location": "inpatient",
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T2",
+        "reasons": [
+          {
+            "kind": "priority",
+            "tier": "T2",
+            "evidence": [
+              {
+                "field": "priority",
+                "start": 0,
+                "end": 6,
+                "text": "urgent",
+                "context": "affirmed"
+              }
+            ]
+          }
+        ]
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "PULMONARY-EMBOLISM",
+          "tier": "T1",
+          "title": "Possible pulmonary embolism",
+          "why": "Suspected acute pulmonary embolism, or pleuritic pain or breathlessness with a fast heart rate, low saturation or a clot risk factor: CT pulmonary angiography is the first-line test when probability is high.",
+          "category": "pulmonary_embolism",
+          "source": {
+            "citation": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+            "url": "https://academic.oup.com/eurheartj/article/41/4/543/5556136",
+            "year": 2019
+          },
+          "evidence": [
+            {
+              "field": "reason",
+              "start": 71,
+              "end": 77,
+              "text": "r/o PE",
+              "context": "suspected"
+            },
+            {
+              "field": "reason",
+              "start": 0,
+              "end": 4,
+              "text": "POD2",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 32,
+              "end": 35,
+              "text": "SOB",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 50,
+              "end": 56,
+              "text": "HR 118",
+              "context": "affirmed",
+              "value": 118
+            },
+            {
+              "field": "reason",
+              "start": 58,
+              "end": 66,
+              "text": "SpO2 89%",
+              "context": "affirmed",
+              "value": 89
+            }
+          ]
+        },
+        {
+          "id": "HYPOXIA",
+          "tier": "T2",
+          "title": "Low oxygen saturation",
+          "why": "A stated saturation below 92% is below the usual 94 to 98% target range for acutely ill adults. The 92% threshold is this pack's own choice.",
+          "category": "other_t2",
+          "source": {
+            "citation": "BTS Guideline for oxygen use in healthcare and emergency settings (2017)",
+            "url": "https://www.brit-thoracic.org.uk/clinical-resources/guidelines/emergency-oxygen/",
+            "year": 2017
+          },
+          "evidence": [
+            {
+              "field": "reason",
+              "start": 58,
+              "end": 66,
+              "text": "SpO2 89%",
+              "context": "affirmed",
+              "value": 89
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": {
+        "minutes": 60,
+        "deadline": "2026-11-14T09:15:00.000Z"
+      },
+      "deadline": "2026-11-14T09:15:00.000Z",
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: PULMONARY-EMBOLISM (T1) quotes \"r/o PE\" and 4 more. priority \"urgent\" sets a floor of T2.",
+      "position": 1
+    },
+    {
+      "id": "demo-12",
+      "title": "US abdomen",
+      "url": null,
+      "original_index": 11,
+      "created_at": "2026-11-14T08:20:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "inpatient",
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "PAEDIATRIC-SURGICAL",
+          "tier": "T1",
+          "title": "Possible malrotation, volvulus or intussusception",
+          "why": "Bilious (green) vomiting in a baby suggests malrotation with volvulus; episodic screaming with drawn-up legs or redcurrant jelly stool suggests intussusception.",
+          "category": "paediatric_surgical_emergency",
+          "source": {
+            "citation": "ACR Appropriateness Criteria: Vomiting in Infants (2020) and Abdominal Pain-Child (2025)",
+            "url": "https://acsearch.acr.org/docs/69445/Narrative/",
+            "year": 2020
+          },
+          "evidence": [
+            {
+              "field": "history",
+              "start": 10,
+              "end": 30,
+              "text": "vomited bright green",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "BOWEL-OBSTRUCTION",
+          "tier": "T2",
+          "title": "Possible bowel obstruction",
+          "why": "Absolute constipation, distension with vomiting or a stated suspicion of obstruction is usually imaged the same day.",
+          "category": "bowel_obstruction",
+          "source": {
+            "citation": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction, 2017 update",
+            "url": "https://doi.org/10.1186/s13017-018-0185-2",
+            "year": 2018
+          },
+          "evidence": [
+            {
+              "field": "history",
+              "start": 50,
+              "end": 59,
+              "text": "distended",
+              "context": "affirmed"
+            },
+            {
+              "field": "history",
+              "start": 10,
+              "end": 17,
+              "text": "vomited",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": {
+        "minutes": 60,
+        "deadline": "2026-11-14T09:20:00.000Z"
+      },
+      "deadline": "2026-11-14T09:20:00.000Z",
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: PAEDIATRIC-SURGICAL (T1) quotes \"vomited bright green\".",
+      "position": 2
+    },
+    {
+      "id": "demo-06",
+      "title": "MRI lumbar spine",
+      "url": null,
+      "original_index": 5,
+      "created_at": "2026-11-14T08:30:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "ED",
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "CAUDA-EQUINA",
+          "tier": "T1",
+          "title": "Possible cauda equina syndrome",
+          "why": "Back pain or sciatica with saddle numbness, new bladder or bowel change, or symptoms in both legs: the national pathway asks for an emergency MRI within 4 hours of the request reaching radiology.",
+          "category": "cauda_equina",
+          "source": {
+            "citation": "GIRFT National Suspected Cauda Equina Syndrome Pathway (2023, revised 2026)",
+            "url": "https://gettingitrightfirsttime.co.uk/pathway-supports-clinicians-to-diagnose-and-treat-cauda-equina-syndrome-without-delay/",
+            "year": 2023
+          },
+          "evidence": [
+            {
+              "field": "history",
+              "start": 44,
+              "end": 64,
+              "text": "has not passed urine",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 0,
+              "end": 4,
+              "text": "Back",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 22,
+              "end": 40,
+              "text": "bilateral sciatica",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": {
+        "minutes": 60,
+        "deadline": "2026-11-14T09:30:00.000Z"
+      },
+      "deadline": "2026-11-14T09:30:00.000Z",
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: CAUDA-EQUINA (T1) quotes \"has not passed urine\" and 2 more.",
+      "position": 3
+    },
+    {
+      "id": "demo-02",
+      "title": "CT head without contrast",
+      "url": null,
+      "original_index": 1,
+      "created_at": "2026-11-14T08:50:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "ED",
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "STROKE",
+          "tier": "T1",
+          "title": "Possible acute stroke",
+          "why": "New one-sided weakness, facial droop, speech loss or half-field vision loss can mean acute stroke. Treatment windows count from last known well: thrombolysis within 4.5 hours, thrombectomy up to 24 hours for selected patients.",
+          "category": "stroke",
+          "source": {
+            "citation": "AHA/ASA 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+            "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+            "year": 2026
+          },
+          "evidence": [
+            {
+              "field": "reason",
+              "start": 0,
+              "end": 21,
+              "text": "Sudden R arm weakness",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 26,
+              "end": 40,
+              "text": "slurred speech",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 42,
+              "end": 45,
+              "text": "LKW",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [
+        {
+          "name": "onset",
+          "label": "Symptom onset or last known well",
+          "field": "reason",
+          "start": 42,
+          "end": 51,
+          "text": "LKW 07:40",
+          "event_at": "2026-11-14T07:40:00.000Z",
+          "elapsed_minutes_at_item_time": 70,
+          "windows": [
+            {
+              "label": "IV thrombolysis window",
+              "minutes": 270,
+              "deadline": "2026-11-14T12:10:00.000Z",
+              "remaining_minutes_at_item_time": 200
+            },
+            {
+              "label": "Thrombectomy window for selected patients",
+              "minutes": 1440,
+              "deadline": "2026-11-15T07:40:00.000Z",
+              "remaining_minutes_at_item_time": 1370
+            }
+          ]
+        }
+      ],
+      "sla": {
+        "minutes": 60,
+        "deadline": "2026-11-14T09:50:00.000Z"
+      },
+      "deadline": "2026-11-14T09:50:00.000Z",
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: STROKE (T1) quotes \"Sudden R arm weakness\" and 2 more.",
+      "position": 4
+    },
+    {
+      "id": "demo-11",
+      "title": "CT head without contrast",
+      "url": null,
+      "original_index": 10,
+      "created_at": "2026-11-14T09:05:00Z",
+      "priority": "stat",
+      "labels": [],
+      "location": "ED",
+      "tier": "T1",
+      "tier_name": "Discuss now",
+      "floor": {
+        "tier": "T1",
+        "reasons": [
+          {
+            "kind": "priority",
+            "tier": "T1",
+            "evidence": [
+              {
+                "field": "priority",
+                "start": 0,
+                "end": 4,
+                "text": "stat",
+                "context": "affirmed"
+              }
+            ]
+          }
+        ]
+      },
+      "raised": false,
+      "rules": [
+        {
+          "id": "HEAD-INJURY-HIGH-RISK",
+          "tier": "T1",
+          "title": "Head injury with a high-risk feature",
+          "why": "After a head injury, GCS below 15, signs of skull fracture, a seizure, a focal deficit or more than one vomit are reasons for CT head within 1 hour.",
+          "category": "head_injury_high_risk",
+          "source": {
+            "citation": "NICE NG232 Head injury: assessment and early management",
+            "url": "https://www.nice.org.uk/guidance/ng232",
+            "year": 2023
+          },
+          "evidence": [
+            {
+              "field": "reason",
+              "start": 32,
+              "end": 48,
+              "text": "fluid from L ear",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 0,
+              "end": 4,
+              "text": "Fall",
+              "context": "affirmed"
+            },
+            {
+              "field": "reason",
+              "start": 18,
+              "end": 24,
+              "text": "GCS 12",
+              "context": "affirmed",
+              "value": 12
+            },
+            {
+              "field": "reason",
+              "start": 26,
+              "end": 37,
+              "text": "clear fluid",
+              "context": "affirmed"
+            }
+          ]
+        },
+        {
+          "id": "REDUCED-CONSCIOUSNESS",
+          "tier": "T1",
+          "title": "GCS 12 or less",
+          "why": "A Glasgow Coma Scale of 12 or less is the NICE head-injury threshold for CT within 1 hour. This pack applies the same threshold to any request that states it.",
+          "category": "other_t1",
+          "source": {
+            "citation": "NICE NG232 Head injury: assessment and early management",
+            "url": "https://www.nice.org.uk/guidance/ng232",
+            "year": 2023
+          },
+          "evidence": [
+            {
+              "field": "reason",
+              "start": 18,
+              "end": 24,
+              "text": "GCS 12",
+              "context": "affirmed",
+              "value": 12
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": {
+        "minutes": 60,
+        "deadline": "2026-11-14T10:05:00.000Z"
+      },
+      "deadline": "2026-11-14T10:05:00.000Z",
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [],
+      "explanation": "T1: HEAD-INJURY-HIGH-RISK (T1) quotes \"fluid from L ear\" and 3 more; REDUCED-CONSCIOUSNESS (T1) quotes \"GCS 12\". priority \"stat\" sets a floor of T1.",
+      "position": 5
+    },
+    {
+      "id": "demo-08",
+      "title": "US venous duplex left leg",
+      "url": null,
+      "original_index": 7,
+      "created_at": "2026-11-14T07:55:00Z",
+      "priority": "urgent",
+      "labels": [],
+      "location": "ED",
+      "tier": "T2",
+      "tier_name": "Today",
+      "floor": {
+        "tier": "T2",
+        "reasons": [
+          {
+            "kind": "priority",
+            "tier": "T2",
+            "evidence": [
+              {
+                "field": "priority",
+                "start": 0,
+                "end": 6,
+                "text": "urgent",
+                "context": "affirmed"
+              }
+            ]
+          }
+        ]
+      },
+      "raised": false,
+      "rules": [
+        {
+          "id": "DVT",
+          "tier": "T2",
+          "title": "Possible deep vein thrombosis",
+          "why": "If DVT is likely, NICE asks for a proximal leg vein ultrasound result within 4 hours (or within 24 hours with interim anticoagulation).",
+          "category": "dvt",
+          "source": {
+            "citation": "NICE NG158 Venous thromboembolic diseases: diagnosis, management and thrombophilia testing",
+            "url": "https://www.nice.org.uk/guidance/ng158",
+            "year": 2023
+          },
+          "evidence": [
+            {
+              "field": "reason",
+              "start": 0,
+              "end": 4,
+              "text": "?DVT",
+              "context": "suspected"
+            },
+            {
+              "field": "reason",
+              "start": 13,
+              "end": 31,
+              "text": "Swollen and tender",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": {
+        "minutes": 480,
+        "deadline": "2026-11-14T15:55:00.000Z"
+      },
+      "deadline": "2026-11-14T15:55:00.000Z",
+      "suppressed": [
+        {
+          "rule": "PULMONARY-EMBOLISM",
+          "field": "reason",
+          "start": 56,
+          "end": 59,
+          "text": "SOB",
+          "context": "negated"
+        },
+        {
+          "rule": "PULMONARY-EMBOLISM",
+          "field": "reason",
+          "start": 64,
+          "end": 74,
+          "text": "chest pain",
+          "context": "negated"
+        }
+      ],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "flagged T2, below the top tier T1: check whether a top-tier rule applies",
+        "a rule term appeared negated or historical"
+      ],
+      "explanation": "T2: DVT (T2) quotes \"?DVT\" and 1 more. priority \"urgent\" sets a floor of T2.",
+      "position": 6
+    },
+    {
+      "id": "demo-09",
+      "title": "CT abdomen and pelvis with contrast",
+      "url": null,
+      "original_index": 8,
+      "created_at": "2026-11-14T08:45:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "ED",
+      "tier": "T2",
+      "tier_name": "Today",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": true,
+      "rules": [
+        {
+          "id": "APPENDICITIS",
+          "tier": "T2",
+          "title": "Possible appendicitis",
+          "why": "Right lower quadrant pain or a stated suspicion of appendicitis is usually imaged the same day.",
+          "category": "appendicitis",
+          "source": {
+            "citation": "WSES Jerusalem guidelines on diagnosis and treatment of acute appendicitis (2020)",
+            "url": "https://doi.org/10.1186/s13017-020-00306-3",
+            "year": 2020
+          },
+          "evidence": [
+            {
+              "field": "reason",
+              "start": 33,
+              "end": 51,
+              "text": "Query appendicitis",
+              "context": "suspected"
+            },
+            {
+              "field": "reason",
+              "start": 0,
+              "end": 3,
+              "text": "RLQ",
+              "context": "affirmed"
+            }
+          ]
+        }
+      ],
+      "annotations": [],
+      "clocks": [],
+      "sla": {
+        "minutes": 480,
+        "deadline": "2026-11-14T16:45:00.000Z"
+      },
+      "deadline": "2026-11-14T16:45:00.000Z",
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "flagged T2, below the top tier T1: check whether a top-tier rule applies"
+      ],
+      "explanation": "T2: APPENDICITIS (T2) quotes \"Query appendicitis\" and 1 more.",
+      "position": 7
+    },
+    {
+      "id": "demo-01",
+      "title": "MRI knee",
+      "url": null,
+      "original_index": 0,
+      "created_at": "2026-11-14T07:05:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "outpatient",
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 8
+    },
+    {
+      "id": "demo-03",
+      "title": "MRI brain without contrast",
+      "url": null,
+      "original_index": 2,
+      "created_at": "2026-11-14T07:20:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "outpatient",
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [
+        {
+          "rule": "STROKE",
+          "field": "reason",
+          "start": 45,
+          "end": 51,
+          "text": "stroke",
+          "context": "negated"
+        }
+      ],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched",
+        "a rule term appeared negated or historical"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 9
+    },
+    {
+      "id": "demo-05",
+      "title": "US pelvis",
+      "url": null,
+      "original_index": 4,
+      "created_at": "2026-11-14T07:40:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "outpatient",
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [
+        {
+          "rule": "ECTOPIC-PREGNANCY",
+          "field": "reason",
+          "start": 9,
+          "end": 16,
+          "text": "ectopic",
+          "context": "historical"
+        },
+        {
+          "rule": "ECTOPIC-PREGNANCY",
+          "field": "reason",
+          "start": 9,
+          "end": 26,
+          "text": "ectopic pregnancy",
+          "context": "historical"
+        }
+      ],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched",
+        "a rule term appeared negated or historical"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 10
+    },
+    {
+      "id": "demo-07",
+      "title": "XR chest",
+      "url": null,
+      "original_index": 6,
+      "created_at": "2026-11-14T08:05:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "inpatient",
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [
+        {
+          "rule": "PNEUMOTHORAX",
+          "field": "reason",
+          "start": 0,
+          "end": 12,
+          "text": "Pneumothorax",
+          "context": "negated"
+        }
+      ],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched",
+        "a rule term appeared negated or historical"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 11
+    },
+    {
+      "id": "demo-10",
+      "title": "MRI heart with contrast",
+      "url": null,
+      "original_index": 9,
+      "created_at": "2026-11-14T06:50:00Z",
+      "priority": "routine",
+      "labels": [],
+      "location": "outpatient",
+      "tier": "T3",
+      "tier_name": "In order",
+      "floor": {
+        "tier": "T3",
+        "reasons": []
+      },
+      "raised": false,
+      "rules": [],
+      "annotations": [],
+      "clocks": [],
+      "sla": null,
+      "deadline": null,
+      "suppressed": [],
+      "rules_without_quote": [],
+      "review_reasons": [
+        "no rule matched"
+      ],
+      "explanation": "No rule matched. This does not mean the item is not urgent.",
+      "position": 12
+    }
+  ],
+  "annotations": null
+}

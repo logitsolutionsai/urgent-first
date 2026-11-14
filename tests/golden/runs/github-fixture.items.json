@@ -1,0 +1,355 @@
+[
+  {
+    "id": "#820",
+    "title": "Add a keyboard shortcut to toggle the sidebar",
+    "text": {
+      "body": "It would be nice to hide the sidebar with a shortcut, like Ctrl+B in other editors. I use a small laptop screen."
+    },
+    "priority": null,
+    "labels": [
+      "enhancement"
+    ],
+    "created_at": "2026-10-21T09:14:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/820",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 820,
+      "state": "open",
+      "comments": 0,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-21T09:14:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#819",
+    "title": "URGENT!!! please add dark mode to the export dialog",
+    "text": {
+      "body": "URGENT, this is a blocker for us!!! The export dialog is still white when the app is in dark mode and it hurts my eyes at night."
+    },
+    "priority": null,
+    "labels": [],
+    "created_at": "2026-10-20T22:03:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/819",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 819,
+      "state": "open",
+      "comments": 0,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-20T22:03:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#818",
+    "title": "docs: fix typo in sync guide",
+    "text": {
+      "body": "Fixes \"recieve\" to \"receive\" in docs/guide/sync.md. No other changes."
+    },
+    "priority": null,
+    "labels": [
+      "documentation"
+    ],
+    "created_at": "2026-10-20T16:40:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/pull/818",
+    "synthetic": false,
+    "metadata": {
+      "type": "pull_request",
+      "number": 818,
+      "state": "open",
+      "comments": 0,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-20T16:40:00Z",
+      "draft": false,
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#815",
+    "title": "Sync shows \"conflict\" dialog twice (no data was lost)",
+    "text": {
+      "body": "When a conflict happens the dialog appears twice. I picked \"Keep both\" both times and got the two expected copies, so no data was lost. Just confusing.\n\nwidget 3.2.0, Windows 11"
+    },
+    "priority": null,
+    "labels": [
+      "bug"
+    ],
+    "created_at": "2026-10-19T11:25:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/815",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 815,
+      "state": "open",
+      "comments": 0,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-19T11:25:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#812",
+    "title": "Data loss after upgrade to 3.2",
+    "text": {
+      "body": "### Describe the bug\nAfter upgrading from 3.1.5 to 3.2.0 and restarting, I lost all my saved projects. The projects folder is empty and the trash is empty too.\n\n### Version\n3.2.0 on macOS 15"
+    },
+    "priority": null,
+    "labels": [
+      "bug"
+    ],
+    "created_at": "2026-10-18T08:02:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/812",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 812,
+      "state": "open",
+      "comments": 6,
+      "reactions": 14,
+      "reactions_plus1": 14,
+      "author_association": "NONE",
+      "updated_at": "2026-10-18T08:02:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#805",
+    "title": "Login loop after updating to 3.2.0",
+    "text": {
+      "body": "After updating to 3.2.0 the desktop app keeps showing the sign-in screen. I sign in, the browser says done, and the app shows the sign-in screen again. Forever. Worked fine on 3.1.5. Cannot get to my local projects at all."
+    },
+    "priority": null,
+    "labels": [],
+    "created_at": "2026-10-16T14:47:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/805",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 805,
+      "state": "open",
+      "comments": 3,
+      "reactions": 9,
+      "reactions_plus1": 9,
+      "author_association": "NONE",
+      "updated_at": "2026-10-16T14:47:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#801",
+    "title": "Question: can I self-host the sync server?",
+    "text": {
+      "body": "Our organisation cannot put project data on a third-party cloud. Is the sync server available to self-host?"
+    },
+    "priority": null,
+    "labels": [
+      "question"
+    ],
+    "created_at": "2026-10-15T10:10:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/801",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 801,
+      "state": "open",
+      "comments": 0,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-15T10:10:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#799",
+    "title": "Share links can read other users' tokens",
+    "text": {
+      "body": "While testing share links I noticed that `/s/<id>/meta` returns the owner's session record. With two of my own accounts I confirmed that anyone with a share link can read other users' tokens, and with the token you can open all their projects.\n\nI have not posted details anywhere else."
+    },
+    "priority": null,
+    "labels": [],
+    "created_at": "2026-10-14T19:31:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/799",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 799,
+      "state": "open",
+      "comments": 1,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-14T19:31:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#797",
+    "title": "Crash when I paste an emoji in the project title",
+    "text": {
+      "body": "When I paste an emoji in the project title the app closes itself. The project is fine after reopening.\n\nwidget 3.1.5, Windows 10"
+    },
+    "priority": null,
+    "labels": [
+      "bug"
+    ],
+    "created_at": "2026-10-13T07:55:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/797",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 797,
+      "state": "open",
+      "comments": 0,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-13T07:55:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  },
+  {
+    "id": "#790",
+    "title": "main does not build since #786",
+    "text": {
+      "body": "Fresh clone of main, `make build` fails:\n\n```\nerror[E0432]: unresolved import `crate::sync::engine::Planner`\n```\nCI on main has been red since that merge."
+    },
+    "priority": null,
+    "labels": [],
+    "created_at": "2026-10-11T12:00:00Z",
+    "location": null,
+    "source": "github:acme/widget",
+    "url": "https://github.com/acme/widget/issues/790",
+    "synthetic": false,
+    "metadata": {
+      "type": "issue",
+      "number": 790,
+      "state": "open",
+      "comments": 0,
+      "reactions": 0,
+      "reactions_plus1": 0,
+      "author_association": "NONE",
+      "updated_at": "2026-10-11T12:00:00Z",
+      "milestone": null,
+      "latest_release": "v3.2.0",
+      "latest_release_published_at": "2026-09-09T10:30:00Z",
+      "after_latest_release": true,
+      "latest_release_aliases": [
+        "v3.2.0",
+        "3.2.0",
+        "3.2",
+        "v3.2"
+      ]
+    }
+  }
+]

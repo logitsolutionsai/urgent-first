@@ -3,3 +3,6 @@ tests/output/
 urgent-first-runs/
 *.log
 .DS_Store
+
+# launch videos made with /brag (kept out of the repo)
+brag-output*/

@@ -1,0 +1,33 @@
+{"a":"d-p1a","b":"d-p1b","label":"same_problem","category":"hard_positive","note":"paraphrase, shared TypeError"}
+{"a":"d-p2a","b":"d-p2b","label":"same_problem","category":"hard_positive","note":"paraphrase, shared ENOSPC"}
+{"a":"d-p3a","b":"d-p3b","label":"same_problem","category":"hard_positive","note":"near duplicate buried in a long report"}
+{"a":"d-p4a","b":"d-p4b","label":"same_problem","category":"hard_positive","note":"paraphrase, no error code"}
+{"a":"d-p5a","b":"d-p5b","label":"same_problem","category":"hard_positive","note":"shared env var name"}
+{"a":"d-p6a","b":"d-p6b","label":"same_problem","category":"hard_positive","note":"shared ERR_ code, different Node versions"}
+{"a":"d-p7a","b":"d-p7b","label":"same_problem","category":"hard_positive","note":"paraphrase, accents"}
+{"a":"d-p8a","b":"d-p8b","label":"same_problem","category":"hard_positive","note":"paraphrase, numbers differ"}
+{"a":"d-p9a","b":"d-p9b","label":"same_problem","category":"hard_positive","note":"shared SIGSEGV"}
+{"a":"d-p10a","b":"d-p10b","label":"same_problem","category":"hard_positive","note":"paraphrase"}
+{"a":"d-p11a","b":"d-p11b","label":"same_problem","category":"hard_positive","note":"shared HTTP 409"}
+{"a":"d-p12a","b":"d-p12b","label":"same_problem","category":"hard_positive","note":"paraphrase"}
+{"a":"d-t1a","b":"d-t1b","label":"same_problem","category":"hard_positive","note":"triple"}
+{"a":"d-t1a","b":"d-t1c","label":"same_problem","category":"hard_positive","note":"triple"}
+{"a":"d-t1b","b":"d-t1c","label":"same_problem","category":"hard_positive","note":"triple"}
+{"a":"d-n1a","b":"d-n1b","label":"different_problem","category":"hard_negative","note":"generic \"timeout\""}
+{"a":"d-n2a","b":"d-n2b","label":"different_problem","category":"hard_negative","note":"same error code, unrelated causes"}
+{"a":"d-n3a","b":"d-n3b","label":"different_problem","category":"hard_negative","note":"printing on macOS, crash vs layout"}
+{"a":"d-n4a","b":"d-n4b","label":"different_problem","category":"hard_negative","note":"login, auth vs layout"}
+{"a":"d-n5a","b":"d-n5b","label":"different_problem","category":"hard_negative","note":"sync large folders, slow vs deletes"}
+{"a":"d-n6a","b":"d-n6b","label":"different_problem","category":"hard_negative","note":"dark mode export dialog, feature vs bug"}
+{"a":"d-n7a","b":"d-n7b","label":"different_problem","category":"hard_negative","note":"shared version number"}
+{"a":"d-n8a","b":"d-n8b","label":"different_problem","category":"hard_negative","note":"Ctrl+B, conflict vs feature"}
+{"a":"d-n9a","b":"d-n9b","label":"different_problem","category":"hard_negative","note":"HTTP 500, unrelated causes"}
+{"a":"d-n10a","b":"d-n10b","label":"different_problem","category":"hard_negative","note":"installer, antivirus vs size"}
+{"a":"d-c1a","b":"d-c1b","label":"different_problem","category":"negation_conflict","note":"data loss vs no data loss"}
+{"a":"d-c2a","b":"d-c2b","label":"different_problem","category":"negation_conflict","note":"crashes on startup vs does not crash on startup"}
+{"a":"d-c3a","b":"d-c3b","label":"different_problem","category":"negation_conflict","note":"corruption vs no corruption"}
+{"a":"d-c4a","b":"d-c4b","label":"different_problem","category":"negation_conflict","note":"lost all vs nothing was lost"}
+{"a":"d-m1","b":"d-m2","label":"different_problem","category":"template_noise","note":"shared template only"}
+{"a":"d-m1","b":"d-m3","label":"different_problem","category":"template_noise","note":"shared template only"}
+{"a":"d-m2","b":"d-m4","label":"different_problem","category":"template_noise","note":"shared template only"}
+{"a":"d-m3","b":"d-m4","label":"different_problem","category":"template_noise","note":"shared template only"}

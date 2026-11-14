@@ -1,6 +1,6 @@
 ---
 name: urgent-first
-description: Puts the urgent items in a pile first, by rules an expert wrote, and quotes the exact words behind every flag. Use it when someone asks to triage my issues, what should I look at first, which of these are urgent, prioritise this queue, sort this backlog or worklist by urgency, or to build a triage pack for my field. Works on GitHub issues and pull requests (any public repo), on-call or support tickets, and JSONL, CSV, FHIR or HL7 exports. It never lowers a priority and never produces a "safe to ignore" list.
+description: Puts the urgent items in a pile first, by rules an expert wrote, and quotes the exact words behind every flag. Use it when someone asks to triage my issues, what should I look at first, which of these are urgent, prioritise this queue, sort this backlog or worklist by urgency, what changed since last week or the last release, group related reports, make a maintainer digest, explain a flag, or to build and test a triage pack for my field. Works on GitHub issues and pull requests (any public repo), on-call or support tickets, and JSONL, CSV, FHIR or HL7 exports. It never lowers a priority and never produces a "safe to ignore" list.
 ---
 
 # urgent-first
@@ -77,6 +77,19 @@ The expert keeps working as usual and records their own first picks; the pack ru
 3. The command reports top-k overlap, picks the rules did not flag (candidates for new rules) and top-tier items the expert did not pick (candidates to discuss). `uf shadow-report <run>` shows the log over time.
 4. Agreement is not accuracy. Use the differences to discuss rules with the expert, not to score them.
 
+## Flow 5: What Changed, Related Reports, Digest
+
+For "what changed since last week or the release", "group related reports" and "make a maintainer digest". Read-only: nothing here writes to GitHub, and there is no apply command.
+
+1. **Snapshot.** `uf snapshot github owner/repo --out <dir>` (or `uf snapshot run <pack> <file> --out <dir>`). If the output says `partial`, say what is unknown (the reason is printed) and do not present its totals as complete.
+2. **Changes.** With an earlier snapshot, `uf diff <older> <newer> --out <pulse>` and read `<pulse>/pulse.md`. Present newly flagged items, tier changes with their cause, and flags still open, each with its quote. Say "reported after release", never "caused by the release". Items missing from the newer snapshot are "not in the newer snapshot", not resolved. Without a labelled set, never give a miss count.
+3. **Related reports.** `uf links <snapshot>`. Present groups as "may describe the same problem": every member keeps its tier and place, and a score is a ranking signal, not a probability. Ask a human before suggesting that anything be closed, merged or relabelled.
+4. **Digest.** `uf digest <snapshot> --previous <older> --out <dir>`; `digest.md` carries everything, `digest.html` is the view.
+5. **Explain a flag.** `uf explain <run> --item ID`, or quote the evidence lines of `snapshot.json` (rule, field, offsets).
+6. **Review and rules.** `uf review init <snapshot> --out <file>`, the maintainer fills in decisions, `uf review check <file> <snapshot>`. `uf calibrate <pack> <file> --snapshot <dir> --out <dir>` writes a proposal only; show its missed cases first and its held-out verdict, and never edit the pack yourself. `uf pack lint <pack>` checks a pack.
+
+Never run these on a research pack: they refuse it. Details: `docs/MAINTAINER-RADAR.md`.
+
 ## Commands
 
 | Command | What it does |
@@ -90,6 +103,9 @@ The expert keeps working as usual and records their own first picks; the pack ru
 | `uf shadow <run> --picks ...` / `uf shadow-report <run>` | Compare with an expert's own first picks |
 | `uf explain <pack> "<text>"` / `uf explain <run> --item ID` | Show cues, negation and rule hits for one sentence; or how one item of a run was read, masked template text included |
 | `uf validate <pack>` / `uf new-pack <dir>` / `uf packs` | Pack tools |
+| `uf snapshot github <owner/repo>` / `uf snapshot run <pack> <input>` (`--out DIR`) | Deterministic snapshot with its evidence graph |
+| `uf links <snapshot>` / `uf diff <older> <newer>` / `uf digest <snapshot>` | Related reports, Release Pulse, three-pane digest |
+| `uf review init|check` / `uf calibrate <pack> <review>` / `uf pack lint <pack>` | Maintainer feedback, a proposed pack patch (never applied), pack checks |
 
 Exit codes: 0 ok, 1 usage or input error (including a malformed pack or file), 2 refused (input that fails the pack's checks such as a missing priority, research mode), 3 network or GitHub API, 4 a `--strict` check failed.
 
@@ -99,3 +115,4 @@ Exit codes: 0 ok, 1 usage or input error (including a malformed pack or file), 2
 - `references/rule-matching.md`: terms, near, regex, numbers, clocks, fields; negation, suspicion and history scopes; abbreviations.
 - `references/annotation-contract.md`: the annotation line, every rejection reason, merge behaviour.
 - `references/evaluation.md`: metrics, Wilson interval, Kendall tau-b, dev and test procedure.
+- `docs/MAINTAINER-RADAR.md`: snapshots, links, the Release Pulse, digest, review, calibrate, pack lint, measured link quality.

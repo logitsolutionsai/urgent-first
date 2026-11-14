@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "note": "Recorded-format GitHub API responses; every item is invented."
+  },
+  "GET /repos/acme/partial/issues?state=open&sort=created&direction=desc&per_page=100": {
+    "status": 200,
+    "file": "issues-page1.json",
+    "etag": "W/\"synthetic-page-1\"",
+    "headers": {
+      "x-ratelimit-remaining": "1",
+      "link": "<https://api.github.com/repos/acme/partial/issues?state=open&sort=created&direction=desc&per_page=100&page=2>; rel=\"next\""
+    }
+  },
+  "GET /repos/acme/partial/issues?state=open&sort=created&direction=desc&per_page=100&page=2": {
+    "status": 403,
+    "body": {
+      "message": "API rate limit exceeded"
+    },
+    "headers": {
+      "x-ratelimit-remaining": "0",
+      "x-ratelimit-reset": "1794700000"
+    }
+  }
+}
