@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/logitsolutionsai/urgent-first/schema/pack.schema.json",
+  "name": "__PACK_NAME__",
+  "version": "0.1.0",
+  "title": "__PACK_NAME__",
+  "description": "Write one sentence: whose queue this is and what must come first.",
+  "mode": "standard",
+  "item_noun": "item",
+  "tiers": [
+    { "id": "T1", "name": "Discuss now", "description": "Look at this before anything else." },
+    { "id": "T2", "name": "Today", "description": "Real harm if it waits; handle soon." },
+    { "id": "T3", "name": "In order", "description": "Baseline. Shown under 'No rule matched' in the original order." }
+  ],
+  "floor": {
+    "priority": { "P1": "T1", "P2": "T2" },
+    "labels": [{ "match": "security", "tier": "T1" }],
+    "missing_priority": "baseline"
+  },
+  "matching": { "typos": true, "typo_min_length": 8, "window": 6 },
+  "abbreviations": {},
+  "rules": [
+    {
+      "id": "EXAMPLE-RULE",
+      "tier": "T1",
+      "title": "Short name of the situation",
+      "why": "One or two sentences an expert would say to a new colleague: why this cannot wait.",
+      "source": { "citation": "The guideline, policy or document this rule follows, with its year", "url": "https://example.org/replace-with-a-real-public-source" },
+      "match": {
+        "any": [
+          { "terms": ["first phrase", "second phrase", "prefix*"] },
+          { "near": [["lost", "deleted"], ["files", "data"]], "within": 5 }
+        ]
+      }
+    }
+  ]
+}

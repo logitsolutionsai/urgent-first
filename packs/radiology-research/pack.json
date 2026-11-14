@@ -1,0 +1,2347 @@
+{
+  "$schema": "../../schema/pack.schema.json",
+  "name": "radiology-research",
+  "version": "0.1.0",
+  "title": "Radiology order text (research pack)",
+  "description": "Research and education pack. Reads the text of imaging orders and shows the lines that match rules written from public guidelines. Synthetic data only; not for patient care.",
+  "mode": "research",
+  "banner": "Research and education software. Not a medical device; not cleared, approved or CE-marked. Not for patient care, including choosing which studies to read first. It reads only text, quotes the exact words that matched a rule, and never changes the ordered priority. Accuracy figures come from synthetic cases. Clinical use may be regulated as a medical device.",
+  "item_noun": "order",
+  "fields": [
+    "text"
+  ],
+  "tiers": [
+    {
+      "id": "T1",
+      "name": "Discuss now",
+      "description": "The text matches a rule for a condition where imaging within minutes to about an hour can change what happens next.",
+      "sla_minutes": 60
+    },
+    {
+      "id": "T2",
+      "name": "Today",
+      "description": "The text matches a rule for a condition usually imaged and read the same day.",
+      "sla_minutes": 480
+    },
+    {
+      "id": "T3",
+      "name": "In order",
+      "description": "Baseline. Shown under 'No rule matched' in the original order."
+    }
+  ],
+  "floor": {
+    "priority": {
+      "stat": "T1",
+      "asap": "T2",
+      "urgent": "T2",
+      "routine": "T3"
+    },
+    "missing_priority": "error",
+    "unknown_priority": "error"
+  },
+  "matching": {
+    "typos": true,
+    "typo_min_length": 7,
+    "window": 6
+  },
+  "context": {
+    "negation_pre": [
+      "non"
+    ],
+    "historical_pre": [
+      "treated for",
+      "on treatment for",
+      "anticoagulated for",
+      "on apixaban for",
+      "on rivaroxaban for",
+      "on warfarin for",
+      "on edoxaban for",
+      "on dabigatran for",
+      "on heparin for",
+      "repaired",
+      "coiled",
+      "clipped"
+    ],
+    "historical_post": [
+      "at surgery",
+      "at operation",
+      "at laparotomy",
+      "intraoperatively",
+      "intra-operatively",
+      "at the time of surgery",
+      "repaired",
+      "coiled",
+      "clipped",
+      "treated with drain",
+      "no recurrence"
+    ],
+    "windows": {
+      "at surgery": 10,
+      "at operation": 10,
+      "at laparotomy": 10,
+      "intraoperatively": 10,
+      "intra-operatively": 10,
+      "at the time of surgery": 10
+    }
+  },
+  "abbreviations": {
+    "PE tube": "pressure equalisation tube",
+    "PE": "pulmonary embolism",
+    "PTE": "pulmonary embolism",
+    "SOB": "shortness of breath",
+    "SOBOE": "shortness of breath on exertion",
+    "LKW": "last known well",
+    "LSW": "last seen well",
+    "SAH": "subarachnoid haemorrhage",
+    "ICH": "intracranial haemorrhage",
+    "CVA": "stroke",
+    "TIA": "transient ischaemic attack",
+    "AAA": "abdominal aortic aneurysm",
+    "CES": "cauda equina syndrome",
+    "PTX": "pneumothorax",
+    "SBO": "small bowel obstruction",
+    "LBO": "large bowel obstruction",
+    "RLQ": "right lower quadrant",
+    "RIF": "right iliac fossa",
+    "LIF": "left iliac fossa",
+    "RUQ": "right upper quadrant",
+    "LOC": "loss of consciousness",
+    "N/V": "nausea and vomiting",
+    "HR": "heart rate",
+    "AF": "atrial fibrillation",
+    "DOAC": "anticoagulant",
+    "NOAC": "anticoagulant",
+    "LMWH": "anticoagulant",
+    "LBP": "low back pain",
+    "HA": "headache",
+    "FB": "foreign body",
+    "MSCC": "metastatic spinal cord compression",
+    "NOF": "neck of femur",
+    "MVC": "motor vehicle collision",
+    "RTC": "road traffic collision",
+    "RTA": "road traffic collision",
+    "IVDU": "injecting drug use",
+    "PWID": "injecting drug use",
+    "DVT": "deep vein thrombosis",
+    "NAI": "non-accidental injury",
+    "nec fasc": "necrotising fasciitis",
+    "IVT": "thrombolysis",
+    "tPA": "thrombolysis",
+    "EVT": "thrombectomy",
+    "LVO": "large vessel occlusion",
+    "abdo": "abdominal",
+    "bilat": "bilateral",
+    "ca": {
+      "expand": "cancer",
+      "case": "insensitive"
+    },
+    "mets": "metastases",
+    "yo": "years old",
+    "IUP": "intrauterine pregnancy",
+    "OHSS": "ovarian hyperstimulation syndrome",
+    "PV": "vaginal",
+    "pt": "patient",
+    "ICP": "intracranial pressure",
+    "NGT": "nasogastric tube",
+    "NG": "nasogastric",
+    "s/p": "status post",
+    "PTA": "prior to arrival",
+    "obs": "observations"
+  },
+  "numbers": {
+    "spo2": {
+      "label": "SpO2 (%)",
+      "patterns": [
+        "(?:spo2|sp02|o2 sats?|sats?|oxygen sat(?:uration)?s?|saturations?|saturating)\\s*(?:(?:down|dropped|fell|falling|dropping)\\s*)?(?:from\\s*\\d{2,3}\\s*%?\\s*)?(?:to|of|at|is|was|now|=|:|-)?\\s*(?<value>\\d{2,3})\\s*%"
+      ]
+    },
+    "hr": {
+      "label": "Heart rate",
+      "patterns": [
+        "(?:\\bHR|heart rate|pulse(?: rate)?)\\s*(?:now|of|is|was|=|:|up to)?\\s*(?<value>\\d{2,3})\\b",
+        "heart rate[^.;\\d\\n]{0,25}?(?<value>\\d{2,3})\\b"
+      ]
+    },
+    "sbp": {
+      "label": "Systolic blood pressure",
+      "patterns": [
+        "\\bBP\\s*(?:now|of|is|was|=|:|falling|dropped|dropping|down)?\\s*(?:from\\s*\\d{2,3}\\s*/\\s*\\d{2,3}\\s*)?(?:to\\s*)?(?<value>\\d{2,3})\\s*/\\s*\\d{2,3}"
+      ]
+    },
+    "gcs": {
+      "label": "Glasgow Coma Scale",
+      "patterns": [
+        "\\bGCS\\s*(?:of|is|was|=|:|on arrival|dropped to|down to|now|still)?\\s*(?<value>1[0-5]|[3-9])(?![\\d:])",
+        "\\bGCS\\b[^.;\\n]{0,40}?\\bnow\\s*(?<value>1[0-5]|[3-9])(?![\\d:])"
+      ]
+    },
+    "temp": {
+      "label": "Temperature (C)",
+      "patterns": [
+        "(?:\\bT|temp(?:erature)?|fever(?: of| to)?|febrile(?: to)?|pyrexi(?:a|al)(?: to| of)?|spiking(?: to)?)\\s*:?\\s*(?<value>3[5-9](?:[.,]\\d)?|4[0-2](?:[.,]\\d)?)(?!\\d)"
+      ]
+    }
+  },
+  "clocks": {
+    "onset": {
+      "label": "Symptom onset or last known well",
+      "patterns": [
+        "(?:last known well|last seen (?:well|normal)|last known normal|\\bLKW|\\bLSW|symptom onset|onset(?: time)?)\\s*(?:at|@|was|:|=|~|approx\\.?|about|around)?\\s*(?<time>\\d{1,2}[:.]\\d{2}\\s*(?:am|pm)?|[0-2]\\d[0-5]\\d(?![\\d/])|\\d{1,2}\\s*(?:am|pm))",
+        "(?:was (?:fine|normal|well|ok|okay)|seen (?:well|normal)|normal|well)\\s*(?:at|until)\\s*(?<time>\\d{1,2}[:.]\\d{2}\\s*(?:am|pm)?|\\d{1,2}\\s*(?:am|pm))",
+        "\\bsince\\s*(?<time>\\d{1,2}:\\d{2})",
+        "(?:onset|started|began|symptoms?|LKW|last known well|weakness|droop|slurred|deficit)[^.;\\n]{0,30}?(?<ago>\\d+(?:\\.\\d+)?\\s*(?:h|hrs?|hours?|mins?|minutes?))\\s*ago"
+      ],
+      "windows": [
+        {
+          "label": "IV thrombolysis window",
+          "minutes": 270,
+          "source": {
+            "citation": "AHA/ASA 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+            "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+            "year": 2026
+          }
+        },
+        {
+          "label": "Thrombectomy window for selected patients",
+          "minutes": 1440,
+          "source": {
+            "citation": "AHA/ASA 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+            "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+            "year": 2026
+          }
+        }
+      ]
+    }
+  },
+  "rules": [
+    {
+      "id": "STROKE",
+      "tier": "T1",
+      "category": "stroke",
+      "title": "Possible acute stroke",
+      "why": "New one-sided weakness, facial droop, speech loss or half-field vision loss can mean acute stroke. Treatment windows count from last known well: thrombolysis within 4.5 hours, thrombectomy up to 24 hours for selected patients.",
+      "source": {
+        "citation": "AHA/ASA 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke",
+        "url": "https://www.ahajournals.org/doi/10.1161/STR.0000000000000513",
+        "year": 2026
+      },
+      "clocks": [
+        "onset"
+      ],
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "stroke",
+                  "storke",
+                  "strok",
+                  "code stroke",
+                  "brain attack",
+                  "acute ischemic",
+                  "ischemic stroke",
+                  "thrombolysis",
+                  "thrombolyse",
+                  "alteplase",
+                  "tenecteplase",
+                  "thrombectomy",
+                  "large vessel occlusion",
+                  "NIHSS",
+                  "last known well",
+                  "last seen well",
+                  "facial droop",
+                  "face droop",
+                  "facial asymmetry",
+                  "droop",
+                  "drooping",
+                  "slurred speech",
+                  "slurring",
+                  "dysarthria",
+                  "dysarthric",
+                  "aphasia",
+                  "aphasic",
+                  "dysphasia",
+                  "dysphasic",
+                  "word finding",
+                  "find * words",
+                  "find words",
+                  "garbled speech",
+                  "speech disturbance",
+                  "hemiparesis",
+                  "hemiplegia",
+                  "hemiparetic",
+                  "hemianopia",
+                  "hemianopsia",
+                  "visual field defect",
+                  "half of vision",
+                  "half of * vision",
+                  "half * vision",
+                  "sided weakness",
+                  "side weakness",
+                  "unilateral weakness",
+                  "arm weakness",
+                  "arm and leg weakness",
+                  "weakness of the * arm",
+                  "weakness * arm",
+                  "weak * arm",
+                  "no movement of the * arm",
+                  "no movement of the * leg",
+                  "not moving * side",
+                  "not moving * arm",
+                  "facial weakness",
+                  "sudden weakness",
+                  "new weakness",
+                  "vertebral dissection",
+                  "carotid dissection"
+                ],
+                "except": [
+                  "stroke volume",
+                  "swimming stroke",
+                  "heat stroke",
+                  "heatstroke",
+                  "breaststroke",
+                  "breast stroke",
+                  "back stroke",
+                  "backstroke",
+                  "stroke rate",
+                  "stroke work"
+                ]
+              },
+              {
+                "near": [
+                  [
+                    "sudden",
+                    "suddenly",
+                    "new",
+                    "acute",
+                    "abrupt"
+                  ],
+                  [
+                    "weakness",
+                    "weak",
+                    "numbness",
+                    "numb",
+                    "clumsy",
+                    "heaviness"
+                  ]
+                ],
+                "within": 3,
+                "except": [
+                  "stroke volume",
+                  "swimming stroke",
+                  "heat stroke",
+                  "heatstroke",
+                  "breaststroke",
+                  "breast stroke",
+                  "back stroke",
+                  "backstroke",
+                  "stroke rate",
+                  "stroke work"
+                ]
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "terms": [
+                  "back to normal",
+                  "back to baseline",
+                  "completely resolved",
+                  "fully resolved",
+                  "resolved completely",
+                  "fully cleared",
+                  "completely cleared",
+                  "symptoms resolved",
+                  "now resolved",
+                  "has resolved",
+                  "resolved within",
+                  "fully recovered"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "INTRACRANIAL-BLEED",
+      "tier": "T1",
+      "category": "intracranial_haemorrhage",
+      "title": "Possible intracranial bleed",
+      "why": "A sudden severe ('thunderclap', 'worst ever') headache or a suspected bleed needs an immediate non-contrast CT head; on anticoagulants, a drop in consciousness or new confusion raises the same question.",
+      "source": {
+        "citation": "NICE NG228 Subarachnoid haemorrhage caused by a ruptured aneurysm: diagnosis and management",
+        "url": "https://www.nice.org.uk/guidance/ng228",
+        "year": 2022
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "subarachnoid",
+              "intracranial hemorrhage",
+              "intracerebral hemorrhage",
+              "brain bleed",
+              "head bleed",
+              "intracranial bleed",
+              "aneurysmal bleed",
+              "bleed on the brain",
+              "hemorrhage",
+              "hemorrhagic stroke",
+              "thunderclap",
+              "worst headache",
+              "worst ever headache",
+              "worst * headache",
+              "worst headache of * life",
+              "sudden severe headache",
+              "sudden severe * headache",
+              "sudden onset headache",
+              "sudden onset severe headache",
+              "sudden headache",
+              "explosive headache",
+              "sudden severe * pain in * head"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "anticoagulant",
+                  "anticoagulated",
+                  "anticoagulation",
+                  "warfarin",
+                  "apixaban",
+                  "rivaroxaban",
+                  "edoxaban",
+                  "dabigatran",
+                  "heparin",
+                  "enoxaparin",
+                  "INR"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "terms": [
+                  "drowsy",
+                  "drowsiness",
+                  "more confused",
+                  "increasingly confused",
+                  "new confusion",
+                  "deteriorating",
+                  "deterioration",
+                  "reduced GCS",
+                  "GCS dropping",
+                  "GCS dropped",
+                  "less responsive",
+                  "unresponsive"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HEAD-INJURY-HIGH-RISK",
+      "tier": "T1",
+      "category": "head_injury_high_risk",
+      "title": "Head injury with a high-risk feature",
+      "why": "After a head injury, GCS below 15, signs of skull fracture, a seizure, a focal deficit or more than one vomit are reasons for CT head within 1 hour.",
+      "source": {
+        "citation": "NICE NG232 Head injury: assessment and early management",
+        "url": "https://www.nice.org.uk/guidance/ng232",
+        "year": 2023
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "head injury",
+                  "head trauma",
+                  "head strike",
+                  "head struck",
+                  "fall",
+                  "fell",
+                  "fallen",
+                  "struck",
+                  "motor vehicle collision",
+                  "road traffic collision",
+                  "assault",
+                  "assaulted",
+                  "trauma",
+                  "collision",
+                  "crash",
+                  "punched",
+                  "kicked"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "regex": "\\b(?:hit|struck|banged|bumped|knocked)\\b[^.;\\n]{0,25}\\bhead\\b"
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "number": "gcs",
+                "op": "<=",
+                "value": 14
+              },
+              {
+                "terms": [
+                  "skull fracture",
+                  "depressed skull",
+                  "basal skull",
+                  "palpable step",
+                  "step in the bone",
+                  "boggy",
+                  "panda eyes",
+                  "raccoon eyes",
+                  "racoon eyes",
+                  "Battle's sign",
+                  "Battle sign",
+                  "bruising behind * ear",
+                  "CSF",
+                  "fluid from * ear",
+                  "fluid * from * nose",
+                  "fluid from * nose",
+                  "clear fluid",
+                  "otorrhea",
+                  "rhinorrhea",
+                  "hemotympanum",
+                  "seizure",
+                  "fitting",
+                  "fitted",
+                  "focal deficit",
+                  "focal neurology",
+                  "focal neurological",
+                  "pupil sluggish",
+                  "sluggish pupil",
+                  "pupils unequal",
+                  "unequal pupils",
+                  "fixed dilated",
+                  "dilated pupil",
+                  "blown pupil"
+                ]
+              },
+              {
+                "regex": "vomit(?:ed|ing)?\\s*(?:x\\s*[2-9]|twice|[2-9] times|three times|several times|repeatedly)|(?:[2-9]|two|three|several|multiple|repeated) (?:episodes of )?vomit"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "REDUCED-CONSCIOUSNESS",
+      "tier": "T1",
+      "category": "other_t1",
+      "title": "GCS 12 or less",
+      "why": "A Glasgow Coma Scale of 12 or less is the NICE head-injury threshold for CT within 1 hour. This pack applies the same threshold to any request that states it.",
+      "source": {
+        "citation": "NICE NG232 Head injury: assessment and early management",
+        "url": "https://www.nice.org.uk/guidance/ng232",
+        "year": 2023
+      },
+      "match": {
+        "number": "gcs",
+        "op": "<=",
+        "value": 12
+      }
+    },
+    {
+      "id": "CAUDA-EQUINA",
+      "tier": "T1",
+      "category": "cauda_equina",
+      "title": "Possible cauda equina syndrome",
+      "why": "Back pain or sciatica with saddle numbness, new bladder or bowel change, or symptoms in both legs: the national pathway asks for an emergency MRI within 4 hours of the request reaching radiology.",
+      "source": {
+        "citation": "GIRFT National Suspected Cauda Equina Syndrome Pathway (2023, revised 2026)",
+        "url": "https://gettingitrightfirsttime.co.uk/pathway-supports-clinicians-to-diagnose-and-treat-cauda-equina-syndrome-without-delay/",
+        "year": 2023
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "cauda equina",
+              "saddle anesthesia",
+              "saddle numbness",
+              "saddle area",
+              "saddle paresthesia",
+              "saddle sensory",
+              "perianal numbness",
+              "perineal numbness",
+              "numb bottom",
+              "bottom * numb",
+              "bottom feel numb",
+              "bottom * feel numb",
+              "feel the toilet paper",
+              "toilet paper"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "back",
+                  "lumbar",
+                  "low back pain",
+                  "sciatica",
+                  "disc",
+                  "spine",
+                  "spinal",
+                  "radiculopathy"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "terms": [
+                  "urinary retention",
+                  "retention",
+                  "residual",
+                  "post void residual",
+                  "difficulty passing urine",
+                  "difficulty starting * urine",
+                  "difficulty starting",
+                  "not passed urine",
+                  "has not passed urine",
+                  "unable to pass urine",
+                  "cannot pass urine",
+                  "not passing urine",
+                  "incontinence",
+                  "incontinent",
+                  "loss of bladder",
+                  "loss of bowel",
+                  "bladder dysfunction",
+                  "bowel dysfunction",
+                  "anal tone",
+                  "bilateral sciatica",
+                  "both legs",
+                  "bilateral leg",
+                  "legs weak",
+                  "leg weakness",
+                  "numb in both legs",
+                  "both thighs",
+                  "foot drop",
+                  "sexual dysfunction"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "CORD-COMPRESSION",
+      "tier": "T1",
+      "category": "spinal_cord_compression",
+      "title": "Possible spinal cord compression",
+      "why": "Known or suspected cancer with new back pain and leg weakness, a sensory level or sphincter change: MRI as soon as possible and always within 24 hours.",
+      "source": {
+        "citation": "NICE NG234 Spinal metastases and metastatic spinal cord compression",
+        "url": "https://www.nice.org.uk/guidance/ng234",
+        "year": 2023
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "cord compression",
+              "spinal cord compression",
+              "metastatic spinal cord compression",
+              "sensory level",
+              "cord compromise"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "cancer",
+                  "carcinoma",
+                  "metastatic",
+                  "metastases",
+                  "myeloma",
+                  "lymphoma",
+                  "malignancy",
+                  "malignant",
+                  "tumor"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "terms": [
+                  "leg weakness",
+                  "legs weak",
+                  "weak legs",
+                  "weakness in * legs",
+                  "bilateral leg weakness",
+                  "unable to walk",
+                  "cannot walk",
+                  "off legs",
+                  "off his legs",
+                  "off her legs",
+                  "difficulty walking",
+                  "urinary retention",
+                  "incontinence",
+                  "numb legs"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "EPIDURAL-ABSCESS",
+      "tier": "T1",
+      "category": "spinal_epidural_abscess",
+      "title": "Possible spinal epidural abscess",
+      "why": "Back pain with fever and a risk factor (injecting drug use, a recent spinal procedure, bacteraemia) needs urgent contrast MRI; any suspicion warrants immediate evaluation.",
+      "source": {
+        "citation": "StatPearls: Spinal Epidural Abscess (NCBI Bookshelf)",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK441890/"
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "epidural abscess",
+              "spinal abscess",
+              "spinal epidural abscess"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "back",
+                  "lumbar",
+                  "spine",
+                  "spinal",
+                  "neck pain"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "number": "temp",
+                    "op": ">=",
+                    "value": 38
+                  },
+                  {
+                    "terms": [
+                      "fever",
+                      "febrile",
+                      "rigors",
+                      "pyrexia",
+                      "pyrexial",
+                      "sepsis",
+                      "septic"
+                    ]
+                  }
+                ]
+              },
+              {
+                "terms": [
+                  "injecting drug use",
+                  "IV drug",
+                  "injects",
+                  "heroin",
+                  "drug use",
+                  "spinal procedure",
+                  "spinal injection",
+                  "epidural",
+                  "bacteremia",
+                  "positive blood cultures",
+                  "blood cultures positive",
+                  "staph",
+                  "MRSA",
+                  "endocarditis"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PULMONARY-EMBOLISM",
+      "tier": "T1",
+      "category": "pulmonary_embolism",
+      "title": "Possible pulmonary embolism",
+      "why": "Suspected acute pulmonary embolism, or pleuritic pain or breathlessness with a fast heart rate, low saturation or a clot risk factor: CT pulmonary angiography is the first-line test when probability is high.",
+      "source": {
+        "citation": "2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism",
+        "url": "https://academic.oup.com/eurheartj/article/41/4/543/5556136",
+        "year": 2019
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "pulmonary embolism",
+              "pulmonary embolus",
+              "pulmonary emboli",
+              "embolus",
+              "embolism",
+              "clot on the lung",
+              "clot in the lung",
+              "saddle embolus"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "pleuritic",
+                  "chest pain",
+                  "shortness of breath",
+                  "breathless",
+                  "breathlessness",
+                  "dyspnea",
+                  "short of breath",
+                  "catch * breath",
+                  "breathing in",
+                  "desaturating",
+                  "desaturation"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "number": "spo2",
+                    "op": "<",
+                    "value": 94
+                  },
+                  {
+                    "number": "hr",
+                    "op": ">",
+                    "value": 100
+                  },
+                  {
+                    "terms": [
+                      "tachycardic",
+                      "tachycardia",
+                      "postpartum",
+                      "post partum",
+                      "pregnant",
+                      "postoperative",
+                      "post-op",
+                      "post op",
+                      "after surgery",
+                      "immobile",
+                      "long-haul",
+                      "calf",
+                      "deep vein thrombosis",
+                      "D-dimer",
+                      "dimer"
+                    ]
+                  },
+                  {
+                    "regex": "\\bPOD\\s?\\d"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AORTIC-DISSECTION",
+      "tier": "T1",
+      "category": "aortic_emergency",
+      "title": "Possible aortic dissection",
+      "why": "Sudden tearing chest or back pain, a blood pressure difference between arms or a stated suspicion of dissection: contrast CT of the aorta as early as possible.",
+      "source": {
+        "citation": "2024 ESC Guidelines for the management of peripheral arterial and aortic diseases",
+        "url": "https://academic.oup.com/eurheartj/article/45/36/3538/7738955",
+        "year": 2024
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "aortic dissection",
+                  "dissection",
+                  "dissecting",
+                  "type A dissection",
+                  "type B dissection",
+                  "tearing pain",
+                  "tearing chest pain",
+                  "tearing back pain",
+                  "ripping pain",
+                  "interscapular pain",
+                  "chest pain to back",
+                  "chest pain radiating to * back",
+                  "radiating to the back",
+                  "pulse deficit"
+                ]
+              },
+              {
+                "regex": "\\barm\\s*\\d{2,3}\\s*/\\s*\\d{2,3}[^.;\\n]{0,30}\\barm\\s*\\d{2,3}\\s*/\\s*\\d{2,3}"
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "terms": [
+                  "neck dissection",
+                  "node dissection",
+                  "lymph node dissection",
+                  "nodal dissection",
+                  "axillary dissection",
+                  "axillary node dissection"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AAA-RUPTURE",
+      "tier": "T1",
+      "category": "aortic_emergency",
+      "title": "Possible ruptured or leaking aortic aneurysm",
+      "why": "A known or palpable aneurysm with collapse, low blood pressure or new abdominal, back or flank pain, or a stated suspicion of rupture: prompt CT angiography.",
+      "source": {
+        "citation": "ESVS 2024 Clinical Practice Guidelines on the Management of Abdominal Aorto-Iliac Artery Aneurysms",
+        "url": "https://esvs.org/wp-content/uploads/2024/02/ESVS-2024-AAA-Guidelines.pdf",
+        "year": 2024
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "ruptured abdominal aortic aneurysm",
+              "ruptured aneurysm",
+              "leaking abdominal aortic aneurysm",
+              "leaking aneurysm",
+              "rupture of * aneurysm"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "abdominal aortic aneurysm",
+                  "aneurysm",
+                  "pulsatile mass",
+                  "pulsatile abdominal mass"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "terms": [
+                      "rupture",
+                      "ruptured",
+                      "leak",
+                      "leaking",
+                      "collapse",
+                      "collapsed",
+                      "syncope",
+                      "hypotension",
+                      "hypotensive",
+                      "pale and clammy",
+                      "clammy",
+                      "shock",
+                      "back pain",
+                      "flank pain",
+                      "abdominal pain",
+                      "abdominal and back pain",
+                      "loin pain"
+                    ]
+                  },
+                  {
+                    "number": "sbp",
+                    "op": "<",
+                    "value": 100
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PNEUMOTHORAX",
+      "tier": "T1",
+      "category": "pneumothorax",
+      "title": "Possible pneumothorax",
+      "why": "A suspected pneumothorax, especially after a procedure, with breathlessness or with signs of tension, sits on critical-result lists and needs a prompt film.",
+      "source": {
+        "citation": "British Thoracic Society Guideline for pleural disease (Thorax 2023)",
+        "url": "https://www.brit-thoracic.org.uk/document-library/guidelines/pleural-disease/bts-guideline-for-pleural-disease/",
+        "year": 2023
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "pneumothorax",
+              "collapsed lung",
+              "lung collapse",
+              "hyperresonant",
+              "hyper resonant",
+              "subcutaneous emphysema",
+              "surgical emphysema",
+              "tracheal deviation",
+              "trachea deviated",
+              "deviated trachea",
+              "absent breath sounds"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "line insertion",
+                  "central line",
+                  "CVC",
+                  "subclavian",
+                  "biopsy",
+                  "lung biopsy",
+                  "thoracentesis",
+                  "pleural tap",
+                  "acupuncture",
+                  "ventilated",
+                  "ventilator",
+                  "recruitment",
+                  "bronchoscopy",
+                  "pacemaker",
+                  "stab wound",
+                  "stab",
+                  "rib fractures",
+                  "rib fracture",
+                  "chest trauma",
+                  "chest wall"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "terms": [
+                      "chest pain",
+                      "breathless",
+                      "breathlessness",
+                      "shortness of breath",
+                      "short of breath",
+                      "dyspnea",
+                      "desaturating",
+                      "desaturation",
+                      "full breath",
+                      "catch * breath"
+                    ]
+                  },
+                  {
+                    "number": "spo2",
+                    "op": "<",
+                    "value": 94
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PERFORATION",
+      "tier": "T1",
+      "category": "perforation",
+      "title": "Possible perforation or anastomotic leak",
+      "why": "Suspected free air, a perforated viscus, an anastomotic leak or generalised peritonism: CT is the recommended test for an acute abdomen with suspected perforation.",
+      "source": {
+        "citation": "WSES guidelines: Perforated and bleeding peptic ulcer (World J Emerg Surg 2020)",
+        "url": "https://doi.org/10.1186/s13017-019-0283-9",
+        "year": 2020
+      },
+      "match": {
+        "terms": [
+          "perforation",
+          "perforated",
+          "perf",
+          "free air",
+          "free gas",
+          "pneumoperitoneum",
+          "anastomotic leak",
+          "leak",
+          "peritonitis",
+          "peritonitic",
+          "peritonism",
+          "rigid abdomen",
+          "board-like",
+          "boardlike"
+        ]
+      }
+    },
+    {
+      "id": "MESENTERIC-ISCHAEMIA",
+      "tier": "T1",
+      "category": "mesenteric_ischaemia",
+      "title": "Possible acute mesenteric ischaemia",
+      "why": "Severe abdominal pain out of proportion to a soft abdomen, especially with atrial fibrillation, vascular disease or a raised lactate: CT angiography without delay.",
+      "source": {
+        "citation": "Acute mesenteric ischemia: updated guidelines of the World Society of Emergency Surgery (2022)",
+        "url": "https://doi.org/10.1186/s13017-022-00443-x",
+        "year": 2022
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "mesenteric ischemia",
+              "bowel ischemia",
+              "ischemic bowel",
+              "acute mesenteric",
+              "pain out of proportion",
+              "out of proportion"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "severe pain",
+                  "severe abdominal pain",
+                  "writhing",
+                  "cannot get comfortable",
+                  "calling out",
+                  "much worse"
+                ]
+              },
+              {
+                "terms": [
+                  "soft",
+                  "barely tender",
+                  "mild tenderness",
+                  "minimal tenderness",
+                  "only mild",
+                  "non-tender",
+                  "not tender"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "negated"
+                ]
+              },
+              {
+                "terms": [
+                  "atrial fibrillation",
+                  "irregular",
+                  "lactate",
+                  "vascular",
+                  "arteriopath*",
+                  "anticoagulant",
+                  "warfarin",
+                  "apixaban"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "TORSION",
+      "tier": "T1",
+      "category": "torsion",
+      "title": "Possible testicular or ovarian torsion",
+      "why": "Sudden testicular pain, or sudden one-sided pelvic pain with a known cyst or enlarged ovary, can mean torsion: an emergency where imaging must not delay surgical assessment.",
+      "source": {
+        "citation": "EAU Guidelines on Paediatric Urology, Acute Scrotum (2026); ACOG Committee Opinion 783 Adnexal Torsion in Adolescents (2019)",
+        "url": "https://uroweb.org/guidelines/paediatric-urology/chapter/acute-scrotum",
+        "year": 2026
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "torsion",
+                  "torted",
+                  "twisted ovary",
+                  "twisted testis"
+                ]
+              },
+              {
+                "near": [
+                  [
+                    "testis",
+                    "testicle",
+                    "testicular",
+                    "scrotal",
+                    "scrotum",
+                    "testes"
+                  ],
+                  [
+                    "pain",
+                    "painful",
+                    "tender",
+                    "swollen",
+                    "swelling",
+                    "high-riding",
+                    "high riding",
+                    "horizontal lie"
+                  ]
+                ],
+                "within": 6
+              },
+              {
+                "all": [
+                  {
+                    "terms": [
+                      "ovarian cyst",
+                      "ovary",
+                      "ovaries",
+                      "ovarian",
+                      "adnexal",
+                      "adnexa",
+                      "ovarian hyperstimulation syndrome",
+                      "dermoid"
+                    ],
+                    "include": [
+                      "affirmed",
+                      "suspected",
+                      "historical"
+                    ]
+                  },
+                  {
+                    "terms": [
+                      "sudden",
+                      "sudden onset",
+                      "suddenly"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "terms": [
+                  "tibial torsion",
+                  "femoral torsion",
+                  "torsion of the tibia",
+                  "in-toeing",
+                  "intoeing"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ECTOPIC-PREGNANCY",
+      "tier": "T1",
+      "category": "ectopic_pregnancy",
+      "title": "Possible ectopic pregnancy",
+      "why": "A positive pregnancy test with pain, bleeding or collapse and no confirmed intrauterine pregnancy, or a stated suspicion of ectopic pregnancy.",
+      "source": {
+        "citation": "NICE NG126 Ectopic pregnancy and miscarriage: diagnosis and initial management",
+        "url": "https://www.nice.org.uk/guidance/ng126",
+        "year": 2019
+      },
+      "match": {
+        "any": [
+          {
+            "all": [
+              {
+                "terms": [
+                  "ectopic",
+                  "ectopic pregnancy",
+                  "ruptured ectopic"
+                ]
+              },
+              {
+                "none": [
+                  {
+                    "terms": [
+                      "ectopic kidney",
+                      "ectopic beats",
+                      "ectopic beat",
+                      "ectopic ureter",
+                      "ectopic thyroid",
+                      "ectopic pancreas",
+                      "ectopic atrial",
+                      "ectopics"
+                    ],
+                    "include": [
+                      "affirmed",
+                      "suspected",
+                      "historical",
+                      "negated"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "hCG",
+                  "bhcg",
+                  "beta hCG",
+                  "pregnancy test"
+                ]
+              },
+              {
+                "terms": [
+                  "pain",
+                  "bleeding",
+                  "vaginal bleeding",
+                  "spotting",
+                  "collapse",
+                  "collapsed",
+                  "shoulder tip",
+                  "adnexal",
+                  "loss of consciousness",
+                  "syncope",
+                  "dizzy"
+                ]
+              },
+              {
+                "none": [
+                  {
+                    "terms": [
+                      "intrauterine pregnancy confirmed",
+                      "confirmed intrauterine",
+                      "viable intrauterine",
+                      "live intrauterine"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PAEDIATRIC-SURGICAL",
+      "tier": "T1",
+      "category": "paediatric_surgical_emergency",
+      "title": "Possible malrotation, volvulus or intussusception",
+      "why": "Bilious (green) vomiting in a baby suggests malrotation with volvulus; episodic screaming with drawn-up legs or redcurrant jelly stool suggests intussusception.",
+      "source": {
+        "citation": "ACR Appropriateness Criteria: Vomiting in Infants (2020) and Abdominal Pain-Child (2025)",
+        "url": "https://acsearch.acr.org/docs/69445/Narrative/",
+        "year": 2020
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "bilious vomiting",
+                  "bilious vomit",
+                  "bilious",
+                  "green vomit",
+                  "vomiting green",
+                  "vomited green",
+                  "green vomiting",
+                  "bile-stained vomit",
+                  "bile stained",
+                  "malrotation",
+                  "volvulus",
+                  "intussusception",
+                  "redcurrant jelly",
+                  "red currant jelly",
+                  "drawing * legs up",
+                  "drawing legs up",
+                  "drawing up * legs",
+                  "pulling * legs up"
+                ]
+              },
+              {
+                "near": [
+                  [
+                    "vomit*"
+                  ],
+                  [
+                    "green"
+                  ]
+                ],
+                "within": 10
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "terms": [
+                  "rectal intussusception",
+                  "rectocele"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "NAI-HEAD",
+      "tier": "T1",
+      "category": "paediatric_surgical_emergency",
+      "title": "Suspected inflicted injury with neurological change",
+      "why": "Every infant under 1 with suspected physical abuse gets a CT head as well as a skeletal survey; with drowsiness, seizures, apnoea, vomiting or a bulging fontanelle this pack treats it as time-critical.",
+      "source": {
+        "citation": "RCR and RCPCH: The radiological investigation of suspected physical abuse in children",
+        "url": "https://www.rcr.ac.uk/media/nznl1mv4/rcr-publications_the-radiological-investigation-of-suspected-physical-abuse-in-children-revised-first-edition_november-2018.pdf",
+        "year": 2018
+      },
+      "match": {
+        "all": [
+          {
+            "terms": [
+              "non-accidental",
+              "non accidental",
+              "inflicted",
+              "abusive head",
+              "shaken",
+              "safeguarding"
+            ],
+            "include": [
+              "affirmed",
+              "suspected",
+              "historical"
+            ]
+          },
+          {
+            "terms": [
+              "seizure",
+              "fitting",
+              "drowsy",
+              "lethargic",
+              "irritable",
+              "bulging fontanelle",
+              "fontanelle",
+              "apnea",
+              "apnoeic",
+              "floppy",
+              "vomiting",
+              "unresponsive",
+              "retinal"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "FOREIGN-BODY",
+      "tier": "T1",
+      "category": "foreign_body_critical",
+      "title": "Button battery, magnets or airway foreign body",
+      "why": "A swallowed button battery can burn the oesophagus within about 2 hours and must be located on X-ray at once; several magnets and an inhaled foreign body with breathing symptoms are also time-critical.",
+      "source": {
+        "citation": "National Capital Poison Center: Button Battery Ingestion Triage and Treatment Guideline",
+        "url": "https://www.poison.org/battery/guideline"
+      },
+      "match": {
+        "any": [
+          {
+            "all": [
+              {
+                "terms": [
+                  "button battery",
+                  "battery",
+                  "batteries",
+                  "coin cell",
+                  "button cell",
+                  "lithium cell",
+                  "silver cell*",
+                  "cells",
+                  "hearing aid",
+                  "hearing-aid",
+                  "key fob"
+                ]
+              },
+              {
+                "terms": [
+                  "swallow*",
+                  "ingest*",
+                  "ingestion",
+                  "missing",
+                  "mouth",
+                  "lodged",
+                  "drooling"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "regex": "\\bmagnets\\b|\\bmagnetic\\s+(?!resonance)[a-z-]+"
+              },
+              {
+                "terms": [
+                  "swallow*",
+                  "ingest*",
+                  "ingestion"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              }
+            ]
+          },
+          {
+            "terms": [
+              "inhaled foreign body",
+              "aspirated foreign body",
+              "airway foreign body"
+            ]
+          },
+          {
+            "near": [
+              [
+                "inhaled",
+                "aspirated",
+                "choking",
+                "choked",
+                "coughing fit"
+              ],
+              [
+                "foreign body",
+                "peanut",
+                "popcorn",
+                "nut",
+                "toy",
+                "bead",
+                "coin",
+                "food"
+              ]
+            ],
+            "within": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "NECROTISING-INFECTION",
+      "tier": "T1",
+      "category": "necrotising_soft_tissue_infection",
+      "title": "Possible necrotising soft tissue infection",
+      "why": "Pain out of proportion, rapidly spreading redness, crepitus, bullae or skin colour change in a soft tissue infection: prompt surgical consultation; imaging must not delay it.",
+      "source": {
+        "citation": "IDSA Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 Update",
+        "url": "https://academic.oup.com/cid/article/59/2/e10/2895845",
+        "year": 2014
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "necrotizing fasciitis",
+              "necrotizing",
+              "necrotising",
+              "Fournier",
+              "gas gangrene",
+              "gas in the soft tissue",
+              "soft tissue gas"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "cellulitis",
+                  "erythema",
+                  "redness",
+                  "skin",
+                  "bite",
+                  "wound",
+                  "infection",
+                  "abscess"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "terms": [
+                  "crepitus",
+                  "crackling under the skin",
+                  "crackling",
+                  "pain out of proportion",
+                  "out of proportion",
+                  "far worse than",
+                  "bullae",
+                  "bulla",
+                  "blisters",
+                  "spreading rapidly",
+                  "rapidly spreading",
+                  "spreading fast",
+                  "purple",
+                  "dusky",
+                  "necrosis",
+                  "necrotic"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "INFECTED-OBSTRUCTED-KIDNEY",
+      "tier": "T1",
+      "category": "obstructed_infected_kidney",
+      "title": "Possible obstructed and infected kidney",
+      "why": "A kidney stone or hydronephrosis with fever or sepsis, or obstruction of a single kidney, is an emergency that needs urgent decompression.",
+      "source": {
+        "citation": "EAU Guidelines on Urolithiasis (2026)",
+        "url": "https://uroweb.org/guidelines/urolithiasis/chapter/guidelines",
+        "year": 2026
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "pyonephrosis",
+              "infected obstructed",
+              "obstructed infected",
+              "infected hydronephrosis",
+              "obstructed and infected"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "hydronephrosis",
+                  "hydroureter",
+                  "obstructed kidney",
+                  "obstructing stone",
+                  "ureteric stone",
+                  "ureteral stone",
+                  "renal stone",
+                  "kidney stone",
+                  "stone in the ureter",
+                  "renal colic",
+                  "ureteric colic",
+                  "loin pain",
+                  "flank pain",
+                  "loin to groin"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "number": "temp",
+                    "op": ">=",
+                    "value": 38
+                  },
+                  {
+                    "terms": [
+                      "fever",
+                      "febrile",
+                      "rigors",
+                      "sepsis",
+                      "septic",
+                      "pyrexia",
+                      "pyrexial",
+                      "spiking"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "single kidney",
+                  "solitary kidney",
+                  "transplant kidney",
+                  "renal transplant"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "terms": [
+                  "stone",
+                  "obstruct*",
+                  "hydronephrosis",
+                  "anuria",
+                  "anuric"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "SHOCK",
+      "tier": "T1",
+      "category": "other_t1",
+      "title": "Signs of shock in the request",
+      "why": "Systolic blood pressure of 90 or less, a heart rate above 130 or a stated instability puts the scan on a resuscitation pathway. This pack borrows the sepsis high-risk thresholds.",
+      "source": {
+        "citation": "NICE NG253 Suspected sepsis in people aged 16 or over: recognition, assessment and early management",
+        "url": "https://www.nice.org.uk/guidance/ng253",
+        "year": 2025
+      },
+      "match": {
+        "any": [
+          {
+            "number": "sbp",
+            "op": "<=",
+            "value": 90
+          },
+          {
+            "number": "hr",
+            "op": ">",
+            "value": 130
+          },
+          {
+            "terms": [
+              "shocked",
+              "in shock",
+              "hemodynamically unstable",
+              "massive transfusion",
+              "peri-arrest",
+              "periarrest",
+              "hypotensive"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "ACTIVE-BLEEDING",
+      "tier": "T1",
+      "category": "other_t1",
+      "title": "Active or massive bleeding",
+      "why": "Massive haemoptysis, haematemesis or other active bleeding with instability needs imaging or intervention as part of resuscitation.",
+      "source": {
+        "citation": "NICE CG141 Acute upper gastrointestinal bleeding in over 16s: management",
+        "url": "https://www.nice.org.uk/guidance/cg141",
+        "year": 2016
+      },
+      "match": {
+        "terms": [
+          "massive hemoptysis",
+          "massive bleed",
+          "massive bleeding",
+          "massive hemorrhage",
+          "active bleeding",
+          "active bleed",
+          "actively bleeding",
+          "active hemorrhage",
+          "hematemesis",
+          "large hematemesis",
+          "fresh blood per rectum",
+          "exsanguinating"
+        ]
+      }
+    },
+    {
+      "id": "LIMB-ISCHAEMIA",
+      "tier": "T1",
+      "category": "other_t1",
+      "title": "Possible acute limb ischaemia",
+      "why": "A cold, pale, pulseless or numb limb of sudden onset threatens the limb within hours.",
+      "source": {
+        "citation": "ESVS 2020 Clinical Practice Guidelines on the Management of Acute Limb Ischaemia",
+        "url": "https://doi.org/10.1016/j.ejvs.2019.09.006",
+        "year": 2020
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "acute limb ischemia",
+              "limb ischemia",
+              "pulseless",
+              "absent pulses",
+              "cold * leg",
+              "cold * limb",
+              "cold * foot",
+              "white leg",
+              "mottled leg",
+              "compartment syndrome"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "TIA",
+      "tier": "T2",
+      "category": "tia_resolved",
+      "title": "Transient neurological symptoms",
+      "why": "Neurological symptoms that have fully resolved (possible TIA) need prompt specialist assessment and imaging, not a thrombolysis pathway.",
+      "source": {
+        "citation": "NICE NG128 Stroke and transient ischaemic attack in over 16s: diagnosis and initial management",
+        "url": "https://www.nice.org.uk/guidance/ng128",
+        "year": 2022
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "transient ischemic attack",
+              "amaurosis fugax",
+              "amaurosis",
+              "curtain coming down",
+              "curtain over"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "weakness",
+                  "droop",
+                  "slurred",
+                  "speech",
+                  "words",
+                  "vision",
+                  "numbness",
+                  "dysphasia",
+                  "aphasia"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical"
+                ]
+              },
+              {
+                "terms": [
+                  "back to normal",
+                  "back to baseline",
+                  "completely resolved",
+                  "fully resolved",
+                  "resolved completely",
+                  "fully cleared",
+                  "completely cleared",
+                  "symptoms resolved",
+                  "now resolved",
+                  "has resolved",
+                  "resolved within"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HEAD-INJURY-ANTICOAGULATED",
+      "tier": "T2",
+      "category": "head_injury_anticoagulated",
+      "title": "Head injury on anticoagulants",
+      "why": "A head injury in someone taking anticoagulants: NICE advises considering CT within 8 hours of the injury even without other features.",
+      "source": {
+        "citation": "NICE NG232 Head injury: assessment and early management",
+        "url": "https://www.nice.org.uk/guidance/ng232",
+        "year": 2023
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "head injury",
+                  "head trauma",
+                  "head strike",
+                  "head struck",
+                  "fall",
+                  "fell",
+                  "fallen"
+                ]
+              },
+              {
+                "regex": "\\b(?:hit|struck|banged|bumped|knocked)\\b[^.;\\n]{0,25}\\bhead\\b"
+              }
+            ]
+          },
+          {
+            "terms": [
+              "anticoagulant",
+              "anticoagulated",
+              "anticoagulation",
+              "warfarin",
+              "apixaban",
+              "rivaroxaban",
+              "edoxaban",
+              "dabigatran",
+              "heparin",
+              "enoxaparin"
+            ],
+            "include": [
+              "affirmed",
+              "suspected",
+              "historical"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "HYPOXIA",
+      "tier": "T2",
+      "category": "other_t2",
+      "title": "Low oxygen saturation",
+      "why": "A stated saturation below 92% is below the usual 94 to 98% target range for acutely ill adults. The 92% threshold is this pack's own choice.",
+      "source": {
+        "citation": "BTS Guideline for oxygen use in healthcare and emergency settings (2017)",
+        "url": "https://www.brit-thoracic.org.uk/clinical-resources/guidelines/emergency-oxygen/",
+        "year": 2017
+      },
+      "match": {
+        "number": "spo2",
+        "op": "<",
+        "value": 92
+      }
+    },
+    {
+      "id": "APPENDICITIS",
+      "tier": "T2",
+      "category": "appendicitis",
+      "title": "Possible appendicitis",
+      "why": "Right lower quadrant pain or a stated suspicion of appendicitis is usually imaged the same day.",
+      "source": {
+        "citation": "WSES Jerusalem guidelines on diagnosis and treatment of acute appendicitis (2020)",
+        "url": "https://doi.org/10.1186/s13017-020-00306-3",
+        "year": 2020
+      },
+      "match": {
+        "terms": [
+          "appendicitis",
+          "appendix",
+          "appendix mass",
+          "right lower quadrant",
+          "right iliac fossa",
+          "McBurney"
+        ]
+      }
+    },
+    {
+      "id": "BOWEL-OBSTRUCTION",
+      "tier": "T2",
+      "category": "bowel_obstruction",
+      "title": "Possible bowel obstruction",
+      "why": "Absolute constipation, distension with vomiting or a stated suspicion of obstruction is usually imaged the same day.",
+      "source": {
+        "citation": "Bologna guidelines for diagnosis and management of adhesive small bowel obstruction, 2017 update",
+        "url": "https://doi.org/10.1186/s13017-018-0185-2",
+        "year": 2018
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "bowel obstruction",
+              "small bowel obstruction",
+              "large bowel obstruction",
+              "obstruction",
+              "absolute constipation",
+              "obstipation",
+              "no flatus",
+              "not passing flatus",
+              "not passed flatus",
+              "feculent vomiting",
+              "ileus",
+              "dilated bowel",
+              "dilated colon",
+              "dilated loops"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "distended",
+                  "distension"
+                ]
+              },
+              {
+                "terms": [
+                  "vomiting",
+                  "vomited",
+                  "vomit"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BILIARY",
+      "tier": "T2",
+      "category": "biliary",
+      "title": "Possible cholecystitis or cholangitis",
+      "why": "Right upper quadrant pain with fever, a positive Murphy's sign or jaundice with fever is usually imaged the same day.",
+      "source": {
+        "citation": "Tokyo Guidelines 2018: diagnostic criteria and severity grading of acute cholecystitis",
+        "url": "https://doi.org/10.1002/jhbp.515",
+        "year": 2018
+      },
+      "match": {
+        "terms": [
+          "cholecystitis",
+          "cholangitis",
+          "Murphy's",
+          "Murphy",
+          "biliary colic",
+          "obstructive jaundice",
+          "right upper quadrant pain",
+          "right upper quadrant"
+        ]
+      }
+    },
+    {
+      "id": "DVT",
+      "tier": "T2",
+      "category": "dvt",
+      "title": "Possible deep vein thrombosis",
+      "why": "If DVT is likely, NICE asks for a proximal leg vein ultrasound result within 4 hours (or within 24 hours with interim anticoagulation).",
+      "source": {
+        "citation": "NICE NG158 Venous thromboembolic diseases: diagnosis, management and thrombophilia testing",
+        "url": "https://www.nice.org.uk/guidance/ng158",
+        "year": 2023
+      },
+      "match": {
+        "terms": [
+          "deep vein thrombosis",
+          "thrombosis",
+          "calf swelling",
+          "swollen calf",
+          "leg swelling",
+          "swollen leg",
+          "arm swelling",
+          "swelling to thigh",
+          "leg * swelling",
+          "swollen and tender",
+          "clot in * leg"
+        ]
+      }
+    },
+    {
+      "id": "RENAL-COLIC",
+      "tier": "T2",
+      "category": "renal_colic",
+      "title": "Possible kidney stone",
+      "why": "Renal colic without fever is usually imaged the same day; fever or a single kidney moves it to the obstructed-infected-kidney rule.",
+      "source": {
+        "citation": "EAU Guidelines on Urolithiasis (2026)",
+        "url": "https://uroweb.org/guidelines/urolithiasis/chapter/guidelines",
+        "year": 2026
+      },
+      "match": {
+        "terms": [
+          "renal colic",
+          "ureteric colic",
+          "kidney stone",
+          "renal stone",
+          "loin to groin",
+          "loin pain",
+          "flank pain"
+        ]
+      }
+    },
+    {
+      "id": "INFECTION-COLLECTION",
+      "tier": "T2",
+      "category": "infection_collection",
+      "title": "Possible abscess, collection or deep infection",
+      "why": "A suspected abscess, collection, septic joint, bone or disc infection is usually imaged the same day to plan drainage or treatment.",
+      "source": {
+        "citation": "IDSA Practice Guidelines for the Diagnosis and Management of Skin and Soft Tissue Infections: 2014 Update",
+        "url": "https://academic.oup.com/cid/article/59/2/e10/2895845",
+        "year": 2014
+      },
+      "match": {
+        "terms": [
+          "abscess",
+          "collection",
+          "septic arthritis",
+          "osteomyelitis",
+          "discitis",
+          "empyema",
+          "diverticulitis",
+          "pyelonephritis",
+          "quinsy",
+          "parapharyngeal",
+          "retropharyngeal",
+          "infected collection"
+        ]
+      }
+    },
+    {
+      "id": "FRACTURE",
+      "tier": "T2",
+      "category": "fracture_same_day",
+      "title": "Possible fracture needing same-day imaging",
+      "why": "A suspected hip or other fracture where imaging decides same-day management.",
+      "source": {
+        "citation": "NICE CG124 Hip fracture: management",
+        "url": "https://www.nice.org.uk/guidance/cg124",
+        "year": 2023
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "fracture",
+              "fractured",
+              "neck of femur",
+              "hip fracture",
+              "shortened and externally rotated",
+              "externally rotated",
+              "unable to weight bear",
+              "unable to weight-bear",
+              "cannot weight bear",
+              "refusing to weight bear",
+              "deformed",
+              "deformity",
+              "supracondylar"
+            ]
+          },
+          {
+            "regex": "#\\s?(?:NOF|neck of femur|hip|wrist|ankle|C-?spine)?"
+          }
+        ]
+      }
+    },
+    {
+      "id": "NAI-SURVEY",
+      "tier": "T2",
+      "category": "other_t2",
+      "title": "Suspected inflicted injury",
+      "why": "A suspected non-accidental injury in a child needs a same-day imaging plan (skeletal survey, CT head in infants).",
+      "source": {
+        "citation": "RCR and RCPCH: The radiological investigation of suspected physical abuse in children",
+        "url": "https://www.rcr.ac.uk/media/nznl1mv4/rcr-publications_the-radiological-investigation-of-suspected-physical-abuse-in-children-revised-first-edition_november-2018.pdf",
+        "year": 2018
+      },
+      "match": {
+        "terms": [
+          "non-accidental",
+          "non accidental",
+          "inflicted injury",
+          "abusive head",
+          "shaken",
+          "safeguarding concern",
+          "skeletal survey"
+        ]
+      }
+    },
+    {
+      "id": "SEIZURE-OR-RAISED-PRESSURE",
+      "tier": "T2",
+      "category": "other_t2",
+      "title": "First seizure or signs of raised intracranial pressure",
+      "why": "This pack treats a new first seizure, or worsening headache with vomiting, as same-day. NICE NG217 asks for urgent specialist referral after a first seizure and sets no emergency imaging rule, so the same-day choice is this pack's own.",
+      "source": {
+        "citation": "NICE NG217 Epilepsies in children, young people and adults",
+        "url": "https://www.nice.org.uk/guidance/ng217",
+        "year": 2022
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "first seizure",
+              "first fit",
+              "new seizure",
+              "seizure",
+              "papilledema",
+              "intracranial pressure"
+            ]
+          },
+          {
+            "all": [
+              {
+                "terms": [
+                  "headache",
+                  "headaches"
+                ]
+              },
+              {
+                "terms": [
+                  "vomiting",
+                  "vomited",
+                  "vomit"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "TUBE-OR-LINE-POSITION",
+      "tier": "T2",
+      "category": "other_t2",
+      "title": "Tube or line position check",
+      "why": "A nasogastric tube must be confirmed in the stomach before anything is put down it; position checks should not wait in the normal order.",
+      "source": {
+        "citation": "NHS Improvement (2016): Nasogastric tube misplacement: continuing risk of death and severe harm (NHS/PSA/RE/2016/006)",
+        "url": "https://www.england.nhs.uk/2016/07/nasogastric-tube-misplacement-continuing-risk-of-death-severe-harm/",
+        "year": 2016
+      },
+      "match": {
+        "all": [
+          {
+            "terms": [
+              "nasogastric tube",
+              "nasogastric",
+              "fine-bore",
+              "fine bore",
+              "feeding tube"
+            ]
+          },
+          {
+            "terms": [
+              "position",
+              "placement",
+              "confirm",
+              "tip",
+              "before feeding",
+              "pH",
+              "aspirate"
+            ],
+            "include": [
+              "affirmed",
+              "suspected",
+              "negated"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PAEDIATRIC-SAME-DAY",
+      "tier": "T2",
+      "category": "other_t2",
+      "title": "Possible pyloric stenosis",
+      "why": "Projectile, non-bilious vomiting in a young infant suggests pyloric stenosis, which is usually imaged the same day.",
+      "source": {
+        "citation": "ACR Appropriateness Criteria: Vomiting in Infants (2020)",
+        "url": "https://acsearch.acr.org/docs/69445/Narrative/",
+        "year": 2020
+      },
+      "match": {
+        "terms": [
+          "pyloric stenosis",
+          "projectile vomiting",
+          "projectile"
+        ]
+      }
+    }
+  ]
+}

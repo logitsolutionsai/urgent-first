@@ -1,0 +1,13 @@
+{
+  "url": "https://api.github.com/repos/acme/widget/releases/1001",
+  "html_url": "https://github.com/acme/widget/releases/tag/v3.2.0",
+  "id": 1001,
+  "tag_name": "v3.2.0",
+  "target_commitish": "main",
+  "name": "widget 3.2.0",
+  "draft": false,
+  "prerelease": false,
+  "created_at": "2026-09-09T10:00:00Z",
+  "published_at": "2026-09-09T10:30:00Z",
+  "body": "Synthetic release notes for the fixture."
+}

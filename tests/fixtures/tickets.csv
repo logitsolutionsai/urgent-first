@@ -1,0 +1,4 @@
+id,title,text.body,priority,labels,created_at,location,metadata.customer_tier,gold.tier
+csv-1,"Checkout returns 500 for all EU customers","Since 14:05 UTC every checkout in the EU region fails with HTTP 500. Status page is green.",P3,support;billing,2026-08-03T14:20:00Z,eu-west,enterprise,T1
+csv-2,"How do I export notes?","Is there a way to export all notes as Markdown, ""including attachments""?",P4,support,2026-08-03T15:00:00Z,,free,T3
+csv-3,"URGENT!!! change my avatar","URGENT, I need to change my avatar before a meeting.",P4,,2026-08-03T15:10:00Z,,pro,T3

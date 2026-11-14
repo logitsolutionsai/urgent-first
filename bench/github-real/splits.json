@@ -1,0 +1,5 @@
+{
+  "_procedure": "Split by repository. dev: rules and masking settings may be looked at and changed against these repositories. heldout: run only to report; nothing was tuned on them. See bench/github-real/README.md.",
+  "dev": ["vitejs/vite", "nodejs/node"],
+  "heldout": ["flutter/flutter", "rust-lang/rust", "kubernetes/kubernetes", "python/cpython"]
+}

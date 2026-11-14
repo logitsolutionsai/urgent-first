@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.png binary
+*.gif binary
+*.jpg binary
+*.webp binary
+*.webm binary
+*.mp4 binary
+*.zip binary
+*.hl7 -text

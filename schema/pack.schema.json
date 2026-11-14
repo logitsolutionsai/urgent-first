@@ -1,0 +1,710 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/logitsolutionsai/urgent-first/schema/pack.schema.json",
+  "title": "urgent-first pack",
+  "description": "A pack holds one expert's triage rules for one kind of queue. See references/pack-format.md.",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "title",
+    "tiers",
+    "rules"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "standard",
+        "research"
+      ],
+      "description": "research: banner on every output, watch disabled, synthetic data only, writes only to its own run folder"
+    },
+    "banner": {
+      "type": "string"
+    },
+    "item_noun": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Default fields searched by text conditions (default: title and every text field)"
+    },
+    "tiers": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{1,16}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string"
+          },
+          "sla_minutes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1,
+            "description": "Turnaround target set locally by the pack owner; not a national standard"
+          }
+        }
+      },
+      "description": "Most urgent first. The last tier is the baseline: items there are shown under 'No rule matched' in their original order."
+    },
+    "floor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "priority": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Priority field value (case-insensitive) to tier"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "match",
+              "tier"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "match": {
+                "type": "string",
+                "minLength": 1
+              },
+              "tier": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "missing_priority": {
+          "enum": [
+            "baseline",
+            "error"
+          ]
+        },
+        "unknown_priority": {
+          "enum": [
+            "baseline",
+            "error"
+          ]
+        }
+      }
+    },
+    "matching": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "typos": {
+          "type": "boolean"
+        },
+        "typo_min_length": {
+          "type": "integer",
+          "minimum": 4
+        },
+        "window": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "negation_pre": {
+          "$ref": "#/$defs/stringList"
+        },
+        "negation_post": {
+          "$ref": "#/$defs/stringList"
+        },
+        "suspicion_pre": {
+          "$ref": "#/$defs/stringList"
+        },
+        "suspicion_post": {
+          "$ref": "#/$defs/stringList"
+        },
+        "historical_pre": {
+          "$ref": "#/$defs/stringList"
+        },
+        "historical_post": {
+          "$ref": "#/$defs/stringList"
+        },
+        "experiencer_pre": {
+          "$ref": "#/$defs/stringList"
+        },
+        "pseudo": {
+          "$ref": "#/$defs/stringList"
+        },
+        "terminate": {
+          "$ref": "#/$defs/stringList"
+        },
+        "terminate_historical": {
+          "$ref": "#/$defs/stringList"
+        },
+        "remove": {
+          "$ref": "#/$defs/stringList"
+        },
+        "windows": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 40
+          },
+          "description": "Scope length in words for particular cues, e.g. {\"false positive\": 12}"
+        }
+      }
+    },
+    "masking": {
+      "description": "Template and boilerplate masking (src/mask.js). Lines of the repository templates, and lines shared by at least min_share of the items of the same source and type, are not read by rules. false or absent: off. Never applied in research mode.",
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "templates": {
+              "type": "boolean",
+              "description": "Mask lines of the repository issue and pull request templates when they are available (default true)"
+            },
+            "boilerplate": {
+              "oneOf": [
+                {
+                  "type": "boolean",
+                  "const": false
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "min_share": {
+                      "type": "number",
+                      "minimum": 0.05,
+                      "maximum": 1,
+                      "description": "Share of the items of one source and type that must contain a line (default 0.2)"
+                    },
+                    "min_items": {
+                      "type": "integer",
+                      "minimum": 2,
+                      "description": "Minimum number of items that must contain a line (default 5)"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "inherit": {
+      "type": "object",
+      "description": "Items that link to another item (\"Fixes #N\") take the tier that item has from its own rules and floor. The quote is the link text.",
+      "required": [
+        "id",
+        "title",
+        "why",
+        "source",
+        "regex"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z0-9][A-Z0-9_-]{1,63}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "when": {
+          "$ref": "#/$defs/condition"
+        },
+        "regex": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Pattern for the link; the first capture group is the linked item number"
+        }
+      }
+    },
+    "abbreviations": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "type": "string",
+            "minLength": 1
+          },
+          {
+            "type": "object",
+            "required": [
+              "expand"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "expand": {
+                "type": "string",
+                "minLength": 1
+              },
+              "case": {
+                "enum": [
+                  "sensitive",
+                  "insensitive"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "numbers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "patterns"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "patterns": {
+            "$ref": "#/$defs/nonEmptyStringList"
+          },
+          "fields": {
+            "$ref": "#/$defs/stringList"
+          }
+        }
+      }
+    },
+    "clocks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "patterns"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "patterns": {
+            "$ref": "#/$defs/nonEmptyStringList"
+          },
+          "fields": {
+            "$ref": "#/$defs/stringList"
+          },
+          "windows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "label",
+                "minutes"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "minutes": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "source": {
+                  "$ref": "#/$defs/source"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "tier",
+          "title",
+          "why",
+          "source",
+          "match"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z0-9][A-Z0-9_-]{0,47}$"
+          },
+          "tier": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "why": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "type": "string"
+          },
+          "source": {
+            "$ref": "#/$defs/source"
+          },
+          "match": {
+            "$ref": "#/$defs/condition"
+          },
+          "clocks": {
+            "$ref": "#/$defs/stringList",
+            "description": "Clocks to show when this rule matches (clocks used in the match tree are shown automatically)"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "stringList": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "nonEmptyStringList": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "include": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "affirmed",
+          "suspected",
+          "historical",
+          "negated"
+        ]
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "citation",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "citation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https?://"
+        },
+        "year": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      }
+    },
+    "condition": {
+      "description": "One of: any, all, none, terms, near, regex, number, clock, field, mentions",
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "any"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "any": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "all"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "all": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "none"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "none": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "terms"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "terms": {
+              "$ref": "#/$defs/nonEmptyStringList"
+            },
+            "fields": {
+              "$ref": "#/$defs/stringList"
+            },
+            "except": {
+              "$ref": "#/$defs/stringList"
+            },
+            "include": {
+              "$ref": "#/$defs/include"
+            },
+            "typos": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "near"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "near": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "$ref": "#/$defs/nonEmptyStringList"
+              }
+            },
+            "within": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 30
+            },
+            "except": {
+              "$ref": "#/$defs/stringList"
+            },
+            "fields": {
+              "$ref": "#/$defs/stringList"
+            },
+            "include": {
+              "$ref": "#/$defs/include"
+            },
+            "typos": {
+              "type": "boolean"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "regex"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "regex": {
+              "type": "string",
+              "minLength": 1
+            },
+            "flags": {
+              "type": "string",
+              "pattern": "^[imsu]*$"
+            },
+            "fields": {
+              "$ref": "#/$defs/stringList"
+            },
+            "include": {
+              "$ref": "#/$defs/include"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "number",
+            "op",
+            "value"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "number": {
+              "type": "string"
+            },
+            "op": {
+              "enum": [
+                "<",
+                "<=",
+                ">",
+                ">=",
+                "==",
+                "!="
+              ]
+            },
+            "value": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "clock"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "clock": {
+              "type": "string"
+            },
+            "within_minutes": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "field"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "field": {
+              "type": "string",
+              "pattern": "^(labels|location|priority|title|source|metadata\\.[A-Za-z0-9_]+)$"
+            },
+            "in": {
+              "type": "array",
+              "minItems": 1
+            },
+            "matches": {
+              "$ref": "#/$defs/nonEmptyStringList"
+            },
+            "equals": {},
+            "op": {
+              "enum": [
+                "<",
+                "<=",
+                ">",
+                ">=",
+                "==",
+                "!="
+              ]
+            },
+            "value": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "mentions"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mentions": {
+              "type": "string",
+              "pattern": "^metadata\\.[A-Za-z0-9_]+$"
+            },
+            "fields": {
+              "$ref": "#/$defs/stringList"
+            },
+            "include": {
+              "$ref": "#/$defs/include"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

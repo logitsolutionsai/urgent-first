@@ -1,0 +1,12 @@
+{
+  "name": "urgent-first",
+  "description": "urgent-first: urgent items first, by rules you write, with exact quotes and a benchmark of what it missed.",
+  "owner": { "name": "Logit Solutions AI", "url": "https://github.com/logitsolutionsai" },
+  "plugins": [
+    {
+      "name": "urgent-first",
+      "source": "./",
+      "description": "Triage GitHub issues, on-call tickets or worklist exports: urgent items first, every flag quoted, never lowers a priority."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "GET /repos/acme/widget/issues*": {
+    "status": 200,
+    "file": "issues-page1.json",
+    "etag": "W/\"synthetic-etag-2\"",
+    "headers": {
+      "x-ratelimit-remaining": "58",
+      "x-ratelimit-reset": "1794700000"
+    }
+  },
+  "GET /repos/acme/widget/releases/latest": {
+    "status": 200,
+    "file": "release-latest.json",
+    "headers": {
+      "x-ratelimit-remaining": "57"
+    }
+  }
+}

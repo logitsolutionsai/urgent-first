@@ -1,0 +1,48 @@
+{
+  "name": "urgent-first",
+  "version": "0.1.0",
+  "description": "Point it at a pile of issues, tickets or orders and the urgent items come first, by rules you write. Every flag quotes the exact words behind it, it never lowers a priority, and it ships with a benchmark that counts what it missed.",
+  "type": "module",
+  "bin": {
+    "urgent-first": "scripts/urgent-first.mjs"
+  },
+  "files": [
+    "scripts/urgent-first.mjs",
+    "src/",
+    "packs/",
+    "schema/",
+    "references/",
+    "SKILL.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "node --test tests/e2e/*.e2e.js",
+    "bench": "node scripts/update-bench-results.js",
+    "split": "node scripts/split-bench.js",
+    "bench:real": "node scripts/bench-real.js",
+    "icon": "node scripts/draw-icon.js"
+  },
+  "keywords": [
+    "triage",
+    "agent-skill",
+    "claude-code",
+    "github-issues",
+    "prioritisation",
+    "benchmark"
+  ],
+  "author": "Logit Solutions AI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/logitsolutionsai/urgent-first"
+  },
+  "homepage": "https://github.com/logitsolutionsai/urgent-first",
+  "devDependencies": {
+    "playwright-core": "1.56.1"
+  }
+}

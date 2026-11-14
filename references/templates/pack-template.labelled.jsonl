@@ -1,0 +1,2 @@
+{"id":"ex-001","title":"Replace with a real example the expert called urgent","text":{"body":"Write or paste the item text here."},"priority":null,"labels":[],"created_at":"2026-01-01T09:00:00Z","gold":{"tier":"T1","category":"example","rationale":"Name the words that make it urgent."}}
+{"id":"ex-002","title":"Replace with a real example the expert called not urgent","text":{"body":"Write or paste the item text here."},"priority":null,"labels":[],"created_at":"2026-01-01T09:05:00Z","gold":{"tier":"T3","category":"example","rationale":"Say why it can be handled in order."}}

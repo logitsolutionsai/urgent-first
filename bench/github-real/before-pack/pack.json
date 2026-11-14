@@ -1,0 +1,1095 @@
+{
+  "$schema": "../../../schema/pack.schema.json",
+  "name": "github-maintainer-before",
+  "version": "0.1.0",
+  "title": "GitHub maintainer (before masking and pull request inheritance)",
+  "description": "A frozen copy of the github-maintainer rules as they were before template masking and pull request inheritance, kept only so bench/github-real can report before and after. Do not use it for triage.",
+  "mode": "standard",
+  "item_noun": "issue",
+  "tiers": [
+    {
+      "id": "T1",
+      "name": "Discuss now",
+      "description": "Look at this before anything else today."
+    },
+    {
+      "id": "T2",
+      "name": "Today",
+      "description": "Real harm or a broken workflow for some users; handle soon."
+    },
+    {
+      "id": "T3",
+      "name": "In order",
+      "description": "Baseline. Shown under 'No rule matched' in the original order."
+    }
+  ],
+  "floor": {
+    "labels": [
+      {
+        "match": "security",
+        "tier": "T1"
+      },
+      {
+        "match": "p0",
+        "tier": "T1"
+      },
+      {
+        "match": "critical",
+        "tier": "T1"
+      },
+      {
+        "match": "sev1",
+        "tier": "T1"
+      },
+      {
+        "match": "sev-1",
+        "tier": "T1"
+      },
+      {
+        "match": "data-loss",
+        "tier": "T1"
+      },
+      {
+        "match": "data loss",
+        "tier": "T1"
+      },
+      {
+        "match": "p1",
+        "tier": "T2"
+      },
+      {
+        "match": "regression",
+        "tier": "T2"
+      },
+      {
+        "match": "high-priority",
+        "tier": "T2"
+      },
+      {
+        "match": "priority: high",
+        "tier": "T2"
+      }
+    ],
+    "missing_priority": "baseline"
+  },
+  "matching": {
+    "typos": true,
+    "typo_min_length": 8,
+    "window": 6
+  },
+  "context": {
+    "negation_pre": [
+      "no more",
+      "without any"
+    ],
+    "negation_post": [
+      "is fine",
+      "are fine",
+      "works fine",
+      "was not lost",
+      "were not lost",
+      "not lost"
+    ],
+    "pseudo": [
+      "no response",
+      "no output",
+      "no error",
+      "no errors",
+      "nothing happens",
+      "does nothing",
+      "do nothing",
+      "not on disk",
+      "nothing works"
+    ]
+  },
+  "abbreviations": {
+    "RCE": "remote code execution",
+    "XSS": "cross site scripting",
+    "SSRF": "server side request forgery",
+    "CSRF": "cross site request forgery",
+    "SQLi": "sql injection",
+    "LPE": "local privilege escalation",
+    "OOM": "out of memory",
+    "segv": "segfault",
+    "SIGSEGV": "segfault",
+    "seg fault": "segfault",
+    "segmentation fault": "segfault",
+    "repro": "reproduce",
+    "pls": "please",
+    "plz": "please",
+    "w/": "with"
+  },
+  "rules": [
+    {
+      "id": "SECURITY",
+      "tier": "T1",
+      "category": "security",
+      "title": "Possible security vulnerability",
+      "why": "A report that one user can read or change another user's data, run code, bypass sign-in, see secrets, or that a release artefact does not match its checksum should be handled privately and first.",
+      "source": {
+        "citation": "GitHub Docs: Privately reporting a security vulnerability; OWASP Top 10:2025",
+        "url": "https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability",
+        "year": 2025
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "security vulnerability",
+                  "vulnerability",
+                  "security issue",
+                  "security hole",
+                  "security bug",
+                  "security problem",
+                  "exploit",
+                  "exploitable",
+                  "CVE",
+                  "cross site scripting",
+                  "sql injection",
+                  "command injection",
+                  "code injection",
+                  "remote code execution",
+                  "arbitrary code",
+                  "code execution",
+                  "execute arbitrary",
+                  "path traversal",
+                  "directory traversal",
+                  "server side request forgery",
+                  "cross site request forgery",
+                  "privilege escalation",
+                  "local privilege escalation",
+                  "authentication bypass",
+                  "auth bypass",
+                  "bypass authentication",
+                  "bypasses authentication",
+                  "unauthorized access",
+                  "unauthorised access",
+                  "malicious",
+                  "malware",
+                  "compromised",
+                  "backdoor",
+                  "supply chain",
+                  "typosquat*",
+                  "anyone can",
+                  "anybody can",
+                  "any page on the internet",
+                  "any website",
+                  "without logging in",
+                  "without being logged in",
+                  "without authentication",
+                  "without signing in",
+                  "start programs",
+                  "started another program",
+                  "run programs",
+                  "runs programs",
+                  "execute commands",
+                  "runs commands",
+                  "checksum does not match",
+                  "checksum mismatch",
+                  "hash does not match",
+                  "hash mismatch",
+                  "does not match SHA256SUMS",
+                  "signature does not match",
+                  "invalid signature",
+                  "plain text password",
+                  "plaintext password",
+                  "passwords in plain text"
+                ]
+              },
+              {
+                "near": [
+                  [
+                    "read",
+                    "edit",
+                    "modify",
+                    "change",
+                    "access",
+                    "see",
+                    "open",
+                    "view",
+                    "download",
+                    "delete",
+                    "list"
+                  ],
+                  [
+                    "other users",
+                    "any project",
+                    "other accounts",
+                    "other customers",
+                    "other teams",
+                    "private projects",
+                    "projects of other",
+                    "other user's data",
+                    "other user's project",
+                    "other user's file",
+                    "other user's account",
+                    "other user's note",
+                    "other user's document",
+                    "other user's workspace",
+                    "other user's repo",
+                    "other user's repository",
+                    "other user's private",
+                    "other people's data",
+                    "other people's project",
+                    "other people's file",
+                    "other people's account",
+                    "other people's note",
+                    "other people's document",
+                    "other people's workspace",
+                    "other people's repo",
+                    "other people's repository",
+                    "other people's private",
+                    "someone else's data",
+                    "someone else's project",
+                    "someone else's file",
+                    "someone else's account",
+                    "someone else's note",
+                    "someone else's document",
+                    "someone else's workspace",
+                    "someone else's repo",
+                    "someone else's repository",
+                    "someone else's private",
+                    "another user's data",
+                    "another user's project",
+                    "another user's file",
+                    "another user's account",
+                    "another user's note",
+                    "another user's document",
+                    "another user's workspace",
+                    "another user's repo",
+                    "another user's repository",
+                    "another user's private",
+                    "anyone's data",
+                    "anyone's project",
+                    "anyone's file",
+                    "anyone's account",
+                    "anyone's note",
+                    "anyone's document",
+                    "anyone's workspace",
+                    "anyone's repo",
+                    "anyone's repository",
+                    "anyone's private",
+                    "any user's data",
+                    "any user's project",
+                    "any user's file",
+                    "any user's account",
+                    "any user's note",
+                    "any user's document",
+                    "any user's workspace",
+                    "any user's repo",
+                    "any user's repository",
+                    "any user's private"
+                  ]
+                ],
+                "within": 6,
+                "typos": false
+              },
+              {
+                "near": [
+                  [
+                    "token",
+                    "tokens",
+                    "password",
+                    "passwords",
+                    "credentials",
+                    "secret",
+                    "secrets",
+                    "api key",
+                    "api keys",
+                    "cookie",
+                    "cookies",
+                    "authorization header",
+                    "bearer"
+                  ],
+                  [
+                    "leak",
+                    "leaks",
+                    "leaked",
+                    "leaking",
+                    "exposed",
+                    "exposes",
+                    "visible",
+                    "printed",
+                    "prints",
+                    "logged",
+                    "logs",
+                    "in plain text",
+                    "plaintext",
+                    "readable",
+                    "sent to",
+                    "uploaded to",
+                    "public",
+                    "world readable"
+                  ]
+                ],
+                "within": 6,
+                "typos": false
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "DATA-LOSS",
+      "tier": "T1",
+      "category": "data_loss",
+      "title": "Data lost, overwritten or corrupted",
+      "why": "Users losing work they cannot get back is the most expensive kind of bug; every hour it stays open it can hit more people.",
+      "source": {
+        "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+        "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "data loss",
+                  "lost data",
+                  "lost all",
+                  "lost my",
+                  "lost everything",
+                  "not on disk",
+                  "cannot recover",
+                  "unrecoverable",
+                  "irrecoverable",
+                  "can not recover",
+                  "get * back",
+                  "get the old * back",
+                  "nothing newer than",
+                  "wiped",
+                  "wipes",
+                  "erased",
+                  "overwrote",
+                  "overwritten",
+                  "overwrites",
+                  "corrupted",
+                  "corrupts",
+                  "corruption",
+                  "data corruption",
+                  "truncated",
+                  "zero-length",
+                  "zero length",
+                  "0 bytes",
+                  "emptied",
+                  "deleted all",
+                  "deletes all",
+                  "deleted my"
+                ],
+                "except": [
+                  "0 bytes on the release",
+                  "lost connection",
+                  "lost focus",
+                  "lost the connection"
+                ]
+              },
+              {
+                "near": [
+                  [
+                    "lost",
+                    "lose",
+                    "losing",
+                    "deleted",
+                    "deletes",
+                    "removed",
+                    "wiped",
+                    "erased",
+                    "gone",
+                    "vanished",
+                    "disappeared",
+                    "reverted",
+                    "is empty",
+                    "are empty",
+                    "was empty",
+                    "were empty",
+                    "now empty",
+                    "came back empty",
+                    "is blank",
+                    "are blank",
+                    "now blank",
+                    "are missing",
+                    "went missing",
+                    "now missing"
+                  ],
+                  [
+                    "data",
+                    "files",
+                    "file",
+                    "projects",
+                    "project",
+                    "notes",
+                    "work",
+                    "changes",
+                    "history",
+                    "versions",
+                    "backup",
+                    "backups",
+                    "database",
+                    "library",
+                    "content",
+                    "folder",
+                    "everything",
+                    "documents"
+                  ]
+                ],
+                "within": 5,
+                "typos": false
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "terms": [
+                  "installer",
+                  "download",
+                  ".msi",
+                  ".deb",
+                  "release page",
+                  "tarball",
+                  "zip"
+                ],
+                "fields": [
+                  "title"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "REGRESSION-LATEST",
+      "tier": "T1",
+      "category": "regression_latest_release",
+      "title": "Regression in the latest release with no workaround",
+      "why": "Something that worked in the previous release and is broken in the latest one, with no workaround, hits everyone who upgrades. Minor and patch releases are meant to stay backward compatible.",
+      "source": {
+        "citation": "Semantic Versioning 2.0.0",
+        "url": "https://semver.org/spec/v2.0.0.html"
+      },
+      "match": {
+        "all": [
+          {
+            "mentions": "metadata.latest_release_aliases"
+          },
+          {
+            "any": [
+              {
+                "terms": [
+                  "after updating",
+                  "after upgrading",
+                  "after update",
+                  "after the update",
+                  "after the upgrade",
+                  "since update",
+                  "since updating",
+                  "since upgrading",
+                  "since the update",
+                  "since the upgrade",
+                  "after installing",
+                  "upgraded from",
+                  "updated to",
+                  "update to",
+                  "regression",
+                  "used to work",
+                  "worked on",
+                  "worked in",
+                  "worked fine",
+                  "was fine",
+                  "were fine",
+                  "no problem with",
+                  "works fine on",
+                  "worked before",
+                  "stopped working",
+                  "no longer works",
+                  "no longer work",
+                  "broke",
+                  "broken since"
+                ],
+                "except": [
+                  "regression test",
+                  "regression tests",
+                  "regression testing",
+                  "regression coverage",
+                  "regression case",
+                  "regression cases",
+                  "regression suite"
+                ]
+              },
+              {
+                "regex": "\\bsince\\s+(?:version\\s+|v)?\\d+(?:\\.\\d+)+\\b"
+              },
+              {
+                "regex": "\\bsince\\s+(?:(?:the|it|i|we|my|our|this|last|latest|recent)\\s+){0,3}(?:auto-?)?(?:updat|upgrad)\\w*"
+              }
+            ]
+          },
+          {
+            "terms": [
+              "every",
+              "all",
+              "nothing works",
+              "unusable",
+              "cannot",
+              "can not",
+              "unable",
+              "fails",
+              "failed",
+              "error",
+              "crash",
+              "crashes",
+              "not possible",
+              "does not work",
+              "do not work",
+              "does nothing",
+              "do nothing",
+              "none of",
+              "stopped working",
+              "forever",
+              "cannot downgrade",
+              "can not downgrade",
+              "whole team",
+              "everybody",
+              "everyone"
+            ]
+          },
+          {
+            "none": [
+              {
+                "terms": [
+                  "workaround",
+                  "work around",
+                  "work-around",
+                  "as a workaround",
+                  "works if",
+                  "can be worked around"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "STARTUP-CRASH",
+      "tier": "T1",
+      "category": "startup_crash",
+      "title": "Crashes or will not start",
+      "why": "If the app or CLI will not start on a whole platform, nobody there can use any feature.",
+      "source": {
+        "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+        "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "crash on startup",
+                  "crashes on startup",
+                  "crash at startup",
+                  "crashes at startup",
+                  "crash on launch",
+                  "crashes on launch",
+                  "crash on start",
+                  "crashes on start",
+                  "will not start",
+                  "does not start",
+                  "fails to start",
+                  "failed to start",
+                  "cannot start",
+                  "will not launch",
+                  "does not launch",
+                  "fails to launch",
+                  "will not open",
+                  "does not open at all",
+                  "segfault on every",
+                  "on every command",
+                  "crashes immediately",
+                  "closes immediately",
+                  "quits immediately",
+                  "exits immediately",
+                  "crash loop",
+                  "crashloop",
+                  "panics on startup",
+                  "panic on startup"
+                ]
+              },
+              {
+                "near": [
+                  [
+                    "icon",
+                    "launch",
+                    "launching",
+                    "start",
+                    "starting",
+                    "startup",
+                    "open the app",
+                    "opening the app",
+                    "run",
+                    "running"
+                  ],
+                  [
+                    "does nothing",
+                    "nothing happens",
+                    "segfault",
+                    "crash",
+                    "crashes",
+                    "panic",
+                    "exit code",
+                    "aborted",
+                    "core dumped"
+                  ]
+                ],
+                "within": 6,
+                "typos": false
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BUILD-OR-INSTALL-BROKEN",
+      "tier": "T1",
+      "category": "build_or_install_broken",
+      "title": "Build or install broken",
+      "why": "A red main branch, a release that cannot be installed or an artefact with missing files blocks every contributor or every new user.",
+      "source": {
+        "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+        "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "does not build",
+                  "fails to build",
+                  "build is broken",
+                  "build broken",
+                  "build fails",
+                  "build failed",
+                  "broken build",
+                  "main is broken",
+                  "master is broken",
+                  "main is red",
+                  "CI is red",
+                  "red since",
+                  "cannot install",
+                  "can not install",
+                  "cannot be installed",
+                  "unable to install",
+                  "install fails",
+                  "install failed",
+                  "installation fails",
+                  "installation failed",
+                  "installer fails",
+                  "unmet dependencies",
+                  "not installable",
+                  "broken package",
+                  "download failed",
+                  "0 KB",
+                  "0 bytes",
+                  "could not be opened",
+                  "nightly did not publish",
+                  "missing from the release",
+                  "cannot create projects"
+                ]
+              },
+              {
+                "near": [
+                  [
+                    "missing",
+                    "does not contain",
+                    "not included",
+                    "404",
+                    "empty",
+                    "corrupt",
+                    "corrupted"
+                  ],
+                  [
+                    "zip",
+                    "package",
+                    "release",
+                    "tarball",
+                    "installer",
+                    "artefact",
+                    "artifact",
+                    "asset",
+                    "msi",
+                    "deb",
+                    "dmg",
+                    "download"
+                  ]
+                ],
+                "within": 6,
+                "typos": false
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PR-FIXES-URGENT",
+      "tier": "T2",
+      "category": "pr_fix_for_t1",
+      "title": "Pull request that fixes an urgent problem",
+      "why": "A pull request that fixes a security, data-loss, build or install problem should be reviewed soon so the fix can ship.",
+      "source": {
+        "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+        "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+      },
+      "match": {
+        "all": [
+          {
+            "field": "metadata.type",
+            "equals": "pull_request"
+          },
+          {
+            "regex": "\\b(?:fix(?:es|ed)?|close[sd]?|resolve[sd]?)\\s+#\\d+"
+          },
+          {
+            "terms": [
+              "security",
+              "vulnerability",
+              "redact",
+              "redacts",
+              "credentials",
+              "secret",
+              "data loss",
+              "overwrite",
+              "overwrote",
+              "overwriting",
+              "zero-length",
+              "truncated",
+              "corrupt*",
+              "packaging",
+              "crash",
+              "regression",
+              "re-upload",
+              "leak",
+              "injection",
+              "sanitize",
+              "sanitise",
+              "broken build",
+              "build failure",
+              "build fails",
+              "build is broken",
+              "fix the build",
+              "fixes the build",
+              "install fails",
+              "installation fails",
+              "cannot install",
+              "installer",
+              "release asset",
+              "release artifact",
+              "release artefact",
+              "missing files",
+              "unescaped",
+              "cross site scripting",
+              "token leak",
+              "leaked token"
+            ],
+            "except": [
+              "regression test",
+              "regression tests",
+              "regression testing",
+              "regression coverage",
+              "regression case",
+              "regression cases",
+              "regression suite",
+              "reviewed for security",
+              "security bot",
+              "security bots",
+              "security analysis",
+              "security scan",
+              "security scanning"
+            ],
+            "typos": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CRASH-OR-HANG",
+      "tier": "T2",
+      "category": "crash_specific",
+      "title": "Crash, hang or freeze in a specific situation",
+      "why": "A crash or hang that users can reproduce costs them work and trust, even when it only happens in one situation.",
+      "source": {
+        "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+        "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+      },
+      "match": {
+        "all": [
+          {
+            "terms": [
+              "crash",
+              "crashes",
+              "crashed",
+              "crashing",
+              "segfault",
+              "panic",
+              "panics",
+              "hangs",
+              "hang",
+              "freezes",
+              "freeze",
+              "frozen",
+              "not responding",
+              "deadlock",
+              "stack overflow",
+              "close itself",
+              "closes itself",
+              "quits unexpectedly",
+              "unexpectedly quit",
+              "core dumped",
+              "out of memory",
+              "unresponsive"
+            ],
+            "except": [
+              "crash course",
+              "crash reports",
+              "crash report",
+              "crash reporter",
+              "crash reporting"
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "REGRESSION",
+      "tier": "T2",
+      "category": "regression_older",
+      "title": "Regression",
+      "why": "Something that used to work and no longer does, in any release, deserves a look soon even when there is a workaround.",
+      "source": {
+        "citation": "Semantic Versioning 2.0.0",
+        "url": "https://semver.org/spec/v2.0.0.html"
+      },
+      "match": {
+        "all": [
+          {
+            "terms": [
+              "regression",
+              "used to work",
+              "worked in",
+              "worked on",
+              "worked fine",
+              "was fine",
+              "stopped working",
+              "no longer works",
+              "broke after",
+              "broken since",
+              "since updating",
+              "since the update",
+              "after updating",
+              "after upgrading",
+              "since upgrading"
+            ],
+            "except": [
+              "regression test",
+              "regression tests",
+              "regression testing",
+              "regression coverage",
+              "regression case",
+              "regression cases",
+              "regression suite"
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "BROKEN-NO-WORKAROUND",
+      "tier": "T2",
+      "category": "broken_feature",
+      "title": "Feature broken with no workaround",
+      "why": "An important feature that does not work at all for some users, with no workaround, blocks their work.",
+      "source": {
+        "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+        "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+      },
+      "match": {
+        "all": [
+          {
+            "any": [
+              {
+                "terms": [
+                  "only option",
+                  "not really an option",
+                  "not an option",
+                  "no workaround",
+                  "is ignored",
+                  "are ignored",
+                  "never returns",
+                  "nothing changes",
+                  "always says",
+                  "rejects",
+                  "not possible",
+                  "unusable",
+                  "only I can",
+                  "drops all",
+                  "is dropped",
+                  "are dropped",
+                  "has expired",
+                  "fails with",
+                  "still uploads",
+                  "0 files"
+                ]
+              },
+              {
+                "regex": "\\bcan(?:no|')?t use\\b[^.;\\n]{0,30}\\bat all\\b|\\bcannot use\\b[^.;\\n]{0,30}\\bat all\\b"
+              },
+              {
+                "regex": "\\bfails:"
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "terms": [
+                  "cosmetic",
+                  "workaround",
+                  "work around",
+                  "minor",
+                  "works again"
+                ],
+                "include": [
+                  "affirmed",
+                  "suspected",
+                  "historical",
+                  "negated"
+                ]
+              }
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "PERFORMANCE-SEVERE",
+      "tier": "T2",
+      "category": "performance_severe",
+      "title": "Severe slowdown or memory blow-up",
+      "why": "A slowdown or memory growth that makes the tool unusable for some users is as blocking as a crash.",
+      "source": {
+        "citation": "This pack's maintainer policy (github-maintainer README, Rules section)",
+        "url": "https://github.com/logitsolutionsai/urgent-first/tree/main/packs/github-maintainer#rules"
+      },
+      "match": {
+        "all": [
+          {
+            "terms": [
+              "memory leak",
+              "out of memory",
+              "100% CPU",
+              "takes minutes",
+              "takes * minutes",
+              "minutes to open",
+              "minutes to start",
+              "GB of RAM",
+              "GB of memory",
+              "uses * GB",
+              "extremely slow",
+              "unbearably slow",
+              "very slow",
+              "10x slower",
+              "much slower",
+              "times slower"
+            ]
+          },
+          {
+            "none": [
+              {
+                "field": "metadata.type",
+                "equals": "pull_request"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,3532 @@
+{
+ "resourceType": "Bundle",
+ "type": "collection",
+ "meta": {
+  "security": [
+   {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+    "code": "HTEST",
+    "display": "test health data"
+   }
+  ]
+ },
+ "entry": [
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-002",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-002",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-002",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-002",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI brain with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-002"
+    },
+    "authoredOn": "2026-08-13T11:45:00Z",
+    "reasonCode": [
+     {
+      "text": "Migraine with aura since her teens, pattern unchanged. Anxious because her father had a CVA at 52. Normal neuro exam. Reassurance scan requested."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-004",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-004",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-004",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-004",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "MRI whole spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-004"
+    },
+    "authoredOn": "2026-02-03T17:30:00Z",
+    "reasonCode": [
+     {
+      "text": "Known metastatic prostate ca to bone. New thoracic back pain 1 wk, legs weak since yesterday, sensory level T10. ?MSCC"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-005",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-005",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-005",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-005",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "MRI lumbar spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-005"
+    },
+    "authoredOn": "2026-08-24T08:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Chronic low back pain 3 years, admitted for pain management. Neuro exam normal. Please scan before discharge tomorrow."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-008",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-008",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-008",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-008",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-008"
+    },
+    "authoredOn": "2026-10-22T17:45:00Z",
+    "reasonCode": [
+     {
+      "text": "Fell off bike, no helmet. Bruising around both eyes like panda eyes, and clear watery fluid dripping from his nose when he leans forward."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-011",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-011",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-011",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-011",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-011"
+    },
+    "authoredOn": "2026-02-01T09:20:00Z",
+    "reasonCode": [
+     {
+      "text": "First seizure, generalised, approx 2 min, witnessed by partner at 07:00. Back to baseline now, GCS 15. No head injury, no focal deficit."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-013",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-013",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-013",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-013",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "MRI lumbar spine without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-013"
+    },
+    "authoredOn": "2026-01-11T22:30:00Z",
+    "reasonCode": [
+     {
+      "text": "?CES. LBP 1 wk, now bilat sciatica, saddle anesthesia since this pm, bladder scan 900 mL residual."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-014",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-014",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-014",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-014",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI brain with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-014"
+    },
+    "authoredOn": "2026-09-30T14:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Hereditary haemorrhagic telangiectasia, genetically confirmed. Screening for brain vascular malformations. Asymptomatic."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-019",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-019",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-019",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-019",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MR angiogram head"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-019"
+    },
+    "authoredOn": "2026-03-03T14:00:00Z",
+    "reasonCode": [
+     {
+      "text": "Surveillance of known 4 mm R MCA aneurysm, unruptured, stable on last 3 scans. No headache."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-022",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-022",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-022",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-022",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "CT head without contrast and CT angiogram head"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-022"
+    },
+    "authoredOn": "2026-08-30T07:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Concern for aneurysmal bleed. Sudden severe occipital HA at 06:30 during intercourse, brief collapse. Now GCS 15, photophobic."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-023",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-023",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-023",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-023",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT neck with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-023"
+    },
+    "authoredOn": "2026-02-18T21:30:00Z",
+    "reasonCode": [
+     {
+      "text": "?parapharyngeal abscess. 5 days sore throat, trismus, fever 38.4, R neck swelling. No stridor, handling secretions, SpO2 99% on air."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-024",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-024",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-024",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-024",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-024"
+    },
+    "authoredOn": "2026-06-28T14:05:00Z",
+    "reasonCode": [
+     {
+      "text": "Struck L temple by cricket ball at 13:30. GCS 15 on arrival, now 12. L pupil sluggish."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-025",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-025",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-025",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-025",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI brain without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-025"
+    },
+    "authoredOn": "2026-03-24T14:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Yesterday afternoon she could not find her words for about 10 minutes, then completely back to normal. Nothing since."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-029",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-029",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-029",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-029",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI brain without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-029"
+    },
+    "authoredOn": "2026-01-21T10:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Gradual memory decline over 18 months. No history of stroke or TIA. Routine assessment."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-033",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-033",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-033",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-033",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-033"
+    },
+    "authoredOn": "2026-07-28T02:30:00Z",
+    "reasonCode": [
+     {
+      "text": "On apixaban (DOAC) for PE. Increasingly drowsy since midnight, new L arm weakness. GCS 13 (E3V4M6)."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-035",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-035",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-035",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-035",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI lumbar spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-035"
+    },
+    "authoredOn": "2026-10-29T12:05:00Z",
+    "reasonCode": [
+     {
+      "text": "Back pain for imaging"
+     },
+     {
+      "text": "Dear colleague, I would be grateful if you could image this 39-year-old warehouse worker with long-standing mechanical low back pain over several years, previously managed with physiotherapy, anti-inflammatories and a period of modified duties. He has had two normal lumbar X-rays in the past. He attended today because the pain has worsened over the last week and now radiates down both legs. More worrying, since two days ago he has had difficulty starting his urine stream, and he says the insides of both thighs and his bottom feel numb when he sits."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-038",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-038",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-038",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-038",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR thoracolumbar spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-038"
+    },
+    "authoredOn": "2026-10-06T14:45:00Z",
+    "reasonCode": [
+     {
+      "text": "Fell in bathroom this morning, new pain at thoracolumbar junction. Known osteoporosis. ?vertebral fracture. Legs strong, sensation normal, no bladder change."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-040",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-040",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-040",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-040",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "PET-CT skull base to mid-thigh"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-040"
+    },
+    "authoredOn": "2026-08-04T08:05:00Z",
+    "reasonCode": [
+     {
+      "text": "Response assessment 12 weeks after chemoradiotherapy for laryngeal SCC. Swallowing improving after one oesophageal dilatation, no new neck lump."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-041",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-041",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-041",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-041",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-041"
+    },
+    "authoredOn": "2026-02-15T07:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Fall on ward"
+     },
+     {
+      "text": "91-year-old man on the orthogeriatric ward recovering from a left hip hemiarthroplasty. Background: Parkinson's disease, chronic kidney disease stage 3, aspirin 75 mg only, no anticoagulant. Found sitting on the floor beside his bed at 06:40 by night staff; says he went to the toilet, slipped and struck his head on the bedside locker. Observations stable. GCS 15, at his baseline per staff. Skin intact, but under the swelling there is a palpable step in the bone over the right parietal region, ?depresed skull #."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-042",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-042",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-042",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-042",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-042"
+    },
+    "authoredOn": "2026-06-10T18:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Known glioblastoma on chemoradiotherapy. Headache and vomiting increasing over 3 days. No new weakness, GCS 15."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-044",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-044",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-044",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-044",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI brain with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-044"
+    },
+    "authoredOn": "2026-05-28T13:35:00Z",
+    "reasonCode": [
+     {
+      "text": "Treatment response 3 months after stereotactic radiosurgery to 2 brain metastases from lung adenocarcinoma. Asymptomatic."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-045",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-045",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-045",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-045",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "MRI brain with diffusion"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-045"
+    },
+    "authoredOn": "2026-01-19T11:05:00Z",
+    "reasonCode": [
+     {
+      "text": "Eval for acute ischemic CVA. Sudden loss of the right half of vision in both eyes since 10:00. Pupils equal."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-046",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-046",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-046",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-046",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "MRI lumbar spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-046"
+    },
+    "authoredOn": "2026-05-16T10:50:00Z",
+    "reasonCode": [
+     {
+      "text": "r/o cauda equinna. Known L4/5 disc. Since yesterday numb in both legs, new faecal incontinence x1."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-048",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-048",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-048",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-048",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI pituitary with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-048"
+    },
+    "authoredOn": "2026-06-30T09:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Follow-up of 6 mm pituitary microadenoma (prolactinoma) on cabergoline. Prolactin normalised. Visual fields normal."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-049",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-049",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-049",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-049",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI lumbar spine with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-049"
+    },
+    "authoredOn": "2026-09-21T10:35:00Z",
+    "reasonCode": [
+     {
+      "text": "POD2 lumbar laminectomy. Clear fluid soaking dressing, headache on sitting up that settles lying flat. Legs and bladder normal."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-051",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-051",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-051",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-051",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-051"
+    },
+    "authoredOn": "2026-01-08T10:30:00Z",
+    "reasonCode": [
+     {
+      "text": "Fall at home, hit back of head. On apixaban (DOAC). GCS 15, no LOC, no vomiting, no amnesia."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-054",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-054",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-054",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-054",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI brain and cervical spine with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-054"
+    },
+    "authoredOn": "2026-04-08T12:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Relapsing-remitting MS on ocrelizumab. Annual disease monitoring. Clinically stable, no relapse in 2 years."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-055",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-055",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-055",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-055",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "CT head and cervical spine without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-055"
+    },
+    "authoredOn": "2026-04-04T16:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Fall from ladder approx 3 m. GCS 11 (E3V3M5). Boggy L temporal swelling, clear fluid from L ear."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-059",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-059",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-059",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-059",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-059"
+    },
+    "authoredOn": "2026-06-02T16:45:00Z",
+    "reasonCode": [
+     {
+      "text": "?storke - new L sided weakness noticed at 16:20 obs round. was fine at 15:00"
+     },
+     {
+      "text": "Day 5 of admission for decompensated heart failure. On IV furosemide."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-063",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-063",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-063",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-063",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MR angiogram head"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-063"
+    },
+    "authoredOn": "2026-03-27T09:35:00Z",
+    "reasonCode": [
+     {
+      "text": "Family history of aneurysm: mother and sister both had subarachnoid bleeds. Patient well, no headache. Screening."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-065",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-065",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-065",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-065",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT head and cervical spine without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-065"
+    },
+    "authoredOn": "2026-07-12T20:35:00Z",
+    "reasonCode": [
+     {
+      "text": "MVC driver, head struck windscreen at 18:00. GCS 14 (confused) on arrival and still 14 now at 20:35."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-066",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-066",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "ACUTE"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-066",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-066",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "CT head without contrast and CT angiogram head and neck"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-066"
+    },
+    "authoredOn": "2026-03-30T08:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Not moving L side after sedation hold"
+     },
+     {
+      "text": "64M, day 1 after aortic valve replacement and single coronary bypass graft. Uneventful bypass time; extubation delayed overnight because of bleeding from the mediastinal drains, which settled after blood products. Sedation was deepened at 06:00 for a line change and the nurse documented all four limbs moving at that time. Propofol paused at 07:30 for an awakening trial. He opens his eyes and follows commands with the right hand, but there is no movement of the left arm or leg and a new left facial droop. Pupils equal and reactive."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-067",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-067",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-067",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-067",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "MRI lumbar spine with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-067"
+    },
+    "authoredOn": "2026-05-03T10:00:00Z",
+    "reasonCode": [
+     {
+      "text": "Low back pain and fever 38.2 for 4 days, CRP 140. Neuro exam normal. No IV drug use, no recent spinal procedure, blood cultures pending. ?discitis"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-069",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-069",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-069",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-069",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI cervical spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-069"
+    },
+    "authoredOn": "2026-07-15T08:40:00Z",
+    "reasonCode": [
+     {
+      "text": "Neck pain for 4 months since switching swimming stroke to butterfly. Intermittent ache, no arm weakness or numbness."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-074",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-074",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-074",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-074",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "MRI brain with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-074"
+    },
+    "authoredOn": "2026-05-12T10:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Annual review of small left convexity meningioma, unchanged for 4 years. No new symptoms."
+     }
+    ],
+    "note": [
+     {
+      "text": "In clinic today and travelled far, could this be done before she goes home?"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-077",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-077",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-077",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-077",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-077"
+    },
+    "authoredOn": "2026-08-09T20:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Banged head on open cupboard door this afternoon. Takes dabigatran. Mild headache, otherwise well."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-080",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-080",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-080",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-080",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI cervical spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-080"
+    },
+    "authoredOn": "2026-05-07T16:05:00Z",
+    "reasonCode": [
+     {
+      "text": "Neck stiffness and intermittent tingling in L thumb for a year, worse at the computer. Power normal."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-086",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-086",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-086",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-086",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MR angiogram head"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-086"
+    },
+    "authoredOn": "2026-04-30T15:05:00Z",
+    "reasonCode": [
+     {
+      "text": "h/o SAH 2015 from anterior communicating artery aneurysm, coiled. Routine imaging follow-up of coil occlusion. Well."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-095",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-095",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-095",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-095",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US carotid doppler"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-095"
+    },
+    "authoredOn": "2026-05-26T09:45:00Z",
+    "reasonCode": [
+     {
+      "text": "2 days ago like a curtain coming down over the left eye for 5 minutes, fully cleared. Vision normal today."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-096",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-096",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-096",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-096",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "MRI whole spine"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-096"
+    },
+    "authoredOn": "2026-04-18T13:00:00Z",
+    "reasonCode": [
+     {
+      "text": "Myeloma. New back pain and bilateral leg weakness, possible cord compresion."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-a-100",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-a-100",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-a-100",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-a-100",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT head without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-a-100"
+    },
+    "authoredOn": "2026-01-27T15:25:00Z",
+    "reasonCode": [
+     {
+      "text": "?haemorrage. On warfarin, INR 4.8 today. More confused since lunch and new R facial droop."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-002",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-002",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-002",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-002",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT chest without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-002"
+    },
+    "authoredOn": "2026-10-06T10:15:00Z",
+    "reasonCode": [
+     {
+      "text": "PE ruled out on CTPA in July. Routine 3-month follow-up of incidental 9 mm solid nodule right lower lobe."
+     },
+     {
+      "text": "64M, ex-smoker. No current chest symptoms."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-004",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-004",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-004",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-004",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "US venous duplex left leg"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-004"
+    },
+    "authoredOn": "2026-01-21T14:30:00Z",
+    "reasonCode": [
+     {
+      "text": "?DVT L calf. Swollen and tender 3 days after long-haul flight. No SOB, no chest pain."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-006",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-006",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-006",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-006",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI heart with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-006"
+    },
+    "authoredOn": "2026-02-05T11:40:00Z",
+    "reasonCode": [
+     {
+      "text": "Known dilated cardiomyopathy, stable on treatment. Please quantify LV ejection fraction, volumes and stroke volume."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-007",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-007",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-007",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-007",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT right thigh with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-007"
+    },
+    "authoredOn": "2026-02-09T19:50:00Z",
+    "reasonCode": [
+     {
+      "text": "?nec fasc R thigh. Pain out of proportion, erythema spreading, crepitus on palpation."
+     },
+     {
+      "text": "51M, type 2 diabetes, HbA1c 11%. Erythema now 6 cm past the pen line drawn at 17:45. Lactate 4.1, HR 116."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-009",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-009",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-009",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-009",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT chest with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-009"
+    },
+    "authoredOn": "2026-02-14T07:55:00Z",
+    "reasonCode": [
+     {
+      "text": "Slow resolving right lower lobe consolidation, please reassess before discharge."
+     },
+     {
+      "text": "78F admitted 9 days ago with community-acquired pneumonia, treated with IV then oral antibiotics, CRP down from 210 to 48. Background COPD (FEV1 55% predicted), type 2 diabetes and knee osteoarthritis. Mobilising with physio, discharge home with a package of care pending social work review. Team would like CT as the film is slow to clear. Overnight she developed new sharp left-sided chest pain worse on breathing in, HR now 124, SpO2 down from 95% to 87% on room air, and the right calf is more swollen than the left. Thromboprophylaxis stopped on day 3 because of a nosebleed."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-010",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-010",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-010",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-010",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR pelvis and left hip"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-010"
+    },
+    "authoredOn": "2026-02-16T16:10:00Z",
+    "reasonCode": [
+     {
+      "text": "84F fall at home, unable to weight bear, L leg shortened and externally rotated."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-013",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-013",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-013",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-013",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "CT angiogram abdominal aorta"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-013"
+    },
+    "authoredOn": "2026-02-26T01:12:00Z",
+    "reasonCode": [
+     {
+      "text": "Known 6.1 cm AAA, collapsed at home, severe back and flank pain, BP 82/50. ?rupture"
+     }
+    ],
+    "note": [
+     {
+      "text": "Vascular surgeon in department. Straight to theatre from scanner if positive."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-018",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-018",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-018",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-018",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US venous duplex right arm"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-018"
+    },
+    "authoredOn": "2026-03-13T11:20:00Z",
+    "reasonCode": [
+     {
+      "text": "R arm swelling and heaviness since PICC inserted 5 days ago for outpatient IV antibiotics. No chest pain, no breathlessness."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-021",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-021",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-021",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-021",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "US left hip"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-021"
+    },
+    "authoredOn": "2026-03-20T20:40:00Z",
+    "reasonCode": [
+     {
+      "text": "4 yo refusing to weight bear on L leg, temp 39.1, CRP 86. ?septic arthritis vs transient synovitis. For aspiration if effusion."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-022",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-022",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-022",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-022",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "CT angiogram aorta"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-022"
+    },
+    "authoredOn": "2026-03-22T13:15:00Z",
+    "reasonCode": [
+     {
+      "text": "?Type A disection. Sudden severe interscapular pain, new early diastolic murmur, BP L arm 170/95, R arm 132/80."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-024",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-024",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-024",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-024",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT pulmonary angiogram"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-024"
+    },
+    "authoredOn": "2026-03-27T08:30:00Z",
+    "reasonCode": [
+     {
+      "text": "POD2 R total knee replacement, sudden SOB this morning, HR 115, SpO2 91% RA."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-027",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-027",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-027",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-027",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR chest"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-027"
+    },
+    "authoredOn": "2026-04-03T09:15:00Z",
+    "reasonCode": [
+     {
+      "text": "Pneumothorax resolved on last film, routine check before discharge."
+     },
+     {
+      "text": "Chest drain removed yesterday. Asymptomatic, sats 98% on room air."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-030",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-030",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-030",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-030",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT abdomen and pelvis without contrast (renal stone protocol)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-030"
+    },
+    "authoredOn": "2026-04-09T02:30:00Z",
+    "reasonCode": [
+     {
+      "text": "L flank pain ?renal colic."
+     },
+     {
+      "text": "71M, presented with left loin pain radiating to the groin, thought to be renal colic at triage. Background hypertension, ex-smoker 40 pack years, previous MI with stent 2019, on aspirin and atorvastatin. Urine dip trace blood only. No fever. Pain not settling with IV morphine. On re-examination there is a tender pulsatile mass above the umbilicus, and over the last hour he has become pale and clammy with BP falling from 150/90 to 96/60."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-031",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-031",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-031",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-031",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US right heel (plantar fascia)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-031"
+    },
+    "authoredOn": "2026-04-10T10:30:00Z",
+    "reasonCode": [
+     {
+      "text": "Heel pain 6 months, worst on first steps in the morning. ?plantar fasciitis, considering steroid injection."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-035",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-035",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-035",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-035",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT chest, abdomen and pelvis with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-035"
+    },
+    "authoredOn": "2026-04-20T09:40:00Z",
+    "reasonCode": [
+     {
+      "text": "Staging. Newly confirmed adenocarcinoma right upper lobe on bronchoscopic biopsy. No new symptoms."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-036",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-036",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-036",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-036",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "XR chest"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-036"
+    },
+    "authoredOn": "2026-04-22T00:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Stab wound L chest, SOB, trachea deviated to R, SpO2 88%. ?tension PTX"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-040",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-040",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-040",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-040",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT pulmonary angiogram"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-040"
+    },
+    "authoredOn": "2026-05-01T10:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Thank you for seeing this 38-year-old woman who is 4 weeks post partum. She describes two days of sharp right-sided chest pain on breathing in and breathlessness climbing one flight of stairs. Her heart rate in clinic today is 112 and oxygen saturation 93% on air. Please could she have a scan to rule out a pulmonary embolus."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-043",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-043",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-043",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-043",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "CT left arm with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-043"
+    },
+    "authoredOn": "2026-05-07T03:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Necrotizing faciitis L arm? Cat bite to hand 36 h ago, erythema spreading rapidly to axilla, bullae, HR 130, BP 88/50."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-044",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-044",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-044",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-044",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "XR chest for NG tube position"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-044"
+    },
+    "authoredOn": "2026-05-09T15:00:00Z",
+    "reasonCode": [
+     {
+      "text": "Fine-bore NG tube placed at 14:30, no aspirate obtained for pH. Confirm tip below the oesophagus before feeding starts."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-046",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-046",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-046",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-046",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT chest high resolution"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-046"
+    },
+    "authoredOn": "2026-05-13T09:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Exertional breathlessness for 2 years, fine basal crackles. Query interstitial lung disease."
+     },
+     {
+      "text": "Prior PE in 2021, completed 6 months of anticoagulation. No chest pain. Echo normal last month."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-048",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-048",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "ACUTE"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-048",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-048",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR chest portable"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-048"
+    },
+    "authoredOn": "2026-05-17T06:10:00Z",
+    "reasonCode": [
+     {
+      "text": "Daily ICU film, lines and tubes."
+     },
+     {
+      "text": "65M, day 4 in ICU, ventilated for severe community-acquired pneumonia with ARDS, proned twice and now supine. Noradrenaline 0.12 and weaning. Right IJ CVC and left radial arterial line in situ, NG tube confirmed on yesterday's film. Sedation hold planned for later today, family meeting at 11:00. At 05:50, after a recruitment manoeuvre, peak airway pressure jumped from 28 to 42, SpO2 fell to 84% on FiO2 0.8, the right chest is hyperresonant with reduced breath sounds, and there is new subcutaneous emphysema in the neck."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-050",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-050",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-050",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-050",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT chest with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-050"
+    },
+    "authoredOn": "2026-05-21T13:35:00Z",
+    "reasonCode": [
+     {
+      "text": "Oncology surveillance 12 months after L mastectomy and axillary node dissection. Well, no new symptoms."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-051",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-051",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-051",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-051",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "NM lung perfusion scan"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-051"
+    },
+    "authoredOn": "2026-05-23T10:55:00Z",
+    "reasonCode": [
+     {
+      "text": "28/40 pregnant, sudden pleuritic chest pain and SOB, HR 112, SpO2 94%. CXR normal. r/o PE."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-052",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-052",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-052",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-052",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US right shoulder +/- guided aspiration"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-052"
+    },
+    "authoredOn": "2026-05-25T17:10:00Z",
+    "reasonCode": [
+     {
+      "text": "Hot swollen R shoulder, fever 38.6, on methotrexate and prednisolone for RA. Possible septic arthritis, joint hard to aspirate blind."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-059",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-059",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-059",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-059",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR chest inspiratory and expiratory"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-059"
+    },
+    "authoredOn": "2026-06-06T17:20:00Z",
+    "reasonCode": [
+     {
+      "text": "3 yo, sudden coughing fit while eating popcorn at 16:00, now persistent wheeze on L, RR 40, SpO2 92%. ?inhaled FB."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-061",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-061",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-061",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-061",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT pulmonary angiogram"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-061"
+    },
+    "authoredOn": "2026-06-10T14:15:00Z",
+    "reasonCode": [
+     {
+      "text": "?pulmonary embolsim. Pleuritic chest pain and SOB 2 days, HR 104, D-dimer 2400, recent R calf pain."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-066",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-066",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-066",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-066",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "US venous duplex right leg"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-066"
+    },
+    "authoredOn": "2026-06-21T11:15:00Z",
+    "reasonCode": [
+     {
+      "text": "R leg swelling to thigh with pitting oedema, ca pancreas on chemo. ?DVT. Sats normal, no chest pain."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-068",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-068",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-068",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-068",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT left thigh with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-068"
+    },
+    "authoredOn": "2026-06-25T19:40:00Z",
+    "reasonCode": [
+     {
+      "text": "Cellulitis L thigh not improving on IV antibiotics."
+     },
+     {
+      "text": "56F, BMI 41, type 2 diabetes on insulin, admitted 2 days ago with left thigh cellulitis. Started IV flucloxacillin, clindamycin added yesterday. Pain team reviewed for rising analgesia requirement. Over the last 6 hours the redness has spread rapidly past the drawn margins, the skin is turning purple-grey with a large bulla, she needs morphine for pain that seems far worse than the skin looks, and the nurse felt crackling under the skin. Lactate 3.8, HR 124."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-071",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-071",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-071",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-071",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR chest"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-071"
+    },
+    "authoredOn": "2026-07-01T16:00:00Z",
+    "reasonCode": [
+     {
+      "text": "Pre-op film for elective hip replacement tomorrow. No SOB, no chest pain."
+     },
+     {
+      "text": "Prior DVT 2015, no current treatment. h/o CVA 2020 with no residual weakness."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-073",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-073",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-073",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-073",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "MRI left tibia with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-073"
+    },
+    "authoredOn": "2026-07-05T13:00:00Z",
+    "reasonCode": [
+     {
+      "text": "9 yo, limp and fever 3 days, point tenderness distal L tibia, CRP 95, XR normal. ?acute osteomyelitis."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-074",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-074",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-074",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-074",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "XR chest"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-074"
+    },
+    "authoredOn": "2026-07-07T02:40:00Z",
+    "reasonCode": [
+     {
+      "text": "MVC, L chest wall bruising, surgical emphysema, SpO2 90% on NRB. ?PTX/hemothorax"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-075",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-075",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-075",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-075",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT chest with contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-075"
+    },
+    "authoredOn": "2026-07-09T10:10:00Z",
+    "reasonCode": [
+     {
+      "text": "Routine follow-up 1 year after embolisation of a right lower lobe pulmonary AVM. Asymptomatic, check for reperfusion."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-077",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-077",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-077",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-077",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "US venous duplex left leg"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-077"
+    },
+    "authoredOn": "2026-07-13T12:20:00Z",
+    "reasonCode": [
+     {
+      "text": "L leg swelling 10 days after knee arthroscopy. Possible DVT. No chest pain, no SOB, SpO2 99%."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-078",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-078",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-078",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-078",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "CT angiogram aorta"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-078"
+    },
+    "authoredOn": "2026-07-15T18:45:00Z",
+    "reasonCode": [
+     {
+      "text": "r/o dissection. Marfan syndrome, sudden severe chest pain to back, onset 18:15."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-079",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-079",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-079",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-079",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "MRI right knee"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-079"
+    },
+    "authoredOn": "2026-07-17T14:35:00Z",
+    "reasonCode": [
+     {
+      "text": "Ruptured ACL 2018, reconstructed 2019. Now medial joint line pain and locking, ?meniscal tear."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-080",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-080",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-080",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-080",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR chest"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-080"
+    },
+    "authoredOn": "2026-07-22T17:55:00Z",
+    "reasonCode": [
+     {
+      "text": "Sharp L chest pain and breathlessness since acupuncture to the upper back at 16:30."
+     },
+     {
+      "text": "45F, slim, non-smoker. Says she can't take a full breath. SpO2 95%."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-082",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-082",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-082",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-082",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US left popliteal fossa"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-082"
+    },
+    "authoredOn": "2026-08-03T09:45:00Z",
+    "reasonCode": [
+     {
+      "text": "Negative for DVT on duplex 2 weeks ago. Persistent ache and fullness behind L knee, ?Baker's cyst."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-090",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-090",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-090",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-090",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "XR left elbow"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-090"
+    },
+    "authoredOn": "2026-09-06T18:30:00Z",
+    "reasonCode": [
+     {
+      "text": "7 yo fell off trampoline onto outstretched hand, swollen deformed L elbow, holding arm still, radial pulse present, hand pink. ?supracondylar #"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-091",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-091",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-091",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-091",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "CT angiogram chest (bronchial arteries)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-091"
+    },
+    "authoredOn": "2026-09-10T07:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Massive hemoptysis, approx 300 mL bright red blood over 2 h, known bronchiectasis. SpO2 91% on 4L, HR 115."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-b-092",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-b-092",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-b-092",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-b-092",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT chest without contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-b-092"
+    },
+    "authoredOn": "2026-09-15T10:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Prior R pneumothorax 2022 treated with drain, no recurrence. Wants to take up scuba diving, CT for bullae before dive medical."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-002",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-002",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-002",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-002",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT abdomen and pelvis with IV contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-002"
+    },
+    "authoredOn": "2026-01-08T15:35:00Z",
+    "reasonCode": [
+     {
+      "text": "RLQ pain 24h, ?appendicitis"
+     },
+     {
+      "text": "35M. Started periumbilical, moved to the RLQ, anorexic, T 37.8, WCC 14.1."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-004",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-004",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-004",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-004",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR KUB"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-004"
+    },
+    "authoredOn": "2026-01-14T13:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Post shock wave lithotripsy check"
+     },
+     {
+      "text": "ESWL 3 weeks ago for a 9 mm R renal pelvis stone. Pain-free, passed some gravel. Check for residual fragments."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-006",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-006",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-006",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-006",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "CT abdomen and pelvis with IV contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-006"
+    },
+    "authoredOn": "2026-01-19T17:25:00Z",
+    "reasonCode": [
+     {
+      "text": "Possible large bowel obstruction"
+     },
+     {
+      "text": "82F care home resident. Absolute constipation for 4 days, distended and tympanic, vomiting today. 3 months of change in bowel habit and weight loss. AXR: dilated colon down to the sigmoid. Caecum not tender."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-007",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-007",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-007",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-007",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "US pelvis transabdominal and transvaginal"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-007"
+    },
+    "authoredOn": "2026-01-23T19:20:00Z",
+    "reasonCode": [
+     {
+      "text": "?ectopc pregnancy - PV bleeding + LIF pain, BHCG +ve"
+     },
+     {
+      "text": "Previous chlamydia. Pain 8/10. HR 102."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-009",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-009",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-009",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-009",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT angiogram abdomen and pelvis"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-009"
+    },
+    "authoredOn": "2026-01-29T09:05:00Z",
+    "reasonCode": [
+     {
+      "text": "Ongoing abdominal pain, admitted as gastroenteritis"
+     },
+     {
+      "text": "79F admitted overnight under medicine with vomiting and loose stools, presumed viral gastroenteritis as grandchildren were unwell last week. PMH: AF (warfarin stopped in 2024 after falls), peripheral vascular disease with right iliac stent, hypertension, CKD stage 3. Rehydrated with IV fluids overnight. Morning review: pain now much worse, she is calling out and cannot get comfortable, yet the abdomen is soft with only mild central tenderness. HR 112 irregular, BP 128/70, lactate 3.9 (1.4 on admission). Eval for acute bowel ischaemia."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-010",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-010",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-010",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-010",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT angiogram abdomen (mesenteric)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-010"
+    },
+    "authoredOn": "2026-02-02T14:40:00Z",
+    "reasonCode": [
+     {
+      "text": "?chronic mesenteric ischaemia"
+     },
+     {
+      "text": "68M, heavy smoker, peripheral vascular disease. 6 months of pain 20-30 min after meals, now avoids eating, 8 kg weight loss. Pain-free between meals and no pain today. Clinic referral."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-014",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-014",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-014",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-014",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT abdomen and pelvis with IV contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-014"
+    },
+    "authoredOn": "2026-02-11T16:25:00Z",
+    "reasonCode": [
+     {
+      "text": "s/p ERCP + precut sphincterotomy this am, now severe epigastric pain radiating to back. ?perforation"
+     },
+     {
+      "text": "ERCP started 09:30 under general anaesthetic for CBD stones, difficult cannulation, precut needed, stones cleared. Pain from about 12:00 and getting worse. HR 118, BP 104/66, T 37.9. ?crepitus over R flank. Amylase sent."
+     }
+    ],
+    "note": [
+     {
+      "text": "Please phone result to surgical registrar, bleep 2231"
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-015",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-015",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-015",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-015",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "US abdomen (upper)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-015"
+    },
+    "authoredOn": "2026-02-14T13:45:00Z",
+    "reasonCode": [
+     {
+      "text": "RUQ pain, fever 38.3, Murphy's +ve, ?acute cholecystitis"
+     },
+     {
+      "text": "47F, gallstones on a scan in 2024. Pain since last night after a fatty meal. WCC 15."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-017",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-017",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-017",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-017",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "XR abdomen"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-017"
+    },
+    "authoredOn": "2026-02-19T20:40:00Z",
+    "reasonCode": [
+     {
+      "text": "Abdominal pain 2 days ?constipation ?faecal loading"
+     },
+     {
+      "text": "11F with two days of central abdominal pain, worse after eating, no fever. Bowels last opened three days ago, usually daily. Diet poor recently and drinking little water at school. No urinary symptoms, periods not yet started. On examination mild central tenderness, no guarding, nothing palpable. As they were leaving, mum mentioned that two of the magnetic fake-piercing studs from her daughter's new jewellery set are missing, and the girl has now admitted she swallowed them yesterday while playing with them in her mouth."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-018",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-018",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-018",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-018",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT abdomen and pelvis with IV contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-018"
+    },
+    "authoredOn": "2026-02-24T09:50:00Z",
+    "reasonCode": [
+     {
+      "text": "Abdominal pain, raised inflammatory markers"
+     },
+     {
+      "text": "68F admitted under general medicine 2 days ago with fatigue, low-grade temperature and reduced appetite after a week of a 'tummy bug'. PMH: hypothyroidism, osteoarthritis, previous cholecystectomy. Urine dip trace leucocytes, cultures pending. Started on oral antibiotics for presumed UTI without improvement. Today on review she localises the pain to the right lower quadrant, and there is a tender, ill-defined mass in the RLQ with localised guarding; CRP 180. Possible appendix mass or abscess, caecal tumour also in the differential."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-023",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-023",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-023",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-023",
+    "status": "active",
+    "intent": "order",
+    "priority": "asap",
+    "code": {
+     "text": "US pelvis transvaginal with Doppler"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-023"
+    },
+    "authoredOn": "2026-03-09T22:10:00Z",
+    "reasonCode": [
+     {
+      "text": "?adnexal torsion post egg collection"
+     },
+     {
+      "text": "IVF egg collection 5 days ago, 22 oocytes, admitted with mild OHSS, ovaries about 9 cm. From 20:30 sudden severe L pelvic pain and vomiting, not settling with morphine."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-025",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-025",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-025",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-025",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "US abdomen and pelvis (FAST and transvaginal)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-025"
+    },
+    "authoredOn": "2026-03-15T04:05:00Z",
+    "reasonCode": [
+     {
+      "text": "Collapse, urine hCG positive, ?ruptured ectopic ?hemoperitoneum"
+     },
+     {
+      "text": "28F found collapsed by partner, brief LOC. BP 78/40, HR 136. Abdomen distended and diffusely tender. Massive transfusion protocol started."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-027",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-027",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-027",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-027",
+    "status": "active",
+    "intent": "order",
+    "priority": "stat",
+    "code": {
+     "text": "XR neck, chest and abdomen (foreign body)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-027"
+    },
+    "authoredOn": "2026-03-21T11:30:00Z",
+    "reasonCode": [
+     {
+      "text": "Query button battery ingestion approx 2 hrs ago, ?lodged in esophagus"
+     },
+     {
+      "text": "4yo, battery from a car key fob. Coughed once, otherwise no symptoms. Honey given at home."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-030",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-030",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-030",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-030",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT angiogram abdomen and pelvis"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-030"
+    },
+    "authoredOn": "2026-03-27T18:40:00Z",
+    "reasonCode": [
+     {
+      "text": "Severe abdo pain but abdomen soft and barely tender. Pt writhing"
+     },
+     {
+      "text": "81M. AF, DOAC (apixaban) stopped 3 weeks ago after a GI bleed. Pain started suddenly about 2 hours ago, vomited twice, then one loose stool. Abdomen soft with only mild tenderness. Lactate 4.2."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-031",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-031",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-031",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-031",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US abdomen (appendix)"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-031"
+    },
+    "authoredOn": "2026-03-30T10:10:00Z",
+    "reasonCode": [
+     {
+      "text": "8yo RIF pain since yesterday, query appendicitis"
+     },
+     {
+      "text": "Hurts to hop and to walk, low-grade fever 37.9, vomited once. Not peritonitic."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-032",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-032",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-032",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-032",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US abdomen"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-032"
+    },
+    "authoredOn": "2026-04-04T06:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Prolonged jaundice, ?biliary atresia"
+     },
+     {
+      "text": "2-week-old girl admitted from the jaundice clinic. Born at term, breastfed, back to birth weight by day 10. Conjugated fraction 18%, stools pale yellow per mum, urine not dark. Thyroid function pending. Plan was a routine US abdomen this week to look at the gallbladder and biliary tree. Overnight update from the ward team: at 02:00 she vomited bright green twice, her abdomen is now distended and tender, and she has been much less interested in feeds since."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-037",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-037",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "AMB"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-037",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-037",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "US abdominal aorta"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-037"
+    },
+    "authoredOn": "2026-04-20T09:20:00Z",
+    "reasonCode": [
+     {
+      "text": "Family history of AAA - screening request"
+     },
+     {
+      "text": "58M smoker. Father and uncle both had AAA repair. No abdominal or back pain."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-038",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-038",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-038",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-038",
+    "status": "active",
+    "intent": "order",
+    "priority": "routine",
+    "code": {
+     "text": "CT abdomen and pelvis with IV and rectal contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-038"
+    },
+    "authoredOn": "2026-04-22T10:05:00Z",
+    "reasonCode": [
+     {
+      "text": "CT abdo pelvis post anterior resection"
+     },
+     {
+      "text": "67M. Laparoscopic anterior resection for upper rectal cancer on 19/04, primary anastomosis, no defunctioning stoma. Uneventful day 1 and day 2: mobilising, tolerating free fluids, epidural out, drain removed POD2. Background: type 2 diabetes on metformin (held), hypertension, ex-smoker. Pre-op staging CT showed no distant disease. Overnight he felt 'not right' with more abdominal pain than expected and the nurse noted new AF. This morning, POD3: HR 126 irregular, T 38.4, RR 24, generalised peritonism worst in the pelvis, lactate 3.1, CRP 290. Concern for anastomotic leak."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-042",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-042",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "IMP"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-042",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-042",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "CT abdomen and pelvis with IV contrast"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-042"
+    },
+    "authoredOn": "2026-05-05T13:10:00Z",
+    "reasonCode": [
+     {
+      "text": "Diverticulitis not settling on IV abx day 5, ?abscess"
+     },
+     {
+      "text": "LIF mass, swinging fever to 38.6, CRP 240 (was 180)."
+     }
+    ]
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:enc-rad-c-044",
+   "resource": {
+    "resourceType": "Encounter",
+    "id": "enc-rad-c-044",
+    "status": "in-progress",
+    "class": {
+     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+     "code": "EMER"
+    }
+   }
+  },
+  {
+   "fullUrl": "urn:uuid:rad-c-044",
+   "resource": {
+    "resourceType": "ServiceRequest",
+    "id": "rad-c-044",
+    "status": "active",
+    "intent": "order",
+    "priority": "urgent",
+    "code": {
+     "text": "XR chest and abdomen"
+    },
+    "encounter": {
+     "reference": "urn:uuid:enc-rad-c-044"
+    },
+    "authoredOn": "2026-05-09T15:15:00Z",
+    "reasonCode": [
+     {
+      "text": "Swallowed 3 small magnetic balls from brother's desk toy"
+     },
+     {
+      "text": "6yo, swallowed around midday. Now mild central abdominal pain, no vomiting."
+     }
+    ]
+   }
+  }
+ ]
+}

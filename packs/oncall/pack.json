@@ -1,0 +1,386 @@
+{
+  "$schema": "../../schema/pack.schema.json",
+  "name": "oncall",
+  "version": "0.1.0",
+  "title": "On-call and support tickets",
+  "description": "A small starter pack for a software-as-a-service support queue: outages, payments, security incidents and data loss first, whatever priority the ticket form defaulted to.",
+  "mode": "standard",
+  "item_noun": "ticket",
+  "tiers": [
+    {
+      "id": "T1",
+      "name": "Page now",
+      "description": "Outage, data loss, security incident or payments failing.",
+      "sla_minutes": 15
+    },
+    {
+      "id": "T2",
+      "name": "This shift",
+      "description": "Degraded service, one large customer blocked, something expiring within days.",
+      "sla_minutes": 240
+    },
+    {
+      "id": "T3",
+      "name": "In order",
+      "description": "Baseline. Shown under 'No rule matched' in the original order."
+    }
+  ],
+  "floor": {
+    "priority": {
+      "P0": "T1",
+      "P1": "T1",
+      "P2": "T2",
+      "P3": "T3",
+      "P4": "T3"
+    },
+    "labels": [
+      {
+        "match": "incident",
+        "tier": "T2"
+      },
+      {
+        "match": "sev1",
+        "tier": "T1"
+      }
+    ],
+    "missing_priority": "baseline",
+    "unknown_priority": "baseline"
+  },
+  "matching": {
+    "typos": true,
+    "typo_min_length": 8,
+    "window": 6
+  },
+  "context": {
+    "pseudo": [
+      "not sure",
+      "not sure if",
+      "not sure who"
+    ]
+  },
+  "rules": [
+    {
+      "id": "OUTAGE",
+      "tier": "T1",
+      "category": "outage",
+      "title": "Possible outage",
+      "why": "Many customers, a whole region or every client failing at once, often while the status page still looks green, is an incident until proved otherwise.",
+      "source": {
+        "citation": "Google SRE book, chapter 14: Managing Incidents",
+        "url": "https://sre.google/sre-book/managing-incidents/"
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "outage",
+              "is down",
+              "are down",
+              "went down",
+              "service down",
+              "site down",
+              "all customers",
+              "every customer",
+              "nobody can",
+              "no one can",
+              "for everyone",
+              "status page",
+              "status is green",
+              "unreachable",
+              "cannot reach",
+              "could not reach",
+              "couldn't reach",
+              "spins forever",
+              "waiting for server",
+              "500 for all",
+              "502",
+              "503"
+            ]
+          },
+          {
+            "regex": "\\b\\d{2,}\\s+(?:chats|tickets|reports|calls|emails)\\b"
+          },
+          {
+            "near": [
+              [
+                "every",
+                "all"
+              ],
+              [
+                "clients",
+                "customers",
+                "offices",
+                "regions"
+              ]
+            ],
+            "within": 4,
+            "typos": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "PAYMENTS-FAILING",
+      "tier": "T1",
+      "category": "payments_failing",
+      "title": "Payments or checkout failing",
+      "why": "Failing charges, renewals or checkout lose revenue every minute and can push accounts into dunning.",
+      "source": {
+        "citation": "Google SRE book, chapter 14: Managing Incidents",
+        "url": "https://sre.google/sre-book/managing-incidents/"
+      },
+      "match": {
+        "near": [
+          [
+            "charge",
+            "charges",
+            "charging",
+            "payment",
+            "payments",
+            "checkout",
+            "renewal",
+            "renewals",
+            "upgrades",
+            "invoices",
+            "card"
+          ],
+          [
+            "fail",
+            "fails",
+            "failed",
+            "failing",
+            "timeout",
+            "timeouts",
+            "went wrong",
+            "zero",
+            "none collected",
+            "not going through",
+            "declined",
+            "error",
+            "errors"
+          ]
+        ],
+        "within": 8,
+        "typos": false
+      }
+    },
+    {
+      "id": "SECURITY-INCIDENT",
+      "tier": "T1",
+      "category": "security_incident",
+      "title": "Possible security incident",
+      "why": "One customer seeing another's data, leaked credentials or a takeover must be contained immediately, whatever priority the reporter picked.",
+      "source": {
+        "citation": "CISA National Cyber Incident Scoring System (NCISS)",
+        "url": "https://www.cisa.gov/topics/cyber-threats-and-response/incident-response/cisa-national-cyber-incident-scoring-system-nciss"
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "security incident",
+              "data breach",
+              "breach",
+              "compromised",
+              "account takeover",
+              "taken over",
+              "leaked",
+              "data leak",
+              "leaking",
+              "exposed",
+              "phishing",
+              "unauthorized",
+              "unauthorised",
+              "another company",
+              "another tenant",
+              "other customers' data",
+              "not ours",
+              "never shared",
+              "another customer's data",
+              "another customer's project",
+              "another customer's file",
+              "another customer's account",
+              "another customer's note",
+              "another customer's document",
+              "another customer's workspace",
+              "another customer's repo",
+              "another customer's repository",
+              "another customer's private",
+              "another customer's invoice",
+              "another customer's billing",
+              "someone else's data",
+              "someone else's project",
+              "someone else's file",
+              "someone else's account",
+              "someone else's note",
+              "someone else's document",
+              "someone else's workspace",
+              "someone else's repo",
+              "someone else's repository",
+              "someone else's private",
+              "someone else's invoice",
+              "someone else's billing"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "DATA-LOSS",
+      "tier": "T1",
+      "category": "data_loss",
+      "title": "Data lost or overwritten",
+      "why": "Customers losing notes or files they cannot get back needs action before backups and retention windows roll over.",
+      "source": {
+        "citation": "Google SRE book, chapter 14: Managing Incidents",
+        "url": "https://sre.google/sre-book/managing-incidents/"
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "data loss",
+              "lost all",
+              "lost everything",
+              "all gone",
+              "is gone",
+              "are gone",
+              "wiped",
+              "erased",
+              "overwritten",
+              "overwrote",
+              "corrupted",
+              "deleted all",
+              "disappeared",
+              "vanished",
+              "cannot recover",
+              "empty notebook",
+              "notebooks are empty"
+            ]
+          },
+          {
+            "near": [
+              [
+                "lost",
+                "deleted",
+                "missing",
+                "gone",
+                "empty",
+                "blank",
+                "disappeared"
+              ],
+              [
+                "notes",
+                "files",
+                "notebooks",
+                "data",
+                "attachments",
+                "workspace",
+                "folders",
+                "documents"
+              ]
+            ],
+            "within": 5,
+            "typos": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "CUSTOMER-BLOCKED",
+      "tier": "T2",
+      "category": "customer_blocked",
+      "title": "One customer blocked",
+      "why": "A whole customer unable to sign in, edit or onboard is a same-shift problem even when other customers are fine.",
+      "source": {
+        "citation": "Google SRE book, chapter 14: Managing Incidents",
+        "url": "https://sre.google/sre-book/managing-incidents/"
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "cannot sign in",
+              "can not sign in",
+              "cannot log in",
+              "cannot login",
+              "unable to sign in",
+              "unable to log in",
+              "sign-in failed",
+              "cannot edit",
+              "cannot invite",
+              "blocked",
+              "none of their staff",
+              "none of our staff",
+              "whole company works",
+              "seat limit",
+              "is read-only",
+              "stuck in read-only",
+              "read-only mode"
+            ]
+          },
+          {
+            "regex": "\\b\\d{1,3}(?:,\\d{3})*\\s+(?:people|users|staff|employees|seats)\\b[^.;\\n]{0,30}\\b(?:can't|cannot|can not|waiting|unable)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "DEGRADED",
+      "tier": "T2",
+      "category": "degraded",
+      "title": "Degraded service",
+      "why": "Elevated errors, latency or intermittent failures often come before an outage.",
+      "source": {
+        "citation": "Google SRE book, chapter 14: Managing Incidents",
+        "url": "https://sre.google/sre-book/managing-incidents/"
+      },
+      "match": {
+        "terms": [
+          "degraded",
+          "elevated errors",
+          "error rate",
+          "latency",
+          "very slow",
+          "slow for",
+          "intermittent",
+          "timeouts",
+          "timing out",
+          "times out",
+          "partial outage",
+          "some customers"
+        ]
+      }
+    },
+    {
+      "id": "EXPIRING",
+      "tier": "T2",
+      "category": "cert_or_quota_expiring",
+      "title": "Certificate, domain or quota about to expire",
+      "why": "An expiry a few days away turns into an outage on a known date if nobody owns it now.",
+      "source": {
+        "citation": "Google SRE book, chapter 14: Managing Incidents",
+        "url": "https://sre.google/sre-book/managing-incidents/"
+      },
+      "match": {
+        "any": [
+          {
+            "terms": [
+              "certificate expires",
+              "cert expires",
+              "certificate expiring",
+              "cert expiring",
+              "expires in",
+              "expiring in",
+              "expires on",
+              "will expire",
+              "quota",
+              "storage limit",
+              "domain expires"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

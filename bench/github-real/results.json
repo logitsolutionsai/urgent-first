@@ -1,0 +1,2954 @@
+{
+  "splits": {
+    "dev": {
+      "repos": [
+        "vitejs/vite",
+        "nodejs/node"
+      ],
+      "before": {
+        "items": 80,
+        "urgent": 40,
+        "baseline": 40,
+        "flagged": 33,
+        "flagged_t1": 16,
+        "recall": 0.625,
+        "recall_wilson95": [
+          0.4703,
+          0.7578
+        ],
+        "recall_count": 25,
+        "precision": 0.7576,
+        "precision_wilson95": [
+          0.5898,
+          0.8717
+        ],
+        "precision_count": 25,
+        "false_flag_rate": 0.2,
+        "false_flag_wilson95": [
+          0.105,
+          0.3476
+        ],
+        "false_flag_count": 8,
+        "gold_t1": 7,
+        "t1_caught_at_t1": 3,
+        "confusion": {
+          "T1": {
+            "T1": 3,
+            "T2": 0,
+            "T3": 4
+          },
+          "T2": {
+            "T1": 9,
+            "T2": 13,
+            "T3": 11
+          },
+          "T3": {
+            "T1": 4,
+            "T2": 4,
+            "T3": 32
+          }
+        }
+      },
+      "after": {
+        "items": 80,
+        "urgent": 40,
+        "baseline": 40,
+        "flagged": 33,
+        "flagged_t1": 16,
+        "recall": 0.625,
+        "recall_wilson95": [
+          0.4703,
+          0.7578
+        ],
+        "recall_count": 25,
+        "precision": 0.7576,
+        "precision_wilson95": [
+          0.5898,
+          0.8717
+        ],
+        "precision_count": 25,
+        "false_flag_rate": 0.2,
+        "false_flag_wilson95": [
+          0.105,
+          0.3476
+        ],
+        "false_flag_count": 8,
+        "gold_t1": 7,
+        "t1_caught_at_t1": 3,
+        "confusion": {
+          "T1": {
+            "T1": 3,
+            "T2": 0,
+            "T3": 4
+          },
+          "T2": {
+            "T1": 9,
+            "T2": 13,
+            "T3": 11
+          },
+          "T3": {
+            "T1": 4,
+            "T2": 4,
+            "T3": 32
+          }
+        }
+      },
+      "review": {
+        "items": 80,
+        "urgent": 40,
+        "baseline": 40,
+        "flagged": 43,
+        "flagged_t1": 18,
+        "recall": 0.875,
+        "recall_wilson95": [
+          0.7389,
+          0.9454
+        ],
+        "recall_count": 35,
+        "precision": 0.814,
+        "precision_wilson95": [
+          0.6738,
+          0.9026
+        ],
+        "precision_count": 35,
+        "false_flag_rate": 0.2,
+        "false_flag_wilson95": [
+          0.105,
+          0.3476
+        ],
+        "false_flag_count": 8,
+        "gold_t1": 7,
+        "t1_caught_at_t1": 3,
+        "confusion": {
+          "T1": {
+            "T1": 3,
+            "T2": 2,
+            "T3": 2
+          },
+          "T2": {
+            "T1": 11,
+            "T2": 19,
+            "T3": 3
+          },
+          "T3": {
+            "T1": 4,
+            "T2": 4,
+            "T3": 32
+          }
+        }
+      }
+    },
+    "heldout": {
+      "repos": [
+        "flutter/flutter",
+        "rust-lang/rust",
+        "kubernetes/kubernetes",
+        "python/cpython"
+      ],
+      "before": {
+        "items": 149,
+        "urgent": 79,
+        "baseline": 70,
+        "flagged": 48,
+        "flagged_t1": 21,
+        "recall": 0.4177,
+        "recall_wilson95": [
+          0.3153,
+          0.5278
+        ],
+        "recall_count": 33,
+        "precision": 0.6875,
+        "precision_wilson95": [
+          0.5467,
+          0.8005
+        ],
+        "precision_count": 33,
+        "false_flag_rate": 0.2143,
+        "false_flag_wilson95": [
+          0.1344,
+          0.3239
+        ],
+        "false_flag_count": 15,
+        "gold_t1": 79,
+        "t1_caught_at_t1": 17,
+        "confusion": {
+          "T1": {
+            "T1": 17,
+            "T2": 16,
+            "T3": 46
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 4,
+            "T2": 11,
+            "T3": 55
+          }
+        }
+      },
+      "after": {
+        "items": 149,
+        "urgent": 79,
+        "baseline": 70,
+        "flagged": 48,
+        "flagged_t1": 21,
+        "recall": 0.4177,
+        "recall_wilson95": [
+          0.3153,
+          0.5278
+        ],
+        "recall_count": 33,
+        "precision": 0.6875,
+        "precision_wilson95": [
+          0.5467,
+          0.8005
+        ],
+        "precision_count": 33,
+        "false_flag_rate": 0.2143,
+        "false_flag_wilson95": [
+          0.1344,
+          0.3239
+        ],
+        "false_flag_count": 15,
+        "gold_t1": 79,
+        "t1_caught_at_t1": 17,
+        "confusion": {
+          "T1": {
+            "T1": 17,
+            "T2": 16,
+            "T3": 46
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 4,
+            "T2": 11,
+            "T3": 55
+          }
+        }
+      },
+      "review": {
+        "items": 149,
+        "urgent": 79,
+        "baseline": 70,
+        "flagged": 59,
+        "flagged_t1": 30,
+        "recall": 0.557,
+        "recall_wilson95": [
+          0.4473,
+          0.6613
+        ],
+        "recall_count": 44,
+        "precision": 0.7458,
+        "precision_wilson95": [
+          0.622,
+          0.8394
+        ],
+        "precision_count": 44,
+        "false_flag_rate": 0.2143,
+        "false_flag_wilson95": [
+          0.1344,
+          0.3239
+        ],
+        "false_flag_count": 15,
+        "gold_t1": 79,
+        "t1_caught_at_t1": 26,
+        "confusion": {
+          "T1": {
+            "T1": 26,
+            "T2": 18,
+            "T3": 35
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 4,
+            "T2": 11,
+            "T3": 55
+          }
+        }
+      }
+    }
+  },
+  "per_repo": {
+    "vitejs/vite": {
+      "before": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 15,
+        "flagged_t1": 7,
+        "recall": 0.65,
+        "recall_wilson95": [
+          0.4329,
+          0.8188
+        ],
+        "recall_count": 13,
+        "precision": 0.8667,
+        "precision_wilson95": [
+          0.6212,
+          0.9626
+        ],
+        "precision_count": 13,
+        "false_flag_rate": 0.1,
+        "false_flag_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 7,
+        "t1_caught_at_t1": 3,
+        "confusion": {
+          "T1": {
+            "T1": 3,
+            "T2": 0,
+            "T3": 4
+          },
+          "T2": {
+            "T1": 3,
+            "T2": 7,
+            "T3": 3
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 18
+          }
+        }
+      },
+      "after": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 15,
+        "flagged_t1": 7,
+        "recall": 0.65,
+        "recall_wilson95": [
+          0.4329,
+          0.8188
+        ],
+        "recall_count": 13,
+        "precision": 0.8667,
+        "precision_wilson95": [
+          0.6212,
+          0.9626
+        ],
+        "precision_count": 13,
+        "false_flag_rate": 0.1,
+        "false_flag_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 7,
+        "t1_caught_at_t1": 3,
+        "confusion": {
+          "T1": {
+            "T1": 3,
+            "T2": 0,
+            "T3": 4
+          },
+          "T2": {
+            "T1": 3,
+            "T2": 7,
+            "T3": 3
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 18
+          }
+        }
+      },
+      "review": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 20,
+        "flagged_t1": 7,
+        "recall": 0.9,
+        "recall_wilson95": [
+          0.699,
+          0.9721
+        ],
+        "recall_count": 18,
+        "precision": 0.9,
+        "precision_wilson95": [
+          0.699,
+          0.9721
+        ],
+        "precision_count": 18,
+        "false_flag_rate": 0.1,
+        "false_flag_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 7,
+        "t1_caught_at_t1": 3,
+        "confusion": {
+          "T1": {
+            "T1": 3,
+            "T2": 2,
+            "T3": 2
+          },
+          "T2": {
+            "T1": 3,
+            "T2": 10,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 18
+          }
+        }
+      }
+    },
+    "nodejs/node": {
+      "before": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 18,
+        "flagged_t1": 9,
+        "recall": 0.6,
+        "recall_wilson95": [
+          0.3866,
+          0.7812
+        ],
+        "recall_count": 12,
+        "precision": 0.6667,
+        "precision_wilson95": [
+          0.4375,
+          0.8372
+        ],
+        "precision_count": 12,
+        "false_flag_rate": 0.3,
+        "false_flag_wilson95": [
+          0.1455,
+          0.519
+        ],
+        "false_flag_count": 6,
+        "gold_t1": 0,
+        "t1_caught_at_t1": 0,
+        "confusion": {
+          "T1": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T2": {
+            "T1": 6,
+            "T2": 6,
+            "T3": 8
+          },
+          "T3": {
+            "T1": 3,
+            "T2": 3,
+            "T3": 14
+          }
+        }
+      },
+      "after": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 18,
+        "flagged_t1": 9,
+        "recall": 0.6,
+        "recall_wilson95": [
+          0.3866,
+          0.7812
+        ],
+        "recall_count": 12,
+        "precision": 0.6667,
+        "precision_wilson95": [
+          0.4375,
+          0.8372
+        ],
+        "precision_count": 12,
+        "false_flag_rate": 0.3,
+        "false_flag_wilson95": [
+          0.1455,
+          0.519
+        ],
+        "false_flag_count": 6,
+        "gold_t1": 0,
+        "t1_caught_at_t1": 0,
+        "confusion": {
+          "T1": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T2": {
+            "T1": 6,
+            "T2": 6,
+            "T3": 8
+          },
+          "T3": {
+            "T1": 3,
+            "T2": 3,
+            "T3": 14
+          }
+        }
+      },
+      "review": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 23,
+        "flagged_t1": 11,
+        "recall": 0.85,
+        "recall_wilson95": [
+          0.6396,
+          0.9476
+        ],
+        "recall_count": 17,
+        "precision": 0.7391,
+        "precision_wilson95": [
+          0.5353,
+          0.8745
+        ],
+        "precision_count": 17,
+        "false_flag_rate": 0.3,
+        "false_flag_wilson95": [
+          0.1455,
+          0.519
+        ],
+        "false_flag_count": 6,
+        "gold_t1": 0,
+        "t1_caught_at_t1": 0,
+        "confusion": {
+          "T1": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T2": {
+            "T1": 8,
+            "T2": 9,
+            "T3": 3
+          },
+          "T3": {
+            "T1": 3,
+            "T2": 3,
+            "T3": 14
+          }
+        }
+      }
+    },
+    "flutter/flutter": {
+      "before": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 4,
+        "flagged_t1": 3,
+        "recall": 0.1,
+        "recall_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "recall_count": 2,
+        "precision": 0.5,
+        "precision_wilson95": [
+          0.15,
+          0.85
+        ],
+        "precision_count": 2,
+        "false_flag_rate": 0.1,
+        "false_flag_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 2,
+        "confusion": {
+          "T1": {
+            "T1": 2,
+            "T2": 0,
+            "T3": 18
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 18
+          }
+        }
+      },
+      "after": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 4,
+        "flagged_t1": 3,
+        "recall": 0.1,
+        "recall_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "recall_count": 2,
+        "precision": 0.5,
+        "precision_wilson95": [
+          0.15,
+          0.85
+        ],
+        "precision_count": 2,
+        "false_flag_rate": 0.1,
+        "false_flag_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 2,
+        "confusion": {
+          "T1": {
+            "T1": 2,
+            "T2": 0,
+            "T3": 18
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 18
+          }
+        }
+      },
+      "review": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 5,
+        "flagged_t1": 4,
+        "recall": 0.15,
+        "recall_wilson95": [
+          0.0524,
+          0.3604
+        ],
+        "recall_count": 3,
+        "precision": 0.6,
+        "precision_wilson95": [
+          0.2307,
+          0.8824
+        ],
+        "precision_count": 3,
+        "false_flag_rate": 0.1,
+        "false_flag_wilson95": [
+          0.0279,
+          0.301
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 3,
+        "confusion": {
+          "T1": {
+            "T1": 3,
+            "T2": 0,
+            "T3": 17
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 18
+          }
+        }
+      }
+    },
+    "rust-lang/rust": {
+      "before": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 20,
+        "flagged_t1": 2,
+        "recall": 0.75,
+        "recall_wilson95": [
+          0.5313,
+          0.8881
+        ],
+        "recall_count": 15,
+        "precision": 0.75,
+        "precision_wilson95": [
+          0.5313,
+          0.8881
+        ],
+        "precision_count": 15,
+        "false_flag_rate": 0.25,
+        "false_flag_wilson95": [
+          0.1119,
+          0.4687
+        ],
+        "false_flag_count": 5,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 2,
+        "confusion": {
+          "T1": {
+            "T1": 2,
+            "T2": 13,
+            "T3": 5
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 0,
+            "T2": 5,
+            "T3": 15
+          }
+        }
+      },
+      "after": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 20,
+        "flagged_t1": 2,
+        "recall": 0.75,
+        "recall_wilson95": [
+          0.5313,
+          0.8881
+        ],
+        "recall_count": 15,
+        "precision": 0.75,
+        "precision_wilson95": [
+          0.5313,
+          0.8881
+        ],
+        "precision_count": 15,
+        "false_flag_rate": 0.25,
+        "false_flag_wilson95": [
+          0.1119,
+          0.4687
+        ],
+        "false_flag_count": 5,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 2,
+        "confusion": {
+          "T1": {
+            "T1": 2,
+            "T2": 13,
+            "T3": 5
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 0,
+            "T2": 5,
+            "T3": 15
+          }
+        }
+      },
+      "review": {
+        "items": 40,
+        "urgent": 20,
+        "baseline": 20,
+        "flagged": 24,
+        "flagged_t1": 8,
+        "recall": 0.95,
+        "recall_wilson95": [
+          0.7639,
+          0.9911
+        ],
+        "recall_count": 19,
+        "precision": 0.7917,
+        "precision_wilson95": [
+          0.5953,
+          0.9076
+        ],
+        "precision_count": 19,
+        "false_flag_rate": 0.25,
+        "false_flag_wilson95": [
+          0.1119,
+          0.4687
+        ],
+        "false_flag_count": 5,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 8,
+        "confusion": {
+          "T1": {
+            "T1": 8,
+            "T2": 11,
+            "T3": 1
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 0,
+            "T2": 5,
+            "T3": 15
+          }
+        }
+      }
+    },
+    "kubernetes/kubernetes": {
+      "before": {
+        "items": 30,
+        "urgent": 20,
+        "baseline": 10,
+        "flagged": 7,
+        "flagged_t1": 5,
+        "recall": 0.25,
+        "recall_wilson95": [
+          0.1119,
+          0.4687
+        ],
+        "recall_count": 5,
+        "precision": 0.7143,
+        "precision_wilson95": [
+          0.3589,
+          0.9178
+        ],
+        "precision_count": 5,
+        "false_flag_rate": 0.2,
+        "false_flag_wilson95": [
+          0.0567,
+          0.5098
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 4,
+        "confusion": {
+          "T1": {
+            "T1": 4,
+            "T2": 1,
+            "T3": 15
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 8
+          }
+        }
+      },
+      "after": {
+        "items": 30,
+        "urgent": 20,
+        "baseline": 10,
+        "flagged": 7,
+        "flagged_t1": 5,
+        "recall": 0.25,
+        "recall_wilson95": [
+          0.1119,
+          0.4687
+        ],
+        "recall_count": 5,
+        "precision": 0.7143,
+        "precision_wilson95": [
+          0.3589,
+          0.9178
+        ],
+        "precision_count": 5,
+        "false_flag_rate": 0.2,
+        "false_flag_wilson95": [
+          0.0567,
+          0.5098
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 4,
+        "confusion": {
+          "T1": {
+            "T1": 4,
+            "T2": 1,
+            "T3": 15
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 8
+          }
+        }
+      },
+      "review": {
+        "items": 30,
+        "urgent": 20,
+        "baseline": 10,
+        "flagged": 11,
+        "flagged_t1": 7,
+        "recall": 0.45,
+        "recall_wilson95": [
+          0.2582,
+          0.6579
+        ],
+        "recall_count": 9,
+        "precision": 0.8182,
+        "precision_wilson95": [
+          0.523,
+          0.9486
+        ],
+        "precision_count": 9,
+        "false_flag_rate": 0.2,
+        "false_flag_wilson95": [
+          0.0567,
+          0.5098
+        ],
+        "false_flag_count": 2,
+        "gold_t1": 20,
+        "t1_caught_at_t1": 6,
+        "confusion": {
+          "T1": {
+            "T1": 6,
+            "T2": 3,
+            "T3": 11
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 1,
+            "T2": 1,
+            "T3": 8
+          }
+        }
+      }
+    },
+    "python/cpython": {
+      "before": {
+        "items": 39,
+        "urgent": 19,
+        "baseline": 20,
+        "flagged": 17,
+        "flagged_t1": 11,
+        "recall": 0.5789,
+        "recall_wilson95": [
+          0.3628,
+          0.7686
+        ],
+        "recall_count": 11,
+        "precision": 0.6471,
+        "precision_wilson95": [
+          0.413,
+          0.8269
+        ],
+        "precision_count": 11,
+        "false_flag_rate": 0.3,
+        "false_flag_wilson95": [
+          0.1455,
+          0.519
+        ],
+        "false_flag_count": 6,
+        "gold_t1": 19,
+        "t1_caught_at_t1": 9,
+        "confusion": {
+          "T1": {
+            "T1": 9,
+            "T2": 2,
+            "T3": 8
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 2,
+            "T2": 4,
+            "T3": 14
+          }
+        }
+      },
+      "after": {
+        "items": 39,
+        "urgent": 19,
+        "baseline": 20,
+        "flagged": 17,
+        "flagged_t1": 11,
+        "recall": 0.5789,
+        "recall_wilson95": [
+          0.3628,
+          0.7686
+        ],
+        "recall_count": 11,
+        "precision": 0.6471,
+        "precision_wilson95": [
+          0.413,
+          0.8269
+        ],
+        "precision_count": 11,
+        "false_flag_rate": 0.3,
+        "false_flag_wilson95": [
+          0.1455,
+          0.519
+        ],
+        "false_flag_count": 6,
+        "gold_t1": 19,
+        "t1_caught_at_t1": 9,
+        "confusion": {
+          "T1": {
+            "T1": 9,
+            "T2": 2,
+            "T3": 8
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 2,
+            "T2": 4,
+            "T3": 14
+          }
+        }
+      },
+      "review": {
+        "items": 39,
+        "urgent": 19,
+        "baseline": 20,
+        "flagged": 19,
+        "flagged_t1": 11,
+        "recall": 0.6842,
+        "recall_wilson95": [
+          0.4601,
+          0.8464
+        ],
+        "recall_count": 13,
+        "precision": 0.6842,
+        "precision_wilson95": [
+          0.4601,
+          0.8464
+        ],
+        "precision_count": 13,
+        "false_flag_rate": 0.3,
+        "false_flag_wilson95": [
+          0.1455,
+          0.519
+        ],
+        "false_flag_count": 6,
+        "gold_t1": 19,
+        "t1_caught_at_t1": 9,
+        "confusion": {
+          "T1": {
+            "T1": 9,
+            "T2": 4,
+            "T3": 6
+          },
+          "T2": {
+            "T1": 0,
+            "T2": 0,
+            "T3": 0
+          },
+          "T3": {
+            "T1": 2,
+            "T2": 4,
+            "T3": 14
+          }
+        }
+      }
+    }
+  },
+  "missing": [],
+  "predictions": [
+    {
+      "ref": "vitejs/vite#23913",
+      "gold": "T1",
+      "label": "p5-urgent",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "vitejs/vite#19018",
+      "gold": "T1",
+      "label": "p5-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#16498",
+      "gold": "T1",
+      "label": "p5-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#15094",
+      "gold": "T1",
+      "label": "p5-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#9618",
+      "gold": "T1",
+      "label": "p5-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#8498",
+      "gold": "T1",
+      "label": "p5-urgent",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "vitejs/vite#2820",
+      "gold": "T1",
+      "label": "p5-urgent",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "vitejs/vite#23968",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#23016",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#22844",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#22826",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#22499",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#22307",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#22189",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#22009",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "vitejs/vite#22008",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#21990",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "vitejs/vite#21975",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#21938",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "vitejs/vite#21866",
+      "gold": "T2",
+      "label": "p4-important",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#21182",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#19373",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#19201",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#19109",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#19083",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#19035",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#18920",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#18835",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#18600",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#18392",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#18264",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "vitejs/vite#18068",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "vitejs/vite#17892",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#17700",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#17672",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#17508",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#17453",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#16749",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#16616",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "vitejs/vite#16523",
+      "gold": "T3",
+      "label": "enhancement",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#66349",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T2",
+      "after": "T2",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#66002",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#60552",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#60507",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#59168",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#58939",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#58223",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#55826",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#55609",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#55422",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#55410",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#55106",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#55009",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#54782",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#54735",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#54730",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#54726",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#54573",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#54543",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#54531",
+      "gold": "T2",
+      "label": "regression",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#67360",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#67354",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#67353",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#67352",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#67347",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#67217",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#67208",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#67130",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#66951",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#66788",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#66658",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#66560",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#66486",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#66441",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#66394",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#66387",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "nodejs/node#66274",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#66272",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "nodejs/node#66198",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "nodejs/node#66101",
+      "gold": "T3",
+      "label": "feature request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#196535",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195967",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195966",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195965",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195964",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195962",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195961",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195960",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195959",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195885",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "flutter/flutter#195877",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "flutter/flutter#195548",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T1"
+    },
+    {
+      "ref": "flutter/flutter#195479",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195478",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195475",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195474",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195473",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195423",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195163",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#194933",
+      "gold": "T1",
+      "label": "P0",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#196523",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#196362",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#196359",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#196306",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#196055",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#196024",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195986",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195928",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195907",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195395",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195295",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195249",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195224",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195223",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#195222",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "flutter/flutter#195082",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#194931",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "flutter/flutter#194691",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#194118",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "flutter/flutter#194024",
+      "gold": "T3",
+      "label": "c: new feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#165263",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#165241",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T3",
+      "after": "T3",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#164098",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#163947",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#163911",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T3",
+      "after": "T3",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#162334",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#161441",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#159244",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#159035",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#158718",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#158206",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#155902",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#154988",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#154878",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#153397",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#152961",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#152499",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#152347",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#152255",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#150904",
+      "gold": "T1",
+      "label": "P-critical",
+      "before": "T3",
+      "after": "T3",
+      "review": "T1"
+    },
+    {
+      "ref": "rust-lang/rust#164862",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#164813",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#164677",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#164659",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#164493",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#163976",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#163305",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#162993",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#162538",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#162491",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#161989",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#161941",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#161856",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#161819",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#161109",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#160736",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#160316",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#160127",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "rust-lang/rust#160083",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "rust-lang/rust#159713",
+      "gold": "T3",
+      "label": "C-feature-request",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#142268",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#142262",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#141230",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "kubernetes/kubernetes#140951",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "kubernetes/kubernetes#140848",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "kubernetes/kubernetes#140263",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#140069",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#139069",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "kubernetes/kubernetes#138595",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T2",
+      "after": "T2",
+      "review": "T1"
+    },
+    {
+      "ref": "kubernetes/kubernetes#138431",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "kubernetes/kubernetes#138282",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T1"
+    },
+    {
+      "ref": "kubernetes/kubernetes#138058",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#137948",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#137915",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#137886",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#137737",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#137409",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "kubernetes/kubernetes#137117",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#136549",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#136331",
+      "gold": "T1",
+      "label": "priority/critical-urgent",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "kubernetes/kubernetes#144130",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#144116",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#144113",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#144100",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#144051",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#143860",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#143817",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "kubernetes/kubernetes#143620",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "kubernetes/kubernetes#143591",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "kubernetes/kubernetes#143539",
+      "gold": "T3",
+      "label": "kind/feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161420",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#161323",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#160040",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#158593",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#158446",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#158140",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#158010",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#157953",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#157757",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#156793",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#156369",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#156353",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#156293",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#155702",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#155695",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#155400",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#155254",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#155194",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#154470",
+      "gold": "T1",
+      "label": "release-blocker",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161941",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#161934",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161850",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161799",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161788",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#161746",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161744",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161694",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161676",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#161661",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161644",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#161635",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161615",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161562",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161524",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T1",
+      "after": "T1",
+      "review": "T1"
+    },
+    {
+      "ref": "python/cpython#161513",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161512",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161511",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    },
+    {
+      "ref": "python/cpython#161510",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T2",
+      "after": "T2",
+      "review": "T2"
+    },
+    {
+      "ref": "python/cpython#161498",
+      "gold": "T3",
+      "label": "type-feature",
+      "before": "T3",
+      "after": "T3",
+      "review": "T3"
+    }
+  ],
+  "review": {
+    "date": "2026-11-14",
+    "model": "claude-opus-5-5",
+    "procedure": "Per repository, the after rules ran as `urgent-first github` would (repository templates, labels stripped), then `urgent-first annotate-template` wrote the default review queue (every item below T1, plus items with negated, historical or spelling-tolerant mentions). One fresh Claude subagent per split read only the queue files, the pack review.md and the annotation contract, with no gold labels, no ids or results files and no network, and wrote annotations.jsonl. `urgent-first merge` validated them. Nothing was tuned on the results.",
+    "files": {
+      "dev": "bench/github-real/annotations.dev.jsonl",
+      "heldout": "bench/github-real/annotations.heldout.jsonl"
+    },
+    "queue_items": {
+      "vitejs/vite": 33,
+      "nodejs/node": 34,
+      "flutter/flutter": 40,
+      "rust-lang/rust": 38,
+      "kubernetes/kubernetes": 26,
+      "python/cpython": 30
+    },
+    "validation": {
+      "dev": {
+        "accepted": 11,
+        "rejected": 0,
+        "applied": 11,
+        "rejected_list": []
+      },
+      "heldout": {
+        "accepted": 15,
+        "rejected": 0,
+        "applied": 15,
+        "rejected_list": []
+      }
+    }
+  }
+}
