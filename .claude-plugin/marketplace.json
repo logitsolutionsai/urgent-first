@@ -1,12 +1,22 @@
 {
   "name": "urgent-first",
-  "description": "urgent-first: urgent items first, by rules you write, with exact quotes and a benchmark of what it missed.",
-  "owner": { "name": "Logit Solutions AI", "url": "https://github.com/logitsolutionsai" },
+  "description": "urgent-first: puts the urgent issues and tickets first and quotes the exact words behind every flag.",
+  "owner": {
+    "name": "Logit Solutions AI",
+    "url": "https://github.com/logitsolutionsai"
+  },
   "plugins": [
     {
       "name": "urgent-first",
       "source": "./",
-      "description": "Triage GitHub issues, on-call tickets or worklist exports: urgent items first, every flag quoted, never lowers a priority."
+      "description": "Puts the urgent issues and tickets first and quotes the exact words behind every flag. A Claude Code skill (agent skill) for Claude Code, Codex and Cursor.",
+      "category": "productivity",
+      "tags": [
+        "triage",
+        "github-issues",
+        "on-call",
+        "prioritisation"
+      ]
     }
   ]
 }

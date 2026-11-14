@@ -1,7 +1,7 @@
 {
   "name": "urgent-first",
   "version": "0.1.0",
-  "description": "Point it at a pile of issues, tickets or orders and the urgent items come first, by rules you write. Every flag quotes the exact words behind it, it never lowers a priority, and it ships with a benchmark that counts what it missed.",
+  "description": "Puts the urgent issues and tickets first and quotes the exact words behind every flag. A Claude Code skill (agent skill) for Claude Code, Codex and Cursor.",
   "type": "module",
   "bin": {
     "urgent-first": "scripts/urgent-first.mjs"
@@ -28,12 +28,23 @@
     "icon": "node scripts/draw-icon.js"
   },
   "keywords": [
-    "triage",
-    "agent-skill",
     "claude-code",
+    "claude-skill",
+    "claude-code-skill",
+    "agent-skills",
+    "agent-skill",
+    "codex",
+    "cursor",
+    "triage",
+    "issue-triage",
     "github-issues",
+    "pull-requests",
+    "on-call",
+    "support-tickets",
     "prioritisation",
-    "benchmark"
+    "prioritization",
+    "benchmark",
+    "open-source-maintainers"
   ],
   "author": "Logit Solutions AI",
   "license": "MIT",
