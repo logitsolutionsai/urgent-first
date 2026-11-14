@@ -33,6 +33,33 @@ test('research mode: run writes the banner into board.md, board.html and review.
   assert.ok(fs.readFileSync(path.join(out, 'review.md'), 'utf8').includes(BANNER));
 });
 
+test('board.html uses only the Ink palette: no red, amber, green or purple, and status never by hue', () => {
+  const out = path.join(tmpDir(), 'run');
+  const r = runCli(['run', 'radiology-research', path.join(FX, 'orders.fhir.json'), '--out', out, '--now', '2026-04-07T09:45:00Z']);
+  assert.equal(r.code, 0, r.stderr);
+  const html = fs.readFileSync(path.join(out, 'board.html'), 'utf8');
+  const css = /<style>([\s\S]*?)<\/style>/.exec(html)[1];
+  // Neutrals (light and dark), the one accent with its press and soft values, nothing else.
+  const INK = ['#f7f7f5', '#ffffff', '#f0f0ed', '#e3e3df', '#c9c9c3', '#111110', '#3a3a37', '#6f6f69', '#a3a39c', '#0e0e0d', '#171716', '#1f1f1d', '#2b2b29', '#3d3d3a', '#f4f4f2', '#d6d6d2', '#9a9a94', '#6a6a65', '#0065fd', '#0654c8', '#5b9cff', '#3f86ff'];
+  const hexes = [...css.matchAll(/#[0-9a-f]{3,8}\b/gi)].map((m) => m[0].toLowerCase());
+  assert.ok(hexes.length >= INK.length, 'the palette is declared');
+  assert.deepEqual(hexes.filter((h) => !INK.includes(h)), [], 'every hex colour is an Ink token');
+  assert.deepEqual([...css.matchAll(/rgba?\(([^)]*)\)/g)].map((m) => m[1].replace(/\s/g, '')).sort(), ['0,101,253,.10', '91,156,255,.14'], 'the only rgba values are the accent-soft selection tints');
+  assert.doesNotMatch(css, /gradient|box-shadow|text-shadow|@keyframes|hsl\(/, 'no gradients, shadows, glows or keyframes');
+  // The accent never marks status: tier chips, card bars, highlights and the banner are ink.
+  for (const sel of ['.badge.t1', '.badge.t2', '.chip.t1', '.chip.t2', '.card.t1', '.card.t2', 'mark', '.banner', '.masked']) {
+    const rule = new RegExp(`(^|[},])${sel.replace(/\./g, '\\.')}\\{([^}]*)\\}`, 'm').exec(css);
+    assert.ok(rule, `${sel} is styled`);
+    assert.doesNotMatch(rule[2], /--accent/, `${sel} does not use the accent`);
+  }
+  // The motion script runs only by its hash; the page still has no external sources.
+  const csp = /Content-Security-Policy" content="([^"]+)"/.exec(html)[1];
+  assert.match(csp, /default-src 'none'/);
+  assert.match(csp, /script-src 'sha256-[A-Za-z0-9+/=]+'/);
+  assert.doesNotMatch(csp, /unsafe-eval|script-src[^;]*unsafe-inline|https?:/);
+  assert.ok(html.includes(fs.readFileSync(path.join(ROOT, 'src', 'render', 'fluid.js'), 'utf8')), 'fluid.js is inlined unchanged');
+});
+
 test('research mode: watch refuses, also through github --watch', () => {
   const w = runCli(['watch', 'radiology-research', path.join(FX, 'orders.fhir.json'), '--polls', '1']);
   assert.equal(w.code, 2);

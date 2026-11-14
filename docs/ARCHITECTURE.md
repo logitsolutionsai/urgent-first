@@ -31,7 +31,7 @@ input (JSONL, CSV, FHIR, HL7 v2, GitHub API)
 | `src/engine.js` | Masks, floor, tier, clocks, SLA, deadline, pull request inheritance (`inherit`), explanation, ordering, counts. |
 | `src/annotate.js` | Review queue, annotation validator, merge. |
 | `src/eval.js`, `src/stats.js` | Metrics, Wilson interval, Kendall tau-b. |
-| `src/render/` | `markdown.js` and `html.js` boards; `common.js` shared text. |
+| `src/render/` | `markdown.js` and `html.js` boards; `common.js` shared text; `fluid.js` and `motion.js`, the board's inlined motion script. |
 | `src/shadow.js` | Shadow-mode log and report. |
 | `src/run.js` | Run folders. |
 
@@ -41,7 +41,7 @@ input (JSONL, CSV, FHIR, HL7 v2, GitHub API)
 2. **Quote-or-reject.** A rule fires only if its match tree yields at least one span; spans come from token offsets into the original text, so `text.slice(start, end) === quote` always holds. Annotation quotes are located with an exact `indexOf`; anything else is rejected.
 3. **Determinism.** No randomness, no clock reads inside the engine; `now` is recorded and used only to display wait times. Ordering keys: tier, deadline, created time, original index.
 4. **Research mode** is checked in the engine (`triage` refuses non-synthetic input), the CLI (watch refuses) and the pack loader (exact banner; a pack with a banner, or named like a bundled research pack, must be in research mode). All writes go through `writeInside(runDir, ...)`, which also refuses to write through a link.
-5. **Offline board.** `board.html` is one file with inline CSS, a restrictive Content-Security-Policy and no scripts beyond an inert JSON data block.
+5. **Offline board.** `board.html` is one file with inline CSS, a restrictive Content-Security-Policy, an inert JSON data block and one inline script that the CSP allows only by its SHA-256 hash. The script (`fluid.js`, a copy of the brand kit's spring helper, plus `motion.js`) adds press feedback, height springs for the card and "No rule matched" toggles and the sticky bar's material; without it the page renders everything open. Status is shown by ink weight and shape, never by colour.
 
 ## Run Folder
 

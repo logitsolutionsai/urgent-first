@@ -160,3 +160,64 @@ test('boards render offline, match board.md, highlight exact quotes and fit both
     await browser.close();
   }
 });
+
+test('pointerdown on a card toggle applies a transform within 50 ms; the body springs and reverses mid-flight', { skip: chromePath ? false : 'no Chrome found (set URGENT_FIRST_CHROME)', timeout: 120000 }, async () => {
+  const gh = fs.mkdtempSync(path.join(os.tmpdir(), 'uf-e2e-press-'));
+  run(['github', 'acme/widget', '--out', gh, '--now', '2026-10-22T12:00:00Z'], { URGENT_FIRST_GITHUB_FIXTURE: path.join(ROOT, 'tests', 'fixtures', 'github') });
+  const browser = await chromium.launch({ executablePath: chromePath, headless: true, args: ['--disable-gpu', '--no-first-run', '--no-default-browser-check'] });
+  try {
+    for (const reducedMotion of ['no-preference', 'reduce']) {
+      const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, reducedMotion });
+      const page = await context.newPage();
+      const errors = [];
+      page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
+      page.on('pageerror', (e) => errors.push(String(e)));
+      await page.goto(pathToFileURL(path.join(gh, 'board.html')).href);
+      assert.deepEqual(errors, [], 'console errors (a CSP hash mismatch shows here)');
+
+      const tog = page.locator('li.card[data-id="#790"] button.tog');
+      assert.ok(await tog.isVisible(), 'the script reveals the card toggle');
+      // Press: a transform appears on the toggle within 50 ms of pointerdown, measured inside the page.
+      const press = await page.evaluate(async () => {
+        const el = document.querySelector('li.card[data-id="#790"] button.tog');
+        const r = el.getBoundingClientRect();
+        const t0 = performance.now();
+        el.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true, button: 0, pointerId: 1, clientX: r.left + 4, clientY: r.top + 4 }));
+        let at = null;
+        while (performance.now() - t0 < 50) {
+          if (getComputedStyle(el).transform !== 'none') { at = performance.now() - t0; break; }
+          await new Promise((res) => requestAnimationFrame(res));
+        }
+        el.dispatchEvent(new PointerEvent('pointerup', { bubbles: true, button: 0, pointerId: 1 }));
+        return { at, transform: getComputedStyle(el).transform };
+      });
+      assert.ok(press.at !== null && press.at <= 50, `${reducedMotion}: transform within 50 ms of pointerdown (got ${press.at} ms)`);
+
+      // Collapse, then reverse mid-flight: the body height turns around from where it is.
+      const body = page.locator('#cb-1');
+      const full = await body.evaluate((el) => el.getBoundingClientRect().height);
+      await tog.click();
+      if (reducedMotion === 'reduce') {
+        assert.ok(await body.isHidden(), 'reduced motion: the body closes instantly');
+        assert.equal(await tog.getAttribute('aria-expanded'), 'false');
+        await tog.click();
+        assert.ok(await body.isVisible(), 'reduced motion: the body opens instantly');
+        assert.equal(await body.evaluate((el) => el.style.height), '', 'no height left behind');
+      } else {
+        await page.waitForTimeout(90);
+        const mid = await body.evaluate((el) => el.getBoundingClientRect().height);
+        assert.ok(mid > 0 && mid < full, `mid-flight height ${mid} is between 0 and ${full}`);
+        await tog.click();
+        await page.waitForTimeout(40);
+        const back = await body.evaluate((el) => el.getBoundingClientRect().height);
+        assert.ok(back > 0 && back < full, `reversed from its live height (${back}), not reset`);
+        await page.waitForFunction(() => document.querySelector('#cb-1').style.height === '', null, { timeout: 3000 });
+        assert.equal(await tog.getAttribute('aria-expanded'), 'true');
+        assert.ok(Math.abs((await body.evaluate((el) => el.getBoundingClientRect().height)) - full) < 1, 'settles at its full height');
+      }
+      await context.close();
+    }
+  } finally {
+    await browser.close();
+  }
+});

@@ -19,6 +19,14 @@ First release. The QA pass and the improvement pass below happened before anythi
 - `github-maintainer` (9 rules, plus pull requests inheriting the tier of the issue they fix), `radiology-research` (37 rules, research mode), `oncall` (7 rules).
 - Synthetic benchmarks: 150 GitHub issues and pull requests, 300 radiology orders, 40 support tickets, each split into development and test halves, with blind review annotations for the test halves.
 
+### Board Interface: Ink Palette And Springs (2026-11-14)
+
+- `board.html` uses the Ink palette: warm greys and one accent (#0065FD, #5b9cff in dark) for links, focus and selection only. No red, amber, green or purple remains, and no gradient, shadow or keyframe.
+- Status by weight and shape, not colour: T1 is a solid ink chip, T2 an ink outline, T3 a grey fill, "No rule matched" a dashed outline. Card bars are ink weights (T1 3 px, T2 1.5 px). Evidence highlights are a light grey wash with a 1.5 px ink underline; masked template text is faint with a dashed underline. The research banner is an ink-bordered block with the same words.
+- Motion: cards, the "No rule matched" group and every "Item text" or "Other text fields" disclosure open and close on height springs that reverse from their live height when clicked again; chevrons rotate on a spring; toggles, disclosures and the count chips respond on pointer-down. Under reduced motion everything switches instantly. The springs come from the brand kit's `fluid.js`, inlined unchanged; the CSP allows the script only by its hash, and without it the page renders everything open.
+- The counts are a sticky bar of chips that jump to their sections, and the bar turns translucent once the board scrolls under it.
+- Tests: a palette guard (every colour is an Ink token, the accent never marks status, the CSP allows the script only by hash) and an end-to-end check that pointer-down on a card toggle applies a transform within 50 ms and that a collapse reverses mid-flight.
+
 ### Improvement Pass: Template Masking, Pull Requests Following Their Issue, A Real-World Benchmark (2026-11-14)
 
 QA's live runs showed the rules-only board was too noisy to trust on real repositories, while the synthetic benchmark, which has no templates, checklists or pasted system information, looked better than reality. This pass adds three things and measures them honestly.

@@ -20,6 +20,14 @@
   </picture>
 </p>
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/media/app-dark.webp">
+    <source media="(prefers-color-scheme: light)" srcset="docs/media/app-light.webp">
+    <img src="docs/media/app-light.webp" width="100%" alt="The board.html page urgent-first wrote for the recorded acme/widget example, with the counts bar on top and the T1 issue #790 open, its matched words underlined in the issue text.">
+  </picture>
+</p>
+
 urgent-first is a Claude Code skill: an agent skill plus a small command-line tool (Node, no dependencies) that sorts a pile of GitHub issues, on-call tickets or a worklist export so the urgent items come first, by rules you write. Every flag quotes the exact words behind it, it never lowers a priority, and it ships with a benchmark that counts what it missed.
 
 ## Install
